@@ -1,22 +1,15 @@
-<h1 align="center">Sort-Algo</h1>
-<p align="center">
-    <a href="https://circleci.com/gh/December-software-project/sort-algo/tree/main">
-        <img src="https://circleci.com/gh/December-software-project/sort-algo/tree/main.svg?style=shield" />
-    </a>
-    <a href="https://codeclimate.com/github/December-software-project/sort-algo/maintainability">
-        <img src="https://api.codeclimate.com/v1/badges/b7464f445c1a7f5de797/maintainability" />
-    </a>
-    <a href="https://codeclimate.com/github/December-software-project/sort-algo/test_coverage">
-        <img src="https://api.codeclimate.com/v1/badges/b7464f445c1a7f5de797/test_coverage" />
-    </a>
-</p>
+[![CircleCI](https://circleci.com/gh/December-software-project/sort-algo/tree/main.svg?style=shield)](https://circleci.com/gh/December-software-project/sort-algo/tree/main)
+[![Maintainability Status](https://api.codeclimate.com/v1/badges/b7464f445c1a7f5de797/maintainability)](https://codeclimate.com/github/December-software-project/sort-algo/maintainability)
+[![Coverage Status](https://api.codeclimate.com/v1/badges/b7464f445c1a7f5de797/test_coverage)](https://codeclimate.com/github/December-software-project/sort-algo/test_coverage)
+
+# Sort-Algo
 
 Welcome to Sort-Algo, a sorting visualiser app which helps you to learn and understand sorting algorithms.
+Our app is deployed on [heroku](https://sort-algo.herokuapp.com/).
 
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). <br>
-App is deployed on [heroku](https://sort-algo.herokuapp.com/).
 
 ## Available Scripts
 
