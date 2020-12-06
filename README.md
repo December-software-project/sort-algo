@@ -1,5 +1,4 @@
 <h1 align="center">Sort-Algo</h1>
-
 <p align="center">
     <a href="https://circleci.com/gh/December-software-project/sort-algo/tree/main">
         <img src="https://circleci.com/gh/December-software-project/sort-algo/tree/main.svg?style=shield" />
