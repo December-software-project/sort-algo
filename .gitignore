@@ -23,6 +23,3 @@ yarn-debug.log*
 yarn-error.log*
 
 .eslintcache
-.idea/prettier.xml
-.idea/misc.xml
-.idea/codeStyles/Project.xml
