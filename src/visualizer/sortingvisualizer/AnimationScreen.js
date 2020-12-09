@@ -4,7 +4,6 @@ import AnimatedBlock from '../component/block/AnimatedBlock';
 import './styles.css';
 
 const AnimationScreen = ({ dataArray, animationArr, swap, isPlay }) => {
-  console.log(isPlay);
   const referenceArray = useRef(dataArray);
   const [idx, setIdx] = useState(0);
   const length = referenceArray.length;
