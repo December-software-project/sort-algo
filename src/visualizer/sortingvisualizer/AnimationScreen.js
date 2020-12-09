@@ -20,25 +20,32 @@ const AnimationScreen = ({ dataArray, animationArr, swap, isPlay }) => {
 
   let xDirection = 0;
   const transitions = useTransition(
-    referenceArray.current.map(
-      data => ({ ...data, x: (xDirection += 40) - 40 })),
-    d => d.id,
+    referenceArray.current.map((data) => ({ ...data, x: (xDirection += 40) - 40 })),
+    (d) => d.id,
     {
       from: { height: 0, opacity: 1 },
       leave: { height: 0, opacity: 1 },
       enter: ({ x, height }) => ({ x, height, opacity: 1 }),
       update: ({ x, height }) => ({ x, height }),
       config: { mass: 5, tension: 500, friction: 100 },
-    },
+    }
   );
 
-  return <div className='list'>
-    {transitions.map(
-      ({ item, props: { x, ...rest } }, index) => {
-        return <AnimatedBlock item={item} props={{ x, ...rest }} index={index}
-                              length={length} key={item.id} />;
+  return (
+    <div className="list">
+      {transitions.map(({ item, props: { x, ...rest } }, index) => {
+        return (
+          <AnimatedBlock
+            item={item}
+            props={{ x, ...rest }}
+            index={index}
+            length={length}
+            key={item.id}
+          />
+        );
       })}
-  </div>;
+    </div>
+  );
 };
 
 export default AnimationScreen;
