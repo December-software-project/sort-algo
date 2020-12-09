@@ -1,17 +1,13 @@
 import React from 'react';
-import About from './about';
-import Visualizer from './visualizer';
-import Team from './team';
-import ContactUs from './contactus';
 import './App.css';
-
+import Visualizer from './visualizer/index'
 function App () {
   return (
     <div className='App'>
-      <About />
+      {/*<About />*/}
       <Visualizer />
-      <Team />
-      <ContactUs />
+      {/*<Team />*/}
+      {/*<ContactUs />*/}
     </div>
   );
 }
