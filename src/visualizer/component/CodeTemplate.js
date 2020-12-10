@@ -1,9 +1,9 @@
 import React from 'react';
 
-function CodeTemplate () {
+function CodeTemplate() {
   return (
-    <div className='Code'>
-      <header className='Code-header'>Code template here</header>
+    <div className="Code">
+      <header className="Code-header">Code template here</header>
     </div>
   );
 }

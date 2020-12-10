@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     id: '1',
     height: 150,
@@ -59,5 +59,6 @@ export default [
     id: '15',
     height: 180,
   },
-
 ];
+
+export default data;
