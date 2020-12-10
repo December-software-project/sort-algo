@@ -1,0 +1,14 @@
+.visualizer-header > span {
+  font-family: 'Open Sans', serif;
+  font-weight: 600;
+  font-size: 34px;
+  color: #5467FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.visualizer-header-line {
+  height: 2px;
+  width: 70%;
+  background-color: #A5AEFC;
+}
