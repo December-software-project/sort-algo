@@ -5,6 +5,9 @@ import AnimationScreen from './sortingvisualizer/AnimationScreen';
 import PlayBackButton from './component/playbackbutton/PlaybackButton';
 import Legend from './component/legend/Legend';
 import './styles.css';
+import CodeExplanation from './codeexplaination/CodeExplanation';
+import CodeTemplate from './codetemplate/CodeTemplate';
+import explanations from './explanations/Explanations';
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
@@ -38,7 +41,10 @@ const Visualizer = () => {
           <Legend />
         </div>
       </div>
-      <div className="code"></div>
+      <div className="code">
+        <CodeExplanation explanations={explanations} />
+        <CodeTemplate />
+      </div>
     </div>
   );
 };
