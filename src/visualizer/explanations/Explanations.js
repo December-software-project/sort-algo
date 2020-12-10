@@ -7,9 +7,17 @@ const explanations = {
       'This procedure is repeated until no swaps are required, indicating ' +
       'that the list has been sorted.',
     worstTime: 'N',
-    averageTime: <span>N<sup>2</sup></span>,
+    averageTime: (
+      <span>
+        N<sup>2</sup>
+      </span>
+    ),
     bestTime: 'N',
-    worstSpace: <span>N<sup>2</sup></span>,
+    worstSpace: (
+      <span>
+        N<sup>2</sup>
+      </span>
+    ),
     stable: true,
     inPlace: true,
   },

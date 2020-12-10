@@ -21,6 +21,6 @@ const bubbleSort = (arr) => {
     }
   }
   return animationArr;
-}
+};
 
 export default bubbleSort;
