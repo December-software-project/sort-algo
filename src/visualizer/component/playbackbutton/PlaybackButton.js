@@ -12,7 +12,10 @@ const PlayBackButton = ({ onClick, isPlay }) => {
         </IconContext.Provider>
       ) : (
         <IconContext.Provider
-          value={{ className: 'button', style: { transform: `translateX(3px)` } }}
+          value={{
+            className: 'button',
+            style: { transform: `translateX(3px)` },
+          }}
         >
           <AiFillCaretRight />
         </IconContext.Provider>

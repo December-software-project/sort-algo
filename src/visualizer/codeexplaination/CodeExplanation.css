@@ -1,6 +1,6 @@
 .explanation {
   display: flex;
-  flex-direction: column;
   flex: auto;
+  flex-direction: column;
   width: 100%;
 }
