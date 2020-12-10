@@ -1,0 +1,18 @@
+.button {
+  vertical-align: middle;
+  color: white;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+.button-holder {
+  border: none;
+  background-color: #6D76E8;
+  box-shadow: 0 0 4px 2px rgba(0,0,0,.2);
+  cursor: pointer;
+  height: 70px;
+  outline: none;
+  border-radius: 100%;
+  width: 70px;
+  transform: translateY(10px);
+}

@@ -3,7 +3,7 @@ import { useTransition } from 'react-spring';
 import AnimatedBlock from '../component/block/AnimatedBlock';
 import './styles.css';
 
-const AnimationScreen = ({ dataArray, animationArr, swap, isPlay }) => {
+const AnimationScreen = ({ dataArray, animationArr, swap, isPlay, setIsPlay }) => {
   const referenceArray = useRef(dataArray);
   const [idx, setIdx] = useState(0);
   const length = referenceArray.length;
@@ -14,12 +14,14 @@ const AnimationScreen = ({ dataArray, animationArr, swap, isPlay }) => {
         referenceArray.current = swap(temp[0], temp[1], referenceArray.current);
         setIdx(idx + 1);
       }, 1000);
+    } else if (isPlay) {
+      setIsPlay();
     }
   }, [isPlay, idx]);
 
   let xDirection = 0;
   const transitions = useTransition(
-    referenceArray.current.map((data) => ({ ...data, x: (xDirection += 40) - 40 })),
+    referenceArray.current.map((data) => ({ ...data, x: (xDirection += 10) - 10 })),
     (d) => d.id,
     {
       from: { height: 0, opacity: 1 },
