@@ -5,8 +5,8 @@ import './styles.css';
 
 const Legend = () => {
   const legendInformation = [
-    { color: '#42F5D1', description: 'Currently involved in the swap process' },
-    { color: '#6D76E8', description: 'Not involved in the swap process' },
+    { color: '#11C2C9', description: 'Currently involved in the swap process' },
+    { color: '#5467FF', description: 'Not involved in the swap process' },
   ];
 
   return (
