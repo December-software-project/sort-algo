@@ -43,14 +43,14 @@
 }
 
 .code {
-  margin-top: 4%;
-  margin-left: 4%;
-  padding: 0 20px 0;
   align-content: center;
+  border: 2px solid grey;
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr 2fr;
   justify-items: start;
+  margin-left: 4%;
+  margin-top: 4%;
+  padding: 0 20px 0;
   width: 100%;
-  border: 2px solid grey;
 }

@@ -34,9 +34,9 @@
 
 .complexity {
   align-items: center;
-  text-align: center;
   display: grid;
   gap: 10px;
+  text-align: center;
 }
 
 .complexity p {
@@ -51,8 +51,8 @@
 .rowContainerTwo {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 2%;
   justify-items: center;
+  margin-top: 2%;
 }
 
 .rowContainerTwo div {
