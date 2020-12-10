@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import insertionSort from './algorithm/insertionSort';
 import data from './component/block/data';
 import AnimationScreen from './sortingvisualizer/AnimationScreen';
-import CodeTemplate from './component/codetemplate/CodeTemplate';
+import CodeTemplate from './codetemplate/CodeTemplate';
+import CodeExplanation from './codeexplaination/CodeExplanation';
+import "./styles.css";
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
@@ -25,7 +27,10 @@ const Visualizer = () => {
         isPlay={isPlay}
       />
       <button onClick={() => setIsPlay(!isPlay)}>play</button>
-      <CodeTemplate/>
+      <div className="code">
+        <CodeExplanation />
+        <CodeTemplate />
+      </div>
     </div>
   );
 };

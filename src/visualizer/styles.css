@@ -1,5 +1,19 @@
+body {
+  width: 100%;
+  background: yellowgreen;
+}
+
 .list {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+}
+
+.code {
+  margin-top: 30px;
+  border-top: #0074D9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
