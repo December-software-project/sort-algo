@@ -1,0 +1,15 @@
+import React from 'react';
+import './styles.css';
+
+const LegendHeader = () => {
+  return (
+    <>
+      <div className="legend-header">
+        <span>Legend</span>
+      </div>
+      <div className="legend-header-line" />
+    </>
+  );
+};
+
+export default LegendHeader;

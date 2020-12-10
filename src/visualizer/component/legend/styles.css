@@ -1,0 +1,46 @@
+.legend-header-box {
+  height: 30%;
+}
+.legend-information-box {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+.legend-header > span {
+  font-family: 'Open Sans', serif;
+  color: #53607E;
+  font-size: 20px;
+}
+.legend-header-line {
+  background-color: #D1D1D1;
+  width: 70px;
+  height: 1px;
+  transform: translateY(10px);
+}
+.legend-information {
+  display: flex;
+  flex: 1;
+  padding-top: 5px;
+}
+.legend-information-box-holder{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.legend-information-box-box{
+  height: 20px;
+  width: 20px;
+}
+.legend-information-description-holder{
+  display: flex;
+  flex: 6;
+  transform: translateX(10px);
+}
+.legend-information-description-text{
+  font-family: 'Open Sans', serif;
+  color: #53607E;
+  font-size: 14px;
+}
+.legend {
+  transform: translateY(30px);
+}

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import insertionSort from './algorithm/insertionSort';
 import data from './component/block/data';
 import AnimationScreen from './sortingvisualizer/AnimationScreen';
+import PlayBackButton from './component/playbackbutton/PlaybackButton';
+import Legend from './component/legend/Legend';
+import './styles.css';
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
@@ -16,16 +19,25 @@ const Visualizer = () => {
   useEffect(() => {}, [isPlay]);
 
   return (
-    <div>
-      <div>
+    <div className="visualizer">
+      <div className="visualizer-box">
         <AnimationScreen
           dataArray={data}
           animationArr={animationArr}
           swap={(firstIdx, secondIdx, arr) => swap(firstIdx, secondIdx, arr)}
           isPlay={isPlay}
+          setIsPlay={() => setIsPlay(!isPlay)}
         />
       </div>
-      <button onClick={() => setIsPlay(!isPlay)}>play</button>
+      <div className="controller-box">
+        <div className="emptyDiv" />
+        <div className="button-box">
+          <PlayBackButton onClick={() => setIsPlay(!isPlay)} isPlay={isPlay} />
+        </div>
+        <div className="legend-box">
+          <Legend />
+        </div>
+      </div>
     </div>
   );
 };
