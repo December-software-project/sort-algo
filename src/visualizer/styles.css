@@ -1,6 +1,6 @@
 body {
   width: 100%;
-  background: yellowgreen;
+  /*background: yellowgreen;*/
 }
 
 .list {
@@ -10,10 +10,16 @@ body {
 }
 
 .code {
-  margin-top: 30px;
-  border-top: #0074D9;
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-columns: minmax(150px, auto);
+  column-gap: 10px;
+  justify-items: start;
+}
+
+.code div {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
+  font-size: 20px;
 }

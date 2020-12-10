@@ -4,7 +4,7 @@ import data from './component/block/data';
 import AnimationScreen from './sortingvisualizer/AnimationScreen';
 import CodeTemplate from './codetemplate/CodeTemplate';
 import CodeExplanation from './codeexplaination/CodeExplanation';
-import "./styles.css";
+import './styles.css';
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
