@@ -24,15 +24,18 @@
   align-items: center;
   flex-direction: column;
 }
+
 .emptyDiv {
   display: flex;
   flex: 4;
 }
+
 .button-box {
   display: flex;
   flex: 3;
   justify-content: center;
 }
+
 .legend-box {
   display: flex;
   flex: 4;

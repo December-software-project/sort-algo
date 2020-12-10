@@ -38,6 +38,7 @@ const Visualizer = () => {
           <Legend />
         </div>
       </div>
+      <div className="code"></div>
     </div>
   );
 };
