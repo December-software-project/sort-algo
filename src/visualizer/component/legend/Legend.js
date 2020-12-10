@@ -15,8 +15,8 @@ const Legend = () => {
         <LegendHeader />
       </div>
       <div className="legend-information-box">
-        {legendInformation.map(({ color, description }) => (
-          <LegendInformation color={color} description={description} />
+        {legendInformation.map(({ color, description }, index) => (
+          <LegendInformation color={color} description={description} key={index} />
         ))}
       </div>
     </div>

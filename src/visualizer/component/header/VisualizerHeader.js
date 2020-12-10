@@ -5,11 +5,11 @@ import { useIsVisible } from 'react-is-visible';
 
 const VisualizerHeader = () => {
   const VisualizerStyling = (isVisible) => ({
-    transform: isVisible ? `translateX(0px)` : `translateX(1000px)`,
+    transform: isVisible ? `translateX(0px)` : `translateX(750px)`,
     transition: `all 1.5s ease-in-out`,
   });
   const VisualizerLineStyling = (isVisible) => ({
-    transform: isVisible ? `translateX(25px)` : `translateX(-1000px)`,
+    transform: isVisible ? `translateX(25px)` : `translateX(-750px)`,
     transition: `all 1.5s ease-in-out`,
   });
 

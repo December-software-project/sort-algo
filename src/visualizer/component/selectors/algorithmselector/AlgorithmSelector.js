@@ -3,8 +3,8 @@ import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
-const AlgorithmChooser = () => {
-  const [algorithm, setAlgorithm] = useState('InsertionSort');
+const AlgorithmChooser = ({ setVisualizerAlgorithm }) => {
+  const [algorithm, setAlgorithm] = useState('Insertion Sort');
   const listOfAlgorithm = [
     { algorithmName: 'Insertion Sort', key: '0' },
     { algorithmName: 'Merge Sort', key: '1' },
@@ -24,7 +24,10 @@ const AlgorithmChooser = () => {
         return (
           <Menu.Item
             key={key}
-            onClick={() => setAlgorithm(algorithmName)}
+            onClick={() => {
+              setAlgorithm(algorithmName);
+              setVisualizerAlgorithm(algorithmName);
+            }}
             style={{ color: '#8789B5' }}
           >
             {algorithmName}

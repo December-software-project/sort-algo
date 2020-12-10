@@ -1,19 +1,30 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTransition } from 'react-spring';
 import AnimatedBlock from '../component/block/AnimatedBlock';
 import './styles.css';
 
-const AnimationScreen = ({ dataArray, animationArr, swap, isPlay, setIsPlay, resetArray }) => {
-  const referenceArray = useRef(dataArray);
+const AnimationScreen = ({
+  dataArray,
+  animationArr,
+  swap,
+  isPlay,
+  setIsPlay,
+  resetArray,
+  speed,
+}) => {
+  const [referenceArray, setReferenceArray] = useState(dataArray);
   const [idx, setIdx] = useState(0);
   const length = referenceArray.length;
+  useEffect(() => {
+    setReferenceArray(dataArray);
+  }, [dataArray]);
   useEffect(() => {
     if (isPlay && idx < animationArr.length) {
       setTimeout(() => {
         let temp = animationArr[idx];
-        referenceArray.current = swap(temp[0], temp[1], referenceArray.current);
+        setReferenceArray(swap(temp[0], temp[1], referenceArray));
         setIdx(idx + 1);
-      }, 80);
+      }, 800 / speed);
     } else if (isPlay) {
       setIsPlay();
       resetArray(dataArray);
@@ -22,7 +33,7 @@ const AnimationScreen = ({ dataArray, animationArr, swap, isPlay, setIsPlay, res
 
   let xDirection = 0;
   const transitions = useTransition(
-    referenceArray.current.map((data) => ({ ...data, x: (xDirection += 10) - 10 })),
+    referenceArray.map((data) => ({ ...data, x: (xDirection += 10) - 10 })),
     (d) => d.id,
     {
       from: { height: 0, opacity: 1 },
@@ -42,7 +53,7 @@ const AnimationScreen = ({ dataArray, animationArr, swap, isPlay, setIsPlay, res
             props={{ x, ...rest }}
             index={index}
             length={length}
-            key={item.id}
+            key={index}
             isSwap={item.isSwap}
           />
         );

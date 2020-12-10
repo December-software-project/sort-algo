@@ -30,9 +30,11 @@
   align-items: center;
   flex-direction: column;
 }
-.emptyDiv {
+.speed-selector-box {
   display: flex;
   flex: 4;
+  align-items: flex-end;
+  flex-direction: column;
 }
 .button-box {
   display: flex;
