@@ -12,4 +12,3 @@ const radixSort = (arr) => {
   }
   return arr;
 };
-radixSort([5, 3, 88, 235, 65, 23, 4632, 234]);
