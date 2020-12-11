@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import SortingAlgorithms from './algorithm/allSorts';
 import insertionSort from './algorithm/insertionSort';
-import quickSort from './algorithm/quickSort';
 import { generateArray } from './component/block/data';
 import AnimationScreen from './sortingvisualizer/AnimationScreen';
 import PlayBackButton from './component/playbackbutton/PlaybackButton';
@@ -41,12 +41,8 @@ const Visualizer = () => {
   };
 
   const getAnimationArr = (algo, arrayData) => {
-    switch (algo) {
-      case 'Insertion Sort':
-        return insertionSort(arrayData);
-      case 'Quick Sort':
-        return quickSort(arrayData);
-    }
+    const fn = SortingAlgorithms[algo];
+    return fn(arrayData);
   };
 
   useEffect(() => {
@@ -57,6 +53,7 @@ const Visualizer = () => {
       )
     );
   }, [isPlay, speed, dataSize, algorithm]);
+
   return (
     <div className="visualizer">
       <div className="visualizer-header-box">

@@ -19,6 +19,7 @@ const AnimationScreen = ({
     setReferenceArray(dataArray);
   }, [dataArray]);
   useEffect(() => {
+    console.log(animationArr);
     if (isPlay && idx < animationArr.length) {
       setTimeout(() => {
         let temp = animationArr[idx];
