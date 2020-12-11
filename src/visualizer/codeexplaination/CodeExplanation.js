@@ -74,4 +74,4 @@ const CodeExplanation = ({ algo }) => {
   );
 };
 
-export default CodeExplanation
+export default CodeExplanation;

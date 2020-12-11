@@ -9,11 +9,7 @@ const CodeTemplate = ({ algo }) => {
     setTemplate(templates[algo]);
   }, [algo]);
 
-  return (
-    <div className="codeTemplate">
-      {/*<span>{template.C}</span>*/}
-    </div>
-  );
+  return <div className="codeTemplate">{/*<span>{template.C}</span>*/}</div>;
 };
 
 export default CodeTemplate;

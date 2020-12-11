@@ -1,5 +1,5 @@
 import BubbleSort from './bubbleSortEx';
-import InsertionSort from './insertionSortEx'
+import InsertionSort from './insertionSortEx';
 
 const explanations = {
   'Bubble Sort': BubbleSort,
