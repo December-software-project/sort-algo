@@ -57,7 +57,7 @@
   /*border: 2px solid grey;*/
   display: grid;
   gap: 20px;
-  grid-template-columns: 1fr 2.5fr;
+  grid-template-columns: 1fr 3fr;
   justify-items: start;
   margin-left: 4%;
   margin-top: 4%;

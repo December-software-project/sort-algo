@@ -1,24 +1,29 @@
-.explanation {
+.main {
   display: flex;
   flex-direction: column;
 }
 
-.explanation header {
+.main header {
   color: #32325D;
   font-family: 'Open Sans Semibold', sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   margin-bottom: 10px;
   margin-top: 20px;
 }
 
-.explanation p {
+.main p {
   color: #8789B5;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .performance {
   font-family: 'Open Sans Semibold', sans-serif;
-  font-size: 22px;
+  /*font-size: 14px;*/
+}
+
+.performance p {
+  font-size: 15px;
+  margin-bottom: 0.8em;
 }
 
 .rowContainerOne {
@@ -40,13 +45,12 @@
 
 .complexity p {
   background-color: #5467FF;
-  border: 8px solid #5467FF;
-  border-radius: 30px;
+  border: 7px solid #5467FF;
+  border-radius: 20px;
   box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.2);
   color: #f2f2f2;
   font-family: 'Open Sans Semibold', sans-serif;
-  font-size: 17px;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.3px;
 }
 
 .rowContainerTwo {
