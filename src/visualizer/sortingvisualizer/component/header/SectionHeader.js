@@ -3,7 +3,7 @@ import './styles.css';
 import 'intersection-observer';
 import IsVisible from 'react-is-visible';
 
-const VisualizerHeader = () => {
+const SectionHeader = ({name}) => {
   const VisualizerStyling = (isVisible) => ({
     transform: isVisible ? `translateX(0px)` : `translateX(750px)`,
     transition: `all 1.5s ease-in-out`,
@@ -19,7 +19,7 @@ const VisualizerHeader = () => {
     <IsVisible once>
       {(isVisible) => (
         <div className="visualizer-header" ref={nodeRef}>
-          <span style={VisualizerStyling(isVisible)}>Visualizer</span>
+          <span style={VisualizerStyling(isVisible)}>{name}</span>
           <div className="visualizer-header-line" style={VisualizerLineStyling(isVisible)} />
         </div>
       )}
@@ -27,4 +27,4 @@ const VisualizerHeader = () => {
   );
 };
 
-export default VisualizerHeader;
+export default SectionHeader;
