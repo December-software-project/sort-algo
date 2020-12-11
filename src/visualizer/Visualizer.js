@@ -8,6 +8,7 @@ import './styles.css';
 import CodeExplanation from './codeexplaination/CodeExplanation';
 import CodeTemplate from './codetemplate/CodeTemplate';
 import explanations from './explanations/Explanations';
+import templates from './templates/Templates';
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
@@ -43,7 +44,7 @@ const Visualizer = () => {
       </div>
       <div className="code">
         <CodeExplanation explanations={explanations} />
-        <CodeTemplate />
+        <CodeTemplate templates={templates}/>
       </div>
     </div>
   );

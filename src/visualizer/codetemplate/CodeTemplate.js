@@ -1,10 +1,12 @@
 import React from 'react';
 import './CodeTemplate.css';
 
-const CodeTemplate = ({ sort }) => {
+const CodeTemplate = ({ templates }) => {
+  const template = templates.Bubble;
+
   return (
     <div className="codeTemplate">
-      <header>Code template here</header>
+      <span>{template.C}</span>
     </div>
   );
 };

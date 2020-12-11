@@ -40,11 +40,12 @@
 }
 
 .complexity p {
-  background-color: #26267E;
-  border: 8px solid #26267E;
+  background-color: #5467FF;
+  border: 8px solid #5467FF;
   border-radius: 30px;
   color: #f2f2f2;
-  font-size: 16px;
+  font-size: 17px;
+  font-family: 'Open Sans Semibold', sans-serif;
   letter-spacing: 1.2px;
 }
 
