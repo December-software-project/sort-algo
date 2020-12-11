@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import SortingAlgorithms from './algorithm/allSorts';
-import insertionSort from './algorithm/insertionSort';
+import insertionSort from '../algorithm/insertionSort';
 import { generateArray } from './component/block/data';
-import AnimationScreen from './sortingvisualizer/AnimationScreen';
-import PlayBackButton from './component/playbackbutton/PlaybackButton';
+import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
+import PlayBackButton from './component/button/playbackbutton/PlaybackButton';
 import Legend from './component/legend/Legend';
 import VisualizerHeader from './component/header/VisualizerHeader';
 import AlgorithmSelector from './component/selectors/algorithmselector/AlgorithmSelector';
 import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
 import './styles.css';
-import CodeExplanation from './codeexplaination/CodeExplanation';
-import CodeTemplate from './codetemplate/CodeTemplate';
+import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
+import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
+import { swap, resetArray, getAnimationArr } from '../../utils/VisualizerUtil';
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
@@ -21,35 +21,18 @@ const Visualizer = () => {
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
   const [animationArr, setAnimationArr] = useState(insertionSort(arrayData.map((x) => x)));
 
-  const swap = (firstIdx, secondIdx, arr) => {
-    let newTempArr = resetArray(arr);
-    let tmp = newTempArr[firstIdx];
-    newTempArr[firstIdx] = newTempArr[secondIdx];
-    newTempArr[secondIdx] = tmp;
-    newTempArr[firstIdx].isSwap = true;
-    newTempArr[secondIdx].isSwap = true;
-    return newTempArr;
-  };
-  const resetArray = (arr) => {
-    return arr.map((x) => {
-      let tempArrElement = x;
-      tempArrElement.isSwap = false;
-      return tempArrElement;
-    });
-  };
-
-  const getAnimationArr = (algo, arrayData) => {
-    const fn = SortingAlgorithms[algo];
-    return fn(arrayData);
-  };
-
   useEffect(() => {
-    setAnimationArr(
-      getAnimationArr(
-        algorithm,
-        arrayData.map((x) => x)
-      )
-    );
+    console.log('Came here');
+    console.log(arrayData);
+    console.log(isPlay);
+    if (isPlay === false) {
+      setAnimationArr(
+        getAnimationArr(
+          algorithm,
+          arrayData.map((x) => x)
+        )
+      );
+    }
   }, [isPlay, speed, dataSize, algorithm]);
 
   return (

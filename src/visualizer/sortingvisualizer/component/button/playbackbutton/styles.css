@@ -5,9 +5,12 @@
   vertical-align: middle;
   width: 40px;
 }
+.button-holder:hover {
+  box-shadow: 3px 3px 3px #92D5FF;
+}
 
 .button-holder {
-  background-color: #5467FF;
+  background-image: linear-gradient(90deg, #287ED0, #5466FF);
   border: none;
   border-radius: 100%;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, .2);
