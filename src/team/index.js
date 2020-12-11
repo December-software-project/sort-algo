@@ -1,5 +1,7 @@
+import './styles.css';
+
 const Team = () => {
-  return <div>hello world;</div>;
+  return <div className="team"> .</div>;
 };
 
 export default Team;
