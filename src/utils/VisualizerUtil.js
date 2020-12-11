@@ -20,7 +20,5 @@ export const resetArray = (arr) => {
 
 export const getAnimationArr = (algo, arrayData) => {
   const fn = SortingAlgorithms[algo];
-  let temp = fn(arrayData);
-  console.log(temp);
-  return temp;
+  return fn(arrayData);
 };

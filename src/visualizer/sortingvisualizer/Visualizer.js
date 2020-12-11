@@ -22,9 +22,6 @@ const Visualizer = () => {
   const [animationArr, setAnimationArr] = useState(insertionSort(arrayData.map((x) => x)));
 
   useEffect(() => {
-    console.log('Came here');
-    console.log(arrayData);
-    console.log(isPlay);
     if (isPlay === false) {
       setAnimationArr(
         getAnimationArr(

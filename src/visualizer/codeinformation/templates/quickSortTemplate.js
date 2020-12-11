@@ -1,4 +1,5 @@
 //Code adapted from https://www.geeksforgeeks.org/quick-sort/
+// todo quicksort
 const QuickSort = {
   Java:
     'void swap(int[] arr, int i, int j) {\n' +
