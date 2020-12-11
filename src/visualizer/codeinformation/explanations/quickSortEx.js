@@ -9,17 +9,9 @@ const QuickSort = {
       N<sup>2</sup>
     </span>
   ),
-  averageTime: (
-    <span>
-      Log<sub>2</sub>N
-    </span>
-  ),
+  averageTime: 'NlogN',
   bestTime: 'N',
-  worstSpace: (
-    <span>
-      Log<sub>2</sub>N
-    </span>
-  ),
+  worstSpace: 'logN',
   stable: false,
   inPlace: true,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import Visualizer from './visualizer/sortingvisualizer/Visualizer';
-import Team from './team';
+import Team from './team/Team';
 
 function App() {
   return (

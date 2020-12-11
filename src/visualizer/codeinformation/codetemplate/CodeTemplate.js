@@ -19,7 +19,10 @@ const CodeTemplate = ({ algo }) => {
       <p
         className="select"
         style={{
-          background: selected === language ? '#5161B1' : '#A5BBC9',
+          background:
+            selected === language
+              ? `linear-gradient(0deg, #5E9BD1, #292C59)`
+              : `linear-gradient(0deg, #A5BBC9, #535E65)`,
         }}
         onClick={() => setSelected(language)}
       >
