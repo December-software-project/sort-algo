@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import SortingAlgorithms from './algorithm/allSorts';
 import insertionSort from './algorithm/insertionSort';
-import quickSort from './algorithm/quickSort';
 import { generateArray } from './component/block/data';
 import AnimationScreen from './sortingvisualizer/AnimationScreen';
 import PlayBackButton from './component/playbackbutton/PlaybackButton';
@@ -10,10 +10,12 @@ import AlgorithmSelector from './component/selectors/algorithmselector/Algorithm
 import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
 import './styles.css';
+import CodeExplanation from './codeexplaination/CodeExplanation';
+import CodeTemplate from './codetemplate/CodeTemplate';
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
-  const [speed, setSpeed] = useState(5);
+  const [speed, setSpeed] = useState(1);
   const [dataSize, setDataSize] = useState(10);
   const [arrayData, setArrayData] = useState(generateArray(dataSize));
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
@@ -37,12 +39,8 @@ const Visualizer = () => {
   };
 
   const getAnimationArr = (algo, arrayData) => {
-    switch (algo) {
-      case 'Insertion Sort':
-        return insertionSort(arrayData);
-      case 'Quick Sort':
-        return quickSort(arrayData);
-    }
+    const fn = SortingAlgorithms[algo];
+    return fn(arrayData);
   };
 
   useEffect(() => {
@@ -53,6 +51,7 @@ const Visualizer = () => {
       )
     );
   }, [isPlay, speed, dataSize, algorithm]);
+
   return (
     <div className="visualizer">
       <div className="visualizer-header-box">
@@ -96,6 +95,10 @@ const Visualizer = () => {
         <div className="legend-box">
           <Legend />
         </div>
+      </div>
+      <div className="code">
+        <CodeExplanation algo={algorithm} />
+        <CodeTemplate algo={algorithm} />
       </div>
     </div>
   );

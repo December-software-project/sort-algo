@@ -1,0 +1,66 @@
+.explanation {
+  display: flex;
+  flex-direction: column;
+}
+
+.explanation header {
+  color: #32325D;
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.explanation p {
+  color: #8789B5;
+  font-size: 18px;
+}
+
+.performance {
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 22px;
+}
+
+.rowContainerOne {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.text {
+  align-items: center;
+  display: grid;
+}
+
+.complexity {
+  align-items: center;
+  display: grid;
+  text-align: center;
+}
+
+.complexity p {
+  background-color: #5467FF;
+  border: 8px solid #5467FF;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.2);
+  color: #f2f2f2;
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 17px;
+  letter-spacing: 1.2px;
+}
+
+.rowContainerTwo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin-top: 2%;
+}
+
+.rowContainerTwo div {
+  min-width: 100px;
+  text-align: center;
+}
+
+.rowContainerTwo > div > p {
+  margin-bottom: 5%;
+}
