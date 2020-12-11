@@ -19,7 +19,9 @@ const Visualizer = () => {
   const [dataSize, setDataSize] = useState(10);
   const [arrayData, setArrayData] = useState(generateArray(dataSize));
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
-  const [animationArr, setAnimationArr] = useState(insertionSort(arrayData.map((x) => x)));
+  const [animationArr, setAnimationArr] = useState(
+    insertionSort(arrayData.map((x) => x))
+  );
 
   useEffect(() => {
     if (isPlay === false) {
@@ -37,7 +39,9 @@ const Visualizer = () => {
       <div className="visualizer">
         <div className="visualizer-header-box">
           <VisualizerHeader />
-          <AlgorithmSelector setVisualizerAlgorithm={(algo) => setAlgorithm(algo)} />
+          <AlgorithmSelector
+            setVisualizerAlgorithm={(algo) => setAlgorithm(algo)}
+          />
         </div>
         <div className="visualizer-box">
           <AnimationScreen
@@ -71,7 +75,10 @@ const Visualizer = () => {
             />
           </div>
           <div className="button-box">
-            <PlayBackButton onClick={() => setIsPlay(!isPlay)} isPlay={isPlay} />
+            <PlayBackButton
+              onClick={() => setIsPlay(!isPlay)}
+              isPlay={isPlay}
+            />
           </div>
           <div className="legend-box">
             <Legend />
