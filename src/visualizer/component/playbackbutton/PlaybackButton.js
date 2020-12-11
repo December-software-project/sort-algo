@@ -7,13 +7,13 @@ const PlayBackButton = ({ onClick, isPlay }) => {
   return (
     <button className="button-holder" onClick={onClick}>
       {isPlay ? (
-        <IconContext.Provider value={{ className: 'button' }}>
+        <IconContext.Provider value={{ className: ' button' }}>
           <AiOutlinePause />
         </IconContext.Provider>
       ) : (
         <IconContext.Provider
           value={{
-            className: 'button',
+            className: ' button',
             style: { transform: `translateX(3px)` },
           }}
         >

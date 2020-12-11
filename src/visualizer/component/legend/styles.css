@@ -1,5 +1,8 @@
 .legend-header-box {
+  display: flex;
+  flex-direction: column;
   height: 30%;
+  justify-content: center;
 }
 
 .legend-information-box {
@@ -9,16 +12,16 @@
 }
 
 .legend-header > span {
-  color: #53607E;
+  color: #8789B5;
   font-family: 'Open Sans', serif;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .legend-header-line {
-  background-color: #D1D1D1;
+  background-color: #D5D9FC;
   height: 1px;
-  transform: translateY(10px);
-  width: 70px;
+  transform: translateY(5px);
+  width: 55px;
 }
 
 .legend-information {
@@ -45,9 +48,9 @@
 }
 
 .legend-information-description-text {
-  color: #53607E;
+  color: #8789B5;
   font-family: 'Open Sans', serif;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .legend {
