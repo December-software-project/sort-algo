@@ -1,5 +1,5 @@
 .visualizer-box {
-  flex: 3;
+  flex: 1;
   width: 100%;
   display: flex;
   align-items: flex-end;
@@ -10,23 +10,31 @@
   flex: 1;
   display: flex;
   width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
+.visualizer-header-box{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
 .visualizer {
-  height: 600px;
+  height: 550px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.emptyDiv {
+.speed-selector-box {
   display: flex;
   flex: 4;
+  align-items: flex-end;
+  flex-direction: column;
 }
 .button-box {
   display: flex;
@@ -37,4 +45,5 @@
   display: flex;
   flex: 4;
   height: 100%;
+  justify-content: center;
 }
