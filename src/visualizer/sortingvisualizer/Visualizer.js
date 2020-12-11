@@ -11,7 +11,7 @@ import DataSizeSelector from './component/selectors/sliderselector/SliderSelecto
 import './styles.css';
 import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
-import { swap, resetArray, getAnimationArr } from '../../utils/VisualizerUtil';
+import { getAnimationArr, resetArray, swap } from '../../utils/VisualizerUtil';
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
