@@ -13,6 +13,7 @@ const VisualizerHeader = () => {
     transition: `all 1.5s ease-in-out`,
   });
 
+  // const [visited, setIsVisited] = useState(false);
   const nodeRef = useRef();
   const isVisible = useIsVisible(nodeRef);
 
