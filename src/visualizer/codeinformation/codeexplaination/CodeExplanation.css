@@ -1,68 +1,68 @@
 .main {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .main header {
-    color: #32325D;
-    font-family: 'Open Sans Semibold', sans-serif;
-    font-size: 18px;
-    margin-bottom: 10px;
+  color: #32325D;
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .main p {
-    color: #8789B5;
-    font-size: 16px;
+  color: #8789B5;
+  font-size: 16px;
 }
 
 .performance {
-    font-family: 'Open Sans Semibold', sans-serif;
+  font-family: 'Open Sans Semibold', sans-serif;
 }
 
 .performance p {
-    font-size: 15px;
-    margin-bottom: 0.8em;
+  font-size: 15px;
+  margin-bottom: 0.8em;
 }
 
 .rowContainerOne {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .text {
-    align-items: center;
-    display: grid;
+  align-items: center;
+  display: grid;
 }
 
 .complexity {
-    align-items: center;
-    display: grid;
+  align-items: center;
+  display: grid;
 }
 
 .complexity p {
-    background-color: #5467FF;
-    border: 7px solid #5467FF;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.2);
-    color: #f2f2f2;
-    font-family: 'Open Sans Semibold', sans-serif;
-    letter-spacing: 1.3px;
-    text-align: center;
+  background-color: #5467FF;
+  border: 7px solid #5467FF;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.2);
+  color: #f2f2f2;
+  font-family: 'Open Sans Semibold', sans-serif;
+  letter-spacing: 1.3px;
+  text-align: center;
 }
 
 .rowContainerTwo {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    margin-top: 1%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin-top: 1%;
 }
 
 .rowContainerTwo div {
-    min-width: 100px;
-    text-align: center;
+  min-width: 100px;
+  text-align: center;
 }
 
 .rowContainerTwo > div > p {
-    margin-bottom: 5%;
+  margin-bottom: 5%;
 }

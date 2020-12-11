@@ -1,23 +1,23 @@
 .button {
-    color: white;
-    cursor: pointer;
-    height: 40px;
-    vertical-align: middle;
-    width: 40px;
+  color: white;
+  cursor: pointer;
+  height: 40px;
+  vertical-align: middle;
+  width: 40px;
 }
 
 .button-holder:hover {
-    box-shadow: 3px 3px 3px #92D5FF;
+  box-shadow: 3px 3px 3px #92D5FF;
 }
 
 .button-holder {
-    background-image: linear-gradient(90deg, #287ED0, #5466FF);
-    border: none;
-    border-radius: 100%;
-    box-shadow: 0 0 4px 2px rgba(0, 0, 0, .2);
-    cursor: pointer;
-    height: 70px;
-    outline: none;
-    transform: translateY(10px);
-    width: 70px;
+  background-image: linear-gradient(90deg, #287ED0, #5466FF);
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, .2);
+  cursor: pointer;
+  height: 70px;
+  outline: none;
+  transform: translateY(10px);
+  width: 70px;
 }

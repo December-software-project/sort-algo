@@ -1,5 +1,5 @@
 .list {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
 }

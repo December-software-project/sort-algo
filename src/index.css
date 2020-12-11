@@ -1,13 +1,13 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #F5F5FA;
-    font-family: 'Open Sans', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    margin: 0;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden
+  background-color: #F5F5FA;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden
 }

@@ -1,58 +1,58 @@
 .legend-header-box {
-    display: flex;
-    flex-direction: column;
-    height: 30%;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  justify-content: center;
 }
 
 .legend-information-box {
-    display: flex;
-    flex-direction: column;
-    white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
 }
 
 .legend-header > span {
-    color: #8789B5;
-    font-family: 'Open Sans', serif;
-    font-size: 16px;
+  color: #8789B5;
+  font-family: 'Open Sans', serif;
+  font-size: 16px;
 }
 
 .legend-header-line {
-    background-color: #D5D9FC;
-    height: 1px;
-    transform: translateY(5px);
-    width: 55px;
+  background-color: #D5D9FC;
+  height: 1px;
+  transform: translateY(5px);
+  width: 55px;
 }
 
 .legend-information {
-    display: flex;
-    flex: 1;
-    padding-top: 5px;
+  display: flex;
+  flex: 1;
+  padding-top: 5px;
 }
 
 .legend-information-box-holder {
-    align-items: flex-start;
-    display: flex;
-    justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .legend-information-box-box {
-    height: 20px;
-    width: 20px;
+  height: 20px;
+  width: 20px;
 }
 
 .legend-information-description-holder {
-    display: flex;
-    flex: 6;
-    transform: translateX(10px);
+  display: flex;
+  flex: 6;
+  transform: translateX(10px);
 }
 
 .legend-information-description-text {
-    color: #8789B5;
-    font-family: 'Open Sans', serif;
-    font-size: 13px;
+  color: #8789B5;
+  font-family: 'Open Sans', serif;
+  font-size: 13px;
 }
 
 .legend {
-    transform: translateY(30px);
+  transform: translateY(30px);
 }

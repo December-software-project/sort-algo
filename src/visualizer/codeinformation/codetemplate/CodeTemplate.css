@@ -1,37 +1,37 @@
 .codeTemplate {
-    align-items: center;
-    justify-content: center;
-    margin-left: 4%;
-    padding: 0 3% 0;
-    width: 90%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4%;
+  padding: 0 3% 0;
+  width: 90%;
 }
 
 .editor {
-    background-color: #F1F5FD;
-    border: 1px solid #5467FF;
-    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
-    height: 100% !important;
-    width: 100% !important;
+  background-color: #F1F5FD;
+  border: 1px solid #5467FF;
+  box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .selector {
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .select {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    color: white;
-    font-family: 'Open Sans Semibold', sans-serif;
-    font-size: 16px;
-    height: 35px;
-    line-height: 35px;
-    margin-bottom: 0;
-    text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 16px;
+  height: 35px;
+  line-height: 35px;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .select:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
