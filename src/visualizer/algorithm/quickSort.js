@@ -2,9 +2,9 @@ import { swap } from './swap';
 
 // Code adapted from https://www.guru99.com/quicksort-in-javascript.html
 const partition = (items, left, right, animationArr) => {
-  let pivot = items[Math.floor((right + left) / 2)].height; //middle element
-  let i = left; //left pointer
-  let j = right; //right pointer
+  let pivot = items[Math.floor((right + left) / 2)].height;
+  let i = left;
+  let j = right;
   while (i <= j) {
     while (items[i].height < pivot) {
       i++;
