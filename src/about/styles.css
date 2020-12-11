@@ -1,0 +1,6 @@
+.about {
+  display: flex;
+  background: white;
+  height: 100vh;
+  justify-content: center;
+}

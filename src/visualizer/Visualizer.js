@@ -54,7 +54,7 @@ const Visualizer = () => {
 
   return (
     <>
-      <div className="visualizer">
+      <div className="visualizer" id = 'visualizer'>
         <div className="visualizer-header-box">
           <VisualizerHeader />
           <AlgorithmSelector setVisualizerAlgorithm={(algo) => setAlgorithm(algo)} />
