@@ -17,8 +17,8 @@
 }
 
 .performance {
-  font-size: 22px;
   font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 22px;
 }
 
 .rowContainerOne {
@@ -41,11 +41,11 @@
 .complexity p {
   background-color: #5467FF;
   border: 8px solid #5467FF;
-  box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.2);
   border-radius: 30px;
+  box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.2);
   color: #f2f2f2;
-  font-size: 17px;
   font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 17px;
   letter-spacing: 1.2px;
 }
 
