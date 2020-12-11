@@ -103,7 +103,7 @@ const Visualizer = () => {
       </div>
       <div className="code">
         <CodeExplanation explanations={explanations} />
-        <CodeTemplate templates={templates}/>
+        <CodeTemplate templates={templates} />
       </div>
     </div>
   );
