@@ -1,3 +1,4 @@
+// Explanation adapted from https://www.geeksforgeeks.org/bubble-sort/.
 const BubbleSort = {
   name: 'Bubble',
   description:

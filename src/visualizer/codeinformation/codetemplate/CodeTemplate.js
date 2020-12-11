@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import templates from '../templates/Templates';
 import './CodeTemplate.css';
 import AceEditor from 'react-ace';

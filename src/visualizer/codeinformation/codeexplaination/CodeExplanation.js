@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CodeExplanation.css';
 import explanations from '../explanations/Explanations';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';

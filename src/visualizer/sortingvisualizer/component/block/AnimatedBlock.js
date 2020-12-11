@@ -11,7 +11,9 @@ const AnimatedBlock = ({ item, props: { x, ...rest }, length, index, isSwap }) =
         zIndex: length - index,
         transform: x.interpolate((x) => `translate3d(${x}px,0,0)`),
         ...rest,
-        backgroundColor: isSwap ? '#11C2C9' : '#5467FF',
+        backgroundImage: isSwap
+          ? `linear-gradient(45deg, #13B1B7, #11C2C9)`
+          : `linear-gradient(45deg, #287ED0, #5466FF)`,
       }}
     >
       <span>{item.height}</span>

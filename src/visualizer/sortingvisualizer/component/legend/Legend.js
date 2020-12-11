@@ -5,8 +5,14 @@ import './styles.css';
 
 const Legend = () => {
   const legendInformation = [
-    { color: '#11C2C9', description: 'Currently involved in the swap process' },
-    { color: '#5467FF', description: 'Not involved in the swap process' },
+    {
+      color: 'linear-gradient(45deg, #13B1B7, #11C2C9)',
+      description: 'Currently involved in the swap process',
+    },
+    {
+      color: 'linear-gradient(45deg, #287ED0, #5466FF)',
+      description: 'Not involved in the swap process',
+    },
   ];
 
   return (
