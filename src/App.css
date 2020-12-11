@@ -1,5 +1,99 @@
-body {
+* {
+    margin: 0px;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.app {
+    display: block;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*line-height: 1.6;*/
+    width: 100%;
+    height: 100%;
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 3px 6px -6px black;
+    align-items: center;
+}
+
+.nav-logo {
     display: flex;
     justify-content: center;
-    align-items: center;
+    width: 40%;
+}
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+    width: 60%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-bar ul li {
+    margin: 0 1rem;
+    padding: 1rem;
+    display: flex;
+}
+
+.nav-bar a {
+    /*display: flex;*/
+    /*list-style: none;*/
+    text-decoration: none;
+    color: #454545;
+    line-height: 60px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    text-align: center;
+}
+
+.nav-bar a:hover {
+    color: #756AEE;
+}
+
+/** active navigation **/
+/*.nav-menu.scroll a.active {*/
+/*    color: #000;*/
+/*    border-bottom: 2px solid #000;*/
+/*}*/
+.nav-menu a.active {
+    color: #756AEE;
+    border-bottom: 4px solid #756AEE;
+}
+
+.content {
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    line-height: 1.6;
+    /*margin-top: 60px;*/
+    position: absolute;
+    top: 60px;
+}
+
+/*nav .animation{*/
+/*    position: absolute;*/
+/*    height: 3px;*/
+/*    bottom: 0;*/
+/*    z-index: 0;*/
+/*    width: 100px;*/
+/*    background: #756AEE;*/
+/*}*/
+
+
+@media screen and (max-width: 500px) {
+    .nav-menu {
+        display: none;
+        height: 0;
+    }
 }

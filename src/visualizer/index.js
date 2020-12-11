@@ -16,8 +16,9 @@ const Visualizer = () => {
   };
   useEffect(() => {}, [isPlay]);
   
-  return (<div>
+  return (<div id = 'visualizer'>
     <div>
+      <h3> Visualizer </h3>
       <AnimationScreen dataArray={data} animationArr={animationArr}
                        swap={(firstIdx, secondIdx, arr) => swap(firstIdx,
                          secondIdx, arr)} isPlay={isPlay}/>

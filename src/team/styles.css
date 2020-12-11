@@ -1,0 +1,10 @@
+.team {
+  display: flex;
+  background: white;
+  height: 100vh;
+  justify-content: center;
+}
+
+h3 {
+  /*margin-top: 60px;*/
+}
