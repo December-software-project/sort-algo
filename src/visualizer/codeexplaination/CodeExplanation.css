@@ -8,7 +8,6 @@
   font-family: 'Open Sans Semibold', sans-serif;
   font-size: 18px;
   margin-bottom: 10px;
-  margin-top: 20px;
 }
 
 .main p {
@@ -18,7 +17,6 @@
 
 .performance {
   font-family: 'Open Sans Semibold', sans-serif;
-  /*font-size: 14px;*/
 }
 
 .performance p {
@@ -40,7 +38,6 @@
 .complexity {
   align-items: center;
   display: grid;
-  text-align: center;
 }
 
 .complexity p {
@@ -51,13 +48,14 @@
   color: #f2f2f2;
   font-family: 'Open Sans Semibold', sans-serif;
   letter-spacing: 1.3px;
+  text-align: center;
 }
 
 .rowContainerTwo {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  margin-top: 2%;
+  margin-top: 1%;
 }
 
 .rowContainerTwo div {
