@@ -9,6 +9,11 @@
     display: flex;
 }
 
+.app-content {
+    position: absolute;
+    top: 60px;
+}
+
 .nav-bar {
     position: fixed;
     top: 0;
@@ -60,11 +65,6 @@
 .nav-menu a.active {
     color: #5467FF;
     border-bottom: 3px solid #A5AEFC;
-}
-
-.content {
-    position: absolute;
-    top: 60px;
 }
 
 /*nav .animation{*/

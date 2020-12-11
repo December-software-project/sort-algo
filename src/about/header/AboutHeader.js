@@ -9,11 +9,10 @@ const AboutHeader = () => {
     transition: `all 1.5s ease-in-out`,
   });
   const AboutLineStyling = (isVisible) => ({
-    transform: isVisible ? `translateX(25px)` : `translateX(-750px)`,
+    transform: isVisible ? `translateX(15px)` : `translateX(-750px)`,
     transition: `all 1.5s ease-in-out`,
   });
 
-  // const [visited, setIsVisited] = useState(false);
   const nodeRef = useRef();
   const isVisible = useIsVisible(nodeRef);
 
