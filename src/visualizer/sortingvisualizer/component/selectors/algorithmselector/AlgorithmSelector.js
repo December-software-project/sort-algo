@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { Menu, Dropdown } from 'antd';
+import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
 const AlgorithmChooser = ({ setVisualizerAlgorithm }) => {
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
   const listOfAlgorithm = [
-    { algorithmName: 'Insertion Sort', key: '0' },
-    { algorithmName: 'Merge Sort', key: '1' },
-    { algorithmName: 'Quick Sort', key: '2' },
+    { algorithmName: 'Bucket Sort', key: '0' },
+    { algorithmName: 'Bubble Sort', key: '1' },
+    { algorithmName: 'Counting Sort', key: '2' },
     { algorithmName: 'Heap Sort', key: '3' },
-    { algorithmName: 'Bubble Sort', key: '4' },
-    { algorithmName: 'Selection Sort', key: '5' },
-    { algorithmName: 'Shell Sort', key: '6' },
+    { algorithmName: 'Insertion Sort', key: '4' },
+    { algorithmName: 'Merge Sort', key: '5' },
+    { algorithmName: 'Quick Sort', key: '6' },
     { algorithmName: 'Radix Sort', key: '7' },
-    { algorithmName: 'Bucket Sort', key: '8' },
-    { algorithmName: 'Counting Sort', key: '9' },
+    { algorithmName: 'Selection Sort', key: '8' },
+    { algorithmName: 'Shell Sort', key: '9' },
   ];
 
   const menu = (

@@ -1,3 +1,4 @@
+// Explanation adapted from https://www.geeksforgeeks.org/insertion-sort/
 const InsertionSort = {
   name: 'Insertion',
   description:

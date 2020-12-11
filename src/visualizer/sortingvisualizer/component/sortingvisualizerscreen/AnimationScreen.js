@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTransition } from 'react-spring';
-import AnimatedBlock from '../component/block/AnimatedBlock';
+import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 
 const AnimationScreen = ({
@@ -26,8 +26,9 @@ const AnimationScreen = ({
         setIdx(idx + 1);
       }, 800 / speed);
     } else if (isPlay) {
-      setIsPlay();
+      setIsPlay(!isPlay);
       resetArray(dataArray);
+      setIdx(0);
     }
   }, [isPlay, idx]);
 
