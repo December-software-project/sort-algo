@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 
-import Team from './team/index';
-import ContactUs from './contactus/index';
 import About from './about/About';
+import ContactUs from './contactus/ContactUs';
+import Team from './team/Team';
 import Visualizer from './visualizer/sortingvisualizer/Visualizer';
-
 
 function App () {
   return (
