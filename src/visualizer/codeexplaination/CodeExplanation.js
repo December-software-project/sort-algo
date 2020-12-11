@@ -36,9 +36,9 @@ const CodeExplanation = ({ algo }) => {
     const wordWithIcon = (word, boolean) => {
       const getIcon = () => {
         return boolean ? (
-          <FaCheckCircle size="30" color="#11C2C9" />
+          <FaCheckCircle size="25" color="#11C2C9" />
         ) : (
-          <FaTimesCircle size="30" color="#FF4E4E" />
+          <FaTimesCircle size="25" color="#FF4E4E" />
         );
       };
 
@@ -65,7 +65,7 @@ const CodeExplanation = ({ algo }) => {
   };
 
   return (
-    <div className="explanation">
+    <div className="main">
       {headerOne()}
       {explanation()}
       {headerTwo()}
