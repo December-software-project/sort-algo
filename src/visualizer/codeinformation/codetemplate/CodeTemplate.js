@@ -37,7 +37,8 @@ const CodeTemplate = ({ algo }) => {
     );
   };
 
-  const getMode = () => (selected === 'C/C++' ? 'c' : selected.toLowerCase());
+  const getMode = () => (selected === 'C/C++' ? 'c_cpp'
+      : selected.toLowerCase());
 
   return (
     <div className="codeTemplate">

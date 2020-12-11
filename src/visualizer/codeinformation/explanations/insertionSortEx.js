@@ -3,7 +3,7 @@ const InsertionSort = {
   name: 'Insertion',
   description:
     'Insertion sort is a simple sorting algorithm that builds the final ' +
-    'sorted array (or list) one item at a time. The array is virtually split ' +
+    'sorted list one item at a time. The list is virtually split ' +
     'into a sorted and an unsorted part. Values from the unsorted part are ' +
     'picked and placed at the correct position in the sorted part.',
   worstTime: (
@@ -18,7 +18,7 @@ const InsertionSort = {
   ),
   bestTime: 'N',
   worstSpace: '1',
-  stable: false,
+  stable: true,
   inPlace: true,
 };
 
