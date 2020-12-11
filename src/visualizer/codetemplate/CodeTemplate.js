@@ -37,12 +37,14 @@ const CodeTemplate = ({ algo }) => {
     );
   };
 
+  const getMode = () => (selected === 'C/C++' ? 'c' : selected.toLowerCase());
+
   return (
     <div className="codeTemplate">
       {selector()}
       <AceEditor
         className="editor"
-        mode="java"
+        mode={getMode()}
         theme="chrome"
         fontSize={14}
         editorProps={{ $blockScrolling: true }}
