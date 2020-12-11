@@ -11,6 +11,5 @@ export const generateArray = (size) => {
       isSwap: false,
     });
   }
-
   return array;
 };

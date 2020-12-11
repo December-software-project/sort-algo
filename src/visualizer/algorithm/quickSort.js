@@ -1,5 +1,5 @@
-const QuickSort = (data) => {
+const quickSort = (data) => {
   return [];
 };
 
-export default QuickSort;
+export default quickSort;
