@@ -30,7 +30,7 @@ const BubbleSort = {
     '    swapped = True\n' +
     '    for j in range(0, i):\n' +
     '        if arr[j] > arr[j + 1]:\n' +
-    '            swap(j, j + 1, arr)\n' +
+    '            arr[j], arr[j + 1] = arr[j + 1], arr[j] \n' +
     '            swapped = False\n' +
     '    if swapped:\n' +
     '        break',
