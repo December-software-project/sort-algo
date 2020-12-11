@@ -2,13 +2,7 @@ import React from 'react';
 import './styles.css';
 import { animated } from 'react-spring';
 
-const AnimatedBlock = ({
-  item,
-  props: { x, ...rest },
-  length,
-  index,
-  isSwap,
-}) => {
+const AnimatedBlock = ({ item, props: { x, ...rest }, length, index, isSwap }) => {
   return (
     <animated.div
       className="animated-block"

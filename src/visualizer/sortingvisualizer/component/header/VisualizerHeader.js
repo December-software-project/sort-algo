@@ -20,10 +20,7 @@ const VisualizerHeader = () => {
       {(isVisible) => (
         <div className="visualizer-header" ref={nodeRef}>
           <span style={VisualizerStyling(isVisible)}>Visualizer</span>
-          <div
-            className="visualizer-header-line"
-            style={VisualizerLineStyling(isVisible)}
-          />
+          <div className="visualizer-header-line" style={VisualizerLineStyling(isVisible)} />
         </div>
       )}
     </IsVisible>
