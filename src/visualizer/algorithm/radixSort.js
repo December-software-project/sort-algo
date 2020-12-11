@@ -12,3 +12,5 @@ const radixSort = (arr) => {
   }
   return arr;
 };
+
+export default radixSort;
