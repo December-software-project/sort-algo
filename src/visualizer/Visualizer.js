@@ -12,12 +12,10 @@ import DataSizeSelector from './component/selectors/sliderselector/SliderSelecto
 import './styles.css';
 import CodeExplanation from './codeexplaination/CodeExplanation';
 import CodeTemplate from './codetemplate/CodeTemplate';
-import explanations from './explanations/Explanations';
-import templates from './templates/Templates';
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
-  const [speed, setSpeed] = useState(5);
+  const [speed, setSpeed] = useState(1);
   const [dataSize, setDataSize] = useState(10);
   const [arrayData, setArrayData] = useState(generateArray(dataSize));
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
@@ -99,8 +97,8 @@ const Visualizer = () => {
         </div>
       </div>
       <div className="code">
-        <CodeExplanation explanations={explanations} />
-        <CodeTemplate templates={templates} />
+        <CodeExplanation algo={algorithm} />
+        <CodeTemplate algo={algorithm} />
       </div>
     </div>
   );

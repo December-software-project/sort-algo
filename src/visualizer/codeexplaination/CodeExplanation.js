@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './CodeExplanation.css';
+import explanations from '../explanations/Explanations';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
-const CodeExplanation = ({ explanations }) => {
-  const sort = explanations.Bubble;
+const CodeExplanation = ({ algo }) => {
+  const [sort, setSort] = useState(explanations[algo]);
+
+  useEffect(() => {
+    setSort(explanations[algo]);
+  }, [algo]);
 
   const headerOne = () => <header>How {sort.name} Sort works</header>;
   const explanation = () => <p>{sort.description}</p>;
@@ -31,9 +36,9 @@ const CodeExplanation = ({ explanations }) => {
     const wordWithIcon = (word, boolean) => {
       const getIcon = () => {
         return boolean ? (
-          <FaCheckCircle size="27" color="green" />
+          <FaCheckCircle size="30" color="#11C2C9" />
         ) : (
-          <FaTimesCircle size="27" color="red" />
+          <FaTimesCircle size="30" color="#FF4E4E" />
         );
       };
 
@@ -69,4 +74,4 @@ const CodeExplanation = ({ explanations }) => {
   );
 };
 
-export default CodeExplanation;
+export default CodeExplanation

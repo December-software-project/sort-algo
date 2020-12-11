@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import templates from '../templates/Templates';
 import './CodeTemplate.css';
 
-const CodeTemplate = ({ templates }) => {
-  const template = templates.Bubble;
+const CodeTemplate = ({ algo }) => {
+  const [template, setTemplate] = useState(templates[algo]);
+
+  useEffect(() => {
+    setTemplate(templates[algo]);
+  }, [algo]);
 
   return (
     <div className="codeTemplate">
-      <span>{template.C}</span>
+      {/*<span>{template.C}</span>*/}
     </div>
   );
 };

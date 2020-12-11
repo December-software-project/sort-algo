@@ -5,18 +5,18 @@ const BubbleSort = {
     'repeatedly swapping adjacent elements if they are in the wrong order. ' +
     'This procedure is repeated until no swaps are required, indicating ' +
     'that the list has been sorted.',
-  worstTime: 'N',
+  worstTime: (
+    <span>
+      N<sup>2</sup>
+    </span>
+  ),
   averageTime: (
     <span>
       N<sup>2</sup>
     </span>
   ),
   bestTime: 'N',
-  worstSpace: (
-    <span>
-      N<sup>2</sup>
-    </span>
-  ),
+  worstSpace: '1',
   stable: true,
   inPlace: true,
 };

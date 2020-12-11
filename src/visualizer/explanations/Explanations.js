@@ -1,7 +1,9 @@
 import BubbleSort from './bubbleSortEx';
+import InsertionSort from './insertionSortEx'
 
 const explanations = {
-  Bubble: BubbleSort,
+  'Bubble Sort': BubbleSort,
+  'Insertion Sort': InsertionSort,
 };
 
 export default explanations;
