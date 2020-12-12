@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Slider } from 'antd';
 import 'antd/dist/antd.css';
 import './styles.css';
+import { VisualizerStateContext } from '../../../Visualizer';
 
-const SliderSelector = ({ setData, min, max, name, isPlay }) => {
+const SliderSelector = ({ setData, min, max, name }) => {
+  const { isPlay } = useContext(VisualizerStateContext);
   const [sliderData, setSliderData] = useState(Math.floor((min + max) / 2));
 
   return (

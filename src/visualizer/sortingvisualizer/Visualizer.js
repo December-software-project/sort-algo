@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import insertionSort from '../algorithm/insertionSort';
 import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
@@ -17,6 +17,8 @@ import {
   DataSizeSelectorProps,
 } from './component/selectors/sliderselector/SelectorProps';
 
+const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
+
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
@@ -24,37 +26,19 @@ const Visualizer = () => {
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(10);
   const [arrayData, setArrayData] = useState(generateArray(dataSize));
-  const [algorithm, setAlgorithm] = useState('Insertion Sort');
+  const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Insertion Sort');
   const [animationArr, setAnimationArr] = useState(insertionSort(arrayData.map((x) => x)));
 
   useEffect(() => {
     if (isPlay === false) {
       setAnimationArr(
         getAnimationArr(
-          algorithm,
+          visualizerAlgorithm,
           arrayData.map((x) => x)
         )
       );
     }
-  }, [isPlay, speed, dataSize, algorithm, arrayData]);
-
-  const handleThreeStateButtonClick = () => {
-    if (isReplay) {
-      setIsReplay(false);
-      setTimeout(() => setIsPlay(true), 300);
-    } else {
-      setIsPlay(!isPlay);
-    }
-    setIsInMidstOfSort(true);
-  };
-
-  const handleResetButtonClick = () => {
-    if (!isPlay) {
-      setArrayData(generateArray(dataSize));
-      setIsInMidstOfSort(false);
-    }
-    setIsReplay(false);
-  };
+  }, [isPlay, speed, dataSize, visualizerAlgorithm, arrayData]);
 
   const changeDataSize = (val) => {
     setDataSize(val);
@@ -62,63 +46,53 @@ const Visualizer = () => {
     setIsReplay(false);
   };
 
+  const value = {
+    isPlay: isPlay,
+    isReplay: isReplay,
+    speed: speed,
+    arrayData: arrayData,
+    animationArr: animationArr,
+    isInMidstOfSort: isInMidstOfSort,
+    dataSize: dataSize,
+    setIsReplay: (val) => setIsReplay(val),
+    setIsPlay: (val) => setIsPlay(val),
+    setIsInMidstOfSort: (val) => setIsInMidstOfSort(val),
+    setVisualizerAlgorithm: (val) => setVisualizerAlgorithm(val), // this is being used
+    setArrayData: (val) => setArrayData(val),
+  };
+
   return (
     <>
-      <div className="visualizer" id="visualizer">
-        <div className="visualizer-header-box">
-          <SectionHeader name="Visualizer" />
-          <AlgorithmSelector
-            setVisualizerAlgorithm={(algo) => setAlgorithm(algo)}
-            isInMidstOfSort={isInMidstOfSort}
-            setIsInMidstOfSort={() => setIsInMidstOfSort(false)}
-            setData={() => setArrayData(generateArray(dataSize))}
-            isPlay={isPlay}
-            setIsReplay={() => setIsReplay(false)}
-          />
-        </div>
-        <div className="visualizer-box">
-          <AnimationScreen
-            dataArray={arrayData}
-            animationArr={animationArr}
-            isPlay={isPlay}
-            setIsPlay={() => setIsPlay(!isPlay)}
-            speed={speed}
-            setIsReplay={() => setIsReplay(true)}
-            isReplay={isReplay}
-          />
-        </div>
-        <div className="controller-box">
-          <div className="speed-selector-box">
-            <SpeedSelector
-              setData={(val) => setSpeed(val)}
-              isPlay={isPlay}
-              {...SpeedSelectorProps}
-            />
-            <DataSizeSelector
-              setData={(val) => changeDataSize(val)}
-              isPlay={isPlay}
-              {...DataSizeSelectorProps}
-            />
+      <VisualizerStateContext.Provider value={{ ...value }}>
+        <div className="visualizer" id="visualizer">
+          <div className="visualizer-header-box">
+            <SectionHeader name="Visualizer" />
+            <AlgorithmSelector />
           </div>
-          <div className="button-box">
-            <ThreeStateButton
-              onClick={() => handleThreeStateButtonClick()}
-              isPlay={isPlay}
-              isReplay={isReplay}
-            />
-            <ResetButton onClick={() => handleResetButtonClick()} isPlay={isPlay} />
+          <div className="visualizer-box">
+            <AnimationScreen />
           </div>
-          <div className="legend-box">
-            <Legend />
+          <div className="controller-box">
+            <div className="speed-selector-box">
+              <SpeedSelector setData={(val) => setSpeed(val)} {...SpeedSelectorProps} />
+              <DataSizeSelector setData={(val) => changeDataSize(val)} {...DataSizeSelectorProps} />
+            </div>
+            <div className="button-box">
+              <ThreeStateButton />
+              <ResetButton />
+            </div>
+            <div className="legend-box">
+              <Legend />
+            </div>
           </div>
         </div>
-      </div>
+      </VisualizerStateContext.Provider>
       <div className="code">
-        <CodeExplanation algo={algorithm} />
-        <CodeTemplate algo={algorithm} />
+        <CodeExplanation algo={visualizerAlgorithm} />
+        <CodeTemplate algo={visualizerAlgorithm} />
       </div>
     </>
   );
 };
-
+export { VisualizerStateContext };
 export default Visualizer;

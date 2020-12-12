@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-
-const AlgorithmChooser = ({
-  setVisualizerAlgorithm,
-  isInMidstOfSort,
-  setIsInMidstOfSort,
-  setData,
-  isPlay,
-  setIsReplay,
-}) => {
+import { generateArray } from '../../../../../utils/VisualizerUtil';
+const AlgorithmChooser = () => {
+  const {
+    dataSize,
+    isPlay,
+    isInMidstOfSort,
+    setIsReplay,
+    setIsInMidstOfSort,
+    setVisualizerAlgorithm,
+    setArrayData,
+  } = useContext(VisualizerStateContext);
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
   const listOfAlgorithm = [
     { algorithmName: 'Bucket Sort', key: '0' },
@@ -25,21 +28,23 @@ const AlgorithmChooser = ({
     { algorithmName: 'Shell Sort', key: '9' },
   ];
 
+  const handleMenuClick = (algorithmName) => {
+    setAlgorithm(algorithmName);
+    setVisualizerAlgorithm(algorithmName);
+    if (isInMidstOfSort && algorithm !== algorithmName) {
+      setIsInMidstOfSort(false);
+      setArrayData(generateArray(dataSize));
+      setIsReplay(false);
+    }
+  };
+
   const menu = (
     <Menu>
       {listOfAlgorithm.map(({ algorithmName, key }) => {
         return (
           <Menu.Item
             key={key}
-            onClick={() => {
-              setAlgorithm(algorithmName);
-              setVisualizerAlgorithm(algorithmName);
-              if (isInMidstOfSort && algorithm !== algorithmName) {
-                setIsInMidstOfSort();
-                setData();
-                setIsReplay();
-              }
-            }}
+            onClick={() => handleMenuClick(algorithmName)}
             style={{ color: '#8789B5' }}
           >
             {algorithmName}
