@@ -1,19 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-import { generateArray } from '../../../../../utils/VisualizerUtil';
-const AlgorithmChooser = () => {
-  const {
-    dataSize,
-    isPlay,
-    isInMidstOfSort,
-    setIsReplay,
-    setIsInMidstOfSort,
-    setVisualizerAlgorithm,
-    setArrayData,
-  } = useContext(VisualizerStateContext);
+
+const AlgorithmChooser = ({ setVisualizerAlgorithm }) => {
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
   const listOfAlgorithm = [
     { algorithmName: 'Bucket Sort', key: '0' },
@@ -28,23 +18,16 @@ const AlgorithmChooser = () => {
     { algorithmName: 'Shell Sort', key: '9' },
   ];
 
-  const handleMenuClick = (algorithmName) => {
-    setAlgorithm(algorithmName);
-    setVisualizerAlgorithm(algorithmName);
-    if (isInMidstOfSort && algorithm !== algorithmName) {
-      setIsInMidstOfSort(false);
-      setArrayData(generateArray(dataSize));
-      setIsReplay(false);
-    }
-  };
-
   const menu = (
     <Menu>
       {listOfAlgorithm.map(({ algorithmName, key }) => {
         return (
           <Menu.Item
             key={key}
-            onClick={() => handleMenuClick(algorithmName)}
+            onClick={() => {
+              setAlgorithm(algorithmName);
+              setVisualizerAlgorithm(algorithmName);
+            }}
             style={{ color: '#8789B5' }}
           >
             {algorithmName}
@@ -56,11 +39,11 @@ const AlgorithmChooser = () => {
 
   return (
     <div style={{ transform: 'translateY(30px)' }}>
-      <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'} disabled={isPlay}>
+      <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'}>
         <a
           className="ant-dropdown-link"
           onClick={(e) => e.preventDefault()}
-          style={{ color: '#8789B5', fontSize: 17 }}
+          style={{ color: '#8789B5', fontSize: 15 }}
         >
           {algorithm}
           <DownOutlined style={{ transform: 'translateX(5px)' }} />
