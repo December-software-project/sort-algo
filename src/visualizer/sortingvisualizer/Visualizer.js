@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import insertionSort from '../algorithm/insertionSort';
 import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
-import PlayBackButton from './component/button/playbackbutton/PlaybackButton';
+import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
 import SectionHeader from './component/header/SectionHeader';
 import AlgorithmSelector from './component/selectors/algorithmselector/AlgorithmSelector';
@@ -78,7 +78,7 @@ const Visualizer = () => {
             />
           </div>
           <div className="button-box">
-            <PlayBackButton
+            <ThreeStateButton
               onClick={() => {
                 setIsPlay(!isPlay);
                 setIsInMidstOfSort(true);
