@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import insertionSort from '../algorithm/insertionSort';
-import { generateArray } from './component/block/data';
 import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 import PlayBackButton from './component/button/playbackbutton/PlaybackButton';
 import Legend from './component/legend/Legend';
@@ -11,10 +10,13 @@ import DataSizeSelector from './component/selectors/sliderselector/SliderSelecto
 import './styles.css';
 import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
-import { getAnimationArr, resetArray, swap } from '../../utils/VisualizerUtil';
+import { getAnimationArr, resetArray, swap, generateArray } from '../../utils/VisualizerUtil';
+import ResetButton from './component/button/resetbutton/ResetButton';
 
 const Visualizer = () => {
+  // 3 states - play, pause, reset
   const [isPlay, setIsPlay] = useState(false);
+  const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(10);
   const [arrayData, setArrayData] = useState(generateArray(dataSize));
@@ -30,14 +32,19 @@ const Visualizer = () => {
         )
       );
     }
-  }, [isPlay, speed, dataSize, algorithm]);
+  }, [isPlay, speed, dataSize, algorithm, arrayData]);
 
   return (
     <>
-      <div className="visualizer" id = 'visualizer'>
+      <div className="visualizer" id="visualizer">
         <div className="visualizer-header-box">
-          <SectionHeader name={"Visualizer"} />
-          <AlgorithmSelector setVisualizerAlgorithm={(algo) => setAlgorithm(algo)} />
+          <SectionHeader name="Visualizer" />
+          <AlgorithmSelector
+            setVisualizerAlgorithm={(algo) => setAlgorithm(algo)}
+            isInMidstOfSort={isInMidstOfSort}
+            setIsInMidstOfSort={() => setIsInMidstOfSort(false)}
+            setData={() => setArrayData(generateArray(dataSize))}
+          />
         </div>
         <div className="visualizer-box">
           <AnimationScreen
@@ -71,7 +78,20 @@ const Visualizer = () => {
             />
           </div>
           <div className="button-box">
-            <PlayBackButton onClick={() => setIsPlay(!isPlay)} isPlay={isPlay} />
+            <PlayBackButton
+              onClick={() => {
+                setIsPlay(!isPlay);
+                setIsInMidstOfSort(true);
+              }}
+              isPlay={isPlay}
+            />
+            <ResetButton
+              onClick={() => {
+                setArrayData(generateArray(dataSize));
+                setIsInMidstOfSort(false);
+              }}
+              isPlay={isPlay}
+            />
           </div>
           <div className="legend-box">
             <Legend />

@@ -3,7 +3,12 @@ import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
-const AlgorithmChooser = ({ setVisualizerAlgorithm }) => {
+const AlgorithmChooser = ({
+  setVisualizerAlgorithm,
+  isInMidstOfSort,
+  setIsInMidstOfSort,
+  setData,
+}) => {
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
   const listOfAlgorithm = [
     { algorithmName: 'Bucket Sort', key: '0' },
@@ -27,6 +32,10 @@ const AlgorithmChooser = ({ setVisualizerAlgorithm }) => {
             onClick={() => {
               setAlgorithm(algorithmName);
               setVisualizerAlgorithm(algorithmName);
+              if (isInMidstOfSort && algorithm !== algorithmName) {
+                setIsInMidstOfSort();
+                setData();
+              }
             }}
             style={{ color: '#8789B5' }}
           >
@@ -43,7 +52,7 @@ const AlgorithmChooser = ({ setVisualizerAlgorithm }) => {
         <a
           className="ant-dropdown-link"
           onClick={(e) => e.preventDefault()}
-          style={{ color: '#8789B5', fontSize: 15 }}
+          style={{ color: '#8789B5', fontSize: 17 }}
         >
           {algorithm}
           <DownOutlined style={{ transform: 'translateX(5px)' }} />

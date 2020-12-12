@@ -17,6 +17,7 @@ const AnimationScreen = ({
   const length = referenceArray.length;
   useEffect(() => {
     setReferenceArray(dataArray);
+    setIdx(0);
   }, [dataArray]);
   useEffect(() => {
     if (isPlay && idx < animationArr.length) {
