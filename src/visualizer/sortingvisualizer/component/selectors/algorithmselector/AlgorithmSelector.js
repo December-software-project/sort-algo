@@ -8,6 +8,8 @@ const AlgorithmChooser = ({
   isInMidstOfSort,
   setIsInMidstOfSort,
   setData,
+  isPlay,
+  setIsReplay,
 }) => {
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
   const listOfAlgorithm = [
@@ -35,6 +37,7 @@ const AlgorithmChooser = ({
               if (isInMidstOfSort && algorithm !== algorithmName) {
                 setIsInMidstOfSort();
                 setData();
+                setIsReplay();
               }
             }}
             style={{ color: '#8789B5' }}
@@ -48,7 +51,7 @@ const AlgorithmChooser = ({
 
   return (
     <div style={{ transform: 'translateY(30px)' }}>
-      <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'}>
+      <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'} disabled={isPlay}>
         <a
           className="ant-dropdown-link"
           onClick={(e) => e.preventDefault()}

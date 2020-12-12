@@ -14,8 +14,8 @@ import { getAnimationArr, resetArray, swap, generateArray } from '../../utils/Vi
 import ResetButton from './component/button/resetbutton/ResetButton';
 
 const Visualizer = () => {
-  // 3 states - play, pause, reset
   const [isPlay, setIsPlay] = useState(false);
+  const [isReplay, setIsReplay] = useState(false);
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(10);
@@ -44,6 +44,8 @@ const Visualizer = () => {
             isInMidstOfSort={isInMidstOfSort}
             setIsInMidstOfSort={() => setIsInMidstOfSort(false)}
             setData={() => setArrayData(generateArray(dataSize))}
+            isPlay={isPlay}
+            setIsReplay={() => setIsReplay(false)}
           />
         </div>
         <div className="visualizer-box">
@@ -55,6 +57,8 @@ const Visualizer = () => {
             setIsPlay={() => setIsPlay(!isPlay)}
             resetArray={(arr) => resetArray(arr)}
             speed={speed}
+            setIsReplay={() => setIsReplay(true)}
+            isReplay={isReplay}
           />
         </div>
         <div className="controller-box">
@@ -70,6 +74,7 @@ const Visualizer = () => {
               setData={(val) => {
                 setDataSize(val);
                 setArrayData(generateArray(val));
+                setIsReplay(false);
               }}
               min={5}
               max={15}
@@ -80,10 +85,16 @@ const Visualizer = () => {
           <div className="button-box">
             <ThreeStateButton
               onClick={() => {
-                setIsPlay(!isPlay);
+                if (isReplay) {
+                  setIsReplay(false);
+                  setTimeout(() => setIsPlay(true), 300);
+                } else {
+                  setIsPlay(!isPlay);
+                }
                 setIsInMidstOfSort(true);
               }}
               isPlay={isPlay}
+              isReplay={isReplay}
             />
             <ResetButton
               onClick={() => {
@@ -91,6 +102,7 @@ const Visualizer = () => {
                 setIsInMidstOfSort(false);
               }}
               isPlay={isPlay}
+              setIsReplay={() => setIsReplay(false)}
             />
           </div>
           <div className="legend-box">

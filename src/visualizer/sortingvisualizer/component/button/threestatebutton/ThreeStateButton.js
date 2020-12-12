@@ -4,10 +4,10 @@ import PlayButton from './PlayButton';
 import PauseButton from './PauseButton';
 import ReplayButton from './ReplayButton';
 
-const ThreeStateButton = ({ onClick, isPlay }) => {
+const ThreeStateButton = ({ onClick, isPlay, isReplay }) => {
   return (
     <button className="button-holder" onClick={onClick}>
-      {isPlay ? <PauseButton /> : <PlayButton />}
+      {isReplay ? <ReplayButton /> : isPlay ? <PauseButton /> : <PlayButton />}
     </button>
   );
 };

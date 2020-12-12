@@ -11,23 +11,28 @@ const AnimationScreen = ({
   setIsPlay,
   resetArray,
   speed,
+  setIsReplay,
+  isReplay,
 }) => {
   const [referenceArray, setReferenceArray] = useState(dataArray);
   const [idx, setIdx] = useState(0);
   const length = referenceArray.length;
   useEffect(() => {
-    setReferenceArray(dataArray);
-    setIdx(0);
-  }, [dataArray]);
+    if (!isReplay && !isPlay) {
+      setReferenceArray(dataArray);
+      setIdx(0);
+    }
+  }, [dataArray, isReplay]);
   useEffect(() => {
-    if (isPlay && idx < animationArr.length) {
+    if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {
         let temp = animationArr[idx];
         setReferenceArray(swap(temp[0], temp[1], referenceArray));
         setIdx(idx + 1);
       }, 800 / speed);
-    } else if (isPlay) {
+    } else if (!isReplay && isPlay) {
       setIsPlay(!isPlay);
+      setIsReplay();
       resetArray(dataArray);
       setIdx(0);
     }
