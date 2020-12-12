@@ -1,6 +1,6 @@
 // Explanation adapted from CLRS Introduction to Algorithms textbook.
-const BubbleSort = {
-  name: 'Bubble',
+const BucketSort = {
+  name: 'Bucket',
   description:
     'Bucket sort assumes that the input is drawn from a uniform distribution of [0, 1). ' +
     'The interval [0, 1) is divided into n equal-sized sub-intervals (buckets). Then, the input' +
@@ -20,4 +20,4 @@ const BubbleSort = {
   inPlace: false,
 };
 
-export default BubbleSort;
+export default BucketSort;
