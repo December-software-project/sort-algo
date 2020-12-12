@@ -19,7 +19,7 @@ const BubbleSort = {
     '            break;\n' +
     '        }\n' +
     '    }\n' +
-    '}',
+    '}\n',
   JavaScript:
     'function bubbleSort(arr) {\n' +
     '  for (let i = arr.length - 1; i >= 0; i--) {\n' +
@@ -35,9 +35,9 @@ const BubbleSort = {
     '    }\n' +
     '  }\n' +
     '  return arr;\n' +
-    '}',
+    '}\n',
   Python:
-    'def bubbleSort(arr):\n' +
+    'def bubble_sort(arr):\n' +
     '    for i in range(len(arr) - 1, 0, -1):\n' +
     '        swapped = True\n' +
     '        for j in range(0, i):\n' +
@@ -45,7 +45,7 @@ const BubbleSort = {
     '                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n' +
     '                swapped = False\n' +
     '        if swapped:\n' +
-    '            break',
+    '            break\n',
   'C/C++':
     'void swap(int *a, int *b)\n' +
     '{\n' +
@@ -72,7 +72,7 @@ const BubbleSort = {
     '            break;\n' +
     '        }\n' +
     '    }\n' +
-    '}',
+    '}\n',
 };
 
 export default BubbleSort;
