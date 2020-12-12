@@ -20,6 +20,7 @@ import {
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
 const Visualizer = () => {
+  // isPlay and isReplay simulate the 3 states
   const [isPlay, setIsPlay] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
