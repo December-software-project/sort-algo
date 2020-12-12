@@ -1,0 +1,7 @@
+.contactus {
+  display: flex;
+  background: white;
+  height: 100vh;
+  justify-content: center;
+  padding-top: 100px;
+}

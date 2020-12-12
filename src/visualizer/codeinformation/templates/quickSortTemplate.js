@@ -1,5 +1,4 @@
 //Code adapted from https://www.geeksforgeeks.org/quick-sort/
-// todo quicksort
 const QuickSort = {
   Java:
     'void swap(int[] arr, int i, int j) {\n' +
@@ -74,11 +73,11 @@ const QuickSort = {
     '            low = pi + 1;\n' +
     '        else:\n' +
     '            quickSort(arr, pi + 1, high);\n' +
-    '            high = pi - 1;\n\n',
+    '            high = pi - 1;\n',
   'C/C++':
     'void swap(int* a, int* b)\n' +
     '{\n' +
-    '    int t = *a;\n' +
+    '    int temp = *a;\n' +
     '    *a = *b;\n' +
     '    *b = t;\n' +
     '}\n\n' +

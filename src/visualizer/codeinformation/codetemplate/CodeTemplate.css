@@ -7,7 +7,8 @@
 
 .editor {
   background-color: #F1F5FD;
-  border: 1px solid #5467FF;
+  border: 1px solid #5E9BD1;
+  border-top: 3px solid #F1F5FD;
   box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
   height: 100% !important;
   width: 100% !important;

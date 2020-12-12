@@ -1,0 +1,15 @@
+.about-header > span {
+  align-items: center;
+  color: #5467FF;
+  display: flex;
+  font-family: 'Open Sans', serif;
+  font-size: 34px;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.about-header-line {
+  background-color: #A5AEFC;
+  height: 2px;
+  width: 70%;
+}
