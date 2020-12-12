@@ -47,7 +47,7 @@ const BucketSort = {
     '\n' +
     '  let index = 0;\n' +
     '  for (let i = 0; i < totalSlots; i++) {\n' +
-    '    for (j = 0; j < buckets[i].length; j++) {\n' +
+    '    for (let j = 0; j < buckets[i].length; j++) {\n' +
     '      arr[index] = buckets[i][j];\n' +
     '      index += 1;\n' +
     '    }\n' +
@@ -63,7 +63,6 @@ const BucketSort = {
     '\n' +
     '    for item in arr:\n' +
     '        bucket_idx = int(total_slots * item)\n' +
-    '        print(bucket_idx)\n' +
     '        buckets[bucket_idx].append(item)\n' +
     '\n' +
     '    for bucket in buckets:\n' +
