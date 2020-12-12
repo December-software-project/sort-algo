@@ -61,7 +61,6 @@ const Visualizer = () => {
     setArrayData: (val) => setArrayData(val),
   };
 
-
   /**
    * The method can be abstract from util instead, i will comment this out first
    */
