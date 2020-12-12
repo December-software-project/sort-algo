@@ -33,10 +33,10 @@ const Visualizer = () => {
   }, [isPlay, speed, dataSize, algorithm]);
 
   return (
-    <>
-      <div className="visualizer" id = 'visualizer'>
+    <div id="visualizer">
+      <div className="visualizer">
         <div className="visualizer-header-box">
-          <SectionHeader name={"Visualizer"} />
+          <SectionHeader name={'Visualizer'} />
           <AlgorithmSelector setVisualizerAlgorithm={(algo) => setAlgorithm(algo)} />
         </div>
         <div className="visualizer-box">
@@ -82,7 +82,7 @@ const Visualizer = () => {
         <CodeExplanation algo={algorithm} />
         <CodeTemplate algo={algorithm} />
       </div>
-    </>
+    </div>
   );
 };
 
