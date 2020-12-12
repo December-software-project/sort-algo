@@ -61,6 +61,63 @@ const Visualizer = () => {
     setArrayData: (val) => setArrayData(val),
   };
 
+  const animation = () => {
+    if (
+      algorithm === 'Bucket Sort' ||
+      algorithm === 'Counting Sort' ||
+      algorithm === 'Radix Sort'
+    ) {
+    } else {
+      return (
+        <AnimationScreen
+          dataArray={arrayData}
+          animationArr={animationArr}
+          swap={(firstIdx, secondIdx, arr) => swap(firstIdx, secondIdx, arr)}
+          isPlay={isPlay}
+          setIsPlay={() => setIsPlay(!isPlay)}
+          resetArray={(arr) => resetArray(arr)}
+          speed={speed}
+        />
+      );
+    }
+  };
+
+  return (
+    <div id="visualizer">
+      <div className="visualizer">
+        <div className="visualizer-header-box">
+          <SectionHeader name={'Visualizer'} />
+          <AlgorithmSelector setVisualizerAlgorithm={(algo) => setAlgorithm(algo)} />
+        </div>
+        <div className="visualizer-box">{animation()}</div>
+        <div className="controller-box">
+          <div className="speed-selector-box">
+            <SpeedSelector
+              setData={(val) => setSpeed(val)}
+              min={1}
+              max={10}
+              name={'Speed'}
+              isPlay={isPlay}
+            />
+            <DataSizeSelector
+              setData={(val) => {
+                setDataSize(val);
+                setArrayData(generateArray(val));
+              }}
+              min={5}
+              max={15}
+              name={'Size'}
+              isPlay={isPlay}
+            />
+          </div>
+          <div className="button-box">
+            <PlayBackButton onClick={() => setIsPlay(!isPlay)} isPlay={isPlay} />
+          </div>
+          <div className="legend-box">
+            <Legend />
+          </div>
+        </div>
+      </div>
   return (
     <>
       <VisualizerStateContext.Provider value={{ ...value }}>
@@ -91,7 +148,7 @@ const Visualizer = () => {
         <CodeExplanation algo={visualizerAlgorithm} />
         <CodeTemplate algo={visualizerAlgorithm} />
       </div>
-    </>
+    </div>
   );
 };
 export { VisualizerStateContext };
