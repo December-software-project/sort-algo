@@ -13,6 +13,7 @@
 .main p {
   color: #8789B5;
   font-size: 16px;
+  margin-bottom: 2em;
 }
 
 .explanationPara {
@@ -26,13 +27,14 @@
 
 .performance p {
   font-size: 15px;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.5em;
 }
 
 .rowContainerOne {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 1.5em;
 }
 
 .text {
@@ -47,9 +49,9 @@
 
 .complexity p {
   background-color: #5467FF;
-  border: 7px solid #5467FF;
+  border: 5px solid #5467FF;
   border-radius: 20px;
-  box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.2);
+  /*box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);*/
   color: #f2f2f2;
   font-family: 'Open Sans Semibold', sans-serif;
   letter-spacing: 1.3px;
@@ -66,8 +68,4 @@
 .rowContainerTwo div {
   min-width: 100px;
   text-align: center;
-}
-
-.rowContainerTwo > div > p {
-  margin-bottom: 5%;
 }

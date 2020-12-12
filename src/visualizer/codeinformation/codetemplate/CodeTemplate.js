@@ -50,9 +50,11 @@ const CodeTemplate = ({ algo }) => {
         mode={getMode()}
         theme="chrome"
         fontSize={14}
+        name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}
         value={template[selected]}
         readOnly={true}
+        showPrintMargin={false}
       />
     </div>
   );
