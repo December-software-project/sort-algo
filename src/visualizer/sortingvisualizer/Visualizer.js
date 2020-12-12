@@ -32,6 +32,28 @@ const Visualizer = () => {
     }
   }, [isPlay, speed, dataSize, algorithm]);
 
+  const animation = () => {
+    if (
+      algorithm === 'Bucket Sort' ||
+      algorithm === 'Counting Sort' ||
+      algorithm === 'Radix Sort'
+    ) {
+
+    } else {
+      return (
+        <AnimationScreen
+          dataArray={arrayData}
+          animationArr={animationArr}
+          swap={(firstIdx, secondIdx, arr) => swap(firstIdx, secondIdx, arr)}
+          isPlay={isPlay}
+          setIsPlay={() => setIsPlay(!isPlay)}
+          resetArray={(arr) => resetArray(arr)}
+          speed={speed}
+        />
+      )
+    }
+  };
+
   return (
     <div id="visualizer">
       <div className="visualizer">
@@ -40,15 +62,7 @@ const Visualizer = () => {
           <AlgorithmSelector setVisualizerAlgorithm={(algo) => setAlgorithm(algo)} />
         </div>
         <div className="visualizer-box">
-          <AnimationScreen
-            dataArray={arrayData}
-            animationArr={animationArr}
-            swap={(firstIdx, secondIdx, arr) => swap(firstIdx, secondIdx, arr)}
-            isPlay={isPlay}
-            setIsPlay={() => setIsPlay(!isPlay)}
-            resetArray={(arr) => resetArray(arr)}
-            speed={speed}
-          />
+          {animation()}
         </div>
         <div className="controller-box">
           <div className="speed-selector-box">

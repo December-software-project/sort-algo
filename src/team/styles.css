@@ -4,8 +4,8 @@
   flex: 1;
   flex-direction: column;
   height: 100%;
-  margin-top: 4%;
   width: 100%;
+  padding-top: 8%;
 }
 
 .container {
