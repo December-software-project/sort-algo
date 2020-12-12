@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
-import { swap } from '../../../../utils/VisualizerUtil';
+import { swap, resetArray } from '../../../../utils/VisualizerUtil';
 import './styles.css';
 
 const AnimationScreen = ({
@@ -9,7 +9,6 @@ const AnimationScreen = ({
   animationArr,
   isPlay,
   setIsPlay,
-  resetArray,
   speed,
   setIsReplay,
   isReplay,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import insertionSort from '../algorithm/insertionSort';
 import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
@@ -10,8 +10,12 @@ import DataSizeSelector from './component/selectors/sliderselector/SliderSelecto
 import './styles.css';
 import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
-import { getAnimationArr, resetArray, swap, generateArray } from '../../utils/VisualizerUtil';
+import { getAnimationArr, generateArray } from '../../utils/VisualizerUtil';
 import ResetButton from './component/button/resetbutton/ResetButton';
+import {
+  SpeedSelectorProps,
+  DataSizeSelectorProps,
+} from './component/selectors/sliderselector/SelectorProps';
 
 const Visualizer = () => {
   const [isPlay, setIsPlay] = useState(false);
@@ -34,6 +38,30 @@ const Visualizer = () => {
     }
   }, [isPlay, speed, dataSize, algorithm, arrayData]);
 
+  const handleThreeStateButtonClick = () => {
+    if (isReplay) {
+      setIsReplay(false);
+      setTimeout(() => setIsPlay(true), 300);
+    } else {
+      setIsPlay(!isPlay);
+    }
+    setIsInMidstOfSort(true);
+  };
+
+  const handleResetButtonClick = () => {
+    if (!isPlay) {
+      setArrayData(generateArray(dataSize));
+      setIsInMidstOfSort(false);
+    }
+    setIsReplay(false);
+  };
+
+  const changeDataSize = (val) => {
+    setDataSize(val);
+    setArrayData(generateArray(val));
+    setIsReplay(false);
+  };
+
   return (
     <>
       <div className="visualizer" id="visualizer">
@@ -54,7 +82,6 @@ const Visualizer = () => {
             animationArr={animationArr}
             isPlay={isPlay}
             setIsPlay={() => setIsPlay(!isPlay)}
-            resetArray={(arr) => resetArray(arr)}
             speed={speed}
             setIsReplay={() => setIsReplay(true)}
             isReplay={isReplay}
@@ -64,45 +91,22 @@ const Visualizer = () => {
           <div className="speed-selector-box">
             <SpeedSelector
               setData={(val) => setSpeed(val)}
-              min={1}
-              max={10}
-              name={'Speed'}
               isPlay={isPlay}
+              {...SpeedSelectorProps}
             />
             <DataSizeSelector
-              setData={(val) => {
-                setDataSize(val);
-                setArrayData(generateArray(val));
-                setIsReplay(false);
-              }}
-              min={5}
-              max={15}
-              name={'Size'}
+              setData={(val) => changeDataSize(val)}
               isPlay={isPlay}
+              {...DataSizeSelectorProps}
             />
           </div>
           <div className="button-box">
             <ThreeStateButton
-              onClick={() => {
-                if (isReplay) {
-                  setIsReplay(false);
-                  setTimeout(() => setIsPlay(true), 300);
-                } else {
-                  setIsPlay(!isPlay);
-                }
-                setIsInMidstOfSort(true);
-              }}
+              onClick={() => handleThreeStateButtonClick()}
               isPlay={isPlay}
               isReplay={isReplay}
             />
-            <ResetButton
-              onClick={() => {
-                setArrayData(generateArray(dataSize));
-                setIsInMidstOfSort(false);
-              }}
-              isPlay={isPlay}
-              setIsReplay={() => setIsReplay(false)}
-            />
+            <ResetButton onClick={() => handleResetButtonClick()} isPlay={isPlay} />
           </div>
           <div className="legend-box">
             <Legend />
