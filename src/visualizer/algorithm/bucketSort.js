@@ -25,6 +25,6 @@ const bucketSort = (arr) => {
       index += 1;
     }
   }
-}
+};
 
 export default bucketSort;
