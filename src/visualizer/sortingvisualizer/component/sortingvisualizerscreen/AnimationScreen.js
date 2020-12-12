@@ -1,38 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
+import { swap, resetArray } from '../../../../utils/VisualizerUtil';
 import './styles.css';
+import { VisualizerStateContext } from '../../Visualizer';
 
-const AnimationScreen = ({
-  dataArray,
-  animationArr,
-  swap,
-  isPlay,
-  setIsPlay,
-  resetArray,
-  speed,
-}) => {
-  const [referenceArray, setReferenceArray] = useState(dataArray);
+const AnimationScreen = () => {
+  const { isPlay, isReplay, speed, arrayData, animationArr, setIsReplay, setIsPlay } = useContext(
+    VisualizerStateContext
+  );
+  const [referenceArray, setReferenceArray] = useState(arrayData);
   const [idx, setIdx] = useState(0);
   const length = referenceArray.length;
+  let xDirection = 0;
+
   useEffect(() => {
-    setReferenceArray(dataArray);
-  }, [dataArray]);
-  useEffect(() => {
-    if (isPlay && idx < animationArr.length) {
-      setTimeout(() => {
-        let temp = animationArr[idx];
-        setReferenceArray(swap(temp[0], temp[1], referenceArray));
-        setIdx(idx + 1);
-      }, 800 / speed);
-    } else if (isPlay) {
-      setIsPlay(!isPlay);
-      resetArray(dataArray);
+    /**
+     * This is for replay, reset button or any changes to data size or algorithm.
+     */
+    if (!isReplay && !isPlay) {
+      setReferenceArray(arrayData);
       setIdx(0);
+    }
+  }, [arrayData, isReplay]);
+
+  /**
+   * This is the loop animation and ending of animation screen.
+   * If block is to do the loop animation.
+   * Else Block is to change the state into replay.
+   */
+  useEffect(() => {
+    if (!isReplay && isPlay && idx < animationArr.length) {
+      executeSwapAnimation();
+    } else if (!isReplay && isPlay) {
+      resetDataWhenAnimationFinish();
     }
   }, [isPlay, idx]);
 
-  let xDirection = 0;
+  const executeSwapAnimation = () =>
+    setTimeout(() => {
+      let temp = animationArr[idx];
+      setReferenceArray(swap(temp[0], temp[1], referenceArray));
+      setIdx(idx + 1);
+    }, 800 / speed);
+
+  const resetDataWhenAnimationFinish = () => {
+    setIsPlay(!isPlay);
+    setIsReplay(true);
+    resetArray(arrayData);
+    setIdx(0);
+  };
+
   const transitions = useTransition(
     referenceArray.map((data) => ({ ...data, x: (xDirection += 10) - 10 })),
     (d) => d.id,

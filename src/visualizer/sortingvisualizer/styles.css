@@ -9,10 +9,12 @@
 .controller-box {
   align-items: center;
   display: flex;
-  flex: 1;
+  flex: 2;
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  min-height: 275px;
+  flex-grow: 0;
 }
 
 .visualizer-header-box {
@@ -27,9 +29,11 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 550px;
+  max-height: 625px;
+  min-height: 625px;
   justify-content: center;
   width: 100%;
+  flex-grow: 0;
 }
 
 .speed-selector-box {
@@ -42,7 +46,8 @@
 .button-box {
   display: flex;
   flex: 3;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .legend-box {
