@@ -54,9 +54,9 @@ const BubbleSort = {
     '    *b = temp;\n' +
     '}\n' +
     '\n' +
-    'void bubbleSort(int arr[], int size)\n' +
+    'void bubbleSort(int arr[], int len)\n' +
     '{\n' +
-    '    for (int i = size - 1; i >= 0; i--)\n' +
+    '    for (int i = len - 1; i >= 0; i--)\n' +
     '    {\n' +
     '        bool swapped = true;\n' +
     '        for (int j = 0; j < i; j++)\n' +
