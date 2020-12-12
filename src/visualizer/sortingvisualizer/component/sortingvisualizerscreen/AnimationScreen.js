@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
+import { swap } from '../../../../utils/VisualizerUtil';
 import './styles.css';
 
 const AnimationScreen = ({
   dataArray,
   animationArr,
-  swap,
   isPlay,
   setIsPlay,
   resetArray,
@@ -17,12 +17,22 @@ const AnimationScreen = ({
   const [referenceArray, setReferenceArray] = useState(dataArray);
   const [idx, setIdx] = useState(0);
   const length = referenceArray.length;
+
   useEffect(() => {
+    /**
+     * This is for replay, reset button or any changes to data size or algorithm.
+     */
     if (!isReplay && !isPlay) {
       setReferenceArray(dataArray);
       setIdx(0);
     }
   }, [dataArray, isReplay]);
+
+  /**
+   * This is the loop animation and ending of animation screen.
+   * If block is to do the loop animation.
+   * Else Block is to change the state into replay.
+   */
   useEffect(() => {
     if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {

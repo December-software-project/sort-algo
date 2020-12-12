@@ -52,7 +52,6 @@ const Visualizer = () => {
           <AnimationScreen
             dataArray={arrayData}
             animationArr={animationArr}
-            swap={(firstIdx, secondIdx, arr) => swap(firstIdx, secondIdx, arr)}
             isPlay={isPlay}
             setIsPlay={() => setIsPlay(!isPlay)}
             resetArray={(arr) => resetArray(arr)}

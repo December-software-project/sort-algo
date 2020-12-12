@@ -15,10 +15,8 @@ const SliderSelector = ({ setData, min, max, name, isPlay }) => {
         defaultValue={Math.floor((min + max) / 2)}
         min={min}
         max={max}
-        onChange={(val) => {
-          setSliderData(val);
-          setData(val);
-        }}
+        onChange={(val) => setSliderData(val)}
+        onAfterChange={() => setData(sliderData)}
         disabled={isPlay}
       />
     </div>
