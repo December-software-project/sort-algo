@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import insertionSort from '../algorithm/insertionSort';
-import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
 import SectionHeader from './component/header/SectionHeader';
@@ -10,7 +9,7 @@ import DataSizeSelector from './component/selectors/sliderselector/SliderSelecto
 import './styles.css';
 import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
-import { getAnimationArr, generateArray } from '../../utils/VisualizerUtil';
+import { getAnimationArr, generateArray, getAnimation } from './util/VisualizerUtil';
 import ResetButton from './component/button/resetbutton/ResetButton';
 import {
   SpeedSelectorProps,
@@ -61,30 +60,6 @@ const Visualizer = () => {
     setArrayData: (val) => setArrayData(val),
   };
 
-  /**
-   * The method can be abstract from util instead, i will comment this out first
-   */
-  // const animation = () => {
-  //   if (
-  //     algorithm === 'Bucket Sort' ||
-  //     algorithm === 'Counting Sort' ||
-  //     algorithm === 'Radix Sort'
-  //   ) {
-  //   } else {
-  //     return (
-  //       <AnimationScreen
-  //         dataArray={arrayData}
-  //         animationArr={animationArr}
-  //         swap={(firstIdx, secondIdx, arr) => swap(firstIdx, secondIdx, arr)}
-  //         isPlay={isPlay}
-  //         setIsPlay={() => setIsPlay(!isPlay)}
-  //         resetArray={(arr) => resetArray(arr)}
-  //         speed={speed}
-  //       />
-  //     );
-  //   }
-  // };
-
   return (
     <div id="visualizer">
       <VisualizerStateContext.Provider value={{ ...value }}>
@@ -93,9 +68,7 @@ const Visualizer = () => {
             <SectionHeader name="Visualizer" />
             <AlgorithmSelector />
           </div>
-          <div className="visualizer-box">
-            <AnimationScreen />
-          </div>
+          <div className="visualizer-box">{getAnimation(visualizerAlgorithm)}</div>
           <div className="controller-box">
             <div className="speed-selector-box">
               <SpeedSelector setData={(val) => setSpeed(val)} {...SpeedSelectorProps} />
@@ -118,5 +91,6 @@ const Visualizer = () => {
     </div>
   );
 };
+
 export { VisualizerStateContext };
 export default Visualizer;

@@ -3,7 +3,7 @@ import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-import { generateArray } from '../../../../../utils/VisualizerUtil';
+import { generateArray } from '../../../util/VisualizerUtil';
 const AlgorithmChooser = () => {
   const {
     dataSize,

@@ -5,7 +5,7 @@ import { swap, resetArray } from '../../util/VisualizerUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 
-const AnimationScreen = () => {
+const BucketAnimationScreen = () => {
   const { isPlay, isReplay, speed, arrayData, animationArr, setIsReplay, setIsPlay } = useContext(
     VisualizerStateContext
   );
@@ -81,4 +81,4 @@ const AnimationScreen = () => {
   );
 };
 
-export default AnimationScreen;
+export default BucketAnimationScreen;

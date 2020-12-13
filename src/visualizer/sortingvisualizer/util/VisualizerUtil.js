@@ -1,4 +1,7 @@
-import SortingAlgorithms from '../visualizer/algorithm/allSorts';
+import SortingAlgorithms from '../../algorithm/allSorts';
+import AnimationScreen
+  from '../component/sortingvisualizerscreen/AnimationScreen';
+import React from 'react';
 
 export const swap = (firstIdx, secondIdx, arr) => {
   let newTempArr = resetArray(arr);
@@ -19,8 +22,8 @@ export const resetArray = (arr) => {
 };
 
 export const getAnimationArr = (algo, arrayData) => {
-  const fn = SortingAlgorithms[algo];
-  return fn(arrayData);
+  const sortAlgo = SortingAlgorithms[algo];
+  return sortAlgo(arrayData);
 };
 
 const generateValue = (min, max) => {
@@ -37,4 +40,19 @@ export const generateArray = (size) => {
     });
   }
   return array;
+};
+
+export const getAnimation = (visualizerAlgorithm) => {
+  if (
+    visualizerAlgorithm === 'Bucket Sort' ||
+    visualizerAlgorithm === 'Counting Sort' ||
+    visualizerAlgorithm === 'Radix Sort'
+  ) {
+    return (<BucketAnimationScreen />);
+  } else {
+    return (
+      <AnimationScreen
+      />
+    );
+  }
 };
