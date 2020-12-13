@@ -11,7 +11,6 @@ const ThreeStateButton = () => {
     setIsPlay,
     setIsInMidstOfSort,
     setAnimationPercentage,
-    idx,
   } = useContext(VisualizerStateContext);
 
   const handleThreeStateButtonClick = () => {
