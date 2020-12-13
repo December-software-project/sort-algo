@@ -13,6 +13,7 @@ const AlgorithmChooser = () => {
     setIsInMidstOfSort,
     setVisualizerAlgorithm,
     setArrayData,
+    setAnimationPercentage,
   } = useContext(VisualizerStateContext);
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
   const listOfAlgorithm = [
@@ -35,6 +36,7 @@ const AlgorithmChooser = () => {
       setIsInMidstOfSort(false);
       setArrayData(generateArray(dataSize));
       setIsReplay(false);
+      setAnimationPercentage(0);
     }
   };
 

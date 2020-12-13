@@ -4,16 +4,22 @@ import { VisualizerStateContext } from '../../../Visualizer';
 import { generateArray } from '../../../../../utils/VisualizerUtil';
 
 const NewDataButton = () => {
-  const { isPlay, dataSize, setArrayData, setIsInMidstOfSort, setIsReplay } = useContext(
-    VisualizerStateContext
-  );
+  const {
+    isPlay,
+    dataSize,
+    setArrayData,
+    setIsInMidstOfSort,
+    setIsReplay,
+    setAnimationPercentage,
+  } = useContext(VisualizerStateContext);
 
   const handleNewDataButtonClick = () => {
     if (!isPlay) {
       setArrayData(generateArray(dataSize));
       setIsInMidstOfSort(false);
+      setAnimationPercentage(0);
+      setIsReplay(false);
     }
-    setIsReplay(false);
   };
 
   return (

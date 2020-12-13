@@ -1,18 +1,23 @@
 import React, { useContext } from 'react';
-import './styles.css';
-import PlayButton from './PlayButton';
-import PauseButton from './PauseButton';
-import ReplayButton from './ReplayButton';
 import { VisualizerStateContext } from '../../../Visualizer';
+import PlayPauseReplayButton from './PlayPauseReplayButton';
+import './styles.css';
 
 const ThreeStateButton = () => {
-  const { isPlay, isReplay, setIsReplay, setIsPlay, setIsInMidstOfSort } = useContext(
-    VisualizerStateContext
-  );
+  const {
+    isPlay,
+    isReplay,
+    setIsReplay,
+    setIsPlay,
+    setIsInMidstOfSort,
+    setAnimationPercentage,
+    idx,
+  } = useContext(VisualizerStateContext);
 
   const handleThreeStateButtonClick = () => {
     if (isReplay) {
       setIsReplay(false);
+      setAnimationPercentage(0);
       setTimeout(() => setIsPlay(true), 300);
     } else {
       setIsPlay(!isPlay);
@@ -21,8 +26,14 @@ const ThreeStateButton = () => {
   };
 
   return (
-    <button className="button-holder" onClick={() => handleThreeStateButtonClick()}>
-      {isReplay ? <ReplayButton /> : isPlay ? <PauseButton /> : <PlayButton />}
+    <button className="three-state-button-holder" onClick={() => handleThreeStateButtonClick()}>
+      {isReplay ? (
+        <PlayPauseReplayButton type="replay" />
+      ) : isPlay ? (
+        <PlayPauseReplayButton type="pause" />
+      ) : (
+        <PlayPauseReplayButton type="play" />
+      )}
     </button>
   );
 };
