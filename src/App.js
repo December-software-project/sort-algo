@@ -5,23 +5,34 @@ import About from './about/About';
 import ContactUs from './contactus/ContactUs';
 import Team from './team/Team';
 import Visualizer from './visualizer/sortingvisualizer/Visualizer';
+import Logo from './component/logo/logo';
 
-function App () {
+function App() {
   return (
-    <div className='app'>
-      <nav className='nav-bar'>
-        <div className='nav-logo'>
-          {/*Add logo here*/}
-          <a href='#about'>SortAlgo</a>
+    <div className="app">
+      <nav className="nav-bar">
+        <div className="nav-logo">
+          <Logo />
+          <a href="#about">SortAlgo</a>
         </div>
-        <ul className='nav-menu'>
-          <li><a className='active' href='#about'>About</a></li>
-          <li><a href='#visualizer'>Visualizer</a></li>
-          <li><a href='#team'>Team</a></li>
-          <li><a href='#contactUs'>Contact Us</a></li>
+        <ul className="nav-menu">
+          <li>
+            <a className="active" href="#about">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#visualizer">Visualizer</a>
+          </li>
+          <li>
+            <a href="#team">Team</a>
+          </li>
+          <li>
+            <a href="#contactUs">Contact Us</a>
+          </li>
         </ul>
       </nav>
-      <div className='app-content'>
+      <div className="app-content">
         <About />
         <Visualizer />
         <Team />

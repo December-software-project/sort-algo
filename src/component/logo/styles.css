@@ -1,0 +1,26 @@
+.logo {
+  width: 36px;
+  height: 40px;
+  justify-content: space-between;
+  margin-right: 6px;
+  align-items: flex-end;
+  display: flex;
+}
+
+.logo-block-one {
+  width: 10px;
+  height: 20px;
+  background: #c5aaf1;
+}
+
+.logo-block-two {
+  width: 10px;
+  height: 30px;
+  background: #b890f5;
+}
+
+.logo-block-three {
+  width: 10px;
+  height: 40px;
+  background: #aa78fa;
+}

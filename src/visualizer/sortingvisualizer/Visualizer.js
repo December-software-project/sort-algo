@@ -4,13 +4,13 @@ import { generateArray } from './component/block/data';
 import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 import PlayBackButton from './component/button/playbackbutton/PlaybackButton';
 import Legend from './component/legend/Legend';
-import SectionHeader from './component/header/SectionHeader';
 import AlgorithmSelector from './component/selectors/algorithmselector/AlgorithmSelector';
 import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
 import './styles.css';
 import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
+import VisualizerHeader from '../../component/header/SectionHeader';
 import { getAnimationArr, resetArray, swap } from '../../utils/VisualizerUtil';
 
 const Visualizer = () => {
@@ -34,9 +34,9 @@ const Visualizer = () => {
 
   return (
     <>
-      <div className="visualizer" id = 'visualizer'>
+      <div className="visualizer" id="visualizer">
         <div className="visualizer-header-box">
-          <SectionHeader name={"Visualizer"} />
+          <VisualizerHeader sectionHeader={'Visualizer'} translateX={'translate(25px)'} />
           <AlgorithmSelector setVisualizerAlgorithm={(algo) => setAlgorithm(algo)} />
         </div>
         <div className="visualizer-box">
