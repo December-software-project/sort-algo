@@ -6,7 +6,7 @@ import './styles.css';
 import { resetArray } from '../../../../../utils/VisualizerUtil';
 
 const BackButton = () => {
-  const { animationPercentage, executeBackwardSwapAnimation, idx, arrayData } = useContext(
+  const { isPlay, animationPercentage, executeBackwardSwapAnimation, idx, arrayData } = useContext(
     VisualizerStateContext
   );
 
@@ -23,8 +23,11 @@ const BackButton = () => {
   return (
     <button
       className="forward-back-button-holder"
-      style={{ transform: 'translateX(-10px)', cursor: isEmpty ? '' : 'pointer' }}
-      onClick={() => handleBackButtonClick()}
+      style={{
+        transform: 'translateX(-10px)',
+        cursor: isEmpty ? '' : isPlay ? 'not-allowed' : 'pointer',
+      }}
+      onClick={() => (isPlay ? () => {} : handleBackButtonClick())}
     >
       <IconContext.Provider
         value={{

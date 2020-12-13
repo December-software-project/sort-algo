@@ -57,7 +57,13 @@ const AlgorithmChooser = () => {
   );
 
   return (
-    <div style={{ transform: 'translateY(30px)' }}>
+    <div
+      style={{
+        transform: 'translateY(30px)',
+        cursor: isPlay ? 'not-allowed' : 'pointer',
+        width: 120,
+      }}
+    >
       <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'} disabled={isPlay}>
         <a
           className="ant-dropdown-link"

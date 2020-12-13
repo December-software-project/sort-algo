@@ -78,8 +78,11 @@ const Visualizer = () => {
 
   // this is an auto shifting to ensure everything stays at the center
   const translateXOfVisualizer = (dataSize) => {
-    let singleBlockWidth = 200 / dataSize;
-    return (dataSize - 12) * singleBlockWidth;
+    if (dataSize > 12) {
+      let singleBlockWidth = 200 / dataSize;
+      return (dataSize - 12) * singleBlockWidth;
+    }
+    return 0;
   };
 
   const value = {

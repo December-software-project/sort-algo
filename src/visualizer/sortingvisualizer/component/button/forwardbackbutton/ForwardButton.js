@@ -6,6 +6,7 @@ import { VisualizerStateContext } from '../../../Visualizer';
 
 const ForwardButton = () => {
   const {
+    isPlay,
     animationPercentage,
     executeForwardSwapAnimation,
     idx,
@@ -28,8 +29,11 @@ const ForwardButton = () => {
   return (
     <button
       className="forward-back-button-holder"
-      style={{ transform: 'translateX(10px)', cursor: isFull ? '' : 'pointer' }}
-      onClick={isFull ? () => {} : () => handleForwardButtonClick()}
+      style={{
+        transform: 'translateX(10px)',
+        cursor: isFull ? '' : isPlay ? 'not-allowed' : 'pointer',
+      }}
+      onClick={isPlay ? () => {} : () => handleForwardButtonClick()}
     >
       <IconContext.Provider
         value={{
