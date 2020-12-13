@@ -17,7 +17,7 @@ const NewDataButton = () => {
   };
 
   return (
-    <div className="reset-box" style={{ cursor: isPlay ? '' : 'pointer' }}>
+    <div className="new-data-box" style={{ cursor: isPlay ? '' : 'pointer' }}>
       <span onClick={() => handleNewDataButtonClick()}>New Data</span>
     </div>
   );
