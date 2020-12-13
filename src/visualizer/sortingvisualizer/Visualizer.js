@@ -28,7 +28,7 @@ const Visualizer = () => {
   const [isReplay, setIsReplay] = useState(false);
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
-  const [dataSize, setDataSize] = useState(10);
+  const [dataSize, setDataSize] = useState(15);
   const [arrayData, setArrayData] = useState(generateArray(dataSize));
   const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Insertion Sort');
   const [animationArr, setAnimationArr] = useState(insertionSort(arrayData.map((x) => x)));
@@ -76,6 +76,12 @@ const Visualizer = () => {
     resetArray(arrayData);
   };
 
+  // this is an auto shifting to ensure everything stays at the center
+  const translateXOfVisualizer = (dataSize) => {
+    let singleBlockWidth = 200 / dataSize;
+    return (dataSize - 12) * singleBlockWidth;
+  };
+
   const value = {
     isPlay: isPlay,
     isReplay: isReplay,
@@ -108,7 +114,10 @@ const Visualizer = () => {
             <SectionHeader name="Visualizer" />
             <AlgorithmSelector />
           </div>
-          <div className="visualizer-box">
+          <div
+            className="visualizer-box"
+            style={{ transform: `translateX(-${translateXOfVisualizer(dataSize)}px)` }}
+          >
             <AnimationScreen />
           </div>
           <AnimationProgressBar />

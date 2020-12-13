@@ -67,3 +67,6 @@
   padding: 0 20px 0;
   transform: translateX(30px);
 }
+#visualizer {
+  width:0;min-width:100%;
+}

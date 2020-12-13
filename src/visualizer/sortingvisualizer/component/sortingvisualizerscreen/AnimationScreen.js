@@ -17,6 +17,7 @@ const AnimationScreen = () => {
     setReferenceArray,
     executeForwardSwapAnimation,
     resetDataWhenAnimationFinish,
+    dataSize,
   } = useContext(VisualizerStateContext);
 
   const length = referenceArray.length;
@@ -70,6 +71,7 @@ const AnimationScreen = () => {
             length={length}
             key={index}
             isSwap={item.isSwap}
+            width={800 / dataSize}
           />
         );
       })}
