@@ -3,12 +3,12 @@ import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
 import { generateArray } from '../../../../../utils/VisualizerUtil';
 
-const ResetButton = () => {
+const NewDataButton = () => {
   const { isPlay, dataSize, setArrayData, setIsInMidstOfSort, setIsReplay } = useContext(
     VisualizerStateContext
   );
 
-  const handleResetButtonClick = () => {
+  const handleNewDataButtonClick = () => {
     if (!isPlay) {
       setArrayData(generateArray(dataSize));
       setIsInMidstOfSort(false);
@@ -18,9 +18,9 @@ const ResetButton = () => {
 
   return (
     <div className="reset-box" style={{ cursor: isPlay ? '' : 'pointer' }}>
-      <span onClick={() => handleResetButtonClick()}>Reset</span>
+      <span onClick={() => handleNewDataButtonClick()}>New Data</span>
     </div>
   );
 };
 
-export default ResetButton;
+export default NewDataButton;

@@ -11,7 +11,7 @@ import './styles.css';
 import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
 import { getAnimationArr, generateArray } from '../../utils/VisualizerUtil';
-import ResetButton from './component/button/resetbutton/ResetButton';
+import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   SpeedSelectorProps,
   DataSizeSelectorProps,
@@ -42,9 +42,11 @@ const Visualizer = () => {
   }, [isPlay, speed, dataSize, visualizerAlgorithm, arrayData]);
 
   const changeDataSize = (val) => {
-    setDataSize(val);
-    setArrayData(generateArray(val));
-    setIsReplay(false);
+    if (val !== dataSize) {
+      setDataSize(val);
+      setArrayData(generateArray(val));
+      setIsReplay(false);
+    }
   };
 
   const value = {
@@ -104,7 +106,7 @@ const Visualizer = () => {
             </div>
             <div className="button-box">
               <ThreeStateButton />
-              <ResetButton />
+              <NewDataButton />
             </div>
             <div className="legend-box">
               <Legend />
