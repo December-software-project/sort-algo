@@ -32,7 +32,7 @@ export const generateArray = (size) => {
   for (let i = 0; i < size; i++) {
     array.push({
       id: i,
-      height: generateValue(100, 200),
+      height: generateValue(5, 20),
       isSwap: false,
     });
   }

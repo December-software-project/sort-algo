@@ -1,16 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
-import { swap, resetArray } from '../../../../utils/VisualizerUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 
 const AnimationScreen = () => {
-  const { isPlay, isReplay, speed, arrayData, animationArr, setIsReplay, setIsPlay } = useContext(
-    VisualizerStateContext
-  );
-  const [referenceArray, setReferenceArray] = useState(arrayData);
-  const [idx, setIdx] = useState(0);
+  const {
+    isPlay,
+    isReplay,
+    arrayData,
+    animationArr,
+    idx,
+    referenceArray,
+    speed,
+    setIdx,
+    setReferenceArray,
+    executeForwardSwapAnimation,
+    resetDataWhenAnimationFinish,
+    dataSize,
+  } = useContext(VisualizerStateContext);
+
   const length = referenceArray.length;
   let xDirection = 0;
 
@@ -31,25 +40,13 @@ const AnimationScreen = () => {
    */
   useEffect(() => {
     if (!isReplay && isPlay && idx < animationArr.length) {
-      executeSwapAnimation();
+      setTimeout(() => {
+        executeForwardSwapAnimation();
+      }, 800 / speed);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish();
     }
   }, [isPlay, idx]);
-
-  const executeSwapAnimation = () =>
-    setTimeout(() => {
-      let temp = animationArr[idx];
-      setReferenceArray(swap(temp[0], temp[1], referenceArray));
-      setIdx(idx + 1);
-    }, 800 / speed);
-
-  const resetDataWhenAnimationFinish = () => {
-    setIsPlay(!isPlay);
-    setIsReplay(true);
-    resetArray(arrayData);
-    setIdx(0);
-  };
 
   const transitions = useTransition(
     referenceArray.map((data) => ({ ...data, x: (xDirection += 10) - 10 })),
@@ -74,6 +71,7 @@ const AnimationScreen = () => {
             length={length}
             key={index}
             isSwap={item.isSwap}
+            width={800 / dataSize}
           />
         );
       })}
