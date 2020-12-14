@@ -7,9 +7,10 @@ import * as yup from 'yup';
 import emailjs from 'emailjs-com';
 
 const Form = () => {
-  const [type, setType] = useState('Type');
+  const [type, setType] = useState('Type (Optional)');
 
   const listOfTypes = [
+    { type: 'Type (Optional)', key: 0 },
     { type: 'Collaboration', key: 1 },
     { type: 'Improvement', key: 2 },
     { type: 'Issue', key: 3 },
