@@ -1,6 +1,6 @@
 const CountingSort = {
   Java:
-    '// Assume that given array only contains digits 0-9\n' +
+    '// Assume given array only contains digits 0-9\n' +
     'void countingSort(int[] arr) {\n' +
     '    int[] countArr = new int[10];\n' +
     '\n' +
@@ -18,7 +18,7 @@ const CountingSort = {
     '    }\n' +
     '}\n',
   JavaScript:
-    '// Assume that given array only contains digits 0-9\n' +
+    '// Assume given array only contains digits 0-9\n' +
     'function countingSort(arr) {\n' +
     '  let countArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];\n' +
     '\n' +
@@ -36,7 +36,7 @@ const CountingSort = {
     '  }\n' +
     '}\n',
   Python:
-    '# Assume that given array only contains digits 0-9\n' +
+    '# Assume given array only contains digits 0-9\n' +
     'def counting_sort(arr):\n' +
     '    count_arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\n' +
     '\n' +
@@ -50,7 +50,7 @@ const CountingSort = {
     '            index += 1\n' +
     '            count_arr[i] -= 1\n',
   'C/C++':
-    '// Assume that given array only contains digits 0-9\n' +
+    '// Assume given array only contains digits 0-9\n' +
     'void countingSort(int arr[], int len)\n' +
     '{\n' +
     '    int countArr[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};\n' +
