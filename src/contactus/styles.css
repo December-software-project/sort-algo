@@ -1,22 +1,24 @@
 .contact-us {
   background: white;
   display: flex;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
   padding-top: 100px;
-  flex-direction: column;
 }
+
 .contact-us-header-box > span {
-  font-family: 'Open Sans', sans-serif;
   color: #8789B5;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   transform: translateY(30px);
 }
+
 .contact-us-header-box {
   align-items: center;
   display: flex;
-  height: 20vh;
   flex-direction: column;
+  height: 20vh;
 }
 
 

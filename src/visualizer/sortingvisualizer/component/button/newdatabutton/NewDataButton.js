@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
-import { generateArray } from '../../../../../utils/VisualizerUtil';
+import { arrayCopy, buckets, generateArray } from '../../../util/VisualizerUtil';
 
 const NewDataButton = () => {
   const {
@@ -11,14 +11,17 @@ const NewDataButton = () => {
     setIsInMidstOfSort,
     setIsReplay,
     setAnimationPercentage,
+    visualizerAlgorithm,
+    setCountArr,
   } = useContext(VisualizerStateContext);
 
   const handleNewDataButtonClick = () => {
     if (!isPlay) {
-      setArrayData(generateArray(dataSize));
+      setArrayData(generateArray(dataSize, visualizerAlgorithm));
       setIsInMidstOfSort(false);
       setAnimationPercentage(0);
       setIsReplay(false);
+      setCountArr(arrayCopy(buckets));
     }
   };
 

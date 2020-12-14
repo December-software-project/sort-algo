@@ -1,6 +1,6 @@
 .form-box {
-  display: block;
   align-items: center;
+  display: block;
   justify-content: center;
 }
 
@@ -11,6 +11,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
+
 input:-webkit-autofill {
   -webkit-text-fill-color: #8789B5 !important;
 }
@@ -36,7 +37,7 @@ input, textarea:focus {
 }
 
 #form-particulars > * {
-  margin: 0px 10px;
+  margin: 0 10px;
 }
 
 .form-particulars {
@@ -46,117 +47,117 @@ input, textarea:focus {
 }
 
 .form-particulars-holder {
-  width: 100%;
-  height: 60px;
+  background-color: #FAFBFF;
   border: 1px solid rgba(166, 175, 251, 1);
   border-radius: 5px;
-  background-color: #FAFBFF;
   display: flex;
   flex-direction: row;
+  height: 60px;
+  width: 100%;
 }
 
-.form-particular-error-holder{
-  width: 15%;
+.form-particular-error-holder {
   height: 60px;
+  width: 15%;
 }
 
 .form-particular-error-holder > span {
-  color: #cc0000;
   align-self: center;
+  color: #cc0000;
   font-family: Nunito, serif;
   font-weight: 500
 }
 
 .form-particulars-holder > input {
-  border-color: transparent;
   background-color: transparent;
-  width: 240px;
-  height: 50px;
+  border-color: transparent;
   border-radius: 5px;
-  transform: translate(4px, 4px);
   color: #8789B5;
   font-family: 'Open Sans', sans-serif;
+  height: 50px;
+  transform: translate(4px, 4px);
+  width: 240px;
 }
 
 .form-particulars-holder > span {
+  align-self: center;
   color: #8789B5;
   font-family: 'Open Sans', sans-serif;
-  align-self: center;
   transform: translateX(4px);
 }
 
 #drop-down-arrow-holder {
-  color: #8789B5;
-  font-size: 17px;
-  width: 15%;
-  height: 60px;
-  display: flex;
   align-items: center;
+  color: #8789B5;
+  display: flex;
+  font-size: 17px;
+  height: 60px;
   justify-content: flex-end;
   position: absolute;
+  width: 15%;
 }
 
 .form-details {
+  align-items: center;
   display: flex;
   flex: 2;
-  width: 100%;
   height: 100%;
-  align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .form-details-holder {
-  width: 100%;
-  height: 100%;
+  background-color: #FAFBFF;
   border: 1px solid rgba(166, 175, 251, 1);
   border-radius: 5px;
-  background-color: #FAFBFF;
+  height: 100%;
+  width: 100%;
 }
 
-.form-details-error-holder{
-  width: 47.25%;
+.form-details-error-holder {
   height: 75%;
+  width: 47.25%;
 }
 
 .form-details-error-holder > span {
-  color: #cc0000;
   align-self: center;
+  color: #cc0000;
   font-family: Nunito, serif;
   font-weight: 500
 }
 
 .form-details-holder > textarea {
-  border-color: transparent;
   background-color: transparent;
-  width: 860px;
-  height: 190px;
+  border-color: transparent;
   border-radius: 5px;
-  transform: translate(6px, 6px);
-  flex-wrap: wrap;
   color: #8789B5;
+  flex-wrap: wrap;
   font-family: 'Open Sans', sans-serif;
+  height: 190px;
   resize: none;
+  transform: translate(6px, 6px);
+  width: 860px;
 }
 
 .form-submit-button-box {
-  width: 100vw;
-  height: 60px;
   display: flex;
+  height: 60px;
   justify-content: center;
+  width: 100vw;
 }
 
 .form-submit-button {
+  align-items: center;
   background-image: linear-gradient(90deg, #7C89F8, #5466FF);
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  display: flex;
   height: 50px;
+  justify-content: center;
   outline: none;
   width: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .form-submit-button > span {
