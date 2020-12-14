@@ -14,6 +14,7 @@ const AlgorithmChooser = () => {
     setIsInMidstOfSort,
     setVisualizerAlgorithm,
     setArrayData,
+    setAnimationPercentage,
     visualizerAlgorithm,
   } = useContext(VisualizerStateContext);
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
@@ -37,6 +38,7 @@ const AlgorithmChooser = () => {
       setIsInMidstOfSort(false);
       setArrayData(generateArray(dataSize, algorithmName));
       setIsReplay(false);
+      setAnimationPercentage(0);
     } else if (isBucketTypeSort(algorithm) ^ isBucketTypeSort(algorithmName)) {
       setArrayData(generateArray(dataSize, algorithmName));
     }
@@ -59,7 +61,13 @@ const AlgorithmChooser = () => {
   );
 
   return (
-    <div style={{ transform: 'translateY(30px)' }}>
+    <div
+      style={{
+        transform: 'translateY(30px)',
+        cursor: isPlay ? 'not-allowed' : 'pointer',
+        width: 120,
+      }}
+    >
       <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'} disabled={isPlay}>
         <a
           className="ant-dropdown-link"

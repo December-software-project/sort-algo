@@ -6,6 +6,6 @@ export const SpeedSelectorProps = {
 
 export const DataSizeSelectorProps = {
   min: 5,
-  max: 15,
+  max: 25,
   name: 'Size',
 };
