@@ -3,6 +3,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  min-height: 100px;
 }
 
 .containerOne {
