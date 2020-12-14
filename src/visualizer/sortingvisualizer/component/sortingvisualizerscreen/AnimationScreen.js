@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
-import { swap, resetArray } from '../../util/VisualizerUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 

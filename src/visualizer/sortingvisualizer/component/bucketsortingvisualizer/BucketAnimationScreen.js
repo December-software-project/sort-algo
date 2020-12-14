@@ -1,17 +1,26 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useTransition } from 'react-spring';
 import SmallBlock from '../smallBlock/SmallBlock';
-import { swap, resetArray } from '../../util/VisualizerUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 import Buckets from './Buckets';
 
 const BucketAnimationScreen = () => {
-  const { isPlay, isReplay, speed, arrayData, animationArr, setIsReplay, setIsPlay } = useContext(
-    VisualizerStateContext
-  );
-  const [referenceArray, setReferenceArray] = useState(arrayData);
-  const [idx, setIdx] = useState(0);
+  const {
+    isPlay,
+    isReplay,
+    arrayData,
+    animationArr,
+    idx,
+    referenceArray,
+    speed,
+    setIdx,
+    setReferenceArray,
+    executeForwardSwapAnimation,
+    resetDataWhenAnimationFinish,
+    dataSize,
+  } = useContext(VisualizerStateContext);
+
   const length = referenceArray.length;
   let xDirection = 0;
 
@@ -32,25 +41,13 @@ const BucketAnimationScreen = () => {
    */
   useEffect(() => {
     if (!isReplay && isPlay && idx < animationArr.length) {
-      executeSwapAnimation();
+      setTimeout(() => {
+        executeForwardSwapAnimation();
+      }, 1200 / speed);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish();
     }
   }, [isPlay, idx]);
-
-  const executeSwapAnimation = () =>
-    setTimeout(() => {
-      let temp = animationArr[idx];
-      setReferenceArray(swap(temp[0], temp[1], referenceArray));
-      setIdx(idx + 1);
-    }, 800 / speed);
-
-  const resetDataWhenAnimationFinish = () => {
-    setIsPlay(!isPlay);
-    setIsReplay(true);
-    resetArray(arrayData);
-    setIdx(0);
-  };
 
   const transitions = useTransition(
     referenceArray.map((data) => ({ ...data, x: (xDirection += 10) - 10 })),
@@ -75,6 +72,7 @@ const BucketAnimationScreen = () => {
               index={index}
               length={length}
               key={index}
+              width={800 / dataSize}
             />
           );
         })}

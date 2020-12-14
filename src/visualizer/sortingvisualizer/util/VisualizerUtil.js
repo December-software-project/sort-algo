@@ -1,6 +1,5 @@
 import SortingAlgorithms from '../../algorithm/allSorts';
-import AnimationScreen
-  from '../component/sortingvisualizerscreen/AnimationScreen';
+import AnimationScreen from '../component/sortingvisualizerscreen/AnimationScreen';
 import React from 'react';
 import BucketAnimationScreen from '../component/bucketsortingvisualizer/BucketAnimationScreen';
 
@@ -32,36 +31,36 @@ const generateValue = (min, max) => {
 };
 
 export const generateArray = (size, visualizerAlgorithm) => {
-  let min = 5;
-  let max = 20;
-  if (isBucketTypeSort(visualizerAlgorithm)) {
-    min = 1;
-    max = 9;
-  }
   let array = [];
-  for (let i = 0; i < size; i++) {
-    array.push({
-      id: i,
-      height: generateValue(min, max),
-      isSwap: false,
-    });
+  if (isBucketTypeSort(visualizerAlgorithm)) {
+    for (let i = 0; i < size; i++) {
+      array.push({
+        id: i,
+        height: generateValue(1, 9),
+        isShown: true,
+      });
+    }
+  } else {
+    for (let i = 0; i < size; i++) {
+      array.push({
+        id: i,
+        height: generateValue(5, 20),
+        isSwap: false,
+      });
+    }
   }
   return array;
 };
 
-export const isBucketTypeSort = (visualizerAlgorithm) => (
+export const isBucketTypeSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Bucket Sort' ||
   visualizerAlgorithm === 'Counting Sort' ||
-  visualizerAlgorithm === 'Radix Sort'
-);
+  visualizerAlgorithm === 'Radix Sort';
 
 export const getAnimation = (visualizerAlgorithm) => {
   if (isBucketTypeSort(visualizerAlgorithm)) {
-    return (<BucketAnimationScreen />);
+    return <BucketAnimationScreen />;
   } else {
-    return (
-      <AnimationScreen
-      />
-    );
+    return <AnimationScreen />;
   }
 };

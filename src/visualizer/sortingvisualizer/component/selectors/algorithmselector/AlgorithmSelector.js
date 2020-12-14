@@ -15,7 +15,6 @@ const AlgorithmChooser = () => {
     setVisualizerAlgorithm,
     setArrayData,
     setAnimationPercentage,
-    visualizerAlgorithm,
   } = useContext(VisualizerStateContext);
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
   const listOfAlgorithm = [
@@ -64,7 +63,7 @@ const AlgorithmChooser = () => {
     <div
       style={{
         transform: 'translateY(30px)',
-        cursor: isPlay ? 'not-allowed' : 'pointer',
+        cursor: 'pointer',
         width: 120,
       }}
     >
@@ -74,7 +73,7 @@ const AlgorithmChooser = () => {
           onClick={(e) => e.preventDefault()}
           style={{ color: '#8789B5', fontSize: 17 }}
         >
-          {visualizerAlgorithm}
+          {algorithm}
           <DownOutlined style={{ transform: 'translateX(5px)' }} />
         </a>
       </Dropdown>

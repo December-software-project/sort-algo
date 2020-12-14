@@ -2,8 +2,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  margin-top: 200px;
+  margin-top: 10%;
   align-items: flex-end;
+  align-self: center;
 }
 
 .fixedArrayContainer {

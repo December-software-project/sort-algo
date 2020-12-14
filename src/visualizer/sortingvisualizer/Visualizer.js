@@ -15,6 +15,7 @@ import {
   getAnimation,
   swap,
   resetArray,
+  isBucketTypeSort,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -40,6 +41,17 @@ const Visualizer = () => {
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
   const [referenceArray, setReferenceArray] = useState(arrayData);
+  const [countArr, setCountArr] = useState([
+    { height: 1, count: 0 },
+    { height: 2, count: 0 },
+    { height: 3, count: 0 },
+    { height: 4, count: 0 },
+    { height: 5, count: 0 },
+    { height: 6, count: 0 },
+    { height: 7, count: 0 },
+    { height: 8, count: 0 },
+    { height: 9, count: 0 },
+  ]);
 
   useEffect(() => {
     if (isPlay === false) {
@@ -50,6 +62,9 @@ const Visualizer = () => {
         )
       );
     }
+    // if (originalArray.length === 0) {
+    //   setOriginalArray(arrayData);
+    // }
   }, [isPlay, speed, dataSize, visualizerAlgorithm, arrayData]);
 
   const changeDataSize = (val) => {
@@ -63,22 +78,54 @@ const Visualizer = () => {
 
   const executeForwardSwapAnimation = () => {
     let animationArrSwapIdx = animationArr[idx];
-    setReferenceArray(swap(animationArrSwapIdx[0], animationArrSwapIdx[1], referenceArray));
+    const animationPx = Math.floor(((idx + 1) / animationArr.length) * 100);
+
+    if (isBucketTypeSort(visualizerAlgorithm)) {
+      const index = animationArrSwapIdx.id;
+      const height = animationArrSwapIdx.height;
+      if (animationPx <= 50) {
+        referenceArray[index].isShown = false;
+        countArr[height - 1].count += 1;
+      } else {
+        referenceArray[index] = animationArrSwapIdx;
+        referenceArray[index].isShown = true;
+        countArr[height - 1].count -= 1;
+      }
+    } else {
+      setReferenceArray(swap(animationArrSwapIdx[0], animationArrSwapIdx[1], referenceArray));
+    }
     setIdx(idx + 1);
-    setAnimationPercentage(Math.floor(((idx + 1) / animationArr.length) * 100));
+    setAnimationPercentage(animationPx);
   };
 
   const executeBackwardSwapAnimation = () => {
     let animationArrSwapIdx = animationArr[idx - 1];
-    setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
+    const animationPx = Math.floor(((idx - 1) / animationArr.length) * 100);
+
+    if (isBucketTypeSort(visualizerAlgorithm)) {
+      const index = animationArrSwapIdx.id;
+      const height = animationArrSwapIdx.height;
+      if (animationPx < 50) {
+        referenceArray[index] = animationArrSwapIdx;
+        referenceArray[index].isShown = true;
+        countArr[height - 1].count -= 1;
+      } else {
+        referenceArray[index].isShown = false;
+        countArr[height - 1].count += 1;
+      }
+    } else {
+      setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
+    }
     setIdx(idx - 1);
-    setAnimationPercentage(Math.floor(((idx - 1) / animationArr.length) * 100));
+    setAnimationPercentage(animationPx);
   };
 
   const resetDataWhenAnimationFinish = () => {
     setIsPlay(false);
     setIsReplay(true);
-    resetArray(arrayData);
+    if (isBucketTypeSort(visualizerAlgorithm)) {
+      resetArray(arrayData);
+    }
   };
 
   // this is an auto shifting to ensure everything stays at the center
@@ -101,6 +148,7 @@ const Visualizer = () => {
     visualizerAlgorithm: visualizerAlgorithm,
     animationPercentage: animationPercentage,
     idx: idx,
+    countArr,
     referenceArray,
     setIsReplay: (val) => setIsReplay(val),
     setIsPlay: (val) => setIsPlay(val),
@@ -118,14 +166,16 @@ const Visualizer = () => {
   return (
     <div id="visualizer">
       <VisualizerStateContext.Provider value={{ ...value }}>
-        <div className="visualizer">
+        <div className="visualizer" style={{maxHeight: 1100}}>
           <div className="visualizer-header-box">
             <SectionHeader name="Visualizer" />
             <AlgorithmSelector />
           </div>
           <div
             className="visualizer-box"
-            style={{ transform: `translateX(-${translateXOfVisualizer(dataSize)}px)` }}
+            // style={{
+            //   transform: `translateX(-${translateXOfVisualizer(dataSize)}px)`,
+            // }}
           >
             {getAnimation(visualizerAlgorithm)}
           </div>
