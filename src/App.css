@@ -12,6 +12,7 @@
 .app-content {
   position: absolute;
   top: 60px;
+  width: 100vw;
 }
 
 .nav-bar {

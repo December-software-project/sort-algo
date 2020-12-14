@@ -1,0 +1,166 @@
+.form-box {
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+/*https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete Nathan White*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: #8789B5 !important;
+}
+
+input, textarea:focus {
+  outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #8789B5;
+  font-family: 'Open Sans', sans-serif;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #8789B5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #8789B5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#form-particulars > * {
+  margin: 0px 10px;
+}
+
+.form-particulars {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.form-particulars-holder {
+  width: 100%;
+  height: 60px;
+  border: 1px solid rgba(166, 175, 251, 1);
+  border-radius: 5px;
+  background-color: #FAFBFF;
+  display: flex;
+  flex-direction: row;
+}
+
+.form-particular-error-holder{
+  width: 15%;
+  height: 60px;
+}
+
+.form-particular-error-holder > span {
+  color: #cc0000;
+  align-self: center;
+  font-family: Nunito, serif;
+  font-weight: 500
+}
+
+.form-particulars-holder > input {
+  border-color: transparent;
+  background-color: transparent;
+  width: 240px;
+  height: 50px;
+  border-radius: 5px;
+  transform: translate(4px, 4px);
+  color: #8789B5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.form-particulars-holder > span {
+  color: #8789B5;
+  font-family: 'Open Sans', sans-serif;
+  align-self: center;
+  transform: translateX(4px);
+}
+
+#drop-down-arrow-holder {
+  color: #8789B5;
+  font-size: 17px;
+  width: 15%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+}
+
+.form-details {
+  display: flex;
+  flex: 2;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-details-holder {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(166, 175, 251, 1);
+  border-radius: 5px;
+  background-color: #FAFBFF;
+}
+
+.form-details-error-holder{
+  width: 47.25%;
+  height: 75%;
+}
+
+.form-details-error-holder > span {
+  color: #cc0000;
+  align-self: center;
+  font-family: Nunito, serif;
+  font-weight: 500
+}
+
+.form-details-holder > textarea {
+  border-color: transparent;
+  background-color: transparent;
+  width: 860px;
+  height: 190px;
+  border-radius: 5px;
+  transform: translate(6px, 6px);
+  flex-wrap: wrap;
+  color: #8789B5;
+  font-family: 'Open Sans', sans-serif;
+  resize: none;
+}
+
+.form-submit-button-box {
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-submit-button {
+  background-image: linear-gradient(90deg, #7C89F8, #5466FF);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  height: 50px;
+  outline: none;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-submit-button > span {
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bolder;
+}
