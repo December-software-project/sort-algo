@@ -11,7 +11,7 @@ const explanations = {
   'Quick Sort': QuickSort,
   'Radix Sort': RadixSort,
   'Bucket Sort': BucketSort,
-  'Counting Sort': CountingSort
+  'Counting Sort': CountingSort,
 };
 
 export default explanations;

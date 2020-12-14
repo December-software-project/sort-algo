@@ -89,8 +89,10 @@ const Visualizer = () => {
       setIdx(0);
       return;
     }
+
     let animationArrSwapIdx = animationArr[idx - 1];
     const animationPx = Math.floor(((idx - 1) / animationArr.length) * 100);
+
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
       const height = animationArrSwapIdx.height;
@@ -105,6 +107,7 @@ const Visualizer = () => {
     } else {
       setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
     }
+
     setIdx(idx - 1);
     setAnimationPercentage(animationPx);
   };

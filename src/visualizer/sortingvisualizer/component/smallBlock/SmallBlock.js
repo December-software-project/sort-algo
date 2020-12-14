@@ -3,7 +3,6 @@ import '../block/styles.css';
 import { animated } from 'react-spring';
 
 const SmallBlock = ({ item, props: { x, ...rest }, length, index, width }) => {
-
   return (
     <animated.div
       className="animated-block"
