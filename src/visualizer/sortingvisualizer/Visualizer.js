@@ -55,6 +55,7 @@ const Visualizer = () => {
     if (val !== dataSize) {
       setDataSize(val);
       setArrayData(generateArray(val, visualizerAlgorithm));
+      setCountArr(arrayCopy(buckets));
       setIsReplay(false);
       setAnimationPercentage(0);
     }
