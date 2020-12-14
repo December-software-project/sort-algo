@@ -1,8 +1,10 @@
+import { arrayCopy } from '../sortingvisualizer/util/VisualizerUtil';
+
 const countingSort = (arr) => {
-  let receivedArr = arr;
+  let receivedArr = arrayCopy(arr);
   let countArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  for (let i = 0; i < arr.length; i++) {
-    countArr[arr[i].height]++;
+  for (let i = 0; i < receivedArr.length; i++) {
+    countArr[receivedArr[i].height]++;
   }
   let id = 0;
   for (let i = 0; i < countArr.length; i++) {

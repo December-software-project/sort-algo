@@ -52,6 +52,18 @@ export const generateArray = (size, visualizerAlgorithm) => {
   return array;
 };
 
+export const buckets = [
+  { height: 1, count: 0 },
+  { height: 2, count: 0 },
+  { height: 3, count: 0 },
+  { height: 4, count: 0 },
+  { height: 5, count: 0 },
+  { height: 6, count: 0 },
+  { height: 7, count: 0 },
+  { height: 8, count: 0 },
+  { height: 9, count: 0 },
+];
+
 export const isBucketTypeSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Bucket Sort' ||
   visualizerAlgorithm === 'Counting Sort' ||
@@ -64,3 +76,7 @@ export const getAnimation = (visualizerAlgorithm) => {
     return <AnimationScreen />;
   }
 };
+
+export const arrayCopy = (arr) => {
+  return JSON.parse(JSON.stringify(arr));
+}

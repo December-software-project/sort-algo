@@ -4,6 +4,7 @@ import SmallBlock from '../smallBlock/SmallBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 import Buckets from './Buckets';
+import { arrayCopy } from '../../util/VisualizerUtil';
 
 const BucketAnimationScreen = () => {
   const {
@@ -29,7 +30,7 @@ const BucketAnimationScreen = () => {
      * This is for replay, reset button or any changes to data size or algorithm.
      */
     if (!isReplay && !isPlay) {
-      setReferenceArray(arrayData);
+      setReferenceArray(arrayCopy(arrayData));
       setIdx(0);
     }
   }, [arrayData, isReplay]);
