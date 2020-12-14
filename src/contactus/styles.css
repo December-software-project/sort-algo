@@ -1,7 +1,22 @@
-.contactus {
+.contact-us {
   background: white;
   display: flex;
   height: 100vh;
   justify-content: center;
   padding-top: 100px;
+  flex-direction: column;
 }
+.contact-us-header-box > span {
+  font-family: 'Open Sans', sans-serif;
+  color: #8789B5;
+  font-size: 15px;
+  transform: translateY(30px);
+}
+.contact-us-header-box {
+  align-items: center;
+  display: flex;
+  height: 20vh;
+  flex-direction: column;
+}
+
+
