@@ -107,9 +107,7 @@ const Visualizer = () => {
   const resetDataWhenAnimationFinish = () => {
     setIsPlay(false);
     setIsReplay(true);
-    if (!isBucketTypeSort(visualizerAlgorithm)) {
-      resetArray(arrayData);
-    }
+    // resetArray(arrayData);
   };
 
   // this is an auto shifting to ensure everything stays at the center
