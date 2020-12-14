@@ -64,10 +64,15 @@ const Visualizer = () => {
   };
 
   const executeBackwardSwapAnimation = () => {
-    let animationArrSwapIdx = animationArr[idx - 1];
-    setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
-    setIdx(idx - 1);
-    setAnimationPercentage(Math.floor(((idx - 1) / animationArr.length) * 100));
+    if (idx - 1 < 0) {
+      // this occurs if the users click too fast
+      setIdx(0);
+    } else {
+      let animationArrSwapIdx = animationArr[idx - 1];
+      setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
+      setIdx(idx - 1);
+      setAnimationPercentage(Math.floor(((idx - 1) / animationArr.length) * 100));
+    }
   };
 
   const resetDataWhenAnimationFinish = () => {
