@@ -12,7 +12,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-  width: 60px;
 }
 
 .animated-block > span {

@@ -1,56 +1,52 @@
 const InsertionSort = {
   Java:
-    'for (int i = arr.length - 1; i >= 0; i--) {\n' +
-    '    boolean swapped = true;\n' +
-    '    for (int j = 0; j < i; j++) {\n' +
-    '        if (arr[j] > arr[j + 1]) {\n' +
-    '            swap(j, j + 1, arr);\n' +
-    '            swapped = false;\n' +
+    'void insertionSort(int[] arr) {\n' +
+    '    for (int i = 1; i < arr.length; i++) {\n' +
+    '        int key = arr[i];\n' +
+    '        int j = i - 1;\n' +
+    '        while (j >= 0 && arr[j] > key) {\n' +
+    '            arr[j + 1] = arr[j];\n' +
+    '            j -= 1;\n' +
     '        }\n' +
+    '        arr[j + 1] = key;\n' +
     '    }\n' +
-    '    if (swapped) {\n' +
-    '        break;\n' +
-    '    }\n' +
-    '}',
+    '}\n',
   JavaScript:
-    'for (let i = arr.length - 1; i >= 0; i--) {\n' +
-    '  let swapped = true;\n' +
-    '  for (let j = 0; j < i; j++) {\n' +
-    '    if (arr[j] > arr[j + 1]) {\n' +
-    '      swap(j, j + 1, arr);\n' +
-    '      swapped = false;\n' +
+    'function insertionSort(arr) {\n' +
+    '  for (let i = 1; i < arr.length; i++) {\n' +
+    '    key = arr[i];\n' +
+    '    j = i - 1;\n' +
+    '    while (j >= 0 && arr[j] > key) {\n' +
+    '      arr[j + 1] = arr[j];\n' +
+    '      j -= 1;\n' +
     '    }\n' +
+    '    arr[j + 1] = key;\n' +
     '  }\n' +
-    '  if (swapped) {\n' +
-    '    break;\n' +
-    '  }\n' +
-    '}',
+    '}\n',
   Python:
-    'for i in range(len(arr) - 1, 0, -1):\n' +
-    '    swapped = True\n' +
-    '    for j in range(0, i):\n' +
-    '        if arr[j] > arr[j + 1]:\n' +
-    '            swap(j, j + 1, arr)\n' +
-    '            swapped = False\n' +
-    '    if swapped:\n' +
-    '        break',
+    'def insertion_sort(arr):\n' +
+    '    for i in range(1, len(arr)):\n' +
+    '        key = arr[i]\n' +
+    '        j = i - 1\n' +
+    '        while j >= 0 and arr[j] > key:\n' +
+    '            arr[j + 1] = arr[j]\n' +
+    '            j -= 1\n' +
+    '        arr[j + 1] = key\n',
   'C/C++':
-    'for (int i = length - 1; i >= 0; i--)\n' +
+    'void insertionSort(int arr[], int len)\n' +
     '{\n' +
-    '  bool swapped = true;\n' +
-    '  for (int j = 0; j < i; j++)\n' +
-    '  {\n' +
-    '    if (arr[j] > arr[j + 1])\n' +
+    '    for (int i = 1; i < len; i++)\n' +
     '    {\n' +
-    '      swap(j, j + 1, arr);\n' +
-    '      swapped = false;\n' +
+    '        int key = arr[i];\n' +
+    '        int j = i - 1;\n' +
+    '        while (j >= 0 && arr[j] > key)\n' +
+    '        {\n' +
+    '            arr[j + 1] = arr[j];\n' +
+    '            j -= 1;\n' +
+    '        }\n' +
+    '        arr[j + 1] = key;\n' +
     '    }\n' +
-    '  }\n' +
-    '  if (swapped)\n' +
-    '  {\n' +
-    '    break;\n' +
-    '  }\n' +
-    '}',
+    '}\n',
 };
 
 export default InsertionSort;

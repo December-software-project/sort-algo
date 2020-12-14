@@ -22,3 +22,19 @@ export const getAnimationArr = (algo, arrayData) => {
   const fn = SortingAlgorithms[algo];
   return fn(arrayData);
 };
+
+const generateValue = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+export const generateArray = (size) => {
+  let array = [];
+  for (let i = 0; i < size; i++) {
+    array.push({
+      id: i,
+      height: generateValue(5, 20),
+      isSwap: false,
+    });
+  }
+  return array;
+};

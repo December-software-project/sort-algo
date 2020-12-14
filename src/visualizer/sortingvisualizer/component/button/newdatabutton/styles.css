@@ -1,0 +1,12 @@
+.new-data-box {
+  transform: translateY(20px);
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  user-select: none;
+}
+.new-data-box > span {
+  color: #8789B5;
+  font-family: 'Open Sans', serif;
+  font-size: 14px;
+}

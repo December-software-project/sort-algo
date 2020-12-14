@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-
-const AlgorithmChooser = ({ setVisualizerAlgorithm }) => {
+import { generateArray } from '../../../../../utils/VisualizerUtil';
+const AlgorithmChooser = () => {
+  const {
+    dataSize,
+    isPlay,
+    isInMidstOfSort,
+    setIsReplay,
+    setIsInMidstOfSort,
+    setVisualizerAlgorithm,
+    setArrayData,
+    setAnimationPercentage,
+  } = useContext(VisualizerStateContext);
   const [algorithm, setAlgorithm] = useState('Insertion Sort');
   const listOfAlgorithm = [
     { algorithmName: 'Bucket Sort', key: '0' },
@@ -18,16 +29,24 @@ const AlgorithmChooser = ({ setVisualizerAlgorithm }) => {
     { algorithmName: 'Shell Sort', key: '9' },
   ];
 
+  const handleMenuClick = (algorithmName) => {
+    setAlgorithm(algorithmName);
+    setVisualizerAlgorithm(algorithmName);
+    if (isInMidstOfSort && algorithm !== algorithmName) {
+      setIsInMidstOfSort(false);
+      setArrayData(generateArray(dataSize));
+      setIsReplay(false);
+      setAnimationPercentage(0);
+    }
+  };
+
   const menu = (
     <Menu>
       {listOfAlgorithm.map(({ algorithmName, key }) => {
         return (
           <Menu.Item
             key={key}
-            onClick={() => {
-              setAlgorithm(algorithmName);
-              setVisualizerAlgorithm(algorithmName);
-            }}
+            onClick={() => handleMenuClick(algorithmName)}
             style={{ color: '#8789B5' }}
           >
             {algorithmName}
@@ -38,12 +57,18 @@ const AlgorithmChooser = ({ setVisualizerAlgorithm }) => {
   );
 
   return (
-    <div style={{ transform: 'translateY(30px)' }}>
-      <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'}>
+    <div
+      style={{
+        transform: 'translateY(30px)',
+        cursor: isPlay ? 'not-allowed' : 'pointer',
+        width: 120,
+      }}
+    >
+      <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'} disabled={isPlay}>
         <a
           className="ant-dropdown-link"
           onClick={(e) => e.preventDefault()}
-          style={{ color: '#8789B5', fontSize: 15 }}
+          style={{ color: '#8789B5', fontSize: 17 }}
         >
           {algorithm}
           <DownOutlined style={{ transform: 'translateX(5px)' }} />
