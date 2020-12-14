@@ -32,8 +32,8 @@ const generateValue = (min, max) => {
 };
 
 export const generateArray = (size, visualizerAlgorithm) => {
-  let min = 100;
-  let max = 200;
+  let min = 5;
+  let max = 20;
   if (isBucketTypeSort(visualizerAlgorithm)) {
     min = 1;
     max = 9;

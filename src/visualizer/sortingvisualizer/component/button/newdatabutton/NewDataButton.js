@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
-import { generateArray } from '../../../../../utils/VisualizerUtil';
+import { generateArray } from '../../../util/VisualizerUtil';
 
 const NewDataButton = () => {
   const {

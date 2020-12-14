@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import insertionSort from '../algorithm/insertionSort';
-import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
 import SectionHeader from './component/header/SectionHeader';
@@ -10,7 +9,13 @@ import DataSizeSelector from './component/selectors/sliderselector/SliderSelecto
 import './styles.css';
 import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
-import { getAnimationArr, generateArray, getAnimation, swap, resetArray } from './util/VisualizerUtil';
+import {
+  getAnimationArr,
+  generateArray,
+  getAnimation,
+  swap,
+  resetArray,
+} from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   SpeedSelectorProps,
@@ -29,7 +34,6 @@ const Visualizer = () => {
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
-  const [arrayData, setArrayData] = useState(generateArray(dataSize));
   const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Bubble Sort');
   const [arrayData, setArrayData] = useState(generateArray(dataSize, visualizerAlgorithm));
   const [animationArr, setAnimationArr] = useState(insertionSort(arrayData.map((x) => x)));

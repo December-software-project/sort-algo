@@ -3,7 +3,7 @@ import { AiOutlineLeft } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import './styles.css';
-import { resetArray } from '../../../../../utils/VisualizerUtil';
+import { resetArray } from '../../../util/VisualizerUtil';
 
 const BackButton = () => {
   const { isPlay, animationPercentage, executeBackwardSwapAnimation, idx, arrayData } = useContext(
