@@ -19,21 +19,19 @@ const Legend = () => {
     },
   ];
 
-  if (isBucketTypeSort(visualizerAlgorithm)) {
-    return <div className='legend'/>;
-  }
-
   return (
-    <div className="legend">
-      <div className="legend-header-box">
-        <LegendHeader />
+    !isBucketTypeSort(visualizerAlgorithm) && (
+      <div>
+        <div className="legend-header-box">
+          <LegendHeader />
+        </div>
+        <div className="legend-information-box">
+          {legendInformation.map(({ color, description }, index) => (
+            <LegendInformation color={color} description={description} key={index} />
+          ))}
+        </div>
       </div>
-      <div className="legend-information-box">
-        {legendInformation.map(({ color, description }, index) => (
-          <LegendInformation color={color} description={description} key={index} />
-        ))}
-      </div>
-    </div>
+    )
   );
 };
 

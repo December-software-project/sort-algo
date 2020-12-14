@@ -16,7 +16,8 @@ import {
   getAnimationArr,
   isBucketTypeSort,
   resetArray,
-  swap, translateXOfVisualizer,
+  swap,
+  translateXOfVisualizer,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {

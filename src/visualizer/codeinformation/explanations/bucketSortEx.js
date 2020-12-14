@@ -8,6 +8,7 @@ const BucketSort = {
     'distributed over [0, 1), we do not expect many numbers to fall into each bucket. To produce ' +
     'the output, we simply sort the numbers in each bucket and then go through the buckets in ' +
     'order to list the elements.',
+  additionalDesc: '',
   worstTime: (
     <span>
       N<sup>2</sup>

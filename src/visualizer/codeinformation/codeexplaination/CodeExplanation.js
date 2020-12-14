@@ -53,7 +53,7 @@ const CodeExplanation = ({ algo }) => {
     return (
       <div className="performance">
         <p className="explanationPara">
-          {`Assuming N is the size of array, ` + sort?.additionalDesc}
+          {`Assuming N is the size of array, ` + sort.additionalDesc}
         </p>
         <div className="rowContainerOne">
           {text()}
