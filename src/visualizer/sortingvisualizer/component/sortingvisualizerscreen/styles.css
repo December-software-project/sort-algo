@@ -1,4 +1,5 @@
 .list {
+  align-items: flex-end;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;

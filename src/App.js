@@ -32,8 +32,8 @@ function App() {
         </ul>
       </nav>
       <div className="app-content">
-        <About />
         <Visualizer />
+        <About />
         <Team />
         <ContactUs />
       </div>

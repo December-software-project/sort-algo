@@ -4,13 +4,18 @@ import { VisualizerStateContext } from '../../../Visualizer';
 import { generateArray } from '../../../util/VisualizerUtil';
 
 const ResetButton = () => {
-  const { isPlay, dataSize, setArrayData, setIsInMidstOfSort, setIsReplay } = useContext(
-    VisualizerStateContext
-  );
+  const {
+    isPlay,
+    dataSize,
+    setArrayData,
+    visualizerAlgorithm,
+    setIsInMidstOfSort,
+    setIsReplay,
+  } = useContext(VisualizerStateContext);
 
   const handleResetButtonClick = () => {
     if (!isPlay) {
-      setArrayData(generateArray(dataSize));
+      setArrayData(generateArray(dataSize, visualizerAlgorithm));
       setIsInMidstOfSort(false);
     }
     setIsReplay(false);

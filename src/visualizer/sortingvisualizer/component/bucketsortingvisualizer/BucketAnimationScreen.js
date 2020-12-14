@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useTransition } from 'react-spring';
-import AnimatedBlock from '../block/AnimatedBlock';
+import SmallBlock from '../smallBlock/SmallBlock';
 import { swap, resetArray } from '../../util/VisualizerUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
+import Buckets from './Buckets';
 
 const BucketAnimationScreen = () => {
   const { isPlay, isReplay, speed, arrayData, animationArr, setIsReplay, setIsPlay } = useContext(
@@ -64,19 +65,21 @@ const BucketAnimationScreen = () => {
   );
 
   return (
-    <div className="list">
-      {transitions.map(({ item, props: { x, ...rest } }, index) => {
-        return (
-          <AnimatedBlock
-            item={item}
-            props={{ x, ...rest }}
-            index={index}
-            length={length}
-            key={index}
-            isSwap={item.isSwap}
-          />
-        );
-      })}
+    <div className="containerOne">
+      <div className="list">
+        {transitions.map(({ item, props: { x, ...rest } }, index) => {
+          return (
+            <SmallBlock
+              item={item}
+              props={{ x, ...rest }}
+              index={index}
+              length={length}
+              key={index}
+            />
+          );
+        })}
+      </div>
+      <Buckets />
     </div>
   );
 };

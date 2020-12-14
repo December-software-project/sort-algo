@@ -1,10 +1,3 @@
-.list {
-  align-items: flex-end;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-}
-
 .animated-block {
   align-items: flex-end;
   border-radius: 5px;
@@ -13,6 +6,7 @@
   justify-content: center;
   position: relative;
   width: 60px;
+  background-image: linear-gradient(45deg, #287ED0, #5466FF);
 }
 
 .animated-block > span {

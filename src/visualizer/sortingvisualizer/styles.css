@@ -29,7 +29,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  max-height: 625px;
+  /*max-height: 625px;*/
   min-height: 625px;
   justify-content: center;
   width: 100%;

@@ -3,7 +3,8 @@ import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-import { generateArray } from '../../../util/VisualizerUtil';
+import { generateArray, isBucketTypeSort } from '../../../util/VisualizerUtil';
+
 const AlgorithmChooser = () => {
   const {
     dataSize,
@@ -13,19 +14,20 @@ const AlgorithmChooser = () => {
     setIsInMidstOfSort,
     setVisualizerAlgorithm,
     setArrayData,
+    visualizerAlgorithm,
   } = useContext(VisualizerStateContext);
-  const [algorithm, setAlgorithm] = useState('Insertion Sort');
+  const [algorithm, setAlgorithm] = useState('Bubble Sort');
   const listOfAlgorithm = [
-    { algorithmName: 'Bucket Sort', key: '0' },
-    { algorithmName: 'Bubble Sort', key: '1' },
-    { algorithmName: 'Counting Sort', key: '2' },
-    { algorithmName: 'Heap Sort', key: '3' },
-    { algorithmName: 'Insertion Sort', key: '4' },
-    { algorithmName: 'Merge Sort', key: '5' },
-    { algorithmName: 'Quick Sort', key: '6' },
-    { algorithmName: 'Radix Sort', key: '7' },
-    { algorithmName: 'Selection Sort', key: '8' },
-    { algorithmName: 'Shell Sort', key: '9' },
+    { algorithmName: 'Bubble Sort', key: '0' },
+    { algorithmName: 'Insertion Sort', key: '1' },
+    { algorithmName: 'Selection Sort', key: '2' },
+    { algorithmName: 'Merge Sort', key: '3' },
+    { algorithmName: 'Quick Sort', key: '4' },
+    { algorithmName: 'Heap Sort', key: '5' },
+    { algorithmName: 'Shell Sort', key: '6' },
+    { algorithmName: 'Counting Sort', key: '7' },
+    { algorithmName: 'Radix Sort', key: '8' },
+    { algorithmName: 'Bucket Sort', key: '9' },
   ];
 
   const handleMenuClick = (algorithmName) => {
@@ -33,8 +35,10 @@ const AlgorithmChooser = () => {
     setVisualizerAlgorithm(algorithmName);
     if (isInMidstOfSort && algorithm !== algorithmName) {
       setIsInMidstOfSort(false);
-      setArrayData(generateArray(dataSize));
+      setArrayData(generateArray(dataSize, algorithmName));
       setIsReplay(false);
+    } else if (isBucketTypeSort(algorithm) ^ isBucketTypeSort(algorithmName)) {
+      setArrayData(generateArray(dataSize, algorithmName));
     }
   };
 
@@ -62,7 +66,7 @@ const AlgorithmChooser = () => {
           onClick={(e) => e.preventDefault()}
           style={{ color: '#8789B5', fontSize: 17 }}
         >
-          {algorithm}
+          {visualizerAlgorithm}
           <DownOutlined style={{ transform: 'translateX(5px)' }} />
         </a>
       </Dropdown>
