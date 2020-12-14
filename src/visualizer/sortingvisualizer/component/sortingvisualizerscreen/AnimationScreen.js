@@ -3,6 +3,9 @@ import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
+import { arrayCopy, isBucketTypeSort } from '../../util/VisualizerUtil';
+import SmallBlock from '../smallBlock/SmallBlock';
+import Buckets from '../bucketsortingvisualizer/Buckets';
 
 const AnimationScreen = () => {
   const {
@@ -18,6 +21,7 @@ const AnimationScreen = () => {
     executeForwardSwapAnimation,
     resetDataWhenAnimationFinish,
     dataSize,
+    visualizerAlgorithm,
   } = useContext(VisualizerStateContext);
 
   const length = referenceArray.length;
@@ -28,7 +32,7 @@ const AnimationScreen = () => {
      * This is for replay, reset button or any changes to data size or algorithm.
      */
     if (!isReplay && !isPlay) {
-      setReferenceArray(arrayData);
+      setReferenceArray(arrayCopy(arrayData));
       setIdx(0);
     }
   }, [arrayData, isReplay]);
@@ -60,23 +64,45 @@ const AnimationScreen = () => {
     }
   );
 
-  return (
-    <div className="list">
-      {transitions.map(({ item, props: { x, ...rest } }, index) => {
-        return (
-          <AnimatedBlock
-            item={item}
-            props={{ x, ...rest }}
-            index={index}
-            length={length}
-            key={index}
-            isSwap={item.isSwap}
-            width={800 / dataSize}
-          />
-        );
-      })}
-    </div>
-  );
+  if (isBucketTypeSort(visualizerAlgorithm)) {
+    return (
+      <div className="containerOne">
+        <div className="list">
+          {transitions.map(({ item, props: { x, ...rest } }, index) => {
+            return (
+              <SmallBlock
+                item={item}
+                props={{ x, ...rest }}
+                index={index}
+                length={length}
+                key={index}
+                width={800 / dataSize}
+              />
+            );
+          })}
+        </div>
+        <Buckets />
+      </div>
+    );
+  } else {
+    return (
+      <div className="list">
+        {transitions.map(({ item, props: { x, ...rest } }, index) => {
+          return (
+            <AnimatedBlock
+              item={item}
+              props={{ x, ...rest }}
+              index={index}
+              length={length}
+              key={index}
+              isSwap={item.isSwap}
+              width={800 / dataSize}
+            />
+          );
+        })}
+      </div>
+    );
+  }
 };
 
 export default AnimationScreen;

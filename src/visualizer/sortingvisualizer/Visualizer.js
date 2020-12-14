@@ -10,23 +10,23 @@ import './styles.css';
 import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
 import {
-  getAnimationArr,
-  generateArray,
-  getAnimation,
-  swap,
-  resetArray,
-  isBucketTypeSort,
-  buckets,
   arrayCopy,
+  buckets,
+  generateArray,
+  getAnimationArr,
+  isBucketTypeSort,
+  resetArray,
+  swap,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
-  SpeedSelectorProps,
   DataSizeSelectorProps,
+  SpeedSelectorProps,
 } from './component/selectors/sliderselector/SelectorProps';
 import AnimationProgressBar from './component/animationprogressbar/AnimationProgressBar';
 import BackButton from './component/button/forwardbackbutton/BackButton';
 import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
+import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -107,7 +107,7 @@ const Visualizer = () => {
   const resetDataWhenAnimationFinish = () => {
     setIsPlay(false);
     setIsReplay(true);
-    // resetArray(arrayData);
+    resetArray(referenceArray);
   };
 
   // this is an auto shifting to ensure everything stays at the center
@@ -156,11 +156,11 @@ const Visualizer = () => {
           </div>
           <div
             className="visualizer-box"
-            // style={{
-            //   transform: `translateX(-${translateXOfVisualizer(dataSize)}px)`,
-            // }}
+            style={{
+              transform: `translateX(-${translateXOfVisualizer(dataSize)}px)`,
+            }}
           >
-            {getAnimation(visualizerAlgorithm)}
+            <AnimationScreen />
           </div>
           <AnimationProgressBar />
           <div className="controller-box">
