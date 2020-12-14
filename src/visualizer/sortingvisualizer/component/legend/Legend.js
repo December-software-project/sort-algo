@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import LegendInformation from './LegendInformation';
 import LegendHeader from './LegendHeader';
 import './styles.css';
+import { VisualizerStateContext } from '../../Visualizer';
+import { isBucketTypeSort } from '../../util/VisualizerUtil';
 
 const Legend = () => {
+  const { visualizerAlgorithm } = useContext(VisualizerStateContext);
+
   const legendInformation = [
     {
       color: 'linear-gradient(45deg, #13B1B7, #11C2C9)',
@@ -14,6 +18,10 @@ const Legend = () => {
       description: 'Not involved in the swap process',
     },
   ];
+
+  if (isBucketTypeSort(visualizerAlgorithm)) {
+    return <div className='legend'/>;
+  }
 
   return (
     <div className="legend">

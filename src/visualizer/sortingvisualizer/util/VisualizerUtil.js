@@ -70,3 +70,12 @@ export const isBucketTypeSort = (visualizerAlgorithm) =>
 export const arrayCopy = (arr) => {
   return JSON.parse(JSON.stringify(arr));
 };
+
+// this is an auto shifting to ensure everything stays at the center
+export const translateXOfVisualizer = (dataSize) => {
+  if (dataSize > 12) {
+    let singleBlockWidth = 200 / dataSize;
+    return (dataSize - 12) * singleBlockWidth;
+  }
+  return 0;
+};
