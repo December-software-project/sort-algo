@@ -84,9 +84,13 @@ const Visualizer = () => {
   };
 
   const executeBackwardSwapAnimation = () => {
+    if (idx - 1 < 0) {
+      // this occurs if the users click too fast
+      setIdx(0);
+      return;
+    }
     let animationArrSwapIdx = animationArr[idx - 1];
     const animationPx = Math.floor(((idx - 1) / animationArr.length) * 100);
-
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
       const height = animationArrSwapIdx.height;
