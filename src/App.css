@@ -10,8 +10,9 @@
 }
 
 .container {
-  justify-content: center;
-  display: flex;
+  /*justify-content: center;*/
+  /*display: flex;*/
+  width: 100vw;
 }
 
 .nav-bar {

@@ -9,6 +9,8 @@
     "@testing-library/user-event": "^12.5.0",
     "ace-builds": "^1.4.12",
     "antd": "^4.9.2",
+    "emailjs-com": "^2.6.4",
+    "formik": "^2.2.6",
     "intersection-observer": "^0.11.0",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
@@ -22,7 +24,8 @@
     "react-spring": "^8.0.27",
     "react-svg-path": "^1.4.3",
     "react-tsparticles": "^1.18.11",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "yup": "^0.32.8"
   },
   "scripts": {
     "start": "react-scripts start",

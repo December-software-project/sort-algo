@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import insertionSort from '../algorithm/insertionSort';
-import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
 import VisualizerHeader from '../../component/header/SectionHeader';
@@ -10,15 +9,24 @@ import DataSizeSelector from './component/selectors/sliderselector/SliderSelecto
 import './styles.css';
 import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
-import { getAnimationArr, generateArray, swap, resetArray } from '../../utils/VisualizerUtil';
+import {
+  arrayCopy,
+  buckets,
+  generateArray,
+  getAnimationArr,
+  isBucketTypeSort,
+  resetArray,
+  swap,
+} from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
-  SpeedSelectorProps,
   DataSizeSelectorProps,
+  SpeedSelectorProps,
 } from './component/selectors/sliderselector/SelectorProps';
 import AnimationProgressBar from './component/animationprogressbar/AnimationProgressBar';
 import BackButton from './component/button/forwardbackbutton/BackButton';
 import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
+import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -29,28 +37,25 @@ const Visualizer = () => {
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
-  const [arrayData, setArrayData] = useState(generateArray(dataSize));
-  const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Insertion Sort');
-  const [animationArr, setAnimationArr] = useState(insertionSort(arrayData.map((x) => x)));
+  const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Bubble Sort');
+  const [arrayData, setArrayData] = useState(generateArray(dataSize, visualizerAlgorithm));
+  const [referenceArray, setReferenceArray] = useState(arrayCopy(arrayData));
+  const [animationArr, setAnimationArr] = useState(insertionSort(arrayCopy(arrayData)));
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
-  const [referenceArray, setReferenceArray] = useState(arrayData);
+  const [countArr, setCountArr] = useState(arrayCopy(buckets));
 
   useEffect(() => {
     if (isPlay === false) {
-      setAnimationArr(
-        getAnimationArr(
-          visualizerAlgorithm,
-          arrayData.map((x) => x)
-        )
-      );
+      setAnimationArr(getAnimationArr(visualizerAlgorithm, arrayCopy(arrayData)));
     }
   }, [isPlay, speed, dataSize, visualizerAlgorithm, arrayData]);
 
   const changeDataSize = (val) => {
     if (val !== dataSize) {
       setDataSize(val);
-      setArrayData(generateArray(val));
+      setArrayData(generateArray(val, visualizerAlgorithm));
+      setCountArr(arrayCopy(buckets));
       setIsReplay(false);
       setAnimationPercentage(0);
     }
@@ -58,22 +63,59 @@ const Visualizer = () => {
 
   const executeForwardSwapAnimation = () => {
     let animationArrSwapIdx = animationArr[idx];
-    setReferenceArray(swap(animationArrSwapIdx[0], animationArrSwapIdx[1], referenceArray));
+    const animationPx = Math.floor(((idx + 1) / animationArr.length) * 100);
+
+    if (isBucketTypeSort(visualizerAlgorithm)) {
+      const index = animationArrSwapIdx.id;
+      const height = animationArrSwapIdx.height;
+      if (animationPx <= 50) {
+        referenceArray[index].isShown = false;
+        countArr[height - 1].count += 1;
+      } else {
+        referenceArray[index] = animationArrSwapIdx;
+        referenceArray[index].isShown = true;
+        countArr[height - 1].count -= 1;
+      }
+    } else {
+      setReferenceArray(swap(animationArrSwapIdx[0], animationArrSwapIdx[1], referenceArray));
+    }
     setIdx(idx + 1);
-    setAnimationPercentage(Math.floor(((idx + 1) / animationArr.length) * 100));
+    setAnimationPercentage(animationPx);
   };
 
   const executeBackwardSwapAnimation = () => {
+    if (idx - 1 < 0) {
+      // this occurs if the users click too fast
+      setIdx(0);
+      return;
+    }
+
     let animationArrSwapIdx = animationArr[idx - 1];
-    setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
+    const animationPx = Math.floor(((idx - 1) / animationArr.length) * 100);
+
+    if (isBucketTypeSort(visualizerAlgorithm)) {
+      const index = animationArrSwapIdx.id;
+      const height = animationArrSwapIdx.height;
+      if (animationPx < 50) {
+        referenceArray[index] = animationArrSwapIdx;
+        referenceArray[index].isShown = true;
+        countArr[height - 1].count -= 1;
+      } else {
+        referenceArray[index].isShown = false;
+        countArr[height - 1].count += 1;
+      }
+    } else {
+      setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
+    }
+
     setIdx(idx - 1);
-    setAnimationPercentage(Math.floor(((idx - 1) / animationArr.length) * 100));
+    setAnimationPercentage(animationPx);
   };
 
   const resetDataWhenAnimationFinish = () => {
     setIsPlay(false);
     setIsReplay(true);
-    resetArray(arrayData);
+    resetArray(referenceArray);
   };
 
   // this is an auto shifting to ensure everything stays at the center
@@ -86,27 +128,30 @@ const Visualizer = () => {
   };
 
   const value = {
-    isPlay: isPlay,
-    isReplay: isReplay,
-    speed: speed,
-    arrayData: arrayData,
-    animationArr: animationArr,
-    isInMidstOfSort: isInMidstOfSort,
-    dataSize: dataSize,
-    animationPercentage: animationPercentage,
-    idx: idx,
+    isPlay,
+    isReplay,
+    speed,
+    arrayData,
     referenceArray,
-    setIsReplay: (val) => setIsReplay(val),
-    setIsPlay: (val) => setIsPlay(val),
-    setIsInMidstOfSort: (val) => setIsInMidstOfSort(val),
-    setVisualizerAlgorithm: (val) => setVisualizerAlgorithm(val), // this is being used
-    setArrayData: (val) => setArrayData(val),
-    setAnimationPercentage: (val) => setAnimationPercentage(val),
-    setIdx: (val) => setIdx(val),
-    setReferenceArray: (val) => setReferenceArray(val),
-    executeForwardSwapAnimation: () => executeForwardSwapAnimation(), // this is being used
-    executeBackwardSwapAnimation: () => executeBackwardSwapAnimation(), // this is being used
-    resetDataWhenAnimationFinish: () => resetDataWhenAnimationFinish(), // this is being used
+    animationArr,
+    countArr,
+    isInMidstOfSort,
+    dataSize,
+    visualizerAlgorithm,
+    animationPercentage,
+    idx,
+    setIsReplay,
+    setIsPlay,
+    setIsInMidstOfSort,
+    setVisualizerAlgorithm,
+    setArrayData,
+    setAnimationPercentage,
+    setIdx,
+    setReferenceArray,
+    setCountArr,
+    executeForwardSwapAnimation,
+    executeBackwardSwapAnimation,
+    resetDataWhenAnimationFinish,
   };
 
   return (
@@ -119,7 +164,9 @@ const Visualizer = () => {
           </div>
           <div
             className="visualizer-box"
-            style={{ transform: `translateX(-${translateXOfVisualizer(dataSize)}px)` }}
+            style={{
+              transform: `translateX(-${translateXOfVisualizer(dataSize)}px)`,
+            }}
           >
             <AnimationScreen />
           </div>
@@ -150,5 +197,6 @@ const Visualizer = () => {
     </div>
   );
 };
+
 export { VisualizerStateContext };
 export default Visualizer;

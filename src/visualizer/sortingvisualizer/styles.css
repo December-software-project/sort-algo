@@ -11,10 +11,10 @@
   display: flex;
   flex: 2;
   flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  min-height: 275px;
   flex-grow: 0;
+  justify-content: center;
+  min-height: 275px;
+  width: 100%;
 }
 
 .visualizer-header-box {
@@ -29,11 +29,11 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  max-height: 625px;
-  min-height: 625px;
-  justify-content: center;
-  width: 100%;
+  /*max-height: 625px;*/
   flex-grow: 0;
+  justify-content: center;
+  min-height: 625px;
+  width: 100%;
 }
 
 .speed-selector-box {
@@ -67,6 +67,8 @@
   padding: 0 20px 0;
   transform: translateX(30px);
 }
+
 #visualizer {
-  width:0;min-width:100%;
+  min-width: 100%;
+  width: 0;
 }
