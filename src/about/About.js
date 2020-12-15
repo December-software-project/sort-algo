@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AboutHeader from '../component/header/SectionHeader';
-
 import './styles.css';
+
+import AboutHeader from '../component/header/SectionHeader';
 
 const About = () => {
   return (

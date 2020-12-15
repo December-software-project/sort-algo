@@ -3,7 +3,7 @@ import insertionSort from '../algorithm/insertionSort';
 import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
-import SectionHeader from './component/header/SectionHeader';
+import VisualizerHeader from '../../component/header/SectionHeader';
 import AlgorithmSelector from './component/selectors/algorithmselector/AlgorithmSelector';
 import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
@@ -114,7 +114,7 @@ const Visualizer = () => {
       <VisualizerStateContext.Provider value={{ ...value }}>
         <div className="visualizer">
           <div className="visualizer-header-box">
-            <SectionHeader name="Visualizer" />
+            <VisualizerHeader sectionHeader="Visualizer" translateX="translate(25px)" />
             <AlgorithmSelector />
           </div>
           <div

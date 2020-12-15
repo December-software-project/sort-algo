@@ -7,7 +7,14 @@ import reportWebVitals from './reportWebVitals';
 // listener to show current navigation window/menu
 window.addEventListener('scroll', (event) => {
   let navigationLinks = document.querySelectorAll('nav ul li a');
-  let fromTop = window.scrollY;
+  let fromTop = window.scrollY + 120;
+  let header = document.querySelector('nav');
+  let header2 = document.querySelectorAll('nav div a div');
+
+  header.classList.toggle('sticky', window.scrollY > 0);
+  header2.forEach((link) => {
+    link.classList.toggle('sticky', window.scrollY > 0);
+  });
 
   navigationLinks.forEach((link) => {
     let section = document.querySelector(link.hash);
