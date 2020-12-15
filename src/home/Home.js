@@ -7,7 +7,7 @@ import HomeDescription from '../component/homedescription/HomeDescription';
 const Home = () => {
   return (
     <div id="home" className="home">
-      <HomeDescription />
+      {/*<HomeDescription />*/}
       {/*<Particles*/}
       {/*  id="particles"*/}
       {/*  options={{*/}

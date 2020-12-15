@@ -9,9 +9,10 @@
   display: flex;
 }
 
-.container {
-  /*justify-content: center;*/
+.app-container {
+  justify-content: center;
   /*display: flex;*/
+  position: absolute;
   width: 100vw;
 }
 

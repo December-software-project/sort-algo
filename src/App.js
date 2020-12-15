@@ -36,7 +36,7 @@ function App() {
           </li>
         </ul>
       </nav>
-      <div className="container">
+      <div className="app-container">
         <Home />
         <About />
         <Visualizer />
