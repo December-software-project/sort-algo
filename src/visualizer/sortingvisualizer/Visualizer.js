@@ -17,6 +17,7 @@ import {
   isBucketTypeSort,
   resetArray,
   swap,
+  translateXOfVisualizer,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -26,7 +27,7 @@ import {
 import AnimationProgressBar from './component/animationprogressbar/AnimationProgressBar';
 import BackButton from './component/button/forwardbackbutton/BackButton';
 import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
-import AnimationScreen from './component/sortingvisualizerscreen/AnimationScreen';
+import AnimationScreen from './component/animationscreen/AnimationScreen';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -118,15 +119,6 @@ const Visualizer = () => {
     resetArray(referenceArray);
   };
 
-  // this is an auto shifting to ensure everything stays at the center
-  const translateXOfVisualizer = (dataSize) => {
-    if (dataSize > 12) {
-      let singleBlockWidth = 200 / dataSize;
-      return (dataSize - 12) * singleBlockWidth;
-    }
-    return 0;
-  };
-
   const value = {
     isPlay,
     isReplay,
@@ -159,7 +151,7 @@ const Visualizer = () => {
       <VisualizerStateContext.Provider value={{ ...value }}>
         <div className="visualizer">
           <div className="visualizer-header-box">
-            <SectionHeader name="Visualizer" />
+            <VisualizerHeader sectionHeader="Visualizer" translateX="translate(25px)" />
             <AlgorithmSelector />
           </div>
           <div

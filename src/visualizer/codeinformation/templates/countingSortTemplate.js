@@ -1,127 +1,119 @@
 const CountingSort = {
   Java:
-    'void bucketSort(double[] arr) {\n' +
-    '    int totalSlots = 10;\n' +
-    '    ArrayList<ArrayList<Double>> buckets = new ArrayList<>(totalSlots);\n' +
+    '// Assume array contains only non-zero digits\n' +
+    'void countingSort(int[] arr) {\n' +
     '\n' +
-    '    for (int i = 0; i < totalSlots; i++) {\n' +
-    '        ArrayList<Double> list = new ArrayList<>();\n' +
-    '        buckets.add(list);\n' +
+    '    int max = arr[0];\n' +
+    '    // Get max element\n' +
+    '    for (int i = 1; i < arr.length; i++) {\n' +
+    '        max = Math.max(max, arr[i]);\n' +
     '    }\n' +
     '\n' +
-    '    for (double current : arr) {\n' +
-    '        int bucket_idx = (int) (totalSlots * current);\n' +
-    '        buckets.get(bucket_idx).add(current);\n' +
+    '    // Create count array containing of size = max + 1\n' +
+    '    int[] countArr = new int[max + 1];\n' +
+    '\n' +
+    '    // Fill in count arr\n' +
+    '    for (int i = 0; i < arr.length; i++) {\n' +
+    '        countArr[arr[i]]++;\n' +
     '    }\n' +
     '\n' +
-    '    for (ArrayList<Double> bucket : buckets) {\n' +
-    '        Collections.sort(bucket);\n' +
-    '    }\n' +
-    '\n' +
+    '    // Insert elements back into original array\n' +
     '    int index = 0;\n' +
-    '    for (ArrayList<Double> bucket : buckets) {\n' +
-    '        for (double item : bucket) {\n' +
-    '            arr[index] = item;\n' +
+    '    for (int i = 0; i < countArr.length; i++) {\n' +
+    '        while (countArr[i] != 0) {\n' +
+    '            arr[index] = i;\n' +
     '            index++;\n' +
+    '            countArr[i]--;\n' +
     '        }\n' +
     '    }\n' +
-    '}\n\n',
+    '}\n',
   JavaScript:
-    'function bucketSort(arr) {\n' +
-    '  let buckets = [];\n' +
-    '  const totalSlots = 10;\n' +
+    '// Assume array contains only non-zero digits\n' +
+    'function countingSort(arr) {\n' +
+    '  // Get max element\n' +
+    '  const maxElement = Math.max(...arr);\n' +
     '\n' +
-    '  for (let i = 0; i < totalSlots; i++) {\n' +
-    '    buckets[i] = [];\n' +
-    '  }\n' +
+    '  // Create count array containing of size = max + 1\n' +
+    '  const countArr = new Array(maxElement + 1);\n' +
+    '  countArr.fill(0);\n' +
     '\n' +
+    '  // Fill in count arr\n' +
     '  for (let i = 0; i < arr.length; i++) {\n' +
-    '    const current = arr[i];\n' +
-    '    const bucket_idx = Math.floor(totalSlots * current);\n' +
-    '    buckets[bucket_idx].push(current);\n' +
+    '    countArr[arr[i]]++;\n' +
     '  }\n' +
     '\n' +
-    '  for (let i = 0; i < totalSlots; i++) {\n' +
-    '    buckets[i].sort();\n' +
-    '  }\n' +
-    '\n' +
+    '  // Insert elements back into original array\n' +
     '  let index = 0;\n' +
-    '  for (let i = 0; i < totalSlots; i++) {\n' +
-    '    for (let j = 0; j < buckets[i].length; j++) {\n' +
-    '      arr[index] = buckets[i][j];\n' +
-    '      index += 1;\n' +
+    '  for (let i = 0; i < countArr.length; i++) {\n' +
+    '    while (countArr[i] != 0) {\n' +
+    '      arr[index] = i;\n' +
+    '      index++;\n' +
+    '      countArr[i]--;\n' +
     '    }\n' +
     '  }\n' +
-    '}\n\n',
+    '}\n',
   Python:
-    'def bucket_sort(arr):\n' +
-    '    buckets = []\n' +
-    '    total_slots = 10\n' +
+    '# Assume array contains only non-zero digits\n' +
+    'def counting_sort(arr):\n' +
+    '    # Get max element\n' +
+    '    maxElement = max(arr)\n' +
+    '    print(maxElement)\n' +
     '\n' +
-    '    for i in range(0, total_slots):\n' +
-    '        buckets.append([])\n' +
+    '    # Create count array containing of size = max + 1\n' +
+    '    count_arr = [0 for i in range(maxElement + 1)]\n' +
     '\n' +
-    '    for item in arr:\n' +
-    '        bucket_idx = int(total_slots * item)\n' +
-    '        buckets[bucket_idx].append(item)\n' +
+    '    # Fill in count arr\n' +
+    '    for i in range(len(arr)):\n' +
+    '        count_arr[arr[i]] += 1\n' +
     '\n' +
-    '    for bucket in buckets:\n' +
-    '        bucket = sorted(bucket)\n' +
-    '\n' +
+    '    # Insert elements back into original array\n' +
     '    index = 0\n' +
-    '    for bucket in buckets:\n' +
-    '        for item in bucket:\n' +
-    '            arr[index] = item\n' +
-    '            index += 1\n\n',
+    '    for i in range(len(count_arr)):\n' +
+    '        while count_arr[i] is not 0:\n' +
+    '            arr[index] = i\n' +
+    '            index += 1\n' +
+    '            count_arr[i] -= 1\n',
   'C/C++':
-    'struct Node\n' +
+    '// Assume array contains only non-zero digits\n' +
+    'void countingSort(int arr[], int len)\n' +
     '{\n' +
-    '    int data;\n' +
-    '    struct Node *next;\n' +
-    '};\n' +
     '\n' +
-    'void bucketSort(double arr[], int len)\n' +
-    '{\n' +
-    '    int i, j;\n' +
-    '    struct Node **buckets;\n' +
-    '    int totalSlots = 10;\n' +
-    '    buckets = (struct Node **)malloc(sizeof(struct Node *) * len);\n' +
-    '\n' +
-    '    for (i = 0; i < totalSlots; ++i)\n' +
+    '    int maxElement = arr[0];\n' +
+    '    // Get max element\n' +
+    '    for (int i = 1; i < len; i++)\n' +
     '    {\n' +
-    '        buckets[i] = NULL;\n' +
-    '    }\n' +
-    '\n' +
-    '    for (i = 0; i < len; ++i)\n' +
-    '    {\n' +
-    '        struct Node *current;\n' +
-    '        int pos = (int)(arr[i] * totalSlots);\n' +
-    '        current = (struct Node *)malloc(sizeof(struct Node));\n' +
-    '        current->data = arr[i];\n' +
-    '        current->next = buckets[pos];\n' +
-    '        buckets[pos] = current;\n' +
-    '    }\n' +
-    '\n' +
-    '    for (i = 0; i < totalSlots; ++i)\n' +
-    '    {\n' +
-    '        sort(buckets[i]);\n' +
-    '    }\n' +
-    '\n' +
-    '    for (j = 0, i = 0; i < totalSlots; ++i)\n' +
-    '    {\n' +
-    '        struct Node *node;\n' +
-    '        node = buckets[i];\n' +
-    '        while (node)\n' +
+    '        if (arr[i] > maxElement)\n' +
     '        {\n' +
-    '            arr[j++] = node->data;\n' +
-    '            node = node->next;\n' +
+    '            maxElement = arr[i];\n' +
     '        }\n' +
     '    }\n' +
-    '}\n' +
     '\n' +
-    'void bucketSortMain(double arr[], int len)\n' +
-    '{\n' +
-    '    bucketSort(arr, len);\n' +
+    '    // Create array with length maxElement + 1\n' +
+    '    int countArrLength = maxElement + 1;\n' +
+    '    int *countArr = (int *)malloc(countArrLength * sizeof(int));\n' +
+    '\n' +
+    '    for (int i = 0; i < countArrLength; i++)\n' +
+    '    {\n' +
+    '        countArr[i] = 0;\n' +
+    '    }\n' +
+    '\n' +
+    '    // Fill in count arr\n' +
+    '    for (int i = 0; i < len; i++)\n' +
+    '    {\n' +
+    '        countArr[arr[i]]++;\n' +
+    '    }\n' +
+    '\n' +
+    '    // Insert elements back into original array\n' +
+    '    int index = 0;\n' +
+    '    for (int i = 0; i < countArrLength; i++)\n' +
+    '    {\n' +
+    '        while (countArr[i] != 0)\n' +
+    '        {\n' +
+    '            arr[index] = i;\n' +
+    '            index++;\n' +
+    '            countArr[i]--;\n' +
+    '        }\n' +
+    '    }\n' +
     '}\n\n',
 };
 

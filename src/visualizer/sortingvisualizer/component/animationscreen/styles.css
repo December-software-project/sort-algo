@@ -3,10 +3,11 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  min-height: 100px;
 }
 
 .containerOne {
   display: flex;
   flex-direction: column;
-  margin-top: 90px;
+  padding-top: 20px;
 }
