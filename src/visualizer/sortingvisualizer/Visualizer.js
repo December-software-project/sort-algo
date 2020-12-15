@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import insertionSort from '../algorithm/insertionSort';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
-import SectionHeader from './component/header/SectionHeader';
+import VisualizerHeader from '../../component/header/SectionHeader';
 import AlgorithmSelector from './component/selectors/algorithmselector/AlgorithmSelector';
 import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
@@ -28,6 +28,7 @@ import AnimationProgressBar from './component/animationprogressbar/AnimationProg
 import BackButton from './component/button/forwardbackbutton/BackButton';
 import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
+import StepByStep from './component/stepbystep/StepByStep';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -108,8 +109,10 @@ const Visualizer = () => {
     } else {
       setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
     }
-
     setIdx(idx - 1);
+    if (idx - 1 === 0) {
+      resetArray(referenceArray);
+    }
     setAnimationPercentage(animationPx);
   };
 
@@ -163,6 +166,7 @@ const Visualizer = () => {
             <AnimationScreen />
           </div>
           <AnimationProgressBar />
+          <StepByStep />
           <div className="controller-box">
             <div className="speed-selector-box">
               <SpeedSelector setData={(val) => setSpeed(val)} {...SpeedSelectorProps} />

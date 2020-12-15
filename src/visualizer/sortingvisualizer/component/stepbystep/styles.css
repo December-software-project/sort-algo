@@ -1,0 +1,6 @@
+.step-by-step-holder {
+  width: 400px;
+  height: 50px;
+  background-color: cadetblue;
+  transform: translateY(60px);
+}
