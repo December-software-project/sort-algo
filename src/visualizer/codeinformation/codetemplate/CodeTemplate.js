@@ -43,7 +43,7 @@ const CodeTemplate = ({ algo }) => {
   const getMode = () => (selected === 'C/C++' ? 'c_cpp' : selected.toLowerCase());
 
   return (
-    <div className="codeTemplate">
+    <div className="code-template">
       {selector()}
       <AceEditor
         className="editor"

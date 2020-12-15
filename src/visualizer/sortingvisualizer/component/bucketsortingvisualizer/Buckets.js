@@ -11,7 +11,7 @@ const Buckets = () => {
     '#B8B8B8',
     '#b4d3de',
     '#4f8bac',
-    '#768ca2',
+    // '#768ca2',
     '#2d6c8a',
     '#117cae',
     '#006da5',
@@ -36,7 +36,7 @@ const Buckets = () => {
 
   const countBlock = (item) => (
     <div
-      className="fixedArrayContainer"
+      className="fixed-array-container"
       style={{ transform: `translateX(${translateXOfVisualizer(dataSize)}px)` }}
     >
       <div
@@ -55,7 +55,7 @@ const Buckets = () => {
     </div>
   );
 
-  return <div className="fixedArray">{countArr.map((item) => countBlock(item))}</div>;
+  return <div className="fixed-array">{countArr.map((item) => countBlock(item))}</div>;
 };
 
 export default Buckets;

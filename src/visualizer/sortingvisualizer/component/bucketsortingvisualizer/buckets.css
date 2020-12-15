@@ -1,4 +1,4 @@
-.fixedArray {
+.fixed-array {
   align-items: flex-end;
   align-self: center;
   box-sizing: border-box;
@@ -7,7 +7,7 @@
   margin-top: 6%;
 }
 
-.fixedArrayContainer {
+.fixed-array-container {
   align-items: center;
   display: flex;
   flex-direction: column;

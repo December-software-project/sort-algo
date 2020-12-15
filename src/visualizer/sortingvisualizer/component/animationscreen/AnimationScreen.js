@@ -66,7 +66,7 @@ const AnimationScreen = () => {
 
   if (isBucketTypeSort(visualizerAlgorithm)) {
     return (
-      <div className="containerOne">
+      <div className="container-one">
         <div className="list">
           {transitions.map(({ item, props: { x, ...rest } }, index) => {
             return (
