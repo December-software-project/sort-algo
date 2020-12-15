@@ -178,7 +178,7 @@ const Visualizer = () => {
             </div>
             <div className="button-box">
               <BackButton />
-              <div>
+              <div style={{ backgroundColor: 'red' }}>
                 <ThreeStateButton />
                 <NewDataButton />
               </div>

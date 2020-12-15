@@ -11,10 +11,10 @@
 .title {
   color: white;
   display: flex;
-  font-family: 'Open Sans', serif;
+  font-family: serif;
   font-size: 30px;
   font-weight: 600;
-  margin-top: 50px;
+  margin-top: 100px;
   justify-content: center;
 }
 
