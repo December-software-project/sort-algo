@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-// import Particles from 'react-tsparticles';
+import Particles from 'react-tsparticles';
 import HomeDescription from '../component/homedescription/HomeDescription';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
       {/*        value: '#5467ff',*/}
       {/*      },*/}
       {/*    },*/}
-      {/*    // height: 100,*/}
+      {/*    height: 100,*/}
       {/*    // width: window.innerWidth,*/}
       {/*    fpsLimit: 60,*/}
       {/*    interactivity: {*/}
