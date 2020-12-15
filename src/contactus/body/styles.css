@@ -37,7 +37,7 @@ input, textarea:focus {
 }
 
 #form-particulars > * {
-  margin: 0 10px;
+  margin: 0 0.58vw;
 }
 
 .form-particulars {

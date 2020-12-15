@@ -178,7 +178,7 @@ const Visualizer = () => {
             </div>
             <div className="button-box">
               <BackButton />
-              <div>
+              <div className="play-reset-button-box">
                 <ThreeStateButton />
                 <NewDataButton />
               </div>

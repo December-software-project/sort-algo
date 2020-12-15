@@ -62,7 +62,7 @@ const AlgorithmChooser = () => {
   return (
     <div
       style={{
-        transform: 'translateY(30px)',
+        transform: 'translate(10px, 30px)',
         cursor: 'pointer',
         width: 120,
       }}
