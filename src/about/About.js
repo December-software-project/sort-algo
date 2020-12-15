@@ -1,13 +1,13 @@
 import React from 'react';
 
-import AboutHeader from './header/AboutHeader';
-
 import './styles.css';
+
+import AboutHeader from '../component/header/SectionHeader';
 
 const About = () => {
   return (
     <div id="about" className="about">
-      <AboutHeader />
+      <AboutHeader sectionHeader={'About'} translateX={'translateX(15px)'} />
     </div>
   );
 };

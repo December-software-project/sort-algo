@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './body/Form';
 import './styles.css';
-import ContactUsHeader from './header/ContactUsHeader';
+import ContactUsHeader from '../component/header/SectionHeader';
 
 const ContactUs = () => {
   const ContactUsText = () => (
@@ -14,7 +14,7 @@ const ContactUs = () => {
     <div id="contactUs" className="contact-us">
       {/*Remember to abstract it out when ashley has pushed it in*/}
       <div className="contact-us-header-box">
-        <ContactUsHeader />
+        <ContactUsHeader sectionHeader={'Contact Us'} translateX={'translateX(23px)'} />
         <ContactUsText />
       </div>
       <Form />

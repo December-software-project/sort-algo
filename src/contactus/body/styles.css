@@ -13,31 +13,35 @@ input:-webkit-autofill:active {
 }
 
 input:-webkit-autofill {
-  -webkit-text-fill-color: #8789B5 !important;
+  -webkit-text-fill-color: #8789b5 !important;
 }
 
-input, textarea:focus {
+input,
+textarea:focus {
   outline: none;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #8789B5;
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #8789b5;
   font-family: 'Open Sans', sans-serif;
   opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #8789B5;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #8789b5;
   font-family: 'Open Sans', sans-serif;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: #8789B5;
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #8789b5;
   font-family: 'Open Sans', sans-serif;
 }
 
 #form-particulars > * {
-  margin: 0 10px;
+  margin: 0 0.58vw;
 }
 
 .form-particulars {
@@ -47,7 +51,7 @@ input, textarea:focus {
 }
 
 .form-particulars-holder {
-  background-color: #FAFBFF;
+  background-color: #fafbff;
   border: 1px solid rgba(166, 175, 251, 1);
   border-radius: 5px;
   display: flex;
@@ -65,14 +69,14 @@ input, textarea:focus {
   align-self: center;
   color: #cc0000;
   font-family: Nunito, serif;
-  font-weight: 500
+  font-weight: 500;
 }
 
 .form-particulars-holder > input {
   background-color: transparent;
   border-color: transparent;
   border-radius: 5px;
-  color: #8789B5;
+  color: #8789b5;
   font-family: 'Open Sans', sans-serif;
   height: 50px;
   transform: translate(4px, 4px);
@@ -81,14 +85,14 @@ input, textarea:focus {
 
 .form-particulars-holder > span {
   align-self: center;
-  color: #8789B5;
+  color: #8789b5;
   font-family: 'Open Sans', sans-serif;
   transform: translateX(4px);
 }
 
 #drop-down-arrow-holder {
   align-items: center;
-  color: #8789B5;
+  color: #8789b5;
   display: flex;
   font-size: 17px;
   height: 60px;
@@ -107,7 +111,7 @@ input, textarea:focus {
 }
 
 .form-details-holder {
-  background-color: #FAFBFF;
+  background-color: #fafbff;
   border: 1px solid rgba(166, 175, 251, 1);
   border-radius: 5px;
   height: 100%;
@@ -123,14 +127,14 @@ input, textarea:focus {
   align-self: center;
   color: #cc0000;
   font-family: Nunito, serif;
-  font-weight: 500
+  font-weight: 500;
 }
 
 .form-details-holder > textarea {
   background-color: transparent;
   border-color: transparent;
   border-radius: 5px;
-  color: #8789B5;
+  color: #8789b5;
   flex-wrap: wrap;
   font-family: 'Open Sans', sans-serif;
   height: 190px;
@@ -148,7 +152,7 @@ input, textarea:focus {
 
 .form-submit-button {
   align-items: center;
-  background-image: linear-gradient(90deg, #7C89F8, #5466FF);
+  background-image: linear-gradient(90deg, #7c89f8, #5466ff);
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);

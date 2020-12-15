@@ -1,8 +1,7 @@
 import './styles.css';
-import SectionHeader from '../visualizer/sortingvisualizer/component/header/SectionHeader';
 import Hexagon from 'react-hexagon';
 import keane from './image/keanecjy.png';
-import TeamHeader from './header/TeamHeader';
+import TeamHeader from '../component/header/SectionHeader';
 
 const Team = () => {
   const picture = (img, description) => (
@@ -20,7 +19,7 @@ const Team = () => {
 
   return (
     <div className="team" id="team">
-      <TeamHeader />
+      <TeamHeader sectionHeader={'Team'} translateX={'translateX(13px)'} />
       <div className="container">
         {picture(keane, 'sample description')}
         {picture()}
