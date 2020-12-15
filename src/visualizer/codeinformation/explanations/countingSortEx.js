@@ -2,24 +2,17 @@
 const CountingSort = {
   name: 'Counting',
   description:
-    'Bubble sort is the simplest sorting algorithm that works by ' +
-    'repeatedly swapping adjacent elements if they are in the wrong order. ' +
-    'This procedure is repeated until no swaps are required, indicating ' +
-    'that the list has been sorted.',
-  worstTime: (
-    <span>
-      N<sup>2</sup>
-    </span>
-  ),
-  averageTime: (
-    <span>
-      N<sup>2</sup>
-    </span>
-  ),
-  bestTime: 'N',
-  worstSpace: '1',
+    'Counting sort is a sorting technique based on keys between a specific range. It works by' +
+    'counting the number of objects having distinct key values (kind of hashing), and using' +
+    'arithmetic on those counts to determine the positions of each key value in the output' +
+    'sequence.',
+  additionalDesc: 'k is the range of the key values,',
+  worstTime: 'N + k',
+  averageTime: 'N + k',
+  bestTime: 'N + k',
+  worstSpace: 'N + k',
   stable: true,
-  inPlace: true,
+  inPlace: false,
 };
 
 export default CountingSort;

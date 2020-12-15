@@ -8,7 +8,8 @@ const SmallBlock = ({ item, props: { x, ...rest }, length, index, width }) => {
       className="animated-block"
       style={{
         ...rest,
-        height: item.height * 18,
+        backgroundImage: `linear-gradient(45deg, #287ED0, #5466FF)`,
+        height: item.height * 10 + 9,
         width: width,
         zIndex: length - index,
         transform: x.interpolate((x) => `translate3d(${x}px,0,0)`),
