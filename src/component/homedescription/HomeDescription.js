@@ -18,12 +18,12 @@ const HomeDescription = () => {
   return (
     <IsVisible once>
       {(isVisible) => (
-        <div className="container" ref={nodeRef}>
+        <div className="content" ref={nodeRef}>
           <div className="title" style={titleStyling(isVisible)}>
             Sorting algorithms made easy
           </div>
           <div className="description" style={descriptionStyling(isVisible)}>
-            Visualize the step by step process of popular sorting algorithms with our visualizer!
+            Visualize the step by step process of popular sorting algorithms!
           </div>
         </div>
       )}

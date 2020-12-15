@@ -7,7 +7,7 @@ import HomeDescription from '../component/homedescription/HomeDescription';
 const Home = () => {
   return (
     <div id="home" className="home">
-      {/*<HomeDescription />*/}
+      <HomeDescription />
       <Particles
         id="particles"
         className="wrapper"
@@ -17,20 +17,10 @@ const Home = () => {
               value: '#5467ff',
             },
           },
-          height: 100,
-          // width: window.innerWidth,
           fpsLimit: 60,
           interactivity: {
             detectsOn: 'canvas',
             events: {
-              // onClick: {
-              //   enable: true,
-              //   mode: 'push',
-              // },
-              // onHover: {
-              //   enable: true,
-              //   mode: 'repulse',
-              // },
               resize: true,
             },
             modes: {
@@ -53,13 +43,6 @@ const Home = () => {
             color: {
               value: '#ffffff',
             },
-            // links: {
-            //   color: '#ffffff',
-            //   distance: 150,
-            //   enable: true,
-            //   opacity: 0.5,
-            //   width: 1,
-            // },
             collisions: {
               enable: true,
             },
@@ -92,7 +75,6 @@ const Home = () => {
           detectRetina: true,
         }}
       />
-      {/*<div> dog </div>*/}
     </div>
   );
 };

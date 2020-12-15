@@ -1,23 +1,26 @@
-.container {
+.content {
   align-items: center;
-  color: #5467ff;
   display: flex;
   position: absolute;
+  width: 100%;
+  height: 600px;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .title {
-  align-items: center;
-  color: black;
+  color: white;
   display: flex;
   font-family: 'Open Sans', serif;
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 600;
+  margin-top: 50px;
   justify-content: center;
-  /*position: absolute;*/
 }
 
 .description {
-  color: black;
-  width: 70%;
-  position: absolute;
+  color: white;
+  margin-top: 50px;
+  justify-content: center;
+  font-size: 25px;
 }

@@ -11,7 +11,6 @@
 
 .app-container {
   justify-content: center;
-  /*display: flex;*/
   position: absolute;
   width: 100%;
 }
@@ -51,7 +50,7 @@
   position: relative;
   text-align: justify;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .nav-bar.sticky a {
@@ -75,7 +74,7 @@
 /** initial bar **/
 .nav-menu a.active {
   color: #ffffff;
-  border-bottom: 1.5px solid #a5aefc;
+  border-bottom: 1.5px solid #ffffff;
 }
 
 /** bar after scrolling**/
@@ -93,11 +92,12 @@
 }
 
 .nav-logo a {
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .nav-bar.sticky .nav-logo a {
-  color: #8744e7;
+  color: #5467ff;
 }
 
 .nav-logo a:hover {
