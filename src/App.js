@@ -3,22 +3,27 @@ import './App.css';
 
 import About from './about/About';
 import ContactUs from './contactus/ContactUs';
+import Home from './home/Home';
 import Team from './team/Team';
 import Visualizer from './visualizer/sortingvisualizer/Visualizer';
+import Logo from './component/logo/logo';
 
 function App() {
   return (
     <div className="app">
       <nav className="nav-bar">
         <div className="nav-logo">
-          {/*Add logo here*/}
-          <a href="#about">SortAlgo</a>
+          <Logo />
+          <a href="#home">SortAlgo</a>
         </div>
         <ul className="nav-menu">
           <li>
-            <a className="active" href="#about">
-              About
+            <a className="active" href="#home">
+              Home
             </a>
+          </li>
+          <li>
+            <a href="#about">About</a>
           </li>
           <li>
             <a href="#visualizer">Visualizer</a>
@@ -31,7 +36,8 @@ function App() {
           </li>
         </ul>
       </nav>
-      <div className="app-content">
+      <div className="app-container">
+        <Home />
         <About />
         <Visualizer />
         <Team />
