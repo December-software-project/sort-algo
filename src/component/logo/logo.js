@@ -3,7 +3,7 @@ import './styles.css';
 
 const Logo = () => {
   return (
-    <a href="#about" className="logo">
+    <a href="#home" className="logo">
       <div className="logo-block-one" />
       <div className="logo-block-two" />
       <div className="logo-block-three" />
