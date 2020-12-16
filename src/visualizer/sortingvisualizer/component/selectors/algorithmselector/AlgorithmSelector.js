@@ -3,7 +3,7 @@ import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-import { generateArray, isBucketTypeSort, resetArray } from '../../../util/VisualizerUtil';
+import { generateArray, isBucketTypeSort } from '../../../util/VisualizerUtil';
 import './styles.css';
 
 const AlgorithmChooser = () => {
@@ -16,6 +16,7 @@ const AlgorithmChooser = () => {
     setVisualizerAlgorithm,
     setArrayData,
     setAnimationPercentage,
+    setIsReset,
   } = useContext(VisualizerStateContext);
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
   const listOfAlgorithm = [
@@ -37,8 +38,9 @@ const AlgorithmChooser = () => {
     if (algorithm !== algorithmName) {
       if (isInMidstOfSort) {
         setIsInMidstOfSort(false);
-        setIsReplay(false);
       }
+      setIsReplay(false);
+      setIsReset(true);
       setArrayData(generateArray(dataSize, algorithmName));
       setAnimationPercentage(0);
     } else if (isBucketTypeSort(algorithm) ^ isBucketTypeSort(algorithmName)) {

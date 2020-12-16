@@ -3,4 +3,10 @@
   height: 50px;
   background-color: cadetblue;
   transform: translateY(60px);
+  padding-left:5px;
+}
+
+.step-by-step-holder > p {
+  font-family: Nunito, serif;
+  color: red;
 }

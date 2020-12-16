@@ -8,8 +8,10 @@ const bubbleSort = (arr) => {
     for (let j = 0; j < i; j++) {
       if (receivedArr[j].height > receivedArr[j + 1].height) {
         swap(j, j + 1, receivedArr);
-        animationArr.push([j + 1, j]);
+        animationArr.push([j + 1, j, true]);
         flag = false;
+      } else {
+        animationArr.push([j + 1, j, false]);
       }
     }
     if (flag) {

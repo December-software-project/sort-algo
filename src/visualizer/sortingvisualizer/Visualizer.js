@@ -16,8 +16,8 @@ import {
   getAnimationArr,
   isBucketTypeSort,
   resetArray,
-  swap,
   translateXOfVisualizer,
+  handleSwap,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -36,6 +36,8 @@ const Visualizer = () => {
   // isPlay and isReplay simulate the 3 states
   const [isPlay, setIsPlay] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
+  // this is to ensure we can click back arrow without trigger any new re-rendering of data
+  const [isReset, setIsReset] = useState(false);
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
@@ -46,6 +48,7 @@ const Visualizer = () => {
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
   const [countArr, setCountArr] = useState(arrayCopy(buckets));
+  const [text, setText] = useState('');
 
   useEffect(() => {
     if (isPlay === false) {
@@ -60,13 +63,27 @@ const Visualizer = () => {
       setCountArr(arrayCopy(buckets));
       setIsReplay(false);
       setAnimationPercentage(0);
+      setIsReset(true);
+    }
+  };
+
+  const textToDisplay = () => {
+    let animationArrSwapIdx = animationArr[idx];
+    if (animationArrSwapIdx[2]) {
+      let firstIdxVal = referenceArray[animationArrSwapIdx[0]];
+      let secondIdxVal = referenceArray[animationArrSwapIdx[1]];
+      console.log(firstIdxVal);
+      console.log(secondIdxVal);
+      return 'Hello world';
+    } else {
+      return 'Hello world';
     }
   };
 
   const executeForwardSwapAnimation = () => {
+    // textToDisplay();
     let animationArrSwapIdx = animationArr[idx];
-    const animationPx = Math.floor(((idx + 1) / animationArr.length) * 100);
-
+    const animationPx = Math.ceil(((idx + 1) / animationArr.length) * 100);
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
       const height = animationArrSwapIdx.height;
@@ -79,21 +96,31 @@ const Visualizer = () => {
         countArr[height - 1].count -= 1;
       }
     } else {
-      setReferenceArray(swap(animationArrSwapIdx[0], animationArrSwapIdx[1], referenceArray));
+      let newReferenceArray = handleSwap(
+        animationArrSwapIdx[1],
+        animationArrSwapIdx[0],
+        referenceArray,
+        animationArrSwapIdx[2]
+      );
+      if (idx + 1 >= animationArr.length) {
+        resetDataWhenAnimationFinish(newReferenceArray);
+      } else {
+        setReferenceArray(newReferenceArray);
+      }
     }
     setIdx(idx + 1);
     setAnimationPercentage(animationPx);
   };
 
   const executeBackwardSwapAnimation = () => {
+    // this occurs if the users click too fast
     if (idx - 1 < 0) {
-      // this occurs if the users click too fast
       setIdx(0);
       return;
     }
 
     let animationArrSwapIdx = animationArr[idx - 1];
-    const animationPx = Math.floor(((idx - 1) / animationArr.length) * 100);
+    const animationPx = Math.ceil(((idx - 1) / animationArr.length) * 100);
 
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
@@ -107,19 +134,26 @@ const Visualizer = () => {
         countArr[height - 1].count += 1;
       }
     } else {
-      setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
+      setReferenceArray(
+        handleSwap(
+          animationArrSwapIdx[1],
+          animationArrSwapIdx[0],
+          referenceArray,
+          animationArrSwapIdx[2]
+        )
+      );
+    }
+    if (idx === animationArr.length) {
+      setIsReplay(false);
     }
     setIdx(idx - 1);
-    if (idx - 1 === 0) {
-      resetArray(referenceArray);
-    }
     setAnimationPercentage(animationPx);
   };
 
-  const resetDataWhenAnimationFinish = () => {
+  const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
     setIsReplay(true);
-    resetArray(referenceArray);
+    setReferenceArray(resetArray(finalReferenceArray));
   };
 
   const value = {
@@ -135,6 +169,9 @@ const Visualizer = () => {
     visualizerAlgorithm,
     animationPercentage,
     idx,
+    text,
+    isReset,
+    setIsReset,
     setIsReplay,
     setIsPlay,
     setIsInMidstOfSort,

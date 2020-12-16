@@ -22,6 +22,8 @@ const AnimationScreen = () => {
     resetDataWhenAnimationFinish,
     dataSize,
     visualizerAlgorithm,
+    isReset,
+    setIsReset,
   } = useContext(VisualizerStateContext);
 
   const length = referenceArray.length;
@@ -29,11 +31,12 @@ const AnimationScreen = () => {
 
   useEffect(() => {
     /**
-     * This is for replay, reset button or any changes to data size or algorithm.
+     * This is for replay, or any changes to arrayData
      */
-    if (!isReplay && !isPlay) {
+    if (isReset) {
       setReferenceArray(arrayCopy(arrayData));
       setIdx(0);
+      setIsReset(false);
     }
   }, [arrayData, isReplay]);
 

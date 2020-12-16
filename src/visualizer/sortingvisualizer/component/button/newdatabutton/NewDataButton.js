@@ -13,6 +13,7 @@ const NewDataButton = () => {
     setAnimationPercentage,
     visualizerAlgorithm,
     setCountArr,
+    setIsReset,
   } = useContext(VisualizerStateContext);
 
   const handleNewDataButtonClick = () => {
@@ -22,6 +23,7 @@ const NewDataButton = () => {
       setAnimationPercentage(0);
       setIsReplay(false);
       setCountArr(arrayCopy(buckets));
+      setIsReset(true);
     }
   };
 

@@ -1,18 +1,28 @@
 import SortingAlgorithms from '../../algorithm/allSorts';
-import React from 'react';
 
 export const swap = (firstIdx, secondIdx, arr) => {
+  let tmp = arr[firstIdx];
+  arr[firstIdx] = arr[secondIdx];
+  arr[secondIdx] = tmp;
+};
+
+export const highlight = (firstIdx, secondIdx, arr) => {
+  arr[firstIdx].isSwap = true;
+  arr[secondIdx].isSwap = true;
+};
+
+export const handleSwap = (firstIdx, secondIdx, arr, isSwapOccurring) => {
   let newTempArr = resetArray(arr);
-  let tmp = newTempArr[firstIdx];
-  newTempArr[firstIdx] = newTempArr[secondIdx];
-  newTempArr[secondIdx] = tmp;
-  newTempArr[firstIdx].isSwap = true;
-  newTempArr[secondIdx].isSwap = true;
+  highlight(firstIdx, secondIdx, newTempArr);
+  if (!isSwapOccurring) {
+    return newTempArr;
+  }
+  swap(firstIdx, secondIdx, newTempArr);
   return newTempArr;
 };
 
 export const resetArray = (arr) => {
-  return arr.map((x) => {
+  return arrayCopy(arr).map((x) => {
     let tempArrElement = x;
     tempArrElement.isSwap = false;
     return tempArrElement;

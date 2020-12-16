@@ -6,17 +6,24 @@ import './styles.css';
 import { resetArray } from '../../../util/VisualizerUtil';
 
 const BackButton = () => {
-  const { isPlay, animationPercentage, executeBackwardSwapAnimation, idx, arrayData } = useContext(
-    VisualizerStateContext
-  );
+  const {
+    isPlay,
+    animationPercentage,
+    executeBackwardSwapAnimation,
+    idx,
+    arrayData,
+    setArrayData,
+    setIsReset,
+  } = useContext(VisualizerStateContext);
 
   const isEmpty = animationPercentage === 0;
 
   const handleBackButtonClick = () => {
     executeBackwardSwapAnimation();
     // this is to check if we are at the start animation, to reset the color of the block
-    if (idx - 1 === 0) {
-      resetArray(arrayData);
+    if (idx - 1 <= 0) {
+      setArrayData(resetArray(arrayData));
+      setIsReset(true);
     }
   };
 

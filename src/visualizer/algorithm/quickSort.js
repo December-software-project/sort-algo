@@ -15,7 +15,9 @@ const partition = (items, left, right, animationArr) => {
     if (i <= j) {
       if (i !== j) {
         swap(i, j, items);
-        animationArr.push([j, i]);
+        animationArr.push([j, i, true]);
+      } else {
+        animationArr.push([j, i, false]);
       }
       i++;
       j--;
