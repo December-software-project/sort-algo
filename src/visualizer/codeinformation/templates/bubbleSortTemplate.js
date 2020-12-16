@@ -7,43 +7,57 @@ const BubbleSort = {
     '}\n' +
     '\n' +
     'void bubbleSort(int[] arr) {\n' +
+    '    \n' +
+    '    // Loop in the range of unsorted elements\n' +
     '    for (int i = arr.length - 1; i >= 0; i--) {\n' +
     '        boolean swapped = true;\n' +
+    '        \n' +
+    '        // Bubble largest element to the end\n' +
     '        for (int j = 0; j < i; j++) {\n' +
     '            if (arr[j] > arr[j + 1]) {\n' +
     '                swap(arr, j, j + 1);\n' +
     '                swapped = false;\n' +
     '            }\n' +
     '        }\n' +
+    '        \n' +
+    '        // Array is already sorted since there are no swaps done in an iteration\n' +
     '        if (swapped) {\n' +
     '            break;\n' +
     '        }\n' +
     '    }\n' +
     '}\n',
   JavaScript:
-    'function bubbleSort(arr) {\n' +
+    'function bubbleSort(arr) {\n\n' +
+    '  // Loop in the range of unsorted elements\n' +
     '  for (let i = arr.length - 1; i >= 0; i--) {\n' +
-    '    let swapped = true;\n' +
+    '    let swapped = true;\n\n' +
+    '    // Bubble largest element to the end\n' +
     '    for (let j = 0; j < i; j++) {\n' +
     '      if (arr[j] > arr[j + 1]) {\n' +
     '        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];\n' +
     '        swapped = false;\n' +
     '      }\n' +
-    '    }\n' +
+    '    }\n\n' +
+    '    // Array is already sorted since there are no swaps done in an iteration\n' +
     '    if (swapped) {\n' +
     '      break;\n' +
     '    }\n' +
     '  }\n' +
-    '  return arr;\n' +
     '}\n',
   Python:
     'def bubble_sort(arr):\n' +
+    '\n' +
+    '    # Loop in the range of unsorted elements\n' +
     '    for i in range(len(arr) - 1, 0, -1):\n' +
     '        swapped = True\n' +
-    '        for j in range(0, i):\n' +
+    '\n' +
+    '        # Bubble largest element to the end\n' +
+    '        for j in range(i):\n' +
     '            if arr[j] > arr[j + 1]:\n' +
     '                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n' +
     '                swapped = False\n' +
+    '\n' +
+    '        # Array is already sorted since there are no swaps done in an iteration\n' +
     '        if swapped:\n' +
     '            break\n',
   'C/C++':
@@ -56,10 +70,16 @@ const BubbleSort = {
     '\n' +
     'void bubbleSort(int arr[], int len)\n' +
     '{\n' +
-    '    for (int i = len - 1; i >= 0; i--)\n' +
+    '    int i, j;\n' +
+    '    bool swapped;\n' +
+    '\n' +
+    '    // Loop in the range of unsorted elements\n' +
+    '    for (i = len - 1; i >= 0; --i)\n' +
     '    {\n' +
-    '        bool swapped = true;\n' +
-    '        for (int j = 0; j < i; j++)\n' +
+    '        swapped = true;\n' +
+    '\n' +
+    '        // Bubble largest element to the end\n' +
+    '        for (j = 0; j < i; ++j)\n' +
     '        {\n' +
     '            if (arr[j] > arr[j + 1])\n' +
     '            {\n' +
@@ -67,6 +87,8 @@ const BubbleSort = {
     '                swapped = false;\n' +
     '            }\n' +
     '        }\n' +
+    '\n' +
+    '        // Array is already sorted since there are no swaps done in an iteration\n' +
     '        if (swapped)\n' +
     '        {\n' +
     '            break;\n' +
