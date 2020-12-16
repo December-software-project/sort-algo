@@ -77,10 +77,10 @@ const CountingSort = {
     '// Assume array contains only non-zero digits\n' +
     'void countingSort(int arr[], int len)\n' +
     '{\n' +
-    '\n' +
+    '    int i;\n' +
     '    int maxElement = arr[0];\n' +
     '    // Get max element\n' +
-    '    for (int i = 1; i < len; i++)\n' +
+    '    for (i = 1; i < len; ++i)\n' +
     '    {\n' +
     '        if (arr[i] > maxElement)\n' +
     '        {\n' +
@@ -88,29 +88,29 @@ const CountingSort = {
     '        }\n' +
     '    }\n' +
     '\n' +
-    '    // Create count array of length maxElement + 1\n' +
+    '    // Create array with length maxElement + 1\n' +
     '    int countArrLength = maxElement + 1;\n' +
     '    int *countArr = (int *)malloc(countArrLength * sizeof(int));\n' +
     '\n' +
-    '    for (int i = 0; i < countArrLength; i++)\n' +
+    '    for (i = 0; i < countArrLength; ++i)\n' +
     '    {\n' +
     '        countArr[i] = 0;\n' +
     '    }\n' +
     '\n' +
     '    // Fill in count arr\n' +
-    '    for (int i = 0; i < len; i++)\n' +
+    '    for (i = 0; i < len; ++i)\n' +
     '    {\n' +
     '        countArr[arr[i]]++;\n' +
     '    }\n' +
     '\n' +
     '    // Insert elements back into original array\n' +
     '    int index = 0;\n' +
-    '    for (int i = 0; i < countArrLength; i++)\n' +
+    '    for (i = 0; i < countArrLength; ++i)\n' +
     '    {\n' +
     '        while (countArr[i] != 0)\n' +
     '        {\n' +
     '            arr[index] = i;\n' +
-    '            index++;\n' +
+    '            ++index;\n' +
     '            countArr[i]--;\n' +
     '        }\n' +
     '    }\n' +
