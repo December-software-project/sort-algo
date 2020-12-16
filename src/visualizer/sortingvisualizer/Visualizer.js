@@ -117,6 +117,7 @@ const Visualizer = () => {
     setIsPlay(false);
     setIsReplay(true);
     resetArray(referenceArray);
+    resetArray(arrayData);
   };
 
   const value = {
