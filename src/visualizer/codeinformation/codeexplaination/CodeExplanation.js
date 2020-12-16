@@ -52,14 +52,14 @@ const CodeExplanation = ({ algo }) => {
 
     return (
       <div className="performance">
-        <p className="explanationPara">
+        <p className="explanation-para">
           {`Assuming N is the size of array, ` + sort.additionalDesc}
         </p>
-        <div className="rowContainerOne">
+        <div className="row-container-one">
           {text()}
           {complexity()}
         </div>
-        <div className="rowContainerTwo">
+        <div className="row-container-two">
           {wordWithIcon('Stable', sort.stable)}
           {wordWithIcon('In-place', sort.inPlace)}
         </div>

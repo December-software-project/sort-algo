@@ -117,6 +117,7 @@ const Visualizer = () => {
     setIsPlay(false);
     setIsReplay(true);
     resetArray(referenceArray);
+    resetArray(arrayData);
   };
 
   const value = {
@@ -170,7 +171,7 @@ const Visualizer = () => {
             </div>
             <div className="button-box">
               <BackButton />
-              <div style={{ backgroundColor: 'red' }}>
+              <div>
                 <ThreeStateButton />
                 <NewDataButton />
               </div>
