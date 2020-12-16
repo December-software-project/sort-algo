@@ -6,7 +6,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Profile = ({ img, name, description, linkedInLink, gitHubLink }) => {
   const HeaderLineStyling = (isVisible) => ({
-    transform: isVisible ? `translateY(0px)` : `translateY(150px)`,
+    transform: isVisible ? `translateY(0px)` : `translateY(125px)`,
     transition: `all 1.0s ease-in-out`,
   });
 
