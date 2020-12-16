@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import LegendInformation from './LegendInformation';
 import LegendHeader from './LegendHeader';
 import './styles.css';
+import { VisualizerStateContext } from '../../Visualizer';
+import { isBucketTypeSort } from '../../util/VisualizerUtil';
 
 const Legend = () => {
+  const { visualizerAlgorithm } = useContext(VisualizerStateContext);
+
   const legendInformation = [
     {
       color: 'linear-gradient(45deg, #13B1B7, #11C2C9)',
@@ -16,16 +20,18 @@ const Legend = () => {
   ];
 
   return (
-    <div className="legend">
-      <div className="legend-header-box">
-        <LegendHeader />
+    !isBucketTypeSort(visualizerAlgorithm) && (
+      <div>
+        <div className="legend-header-box">
+          <LegendHeader />
+        </div>
+        <div className="legend-information-box">
+          {legendInformation.map(({ color, description }, index) => (
+            <LegendInformation color={color} description={description} key={index} />
+          ))}
+        </div>
       </div>
-      <div className="legend-information-box">
-        {legendInformation.map(({ color, description }, index) => (
-          <LegendInformation color={color} description={description} key={index} />
-        ))}
-      </div>
-    </div>
+    )
   );
 };
 

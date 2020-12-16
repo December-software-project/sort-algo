@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import '../block/styles.css';
 import './buckets.css';
 import { VisualizerStateContext } from '../../Visualizer';
+import { translateXOfVisualizer } from '../../util/VisualizerUtil';
 
 const Buckets = () => {
   const { dataSize, countArr } = useContext(VisualizerStateContext);
@@ -9,28 +10,41 @@ const Buckets = () => {
   const colorArr = [
     '#B8B8B8',
     '#b4d3de',
-    '#4f8bac',
-    '#768ca2',
-    '#2d6c8a',
-    '#117cae',
-    '#006da5',
-    '#184783',
-    '#023e83',
-    '#002b58',
-    '#001e40',
-    '#756fc1',
-    '#524aa5',
-    '#433c83',
-    '#363170',
+    '#7AC1DB',
+    '#74a2d6',
+    '#7B9AD6',
+    '#6A8FDB',
+    '#5480D9',
+    '#3B6DD2',
+    '#3b5cd2',
+    '#274ac8',
+    '#1e41c8',
+    '#183cc6',
+    '#092ec8',
+    '#091cc8',
+    '#0600c3',
+    '#0600a0',
+    '#030062',
+    '#030030',
+    '#030016',
+    '#000000',
+    '#000000',
+    '#000000',
+    '#000000',
+    '#000000',
+    '#000000',
   ];
 
   const countBlock = (item) => (
-    <div className="fixedArrayContainer">
+    <div
+      className="fixed-array-container"
+      style={{ transform: `translateX(${translateXOfVisualizer(dataSize)}px)` }}
+    >
       <div
         className="animated-block"
         key={item.height}
         style={{
-          height: item.height * 18,
+          height: item.height * 10 + 9,
           backgroundImage: 'none',
           backgroundColor: colorArr[item.count],
           width: 800 / Math.max(dataSize, 9),
@@ -42,7 +56,7 @@ const Buckets = () => {
     </div>
   );
 
-  return <div className="fixedArray">{countArr.map((item) => countBlock(item))}</div>;
+  return <div className="fixed-array">{countArr.map((item) => countBlock(item))}</div>;
 };
 
 export default Buckets;
