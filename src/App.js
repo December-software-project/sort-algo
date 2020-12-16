@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import About from './about/About';
+import HowItWorks from './howitworks/HowItWorks';
 import ContactUs from './contactus/ContactUs';
 import Home from './home/Home';
 import Team from './team/Team';
@@ -23,7 +23,7 @@ function App() {
             </a>
           </li>
           <li>
-            <a href="#about">About</a>
+            <a href="#howItWorks">How it Works</a>
           </li>
           <li>
             <a href="#visualizer">Visualizer</a>
@@ -38,7 +38,7 @@ function App() {
       </nav>
       <div className="app-container">
         <Home />
-        <About />
+        <HowItWorks />
         <Visualizer />
         <Team />
         <ContactUs />
