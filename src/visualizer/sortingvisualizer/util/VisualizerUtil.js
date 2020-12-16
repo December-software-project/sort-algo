@@ -1,4 +1,5 @@
 import SortingAlgorithms from '../../algorithm/allSorts';
+import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
 
 export const swap = (firstIdx, secondIdx, arr) => {
   let tmp = arr[firstIdx];
@@ -32,6 +33,11 @@ export const resetArray = (arr) => {
 export const getAnimationArr = (algo, arrayData) => {
   const sortAlgo = SortingAlgorithms[algo];
   return sortAlgo(arrayCopy(arrayData));
+};
+
+export const getStepByStepText = (algo, animationArr, idx, referenceArray) => {
+  const sortAlgoStepByStep = SortingAlgorithmsStepByStep[algo];
+  return sortAlgoStepByStep(animationArr, idx, referenceArray);
 };
 
 const generateValue = (min, max) => {

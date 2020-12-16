@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import insertionSort from '../algorithm/insertionSort';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
 import VisualizerHeader from '../../component/header/SectionHeader';
@@ -29,6 +28,7 @@ import BackButton from './component/button/forwardbackbutton/BackButton';
 import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
 import StepByStep from './component/stepbystep/StepByStep';
+import bubbleSort from '../algorithm/bubbleSort';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -44,11 +44,10 @@ const Visualizer = () => {
   const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Bubble Sort');
   const [arrayData, setArrayData] = useState(generateArray(dataSize, visualizerAlgorithm));
   const [referenceArray, setReferenceArray] = useState(arrayCopy(arrayData));
-  const [animationArr, setAnimationArr] = useState(insertionSort(arrayCopy(arrayData)));
+  const [animationArr, setAnimationArr] = useState(bubbleSort(arrayCopy(arrayData)));
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
   const [countArr, setCountArr] = useState(arrayCopy(buckets));
-  const [text, setText] = useState('');
 
   useEffect(() => {
     if (isPlay === false) {
@@ -67,23 +66,9 @@ const Visualizer = () => {
     }
   };
 
-  const textToDisplay = () => {
-    let animationArrSwapIdx = animationArr[idx];
-    if (animationArrSwapIdx[2]) {
-      let firstIdxVal = referenceArray[animationArrSwapIdx[0]];
-      let secondIdxVal = referenceArray[animationArrSwapIdx[1]];
-      console.log(firstIdxVal);
-      console.log(secondIdxVal);
-      return 'Hello world';
-    } else {
-      return 'Hello world';
-    }
-  };
-
   const executeForwardSwapAnimation = () => {
-    // textToDisplay();
     let animationArrSwapIdx = animationArr[idx];
-    const animationPx = Math.ceil(((idx + 1) / animationArr.length) * 100);
+    const animationPx = ((idx + 1) / animationArr.length) * 100;
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
       const height = animationArrSwapIdx.height;
@@ -120,7 +105,7 @@ const Visualizer = () => {
     }
 
     let animationArrSwapIdx = animationArr[idx - 1];
-    const animationPx = Math.ceil(((idx - 1) / animationArr.length) * 100);
+    const animationPx = ((idx - 1) / animationArr.length) * 100;
 
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
@@ -134,14 +119,13 @@ const Visualizer = () => {
         countArr[height - 1].count += 1;
       }
     } else {
-      setReferenceArray(
-        handleSwap(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
-          referenceArray,
-          animationArrSwapIdx[2]
-        )
+      let temp = handleSwap(
+        animationArrSwapIdx[1],
+        animationArrSwapIdx[0],
+        referenceArray,
+        animationArrSwapIdx[2]
       );
+      setReferenceArray(temp);
     }
     if (idx === animationArr.length) {
       setIsReplay(false);
@@ -169,7 +153,6 @@ const Visualizer = () => {
     visualizerAlgorithm,
     animationPercentage,
     idx,
-    text,
     isReset,
     setIsReset,
     setIsReplay,
@@ -202,8 +185,8 @@ const Visualizer = () => {
           >
             <AnimationScreen />
           </div>
-          <AnimationProgressBar />
           <StepByStep />
+          <AnimationProgressBar />
           <div className="controller-box">
             <div className="speed-selector-box">
               <SpeedSelector setData={(val) => setSpeed(val)} {...SpeedSelectorProps} />

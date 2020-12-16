@@ -1,13 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
+import { getStepByStepText } from '../../util/VisualizerUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 
 const StepByStep = () => {
-  // const { text } = useContext(VisualizerStateContext);
-  // const [textToDisplay, setTextToDisplay] = useState('');
-  // useEffect(() => setTextToDisplay(text), [text]);
+  const { animationArr, idx, referenceArray, visualizerAlgorithm } = useContext(
+    VisualizerStateContext
+  );
 
-  return <div className="step-by-step-holder">{/*<p>{textToDisplay}</p>*/}</div>;
+  return (
+    <div className="step-by-step-holder">
+      <p>{getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray)}</p>
+    </div>
+  );
 };
 
 export default StepByStep;
