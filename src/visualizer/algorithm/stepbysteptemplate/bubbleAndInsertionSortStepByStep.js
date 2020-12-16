@@ -1,4 +1,4 @@
-export const insertionSortStepByStep = (animationArr, idx, referenceArray) => {
+export const bubbleAndInsertionSortStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';
   } else if (idx - 1 >= 0) {
@@ -10,7 +10,7 @@ export const insertionSortStepByStep = (animationArr, idx, referenceArray) => {
     let secondIdxVal = referenceArray[secondIdx].height;
     let isBigger = secondIdxVal > firstIdxVal;
     let message = `Check if ${secondIdxVal} > ${firstIdxVal} :\n`;
-    let result = '';
+    let result;
     if (isSwap) {
       result = `Since swap is true, swap ${secondIdxVal} and ${firstIdxVal}`;
       return result;
