@@ -12,7 +12,6 @@ const HowItWorks = () => {
       <HowItWorksHeader sectionHeader={'How it Works'} translateX={'translateX(28px)'} />
       <div className="how-it-works-container">
         <img className="how-it-works-picture" src={HowItWorksImage} />
-        {/*<div className="instructions">*/}
         <div className="steps">
           <Step
             // img={}
@@ -38,7 +37,6 @@ const HowItWorks = () => {
               the algorithm on step at a time with these functions."
           />
         </div>
-        {/*</div>*/}
       </div>
     </div>
   );

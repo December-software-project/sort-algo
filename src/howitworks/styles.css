@@ -17,13 +17,6 @@
   height: 550px;
 }
 
-.instructions {
-  width: 500px;
-  margin-top: 75px;
-  /*flex-direction: row;*/
-  flex-flow: row wrap;
-}
-
 .steps {
   margin-top: 75px;
   flex-direction: column;
