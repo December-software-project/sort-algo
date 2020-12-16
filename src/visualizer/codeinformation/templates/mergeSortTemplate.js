@@ -125,8 +125,8 @@ const MergeSort = {
     '            i += 1\n' +
     '            k += 1\n' +
     '\n' +
-    '        while j < len(right_array)):\n' +
-    '            arr[k] = right_array)[j]\n' +
+    '        while j < len(right_array):\n' +
+    '            arr[k] = right_array[j]\n' +
     '            j += 1\n' +
     '            k += 1\n',
   'C/C++':

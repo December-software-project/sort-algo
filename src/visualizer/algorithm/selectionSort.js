@@ -14,7 +14,6 @@ const selectionSort = (arr) => {
     swap(smallestIdx, i, receivedArr);
     animationArr.push([smallestIdx, i, true]);
   }
-  console.log(animationArr);
   return animationArr;
 };
 

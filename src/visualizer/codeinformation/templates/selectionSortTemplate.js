@@ -5,17 +5,17 @@ const SelectionSort = {
     'void sort(int[] arr) {\n' +
     '    int n = arr.length;\n' +
     '    // One by one move boundary of unsorted subarray \n' +
-    '    for (int i = 0; i < n-1; i++) {\n' +
+    '    for (int i = 0; i < n - 1; i++) {\n' +
     '        // Find the minimum element in unsorted array \n' +
-    '        int min_idx = i;\n' +
-    '        for (int j = i+1; j < n; j++) {\n' +
+    '        int minIdx = i;\n' +
+    '        for (int j = i + 1; j < n; j++) {\n' +
     '            if (arr[j] < arr[min_idx]) {\n' +
-    '                min_idx = j;\n' +
+    '                minIdx = j;\n' +
     '            }\n' +
     '        }\n' +
     '        // Swap the found minimum element with the first element \n' +
-    '        int temp = arr[min_idx];\n' +
-    '        arr[min_idx] = arr[i];\n' +
+    '        int temp = arr[minIdx];\n' +
+    '        arr[minIdx] = arr[i];\n' +
     '        arr[i] = temp;\n' +
     '    }\n' +
     '} \n',
@@ -42,7 +42,7 @@ const SelectionSort = {
   Python:
     'def selection_sort(L):\n' +
     '    # i indicates how many items were sorted\n' +
-    '    for i in range(len(L)-1):\n' +
+    '    for i in range(len(L) - 1):\n' +
     '        # To find the minimum value of the unsorted segment\n' +
     '        # We first assume that the first element is the lowest\n' +
     '        min_index = i\n' +
@@ -56,21 +56,21 @@ const SelectionSort = {
   'C/C++':
     'void selectionSort(int arr[], int n)\n' +
     '{\n' +
-    '    int i, j, min_idx;\n' +
+    '    int i, j, minIdx;\n' +
     '    // One by one move boundary of unsorted subarray \n' +
-    '    for (i = 0; i < n-1; i++)\n' +
+    '    for (i = 0; i < n - 1; i++)\n' +
     '    {\n' +
     '        // Find the minimum element in unsorted array \n' +
-    '        min_idx = i;\n' +
-    '        for (j = i+1; j < n; j++) \n' +
+    '        minIdx = i;\n' +
+    '        for (j = i + 1; j < n; j++) \n' +
     '        {\n' +
     '            if (arr[j] < arr[min_idx]) \n' +
     '            {\n' +
-    '                min_idx = j;\n' +
+    '                minIdx = j;\n' +
     '            }\n' +
     '        }\n' +
     '        // Swap the found minimum element with the first element \n' +
-    '        swap(&arr[min_idx], &arr[i]);\n' +
+    '        swap(&arr[minIdx], &arr[i]);\n' +
     '    }\n' +
     '} \n',
 };

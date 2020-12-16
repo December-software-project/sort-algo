@@ -138,8 +138,8 @@ const Visualizer = () => {
     setIsPlay(false);
     setIsReplay(true);
     setReferenceArray(resetArray(finalReferenceArray));
-    resetArray(referenceArray);
-    resetArray(arrayData);
+    // resetArray(referenceArray);
+    // resetArray(arrayData);
   };
 
   const value = {

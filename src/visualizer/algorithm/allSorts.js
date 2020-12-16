@@ -15,6 +15,7 @@ const SortingAlgorithms = {
   'Bucket Sort': bucketSort,
   'Counting Sort': countingSort,
   'Selection Sort': selectionSort,
+  'Merge Sort': mergeSort,
 };
 
 export default SortingAlgorithms;
