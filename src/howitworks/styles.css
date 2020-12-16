@@ -3,12 +3,12 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  /*height: 675px;*/
 }
 
 .how-it-works-container {
   display: flex;
   justify-content: space-evenly;
+  padding: 50px 0 50px 0;
   width: 100%;
 }
 
