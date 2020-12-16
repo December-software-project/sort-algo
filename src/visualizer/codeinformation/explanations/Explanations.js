@@ -4,6 +4,8 @@ import QuickSort from './quickSortEx';
 import RadixSort from './radixSortEx';
 import BucketSort from './bucketSortEx';
 import CountingSort from './countingSortEx';
+import SelectionSort from './selectionSortEx';
+import MergeSort from './mergeSortEx';
 
 const explanations = {
   'Bubble Sort': BubbleSort,
@@ -12,6 +14,8 @@ const explanations = {
   'Radix Sort': RadixSort,
   'Bucket Sort': BucketSort,
   'Counting Sort': CountingSort,
+  'Selection Sort': SelectionSort,
+  'Merge Sort': MergeSort,
 };
 
 export default explanations;
