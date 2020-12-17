@@ -199,7 +199,7 @@ const Visualizer = () => {
               transform: `translateX(-${translateXOfVisualizer(dataSize)}px)`,
             }}
           >
-            <AnimationScreen referenceArray={referenceArray} />
+            <AnimationScreen />
           </div>
           <StepByStep />
           <AnimationProgressBar />
