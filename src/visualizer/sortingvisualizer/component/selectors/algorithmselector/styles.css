@@ -8,7 +8,6 @@
 }
 
 .algorithm-selector-holder {
-  cursor: pointer;
   width: 120px;
-  transform: translate(-15px,10px);
+  transform: translate(-15px, 10px);
 }

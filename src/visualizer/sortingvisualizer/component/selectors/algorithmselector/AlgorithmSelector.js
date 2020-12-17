@@ -65,7 +65,10 @@ const AlgorithmChooser = () => {
   );
 
   return (
-    <div className="algorithm-selector-holder">
+    <div
+      className="algorithm-selector-holder"
+      style={{ cursor: isPlay ? 'not-allowed' : 'cursor' }}
+    >
       <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'} disabled={isPlay}>
         <a
           className="ant-dropdown-link"
@@ -73,7 +76,9 @@ const AlgorithmChooser = () => {
           id="algorithm-selector-drop-down-arrow"
         >
           {algorithm}
-          <DownOutlined style={{ transform: 'translateX(5px)' }} />
+          <DownOutlined
+            style={{ transform: 'translateX(5px)', cursor: isPlay ? 'not-allowed' : 'cursor' }}
+          />
         </a>
       </Dropdown>
     </div>

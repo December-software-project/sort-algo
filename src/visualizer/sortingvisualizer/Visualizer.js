@@ -17,6 +17,7 @@ import {
   resetArray,
   translateXOfVisualizer,
   handleSwap,
+  handleMergeSort,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -55,6 +56,11 @@ const Visualizer = () => {
     }
   }, [isPlay, speed, dataSize, visualizerAlgorithm, arrayData]);
 
+  // code from Mark G https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
+  const roundToTwo = (num) => {
+    return +(Math.round(num + 'e+2') + 'e-2');
+  };
+
   const changeDataSize = (val) => {
     if (val !== dataSize) {
       setDataSize(val);
@@ -68,7 +74,7 @@ const Visualizer = () => {
 
   const executeForwardSwapAnimation = () => {
     let animationArrSwapIdx = animationArr[idx];
-    const animationPx = ((idx + 1) / animationArr.length) * 100;
+    const animationPx = roundToTwo(((idx + 1) / animationArr.length) * 100);
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
       const height = animationArrSwapIdx.height;
@@ -80,12 +86,16 @@ const Visualizer = () => {
         referenceArray[index].isShown = true;
         countArr[height - 1].count -= 1;
       }
+    } else if (visualizerAlgorithm === 'Merge Sort') {
+      let temp = handleMergeSort(referenceArray, animationArrSwapIdx);
+      setReferenceArray(temp);
     } else {
       let newReferenceArray = handleSwap(
         animationArrSwapIdx[1],
         animationArrSwapIdx[0],
         referenceArray,
-        animationArrSwapIdx[2]
+        animationArrSwapIdx[2],
+        visualizerAlgorithm
       );
       if (idx + 1 >= animationArr.length) {
         resetDataWhenAnimationFinish(newReferenceArray);
@@ -105,7 +115,7 @@ const Visualizer = () => {
     }
 
     let animationArrSwapIdx = animationArr[idx - 1];
-    const animationPx = ((idx - 1) / animationArr.length) * 100;
+    const animationPx = roundToTwo(((idx - 1) / animationArr.length) * 100);
 
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
@@ -118,12 +128,15 @@ const Visualizer = () => {
         referenceArray[index].isShown = false;
         countArr[height - 1].count += 1;
       }
+    } else if (visualizerAlgorithm === 'Merge Sort') {
+      setReferenceArray(handleMergeSort(referenceArray, animationArrSwapIdx));
     } else {
       let temp = handleSwap(
         animationArrSwapIdx[1],
         animationArrSwapIdx[0],
         referenceArray,
-        animationArrSwapIdx[2]
+        animationArrSwapIdx[2],
+        visualizerAlgorithm
       );
       setReferenceArray(temp);
     }
@@ -137,7 +150,9 @@ const Visualizer = () => {
   const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
     setIsReplay(true);
-    setReferenceArray(resetArray(finalReferenceArray));
+    if (visualizerAlgorithm !== 'Merge Sort') {
+      setReferenceArray(resetArray(visualizerAlgorithm, finalReferenceArray));
+    }
   };
 
   const value = {
@@ -184,7 +199,7 @@ const Visualizer = () => {
               transform: `translateX(-${translateXOfVisualizer(dataSize)}px)`,
             }}
           >
-            <AnimationScreen />
+            <AnimationScreen referenceArray={referenceArray} />
           </div>
           <StepByStep />
           <AnimationProgressBar />

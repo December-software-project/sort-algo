@@ -14,6 +14,7 @@ const BackButton = () => {
     arrayData,
     setArrayData,
     setIsReset,
+    visualizerAlgorithm,
   } = useContext(VisualizerStateContext);
 
   const isEmpty = animationPercentage === 0;
@@ -22,7 +23,7 @@ const BackButton = () => {
     executeBackwardSwapAnimation();
     // this is to check if we are at the start animation, to reset the color of the block
     if (idx - 1 <= 0) {
-      setArrayData(resetArray(arrayData));
+      setArrayData(resetArray(visualizerAlgorithm, arrayData));
       setIsReset(true);
     }
   };
