@@ -138,8 +138,6 @@ const Visualizer = () => {
     setIsPlay(false);
     setIsReplay(true);
     setReferenceArray(resetArray(finalReferenceArray));
-    // resetArray(referenceArray);
-    // resetArray(arrayData);
   };
 
   const value = {
@@ -163,6 +161,7 @@ const Visualizer = () => {
     setVisualizerAlgorithm,
     setArrayData,
     setAnimationPercentage,
+    setAnimationArr,
     setIdx,
     setReferenceArray,
     setCountArr,
