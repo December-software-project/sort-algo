@@ -2,8 +2,9 @@
   background: white;
   display: flex;
   flex-direction: column;
-  height: 85vh;
+  height: 1050px;
   justify-content: center;
+  padding-bottom: 600px;
 }
 
 .contact-us-header-box > span {
