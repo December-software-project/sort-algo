@@ -10,7 +10,6 @@ import { GoPlay } from 'react-icons/go';
 import { MdReplay } from 'react-icons/md';
 
 const HowItWorks = () => {
-
   return (
     <div id="howItWorks" className="how-it-works">
       <HowItWorksHeader sectionHeader={'How it Works'} translateX={'translateX(28px)'} />
