@@ -1,0 +1,39 @@
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  padding: 0 0 20px;
+}
+
+.profile-description-container {
+  padding-top: 9px;
+  padding-left: 20px;
+  flex-direction: column;
+  line-height: 0;
+}
+
+.picture {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d7dbff;
+}
+
+.profile-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #595da5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.profile-description {
+  color: #8789b5;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 18px;
+}
+
+.github-logo {
+  margin-left: 10px;
+}
