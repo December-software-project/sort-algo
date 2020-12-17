@@ -16,25 +16,25 @@ const HowItWorks = () => {
           <Step
             // img={}
             title="1. Select the Algorithm"
-            description="Visualise the algorithm of your choice."
+            description="Visualize the algorithm of your choice."
           />
           <Step
             // img={}
-            title="3. Play"
+            title="3. Start Sorting"
             description="Press the play button to start the step by step sorting process."
           />
         </div>
         <div className="steps">
           <Step
             // img={}
-            title="2. Select Defaults"
+            title="2. Select Settings"
             description="Adjust the speed of the visualizer and array size."
           />
           <Step
             // img={}
             title="4. Fast-forward, Backtrack, and Replay"
-            description="Replay the entire sorting process or go walk through
-              the algorithm on step at a time with these functions."
+            description="Replay the entire sorting process or walk through
+              the algorithm one step at a time with these functions."
           />
         </div>
       </div>

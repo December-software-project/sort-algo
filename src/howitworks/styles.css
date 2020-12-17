@@ -8,12 +8,12 @@
 .how-it-works-container {
   display: flex;
   justify-content: space-evenly;
-  padding: 50px 0 50px 0;
-  width: 100%;
+  padding: 40px 0 40px 0;
+  width: 90%;
 }
 
 .how-it-works-picture {
-  width: 40%;
+  width: 45%;
   height: 550px;
 }
 

@@ -10,12 +10,13 @@
   flex-direction: row;
   justify-content: space-around;
   display: flex;
-  margin-top: 2%;
+  margin-top: 3%;
   height: 100%;
+  width: 90%;
 }
 
 .team-picture {
-  width: 40%;
+  width: 45%;
   height: 450px;
 }
 
@@ -38,4 +39,5 @@
   font-size: 16px;
   color: #8789b5;
   line-height: 18px;
+  padding-bottom: 15px;
 }
