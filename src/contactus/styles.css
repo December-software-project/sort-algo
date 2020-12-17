@@ -2,13 +2,12 @@
   background: white;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 85vh;
   justify-content: center;
-  padding-top: 100px;
 }
 
 .contact-us-header-box > span {
-  color: #8789B5;
+  color: #8789b5;
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   transform: translateY(30px);
@@ -20,5 +19,3 @@
   flex-direction: column;
   height: 20vh;
 }
-
-
