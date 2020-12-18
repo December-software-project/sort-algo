@@ -32,7 +32,7 @@
   /*max-height: 625px;*/
   flex-grow: 0;
   justify-content: center;
-  min-height: 625px;
+  min-height: 675px;
   width: 100%;
 }
 
@@ -65,10 +65,16 @@
   margin-left: 4%;
   margin-top: 4%;
   padding: 0 20px 40px;
-  transform: translateX(30px);
+  transform: translateX(3vw);
 }
 
 #visualizer {
   min-width: 100%;
   width: 0;
+}
+
+.play-reset-button-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

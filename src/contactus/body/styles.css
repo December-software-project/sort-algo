@@ -152,7 +152,7 @@ textarea:focus {
 
 .form-submit-button {
   align-items: center;
-  background-image: linear-gradient(90deg, #7c89f8, #5466ff);
+  background-image: linear-gradient(90deg, #6d7bf3, #5466ff);
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);

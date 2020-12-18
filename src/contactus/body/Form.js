@@ -65,7 +65,7 @@ const Form = () => {
       validationSchema={reviewSchema}
       onSubmit={(values, actions) => {
         sendMessage(values);
-        setType('Type');
+        setType('Type (Optional)');
         actions.resetForm();
       }}
     >

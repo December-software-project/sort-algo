@@ -11,12 +11,14 @@ const ThreeStateButton = () => {
     setIsPlay,
     setIsInMidstOfSort,
     setAnimationPercentage,
+    setIsReset,
   } = useContext(VisualizerStateContext);
 
   const handleThreeStateButtonClick = () => {
     if (isReplay) {
       setIsReplay(false);
       setAnimationPercentage(0);
+      setIsReset(true);
       setTimeout(() => setIsPlay(true), 300);
     } else {
       setIsPlay(!isPlay);

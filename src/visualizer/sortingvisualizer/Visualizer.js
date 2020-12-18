@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import insertionSort from '../algorithm/insertionSort';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
 import VisualizerHeader from '../../component/header/SectionHeader';
@@ -16,8 +15,9 @@ import {
   getAnimationArr,
   isBucketTypeSort,
   resetArray,
-  swap,
   translateXOfVisualizer,
+  handleSwap,
+  handleMergeSort,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -28,6 +28,8 @@ import AnimationProgressBar from './component/animationprogressbar/AnimationProg
 import BackButton from './component/button/forwardbackbutton/BackButton';
 import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
+import StepByStep from './component/stepbystep/StepByStep';
+import bubbleSort from '../algorithm/bubbleSort';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -35,13 +37,15 @@ const Visualizer = () => {
   // isPlay and isReplay simulate the 3 states
   const [isPlay, setIsPlay] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
+  // this is to ensure we can click back arrow without trigger any new re-rendering of data
+  const [isReset, setIsReset] = useState(false);
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
   const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Bubble Sort');
   const [arrayData, setArrayData] = useState(generateArray(dataSize, visualizerAlgorithm));
   const [referenceArray, setReferenceArray] = useState(arrayCopy(arrayData));
-  const [animationArr, setAnimationArr] = useState(insertionSort(arrayCopy(arrayData)));
+  const [animationArr, setAnimationArr] = useState(bubbleSort(arrayCopy(arrayData)));
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
   const [countArr, setCountArr] = useState(arrayCopy(buckets));
@@ -52,6 +56,11 @@ const Visualizer = () => {
     }
   }, [isPlay, speed, dataSize, visualizerAlgorithm, arrayData]);
 
+  // code from Mark G https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
+  const roundToTwo = (num) => {
+    return +(Math.round(num + 'e+2') + 'e-2');
+  };
+
   const changeDataSize = (val) => {
     if (val !== dataSize) {
       setDataSize(val);
@@ -59,13 +68,13 @@ const Visualizer = () => {
       setCountArr(arrayCopy(buckets));
       setIsReplay(false);
       setAnimationPercentage(0);
+      setIsReset(true);
     }
   };
 
   const executeForwardSwapAnimation = () => {
     let animationArrSwapIdx = animationArr[idx];
-    const animationPx = Math.floor(((idx + 1) / animationArr.length) * 100);
-
+    const animationPx = roundToTwo(((idx + 1) / animationArr.length) * 100);
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
       const height = animationArrSwapIdx.height;
@@ -77,22 +86,36 @@ const Visualizer = () => {
         referenceArray[index].isShown = true;
         countArr[height - 1].count -= 1;
       }
+    } else if (visualizerAlgorithm === 'Merge Sort') {
+      let temp = handleMergeSort(referenceArray, animationArrSwapIdx);
+      setReferenceArray(temp);
     } else {
-      setReferenceArray(swap(animationArrSwapIdx[0], animationArrSwapIdx[1], referenceArray));
+      let newReferenceArray = handleSwap(
+        animationArrSwapIdx[1],
+        animationArrSwapIdx[0],
+        referenceArray,
+        animationArrSwapIdx[2],
+        visualizerAlgorithm
+      );
+      if (idx + 1 >= animationArr.length) {
+        resetDataWhenAnimationFinish(newReferenceArray);
+      } else {
+        setReferenceArray(newReferenceArray);
+      }
     }
     setIdx(idx + 1);
     setAnimationPercentage(animationPx);
   };
 
   const executeBackwardSwapAnimation = () => {
+    // this occurs if the users click too fast
     if (idx - 1 < 0) {
-      // this occurs if the users click too fast
       setIdx(0);
       return;
     }
 
     let animationArrSwapIdx = animationArr[idx - 1];
-    const animationPx = Math.floor(((idx - 1) / animationArr.length) * 100);
+    const animationPx = roundToTwo(((idx - 1) / animationArr.length) * 100);
 
     if (isBucketTypeSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
@@ -105,19 +128,31 @@ const Visualizer = () => {
         referenceArray[index].isShown = false;
         countArr[height - 1].count += 1;
       }
+    } else if (visualizerAlgorithm === 'Merge Sort') {
+      setReferenceArray(handleMergeSort(referenceArray, animationArrSwapIdx));
     } else {
-      setReferenceArray(swap(animationArrSwapIdx[1], animationArrSwapIdx[0], referenceArray));
+      let temp = handleSwap(
+        animationArrSwapIdx[1],
+        animationArrSwapIdx[0],
+        referenceArray,
+        animationArrSwapIdx[2],
+        visualizerAlgorithm
+      );
+      setReferenceArray(temp);
     }
-
+    if (idx === animationArr.length) {
+      setIsReplay(false);
+    }
     setIdx(idx - 1);
     setAnimationPercentage(animationPx);
   };
 
-  const resetDataWhenAnimationFinish = () => {
+  const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
     setIsReplay(true);
-    resetArray(referenceArray);
-    resetArray(arrayData);
+    if (visualizerAlgorithm !== 'Merge Sort') {
+      setReferenceArray(resetArray(visualizerAlgorithm, finalReferenceArray));
+    }
   };
 
   const value = {
@@ -133,12 +168,15 @@ const Visualizer = () => {
     visualizerAlgorithm,
     animationPercentage,
     idx,
+    isReset,
+    setIsReset,
     setIsReplay,
     setIsPlay,
     setIsInMidstOfSort,
     setVisualizerAlgorithm,
     setArrayData,
     setAnimationPercentage,
+    setAnimationArr,
     setIdx,
     setReferenceArray,
     setCountArr,
@@ -163,6 +201,7 @@ const Visualizer = () => {
           >
             <AnimationScreen />
           </div>
+          <StepByStep />
           <AnimationProgressBar />
           <div className="controller-box">
             <div className="speed-selector-box">
@@ -171,7 +210,7 @@ const Visualizer = () => {
             </div>
             <div className="button-box">
               <BackButton />
-              <div>
+              <div className="play-reset-button-box">
                 <ThreeStateButton />
                 <NewDataButton />
               </div>

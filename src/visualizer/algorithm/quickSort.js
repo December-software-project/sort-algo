@@ -1,21 +1,33 @@
 import { swap } from './swap';
 
 // Code adapted from https://www.guru99.com/quicksort-in-javascript.html
+
+/* The 4th & 5th Index is for quick sort */
 const partition = (items, left, right, animationArr) => {
-  let pivot = items[Math.floor((right + left) / 2)].height;
+  let pivotIdx = Math.floor((right + left) / 2);
+  let pivot = items[pivotIdx].height;
   let i = left;
   let j = right;
   while (i <= j) {
     while (items[i].height < pivot) {
+      animationArr.push([i, j, false, pivotIdx, 'iToIdx']);
       i++;
     }
+    if (items[i].height >= pivot) {
+      animationArr.push([i, j, false, pivotIdx, 'iToIdx']);
+    }
     while (items[j].height > pivot) {
+      animationArr.push([i, j, false, pivotIdx, 'jToIdx']);
       j--;
     }
+    if (items[j].height <= pivot) {
+      animationArr.push([i, j, false, pivotIdx, 'jToIdx']);
+    }
     if (i <= j) {
-      if (i !== j) {
+      animationArr.push([i, j, false, pivotIdx, 'iToJ']);
+      if (items[i].height > items[j].height) {
+        animationArr.push([i, j, true, pivotIdx, 'iToJ']);
         swap(i, j, items);
-        animationArr.push([j, i]);
       }
       i++;
       j--;

@@ -12,7 +12,7 @@ const QuickSort = {
   ),
   averageTime: 'NlogN',
   bestTime: 'N',
-  worstSpace: 'logN',
+  worstSpace: 'N',
   stable: false,
   inPlace: true,
 };
