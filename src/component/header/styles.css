@@ -1,0 +1,15 @@
+.section-header > span {
+  align-items: center;
+  color: #5467ff;
+  display: flex;
+  font-family: 'Open Sans', serif;
+  font-size: 34px;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.section-header-line {
+  background-color: #a5aefc;
+  height: 2px;
+  width: 70%;
+}

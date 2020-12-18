@@ -1,0 +1,11 @@
+.forward-back-button {
+  height: 30px;
+  vertical-align: middle;
+  width: 30px;
+}
+
+.forward-back-button-holder {
+  background-color: white;
+  border: none;
+  outline: none;
+}

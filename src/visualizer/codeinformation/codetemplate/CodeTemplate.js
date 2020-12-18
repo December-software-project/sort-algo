@@ -19,10 +19,7 @@ const CodeTemplate = ({ algo }) => {
       <p
         className="select"
         style={{
-          background:
-            selected === language
-              ? `linear-gradient(0deg, #5E9BD1, #292C59)`
-              : `linear-gradient(0deg, #A5BBC9, #535E65)`,
+          background: selected === language ? `linear-gradient(0deg, #7c89f8, #5466ff)` : `#A5BBC9`,
         }}
         onClick={() => setSelected(language)}
       >
@@ -43,16 +40,18 @@ const CodeTemplate = ({ algo }) => {
   const getMode = () => (selected === 'C/C++' ? 'c_cpp' : selected.toLowerCase());
 
   return (
-    <div className="codeTemplate">
+    <div className="code-template">
       {selector()}
       <AceEditor
         className="editor"
         mode={getMode()}
         theme="chrome"
         fontSize={14}
+        name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}
         value={template[selected]}
         readOnly={true}
+        showPrintMargin={false}
       />
     </div>
   );

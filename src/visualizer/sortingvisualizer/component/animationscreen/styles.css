@@ -1,0 +1,13 @@
+.list {
+  align-items: flex-end;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  min-height: 100px;
+}
+
+.container-one {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}

@@ -9,9 +9,10 @@
   display: flex;
 }
 
-.app-content {
+.app-container {
+  justify-content: center;
   position: absolute;
-  top: 60px;
+  width: 100%;
 }
 
 .nav-bar {
@@ -20,17 +21,19 @@
   z-index: 50;
   display: flex;
   width: 100%;
-  height: 60px;
-  background: #ffffff;
+  height: 75px;
+  background: transparent;
   overflow: hidden;
-  box-shadow: 0 3px 6px -6px black;
   align-items: center;
+  transition: 0.6s;
+  padding-top: 20px;
 }
 
-.nav-logo {
-  display: flex;
-  justify-content: center;
-  width: 40%;
+.nav-bar.sticky {
+  box-shadow: -1px -2px 17px 1px rgba(232, 238, 255, 1);
+  background: #ffffff;
+  padding: 0;
+  height: 60px;
 }
 
 .nav-bar ul {
@@ -43,16 +46,22 @@
 
 .nav-bar a {
   text-decoration: none;
-  color: #454545;
-  line-height: 60px;
+  color: white;
   position: relative;
   text-align: justify;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
-.nav-bar a:hover {
-  color: #5467FF;
+.nav-bar.sticky a {
+  color: #454545;
+}
+.nav-menu a:hover {
+  color: #b6b8ff;
+}
+
+.nav-bar.sticky .nav-menu a:hover {
+  color: #5467ff;
 }
 
 .nav-menu li {
@@ -62,9 +71,37 @@
 }
 
 /** active navigation **/
+/** initial bar **/
 .nav-menu a.active {
-  color: #5467FF;
-  border-bottom: 1.5px solid #A5AEFC;
+  color: #ffffff;
+  border-bottom: 1.5px solid #ffffff;
+}
+
+/** bar after scrolling**/
+.nav-bar.sticky .nav-menu a.active {
+  color: #5467ff;
+  border-bottom: 1.5px solid #a5aefc;
+}
+
+.nav-logo {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  align-items: center;
+  color: #5467ff;
+}
+
+.nav-logo a {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.nav-bar.sticky .nav-logo a {
+  color: #5467ff;
+}
+
+.nav-logo a:hover {
+  color: #ffffff;
 }
 
 @media screen and (max-width: 500px) {

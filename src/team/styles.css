@@ -1,40 +1,43 @@
 .team {
   align-items: center;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  height: 100%;
-  margin-top: 4%;
-  width: 100%;
-}
-
-.container {
-  width: 100%;
-  align-self: stretch;
-  margin-top: 2%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.inner {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  align-items: center;
   justify-content: center;
-  padding: 0 20% 0;
-  color: #8789B5;
+  display: flex;
+  flex-direction: column;
+  height: 675px;
 }
 
-.item {
-  margin: auto;
-  color: #8789B5;
-  padding: 0 24% 0;
+.team-container {
+  flex-direction: row;
+  justify-content: space-around;
+  display: flex;
+  margin-top: 3%;
+  height: 100%;
+  width: 90%;
 }
 
-.picture {
-  width: 100%;
-  margin-bottom: 5%;
+.team-picture {
+  width: 45%;
+  height: 450px;
+}
+
+.team-profile {
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px;
+  width: 35%;
+}
+
+.team-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #595da5;
+}
+
+.team-description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #8789b5;
+  line-height: 18px;
+  padding-bottom: 15px;
 }

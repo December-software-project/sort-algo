@@ -1,28 +1,44 @@
 import React from 'react';
 import './App.css';
 
-import About from './about/About';
+import HowItWorks from './howitworks/HowItWorks';
 import ContactUs from './contactus/ContactUs';
+import Home from './home/Home';
 import Team from './team/Team';
 import Visualizer from './visualizer/sortingvisualizer/Visualizer';
+import Logo from './component/logo/logo';
 
-function App () {
+function App() {
   return (
-    <div className='app'>
-      <nav className='nav-bar'>
-        <div className='nav-logo'>
-          {/*Add logo here*/}
-          <a href='#about'>SortAlgo</a>
+    <div className="app">
+      <nav className="nav-bar">
+        <div className="nav-logo">
+          <Logo />
+          <a href="#home">SortAlgo</a>
         </div>
-        <ul className='nav-menu'>
-          <li><a className='active' href='#about'>About</a></li>
-          <li><a href='#visualizer'>Visualizer</a></li>
-          <li><a href='#team'>Team</a></li>
-          <li><a href='#contactUs'>Contact Us</a></li>
+        <ul className="nav-menu">
+          <li>
+            <a className="active" href="#home">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#howItWorks">How it Works</a>
+          </li>
+          <li>
+            <a href="#visualizer">Visualizer</a>
+          </li>
+          <li>
+            <a href="#team">Team</a>
+          </li>
+          <li>
+            <a href="#contactUs">Contact Us</a>
+          </li>
         </ul>
       </nav>
-      <div className='app-content'>
-        <About />
+      <div className="app-container">
+        <Home />
+        <HowItWorks />
         <Visualizer />
         <Team />
         <ContactUs />
