@@ -1,6 +1,5 @@
 // Code adapted from https://www.geeksforgeeks.org/merge-sort/
 
-import { arrayCopy } from '../sortingvisualizer/util/VisualizerUtil';
 const merge = (receivedArr, start, mid, end, animationArr) => {
   const n1 = mid - start + 1;
   const n2 = end - mid;
