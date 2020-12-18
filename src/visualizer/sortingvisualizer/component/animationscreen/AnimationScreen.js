@@ -107,6 +107,8 @@ const AnimationScreen = () => {
                 isSwap={item.isSwap}
                 isShift={item.isShift}
                 width={800 / dataSize}
+                pos={item.pos}
+                prevPos={item.prevPos}
               />
             );
           })}

@@ -63,10 +63,12 @@ export const generateArray = (size, visualizerAlgorithm) => {
   } else if (visualizerAlgorithm === 'Merge Sort') {
     for (let i = 0; i < size; i++) {
       array.push({
-        id: i,
+        xDirection: i * 10,
+        pos: i,
+        prevPos: i,
         height: generateValue(1, 9),
         isShift: false,
-        xDirection: i * 10,
+        id: i,
       });
     }
   } else {
@@ -117,42 +119,34 @@ export const handleMergeSort = (referenceArray, animationArrSwapIdx) => {
   let iIdx = animationArrSwapIdx[0];
   let jIdx = animationArrSwapIdx[1];
   let kIdx = animationArrSwapIdx[3];
-  let isGoBack = animationArrSwapIdx[4];
+  let isReset = animationArrSwapIdx[4];
   let dataSize = referenceArray.length;
   let width = 800 / dataSize;
-  if (isGoBack && isShift) {
-    // signifies we are gone
-    return animationArrSwapIdx[5];
-  }
-  if (isGoBack) {
-    if (iIdx === -1) {
-      let positiveDiff = Math.abs(kIdx - jIdx);
-      newTempArr[jIdx].xDirection =
-        kIdx - jIdx <= 0
-          ? -(positiveDiff * width) + (kIdx - 0) * 10
-          : positiveDiff * width + (kIdx - 0) * 10;
-
-      newTempArr[jIdx].isShift = false;
-    } else {
-      let positiveDiff = Math.abs(kIdx - iIdx);
-      newTempArr[iIdx].xDirection =
-        kIdx - iIdx <= 0
-          ? -(positiveDiff * width) + (kIdx - 0) * 10
-          : positiveDiff * width + (kIdx - 0) * 10;
-      newTempArr[iIdx].isShift = false;
+  let idxToUse = 0;
+  for (let k = 0; k < newTempArr.length; k++) {
+    let isUsingIIdx = iIdx === -1 && newTempArr[k].prevPos === jIdx;
+    let isUsingJIdx = jIdx === -1 && newTempArr[k].prevPos === iIdx;
+    if (isUsingIIdx || isUsingJIdx) {
+      idxToUse = k;
+      break;
     }
+  }
+
+  // is Shift true represents moving down, false means moving back up to the desired position.
+  if (isShift) {
+    newTempArr[idxToUse].isShift = true;
   } else {
-    if (isShift) {
-      if (iIdx === -1) {
-        newTempArr[jIdx].isShift = true;
-      } else {
-        newTempArr[iIdx].isShift = true;
-      }
-    } else {
-      if (iIdx === -1) {
-        newTempArr[kIdx].isShift = false;
-      } else {
-        newTempArr[kIdx].isShift = false;
+    let positiveDiff = Math.abs(kIdx - idxToUse);
+    newTempArr[idxToUse].xDirection =
+      kIdx - idxToUse <= 0
+        ? -(positiveDiff * width) + (kIdx - 0) * 10
+        : positiveDiff * width + (kIdx - 0) * 10;
+    newTempArr[idxToUse].isShift = false;
+    newTempArr[idxToUse].pos = kIdx;
+    if (isReset) {
+      // this signifies the end of "1 iteration of combining together"
+      for (let i = 0; i < newTempArr.length; i++) {
+        newTempArr[i].prevPos = newTempArr[i].pos;
       }
     }
   }

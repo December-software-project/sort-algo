@@ -17,6 +17,8 @@ const MergeSortBlock = ({ item, props: { x, ...rest }, length, index, isSwap, is
         backgroundImage: isSwap
           ? `linear-gradient(45deg, #13B1B7, #11C2C9)`
           : `linear-gradient(45deg, #287ED0, #5466FF)`,
+        pos: item.pos,
+        prevPos: item.prevPos,
       }}
     >
       <span>{item.height}</span>
