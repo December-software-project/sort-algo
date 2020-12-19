@@ -23,7 +23,7 @@ function App() {
             </a>
           </li>
           <li>
-            <a href="#howItWorks">How it Works</a>
+            <a href="#howItWorks">How It Works</a>
           </li>
           <li>
             <a href="#visualizer">Visualizer</a>
