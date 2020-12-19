@@ -4,7 +4,9 @@ import './CodeTemplate.css';
 import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/mode-java';
-import 'ace-builds/src-noconflict/theme-chrome';
+import 'ace-builds/src-noconflict/mode-python';
+import 'ace-builds/src-noconflict/mode-c_cpp';
+import 'ace-builds/src-noconflict/theme-xcode';
 
 const CodeTemplate = ({ algo }) => {
   const [template, setTemplate] = useState(templates[algo]);
@@ -45,7 +47,7 @@ const CodeTemplate = ({ algo }) => {
       <AceEditor
         className="editor"
         mode={getMode()}
-        theme="chrome"
+        theme="Xcode"
         fontSize={14}
         name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}

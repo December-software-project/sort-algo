@@ -51,7 +51,8 @@ const SelectionSort = {
     '            # Update the min_index if the element at j is lower than it\n' +
     '            if L[j] < L[min_index]:\n' +
     '                min_index = j\n' +
-    '        # After finding the lowest item of the unsorted regions, swap with the first unsorted item\n' +
+    '        # After finding the lowest item of the unsorted regions,\n' +
+    '        # swap with the first unsorted item\n' +
     '        L[i], L[min_index] = L[min_index], L[i]\n',
   'C/C++':
     'void selectionSort(int arr[], int n)\n' +
