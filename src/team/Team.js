@@ -12,7 +12,7 @@ const Team = () => {
     <div className="team" id="team">
       <TeamHeader sectionHeader={'Team'} translateX={'translateX(13px)'} />
       <div className="team-container">
-        <img className="team-picture" src={TeamImage} />
+        <img className="team-picture" src={TeamImage} alt="" />
         <div className="team-profile">
           <p className="team-title">Meet our team</p>
           <p className="team-description">

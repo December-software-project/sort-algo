@@ -146,8 +146,9 @@ textarea:focus {
 .form-submit-button-box {
   display: flex;
   height: 60px;
-  justify-content: center;
+  align-items: center;
   width: 100vw;
+  flex-direction: column;
 }
 
 .form-submit-button {
@@ -168,4 +169,11 @@ textarea:focus {
   color: white;
   font-family: 'Nunito', sans-serif;
   font-weight: bolder;
+}
+
+.message-acknowledgement {
+  background-color: #5467FF;
+  height: 50px;
+  width: 200px;
+  float: left;
 }
