@@ -1,0 +1,43 @@
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  padding: 0 0 20px;
+}
+
+.profile-description-container {
+  padding-top: 9px;
+  padding-left: 20px;
+  flex-direction: column;
+  line-height: 0;
+}
+
+.picture {
+  min-width: 70px;
+  min-height: 70px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d7dbff;
+  image-rendering: -moz-crisp-edges;         /* Firefox */
+  image-rendering:   -o-crisp-edges;         /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* This helps to make the image clearer even though it is being underlined */
+  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+}
+
+.profile-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #595da5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.profile-description {
+  color: #8789b5;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 18px;
+}
+
+.github-logo {
+  margin-left: 10px;
+}

@@ -12,7 +12,6 @@ const ContactUs = () => {
 
   return (
     <div id="contactUs" className="contact-us">
-      {/*Remember to abstract it out when ashley has pushed it in*/}
       <div className="contact-us-header-box">
         <ContactUsHeader sectionHeader={'Contact Us'} translateX={'translateX(23px)'} />
         <ContactUsText />

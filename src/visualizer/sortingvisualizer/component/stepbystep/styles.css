@@ -1,0 +1,17 @@
+.step-by-step-holder {
+  width: 400px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid rgba(166, 175, 251, 1);
+  background-color: #fafbff;
+  transform: translate(-7px,30px);
+  padding-left:5px;
+}
+
+.step-by-step-holder > p {
+  font-family: "Open Sans", serif;
+  color: #8789b5;
+  white-space: pre-line;
+  text-align: center;
+  font-weight: 500;
+}
