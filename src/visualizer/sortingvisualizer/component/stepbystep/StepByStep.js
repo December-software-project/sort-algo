@@ -10,7 +10,7 @@ const StepByStep = () => {
 
   return (
     <div className="step-by-step-holder">
-      <p>{getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray)}</p>
+      <p>{idx >= 1 && getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray)}</p>
     </div>
   );
 };

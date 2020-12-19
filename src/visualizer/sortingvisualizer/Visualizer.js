@@ -28,16 +28,19 @@ import BackButton from './component/button/forwardbackbutton/BackButton';
 import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
 import StepByStep from './component/stepbystep/StepByStep';
-import bubbleSort from '../algorithm/bubbleSort';
+import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
 const Visualizer = () => {
+  
   // isPlay and isReplay simulate the 3 states
   const [isPlay, setIsPlay] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
+  
   // this is to ensure we can click back arrow without trigger any new re-rendering of data
   const [isReset, setIsReset] = useState(false);
+  
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
@@ -72,8 +75,10 @@ const Visualizer = () => {
   };
 
   const executeForwardSwapAnimation = () => {
+
     let animationArrSwapIdx = animationArr[idx];
     const animationPx = roundToTwo(((idx + 1) / animationArr.length) * 100);
+
     if (isCountingSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
       const height = animationArrSwapIdx.height;

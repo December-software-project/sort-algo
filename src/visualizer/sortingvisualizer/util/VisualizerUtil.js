@@ -1,4 +1,4 @@
-import SortingAlgorithms from '../../algorithm/allSorts';
+import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
 
 export const swap = (firstIdx, secondIdx, arr) => {
@@ -25,9 +25,11 @@ export const handleSwap = (firstIdx, secondIdx, arr, isSwapOccurring, algo) => {
 export const resetArray = (algo, arr) => {
   return arrayCopy(arr).map((x) => {
     let tempArrElement = x;
-    if (isBucketTypeSort(algo)) {
+    if (isCountingSort(algo)) {
       tempArrElement.isShown = true;
-    } else if (algo === 'Merge Sort') {
+    } else if (isRadixSort(algo)) {
+
+    } else if (isMergeSort(algo)) {
       tempArrElement.isShift = false;
     } else {
       tempArrElement.isSwap = false;
