@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 // listener to show current navigation window/menu
 window.addEventListener('scroll', (event) => {
   let navigationLinks = document.querySelectorAll('nav ul li a');
-  let fromTop = window.scrollY + 120;
+  let fromTop = window.scrollY + 60 + window.innerHeight * 0.05;
   let header = document.querySelector('nav');
   let header2 = document.querySelectorAll('nav div a div');
 

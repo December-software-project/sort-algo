@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './body/Form';
+import Footer from './footer/Footer';
 import './styles.css';
 import ContactUsHeader from '../component/header/SectionHeader';
 
@@ -17,6 +18,7 @@ const ContactUs = () => {
         <ContactUsText />
       </div>
       <Form />
+      <Footer />
     </div>
   );
 };

@@ -71,6 +71,7 @@
 #visualizer {
   min-width: 100%;
   width: 0;
+  padding-bottom: 3%;
 }
 
 .play-reset-button-box {
