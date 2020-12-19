@@ -1,15 +1,14 @@
 .how-it-works {
   align-items: center;
-  justify-content: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 95vh;
 }
 
 .how-it-works-container {
   display: flex;
   justify-content: space-evenly;
-  padding: 40px 0 40px 0;
+  padding: 40px 0 0;
   width: 90%;
 }
 
