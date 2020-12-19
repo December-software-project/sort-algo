@@ -5,6 +5,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import emailjs from 'emailjs-com';
+import FormHolder from './FormHolder';
 
 const Form = () => {
   const [type, setType] = useState('Type (Optional)');
@@ -64,14 +65,14 @@ const Form = () => {
       validationSchema={reviewSchema}
       onSubmit={(values, actions) => {
         sendMessage(values);
-        setType('Type');
+        setType('Type (Optional)');
         actions.resetForm();
       }}
     >
       {(props) => (
         <div className="form-box">
           <div className="form-particulars" id="form-particulars">
-            <div className="form-particular-error-holder">
+            <FormHolder classNameToUse="form-particular-error-holder">
               <div className="form-particulars-holder">
                 <input
                   placeholder="Name"
@@ -82,8 +83,8 @@ const Form = () => {
                 />
               </div>
               <span>{props.touched.name && props.errors.name && 'Name is a required field'}</span>
-            </div>
-            <div className="form-particular-error-holder">
+            </FormHolder>
+            <FormHolder classNameToUse="form-particular-error-holder">
               <div className="form-particulars-holder">
                 <input
                   placeholder="Email"
@@ -96,8 +97,8 @@ const Form = () => {
               <span>
                 {props.touched.email && props.errors.email && 'Email is a required field'}
               </span>
-            </div>
-            <div className="form-particular-error-holder">
+            </FormHolder>
+            <FormHolder classNameToUse="form-particular-error-holder">
               <div className="form-particulars-holder">
                 <span>{type}</span>
                 <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'}>
@@ -110,9 +111,9 @@ const Form = () => {
                   </a>
                 </Dropdown>
               </div>
-            </div>
+            </FormHolder>
           </div>
-          <div className="form-details">
+          <FormHolder classNameToUse="form-details">
             <div className="form-details-error-holder">
               <div className="form-details-holder">
                 <textarea
@@ -127,12 +128,12 @@ const Form = () => {
                 {props.touched.message && props.errors.message && 'Message is a required field'}
               </span>
             </div>
-          </div>
-          <div className="form-submit-button-box">
+          </FormHolder>
+          <FormHolder classNameToUse="form-submit-button-box">
             <button className="form-submit-button" onClick={props.handleSubmit} type="submit">
               <span>SEND MESSAGE</span>
             </button>
-          </div>
+          </FormHolder>
         </div>
       )}
     </Formik>

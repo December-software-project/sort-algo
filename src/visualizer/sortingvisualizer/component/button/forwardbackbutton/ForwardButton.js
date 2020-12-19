@@ -11,7 +11,6 @@ const ForwardButton = () => {
     executeForwardSwapAnimation,
     idx,
     animationArr,
-    resetDataWhenAnimationFinish,
   } = useContext(VisualizerStateContext);
 
   const isFull = animationPercentage === 100;
@@ -19,10 +18,6 @@ const ForwardButton = () => {
   const handleForwardButtonClick = () => {
     if (idx < animationArr.length) {
       executeForwardSwapAnimation();
-      // this is to check if the next press will finish animation
-      if (idx + 1 === animationArr.length) {
-        resetDataWhenAnimationFinish();
-      }
     }
   };
 
