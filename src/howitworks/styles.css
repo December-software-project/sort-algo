@@ -3,6 +3,7 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .how-it-works-container {
@@ -14,7 +15,7 @@
 
 .how-it-works-picture {
   width: 45%;
-  height: 550px;
+  height: 90%;
 }
 
 .steps {
