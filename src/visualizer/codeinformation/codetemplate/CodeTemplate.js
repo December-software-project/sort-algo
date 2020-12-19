@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import templates from '../templates/Templates';
 import './CodeTemplate.css';
 import AceEditor from 'react-ace';
-
+import 'ace-builds/webpack-resolver';
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/mode-python';
 import 'ace-builds/src-noconflict/mode-c_cpp';
-import 'ace-builds/src-noconflict/theme-xcode';
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-textmate';
 
 const CodeTemplate = ({ algo }) => {
   const [template, setTemplate] = useState(templates[algo]);
@@ -47,7 +48,7 @@ const CodeTemplate = ({ algo }) => {
       <AceEditor
         className="editor"
         mode={getMode()}
-        theme="Xcode"
+        theme="textmate"
         fontSize={14}
         name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}

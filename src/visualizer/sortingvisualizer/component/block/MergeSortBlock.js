@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import { animated } from 'react-spring';
 
-const MergeSortBlock = ({ item, props: { x, ...rest }, length, index, isSwap, isShift, width }) => {
+const MergeSortBlock = ({ item, props: { x, ...rest }, length, index, isShift, width }) => {
   return (
     <animated.div
       className="animated-block"

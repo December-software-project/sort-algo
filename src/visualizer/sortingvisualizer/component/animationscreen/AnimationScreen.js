@@ -104,7 +104,6 @@ const AnimationScreen = () => {
                 index={index}
                 length={length}
                 key={index}
-                isSwap={item.isSwap}
                 isShift={item.isShift}
                 width={800 / dataSize}
                 pos={item.pos}
