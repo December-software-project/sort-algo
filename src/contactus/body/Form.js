@@ -61,7 +61,6 @@ const Form = () => {
 
   return (
     <Formik
-      className="form-box"
       initialValues={{ name: '', email: '', type: '', message: '' }}
       validationSchema={reviewSchema}
       onSubmit={(values, actions) => {
@@ -71,7 +70,7 @@ const Form = () => {
       }}
     >
       {(props) => (
-        <div>
+        <div className="form-box">
           <div className="form-particulars" id="form-particulars">
             <FormHolder classNameToUse="form-particular-error-holder">
               <div className="form-particulars-holder">

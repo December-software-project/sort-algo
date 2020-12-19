@@ -12,13 +12,13 @@
 }
 
 .legend-header > span {
-  color: #8789B5;
+  color: #8789b5;
   font-family: 'Open Sans', serif;
   font-size: 16px;
 }
 
 .legend-header-line {
-  background-color: #D5D9FC;
+  background-color: #d5d9fc;
   height: 1px;
   transform: translateY(5px);
   width: 55px;
@@ -48,7 +48,7 @@
 }
 
 .legend-information-description-text {
-  color: #8789B5;
+  color: #8789b5;
   font-family: 'Open Sans', serif;
   font-size: 13px;
 }

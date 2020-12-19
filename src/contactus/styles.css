@@ -2,8 +2,7 @@
   background: white;
   display: flex;
   flex-direction: column;
-  height: 85vh;
-  justify-content: center;
+  height: 140vh;
 }
 
 .contact-us-header-box > span {
