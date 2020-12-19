@@ -6,8 +6,13 @@
   min-height: 100px;
 }
 
-.containerOne {
+.container-one {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+}
+
+.empty-space-for-merge-sort {
+  box-sizing: border-box;
+  height: 150px;
 }

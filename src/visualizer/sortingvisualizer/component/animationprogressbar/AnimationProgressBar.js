@@ -6,7 +6,7 @@ import { VisualizerStateContext } from '../../Visualizer';
 const AnimationProgressBar = () => {
   const { animationPercentage } = useContext(VisualizerStateContext);
   return (
-    <div style={{ width: 300, transform: 'translateY(30px)' }}>
+    <div style={{ width: 300, transform: 'translateY(60px)' }}>
       <Progress
         status={'normal'}
         strokeColor={{

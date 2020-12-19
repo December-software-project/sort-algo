@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import templates from '../templates/Templates';
 import './CodeTemplate.css';
 import AceEditor from 'react-ace';
-
+import 'ace-builds/webpack-resolver';
 import 'ace-builds/src-noconflict/mode-java';
-import 'ace-builds/src-noconflict/theme-chrome';
+import 'ace-builds/src-noconflict/mode-python';
+import 'ace-builds/src-noconflict/mode-c_cpp';
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-textmate';
 
 const CodeTemplate = ({ algo }) => {
   const [template, setTemplate] = useState(templates[algo]);
@@ -19,10 +22,7 @@ const CodeTemplate = ({ algo }) => {
       <p
         className="select"
         style={{
-          background:
-            selected === language
-              ? `linear-gradient(0deg, #5E9BD1, #292C59)`
-              : `linear-gradient(0deg, #A5BBC9, #535E65)`,
+          background: selected === language ? `linear-gradient(0deg, #7c89f8, #5466ff)` : `#A5BBC9`,
         }}
         onClick={() => setSelected(language)}
       >
@@ -43,12 +43,12 @@ const CodeTemplate = ({ algo }) => {
   const getMode = () => (selected === 'C/C++' ? 'c_cpp' : selected.toLowerCase());
 
   return (
-    <div className="codeTemplate">
+    <div className="code-template">
       {selector()}
       <AceEditor
         className="editor"
         mode={getMode()}
-        theme="chrome"
+        theme="textmate"
         fontSize={14}
         name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}

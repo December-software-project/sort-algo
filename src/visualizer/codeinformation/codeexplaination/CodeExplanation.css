@@ -16,7 +16,7 @@
   margin-bottom: 2em;
 }
 
-.explanationPara {
+.explanation-para {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
@@ -30,7 +30,7 @@
   margin-bottom: 0.5em;
 }
 
-.rowContainerOne {
+.row-container-one {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -51,21 +51,20 @@
   background-color: #5467FF;
   border: 5px solid #5467FF;
   border-radius: 20px;
-  /*box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);*/
   color: #f2f2f2;
   font-family: 'Open Sans Semibold', sans-serif;
   letter-spacing: 1.3px;
   text-align: center;
 }
 
-.rowContainerTwo {
+.row-container-two {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   margin-top: 1%;
 }
 
-.rowContainerTwo div {
+.row-container-two div {
   min-width: 100px;
   text-align: center;
 }
