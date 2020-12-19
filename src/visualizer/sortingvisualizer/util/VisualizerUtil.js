@@ -27,7 +27,7 @@ export const resetArray = (algo, arr) => {
     let tempArrElement = x;
     if (isBucketTypeSort(algo)) {
       tempArrElement.isShown = true;
-    } else if (algo === 'Merge Sort') {
+    } else if (isMergeSort(algo)) {
       tempArrElement.isShift = false;
     } else {
       tempArrElement.isSwap = false;
@@ -60,7 +60,7 @@ export const generateArray = (size, visualizerAlgorithm) => {
         isShown: true,
       });
     }
-  } else if (visualizerAlgorithm === 'Merge Sort') {
+  } else if (isMergeSort(visualizerAlgorithm)) {
     for (let i = 0; i < size; i++) {
       array.push({
         xDirection: i * 10,
@@ -99,6 +99,8 @@ export const isBucketTypeSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Bucket Sort' ||
   visualizerAlgorithm === 'Counting Sort' ||
   visualizerAlgorithm === 'Radix Sort';
+
+export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
 
 export const arrayCopy = (arr) => {
   return JSON.parse(JSON.stringify(arr));

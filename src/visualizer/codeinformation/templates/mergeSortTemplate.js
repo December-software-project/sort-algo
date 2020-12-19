@@ -10,8 +10,8 @@ const MergeSort = {
     '    int n2 = right - mid;\n' +
     '\n' +
     '    // Create temp arrays\n' +
-    '    int leftArray[] = new int[n1];\n' +
-    '    int rightArray[] = new int[n2];\n' +
+    '    int[] leftArray = new int[n1];\n' +
+    '    int[] rightArray = new int[n2];\n' +
     '\n' +
     '    // Copy data to temp arrays\n' +
     '    for (int i = 0; i < n1; i++) {\n' +

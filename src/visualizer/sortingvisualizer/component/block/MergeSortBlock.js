@@ -14,7 +14,7 @@ const MergeSortBlock = ({ item, props: { x, ...rest }, length, index, isSwap, is
         transform: isShift
           ? x.interpolate((x) => `translate3d(${x}px, 150px,0)`)
           : x.interpolate((x) => `translate3d(${x}px,0,0)`),
-        backgroundImage: isSwap
+        backgroundImage: isShift
           ? `linear-gradient(45deg, #13B1B7, #11C2C9)`
           : `linear-gradient(45deg, #287ED0, #5466FF)`,
         pos: item.pos,

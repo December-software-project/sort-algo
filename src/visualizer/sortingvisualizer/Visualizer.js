@@ -18,6 +18,7 @@ import {
   translateXOfVisualizer,
   handleSwap,
   handleMergeSort,
+  isMergeSort,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -86,7 +87,7 @@ const Visualizer = () => {
         referenceArray[index].isShown = true;
         countArr[height - 1].count -= 1;
       }
-    } else if (visualizerAlgorithm === 'Merge Sort') {
+    } else if (isMergeSort(visualizerAlgorithm)) {
       let temp = handleMergeSort(referenceArray, animationArrSwapIdx);
       setReferenceArray(temp);
     } else {
@@ -128,7 +129,7 @@ const Visualizer = () => {
         referenceArray[index].isShown = false;
         countArr[height - 1].count += 1;
       }
-    } else if (visualizerAlgorithm === 'Merge Sort') {
+    } else if (isMergeSort(visualizerAlgorithm)) {
       setReferenceArray(handleMergeSort(referenceArray, animationArrSwapIdx));
     } else {
       let temp = handleSwap(

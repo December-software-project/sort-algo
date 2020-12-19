@@ -22,7 +22,7 @@ const SelectionSort = {
   JavaScript:
     'function selectionSort(inputArr) {\n' +
     '  let n = inputArr.length;\n' +
-    '  for (let i = 0; i < n; i++) {\n' +
+    '  for (let i = 0; i < n - 1; i++) {\n' +
     '    // Finding the smallest number in the subarray\n' +
     '    let min = i;\n' +
     '    for (let j = i + 1; j < n; j++) {\n' +
