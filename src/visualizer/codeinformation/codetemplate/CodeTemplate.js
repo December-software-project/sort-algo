@@ -14,8 +14,8 @@ const CodeTemplate = ({ algo }) => {
     setTemplate(templates[algo]);
   }, [algo]);
 
-  const selector = () => {
-    const select = (language) => (
+  const Selector = () => {
+    const Select = ({ language }) => (
       <p
         className="select"
         style={{
@@ -29,10 +29,10 @@ const CodeTemplate = ({ algo }) => {
 
     return (
       <div className="selector">
-        {select('Java')}
-        {select('JavaScript')}
-        {select('Python')}
-        {select('C/C++')}
+        <Select language={'Java'} />
+        <Select language={'JavaScript'} />
+        <Select language={'Python'} />
+        <Select language={'C/C++'} />
       </div>
     );
   };
@@ -41,7 +41,7 @@ const CodeTemplate = ({ algo }) => {
 
   return (
     <div className="code-template">
-      {selector()}
+      <Selector />
       <AceEditor
         className="editor"
         mode={getMode()}
@@ -51,7 +51,7 @@ const CodeTemplate = ({ algo }) => {
         editorProps={{ $blockScrolling: true }}
         value={template[selected]}
         readOnly={true}
-        showPrintMargin={false}
+        // showPrintMargin={false}
       />
     </div>
   );
