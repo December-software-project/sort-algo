@@ -10,8 +10,9 @@ import {
   isRadixSort,
 } from '../../util/VisualizerUtil';
 import SmallBlock from '../smallBlock/SmallBlock';
-import Buckets from '../bucketsortingvisualizer/Buckets';
+import Buckets from '../countingsortbuckets/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';
+import RadixSortBoxes from '../radixsortboxes/RadixSortBoxes';
 
 const AnimationScreen = () => {
   const {
@@ -98,7 +99,12 @@ const AnimationScreen = () => {
       </div>
     );
   } else if (isRadixSort(visualizerAlgorithm)) {
-    return <div></div>;
+    return (
+      <div className="container-one">
+        <div>
+          <RadixSortBoxes />
+        </div>
+    </div>);
   } else if (isMergeSort(visualizerAlgorithm)) {
     return (
       <div className="container-one">

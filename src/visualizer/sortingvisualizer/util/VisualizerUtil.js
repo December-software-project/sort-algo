@@ -1,6 +1,7 @@
 import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
 
+// For swapping algorithms
 export const swap = (firstIdx, secondIdx, arr) => {
   let tmp = arr[firstIdx];
   arr[firstIdx] = arr[secondIdx];
@@ -22,6 +23,7 @@ export const handleSwap = (firstIdx, secondIdx, arr, isSwapOccurring, algo) => {
   return newTempArr;
 };
 
+// General array util
 export const resetArray = (algo, arr) => {
   return arrayCopy(arr).map((x) => {
     let tempArrElement = x;
@@ -36,6 +38,10 @@ export const resetArray = (algo, arr) => {
     }
     return tempArrElement;
   });
+};
+
+export const arrayCopy = (arr) => {
+  return JSON.parse(JSON.stringify(arr));
 };
 
 export const getAnimationArr = (algo, arrayData) => {
@@ -66,7 +72,7 @@ export const generateArray = (size, visualizerAlgorithm) => {
     for (let i = 0; i < size; i++) {
       array.push({
         id: i,
-        height: generateValue(1, 9),
+        height: generateValue(1, 4000),
       });
     }
   } else if (isMergeSort(visualizerAlgorithm)) {
@@ -92,6 +98,19 @@ export const generateArray = (size, visualizerAlgorithm) => {
   return array;
 };
 
+export const stack = [
+  { value: 0, array: [] },
+  { value: 1, array: [] },
+  { value: 2, array: [] },
+  { value: 3, array: [] },
+  { value: 4, array: [] },
+  { value: 5, array: [] },
+  { value: 6, array: [] },
+  { value: 7, array: [] },
+  { value: 8, array: [] },
+  { value: 9, array: [] },
+];
+
 export const buckets = [
   { height: 1, count: 0 },
   { height: 2, count: 0 },
@@ -104,6 +123,7 @@ export const buckets = [
   { height: 9, count: 0 },
 ];
 
+// Conditionals
 export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Counting Sort';
 export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Radix Sort';
 export const isBucketSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Bucket Sort';
@@ -122,11 +142,7 @@ export const isBucketTypeSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Counting Sort' ||
   visualizerAlgorithm === 'Radix Sort';
 
-export const arrayCopy = (arr) => {
-  return JSON.parse(JSON.stringify(arr));
-};
-
-// this is an auto shifting to ensure everything stays at the center
+// Auto shifting to ensure everything stays at the center
 export const translateXOfVisualizer = (dataSize) => {
   if (dataSize > 12) {
     let singleBlockWidth = 200 / dataSize;
@@ -135,6 +151,7 @@ export const translateXOfVisualizer = (dataSize) => {
   return 0;
 };
 
+// Merge sort
 export const handleMergeSort = (referenceArray, animationArrSwapIdx) => {
   let isShift = animationArrSwapIdx[2];
   let newTempArr = arrayCopy(referenceArray);

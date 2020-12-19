@@ -11,6 +11,7 @@ import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
 import {
   arrayCopy,
   buckets,
+  stack,
   generateArray,
   getAnimationArr,
   resetArray,
@@ -51,6 +52,7 @@ const Visualizer = () => {
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
   const [countArr, setCountArr] = useState(arrayCopy(buckets));
+  const [stackArr, setStackArr] = useState(arrayCopy(stack));
 
   useEffect(() => {
     if (isPlay === false) {

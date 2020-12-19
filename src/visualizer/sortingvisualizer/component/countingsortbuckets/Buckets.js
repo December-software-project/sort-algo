@@ -45,7 +45,6 @@ const Buckets = () => {
         key={item.height}
         style={{
           height: item.height * 10 + 9,
-          backgroundImage: 'none',
           backgroundColor: colorArr[item.count],
           width: 800 / Math.max(dataSize, 9),
         }}
