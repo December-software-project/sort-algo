@@ -98,7 +98,7 @@ textarea:focus {
   height: 60px;
   justify-content: flex-end;
   position: absolute;
-  width: 15%;
+  width: 100%;
 }
 
 .form-details {

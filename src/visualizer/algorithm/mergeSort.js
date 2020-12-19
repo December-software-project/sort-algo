@@ -1,7 +1,5 @@
 // Code adapted from https://www.geeksforgeeks.org/merge-sort/
 
-import { arrayCopy } from '../sortingvisualizer/util/VisualizerUtil';
-
 const merge = (receivedArr, start, mid, end, animationArr) => {
   const n1 = mid - start + 1;
   const n2 = end - mid;
@@ -20,28 +18,31 @@ const merge = (receivedArr, start, mid, end, animationArr) => {
     k = start;
   while (i < n1 && j < n2) {
     if (leftArray[i].height <= rightArray[j].height) {
-      animationArr.push([start + i, -1, false, k, true]);
+      animationArr.push([start + i, -1, false, k, false]);
       receivedArr[k++] = leftArray[i++];
     } else {
-      animationArr.push([-1, mid + 1 + j, false, k, true]);
+      animationArr.push([-1, mid + 1 + j, false, k, false]);
       receivedArr[k++] = rightArray[j++];
     }
   }
 
   while (i < n1) {
-    animationArr.push([start + i, -1, false, k, true]);
+    if (i + 1 === n1) {
+      animationArr.push([start + i, -1, false, k, true]);
+    } else {
+      animationArr.push([start + i, -1, false, k, false]);
+    }
     receivedArr[k++] = leftArray[i++];
   }
 
   while (j < n2) {
-    animationArr.push([-1, mid + 1 + j, false, k, true]);
+    if (j + 1 === n2) {
+      animationArr.push([-1, mid + 1 + j, false, k, true]);
+    } else {
+      animationArr.push([-1, mid + 1 + j, false, k, false]);
+    }
     receivedArr[k++] = rightArray[j++];
   }
-  let temp = arrayCopy(receivedArr);
-  for (let i = 0; i < receivedArr.length; i++) {
-    temp[i].xDirection = i * 10;
-  }
-  animationArr.push([-1, -1, true, -1, true, temp]);
 };
 
 const mergeSortHelper = (receivedArr, animationArr, start, end) => {
