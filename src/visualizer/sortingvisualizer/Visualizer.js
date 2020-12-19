@@ -13,11 +13,10 @@ import {
   buckets,
   generateArray,
   getAnimationArr,
-  isBucketTypeSort,
   resetArray,
   translateXOfVisualizer,
   handleSwap,
-  handleMergeSort,
+  handleMergeSort, isCountingSort, isMergeSort,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -75,7 +74,7 @@ const Visualizer = () => {
   const executeForwardSwapAnimation = () => {
     let animationArrSwapIdx = animationArr[idx];
     const animationPx = roundToTwo(((idx + 1) / animationArr.length) * 100);
-    if (isBucketTypeSort(visualizerAlgorithm)) {
+    if (isCountingSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
       const height = animationArrSwapIdx.height;
       if (animationPx <= 50) {
@@ -86,7 +85,7 @@ const Visualizer = () => {
         referenceArray[index].isShown = true;
         countArr[height - 1].count -= 1;
       }
-    } else if (visualizerAlgorithm === 'Merge Sort') {
+    } else if (isMergeSort(visualizerAlgorithm)) {
       let temp = handleMergeSort(referenceArray, animationArrSwapIdx);
       setReferenceArray(temp);
     } else {
@@ -117,7 +116,7 @@ const Visualizer = () => {
     let animationArrSwapIdx = animationArr[idx - 1];
     const animationPx = roundToTwo(((idx - 1) / animationArr.length) * 100);
 
-    if (isBucketTypeSort(visualizerAlgorithm)) {
+    if (isCountingSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
       const height = animationArrSwapIdx.height;
       if (animationPx < 50) {
@@ -128,7 +127,7 @@ const Visualizer = () => {
         referenceArray[index].isShown = false;
         countArr[height - 1].count += 1;
       }
-    } else if (visualizerAlgorithm === 'Merge Sort') {
+    } else if (isMergeSort(visualizerAlgorithm)) {
       setReferenceArray(handleMergeSort(referenceArray, animationArrSwapIdx));
     } else {
       let temp = handleSwap(
@@ -140,6 +139,7 @@ const Visualizer = () => {
       );
       setReferenceArray(temp);
     }
+
     if (idx === animationArr.length) {
       setIsReplay(false);
     }
@@ -150,7 +150,7 @@ const Visualizer = () => {
   const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
     setIsReplay(true);
-    if (visualizerAlgorithm !== 'Merge Sort') {
+    if (!isMergeSort(visualizerAlgorithm)) {
       setReferenceArray(resetArray(visualizerAlgorithm, finalReferenceArray));
     }
   };

@@ -52,7 +52,7 @@ const generateValue = (min, max) => {
 
 export const generateArray = (size, visualizerAlgorithm) => {
   let array = [];
-  if (isBucketTypeSort(visualizerAlgorithm)) {
+  if (isCountingSort(visualizerAlgorithm)) {
     for (let i = 0; i < size; i++) {
       array.push({
         id: i,
@@ -60,7 +60,14 @@ export const generateArray = (size, visualizerAlgorithm) => {
         isShown: true,
       });
     }
-  } else if (visualizerAlgorithm === 'Merge Sort') {
+  } else if (isRadixSort(visualizerAlgorithm)) {
+    for (let i = 0; i < size; i++) {
+      array.push({
+        id: i,
+        height: generateValue(1, 9),
+      });
+    }
+  } else if (isMergeSort(visualizerAlgorithm)) {
     for (let i = 0; i < size; i++) {
       array.push({
         xDirection: i * 10,
@@ -94,6 +101,19 @@ export const buckets = [
   { height: 8, count: 0 },
   { height: 9, count: 0 },
 ];
+
+export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Counting Sort';
+export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Radix Sort';
+export const isBucketSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Bucket Sort';
+export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
+
+export const isSwapInvolvedSort = (visualizerAlgorithm) =>
+  visualizerAlgorithm === 'Bubble Sort' ||
+  visualizerAlgorithm === 'Insertion Sort' ||
+  visualizerAlgorithm === 'Selection Sort' ||
+  visualizerAlgorithm === 'Quick Sort' ||
+  visualizerAlgorithm === 'Heap Sort' ||
+  visualizerAlgorithm === 'Shell Sort';
 
 export const isBucketTypeSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Bucket Sort' ||

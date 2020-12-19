@@ -3,7 +3,12 @@ import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { arrayCopy, isBucketTypeSort } from '../../util/VisualizerUtil';
+import {
+  arrayCopy,
+  isCountingSort,
+  isMergeSort,
+  isRadixSort,
+} from '../../util/VisualizerUtil';
 import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../bucketsortingvisualizer/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';
@@ -72,7 +77,7 @@ const AnimationScreen = () => {
     }
   );
 
-  if (isBucketTypeSort(visualizerAlgorithm)) {
+  if (isCountingSort(visualizerAlgorithm)) {
     return (
       <div className="container-one">
         <div className="list">
@@ -92,7 +97,9 @@ const AnimationScreen = () => {
         <Buckets />
       </div>
     );
-  } else if (visualizerAlgorithm === 'Merge Sort') {
+  } else if (isRadixSort(visualizerAlgorithm)) {
+    return <div></div>;
+  } else if (isMergeSort(visualizerAlgorithm)) {
     return (
       <div className="container-one">
         <div className="list">

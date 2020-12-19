@@ -3,7 +3,7 @@ import LegendInformation from './LegendInformation';
 import LegendHeader from './LegendHeader';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { isBucketTypeSort } from '../../util/VisualizerUtil';
+import { isSwapInvolvedSort } from '../../util/VisualizerUtil';
 
 const Legend = () => {
   const { visualizerAlgorithm } = useContext(VisualizerStateContext);
@@ -20,7 +20,7 @@ const Legend = () => {
   ];
 
   return (
-    !isBucketTypeSort(visualizerAlgorithm) && (
+    isSwapInvolvedSort(visualizerAlgorithm) && (
       <div>
         <div className="legend-header-box">
           <LegendHeader />
