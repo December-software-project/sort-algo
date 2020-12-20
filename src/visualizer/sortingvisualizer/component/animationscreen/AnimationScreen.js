@@ -8,6 +8,8 @@ import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../countingsortbuckets/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';
 import RadixSortBoxes from '../radixsortboxes/RadixSortBoxes';
+// non-gradual decrease
+const animationSpeedArray = [1000,800,600,400,240,200,160,120,80,50];
 
 const AnimationScreen = () => {
   const {
@@ -51,7 +53,7 @@ const AnimationScreen = () => {
     if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {
         executeForwardSwapAnimation();
-      }, 800 / speed);
+      }, animationSpeedArray[speed]);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish(referenceArray);
     }
@@ -59,7 +61,7 @@ const AnimationScreen = () => {
 
   const transitions = useTransition(
     referenceArray.map((data) => {
-      if (visualizerAlgorithm === 'Merge Sort') {
+      if (isMergeSort(visualizerAlgorithm)) {
         return { ...data, x: parseInt(data.xDirection) };
       }
       return { ...data, x: (xDirection += 10) - 10 };
@@ -111,7 +113,6 @@ const AnimationScreen = () => {
                 index={index}
                 length={length}
                 key={index}
-                isSwap={item.isSwap}
                 isShift={item.isShift}
                 width={800 / dataSize}
                 pos={item.pos}
@@ -120,7 +121,7 @@ const AnimationScreen = () => {
             );
           })}
         </div>
-        <Buckets />
+        <div className="empty-space-for-merge-sort" />
       </div>
     );
   } else {

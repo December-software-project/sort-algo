@@ -151,26 +151,28 @@ export const translateXOfVisualizer = (dataSize) => {
   return 0;
 };
 
-// Merge sort
-export const handleMergeSort = (referenceArray, animationArrSwapIdx) => {
-  let isShift = animationArrSwapIdx[2];
-  let newTempArr = arrayCopy(referenceArray);
-  let iIdx = animationArrSwapIdx[0];
-  let jIdx = animationArrSwapIdx[1];
-  let kIdx = animationArrSwapIdx[3];
-  let isReset = animationArrSwapIdx[4];
-  let dataSize = referenceArray.length;
-  let width = 800 / dataSize;
-  let idxToUse = 0;
+export const findIndexToUseInMergeSort = (newTempArr, iIdx, jIdx) => {
   for (let k = 0; k < newTempArr.length; k++) {
     let isUsingIIdx = iIdx === -1 && newTempArr[k].prevPos === jIdx;
     let isUsingJIdx = jIdx === -1 && newTempArr[k].prevPos === iIdx;
     if (isUsingIIdx || isUsingJIdx) {
-      idxToUse = k;
-      break;
+      return k;
     }
   }
+  return -1;
+};
 
+// Merge sort
+export const handleMergeSort = (referenceArray, animationArrSwapIdx) => {
+  let dataSize = referenceArray.length;
+  let width = 800 / dataSize;
+  let newTempArr = arrayCopy(referenceArray);
+  let isShift = animationArrSwapIdx[2];
+  let iIdx = animationArrSwapIdx[0];
+  let jIdx = animationArrSwapIdx[1];
+  let kIdx = animationArrSwapIdx[3];
+  let isReset = animationArrSwapIdx[4];
+  let idxToUse = findIndexToUseInMergeSort(newTempArr, iIdx, jIdx);
   // is Shift true represents moving down, false means moving back up to the desired position.
   if (isShift) {
     newTempArr[idxToUse].isShift = true;

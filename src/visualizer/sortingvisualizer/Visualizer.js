@@ -34,14 +34,14 @@ import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
 const Visualizer = () => {
-  
+
   // isPlay and isReplay simulate the 3 states
   const [isPlay, setIsPlay] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
-  
+
   // this is to ensure we can click back arrow without trigger any new re-rendering of data
   const [isReset, setIsReset] = useState(false);
-  
+
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
@@ -52,6 +52,8 @@ const Visualizer = () => {
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
   const [countArr, setCountArr] = useState(arrayCopy(buckets));
+  // This is introduced to simplify the back animation for MergeSort
+  const [historyArr, setHistoryArr] = useState([]);
   const [stackArr, setStackArr] = useState(arrayCopy(stack));
 
   useEffect(() => {
@@ -93,8 +95,10 @@ const Visualizer = () => {
         countArr[height - 1].count -= 1;
       }
     } else if (isMergeSort(visualizerAlgorithm)) {
-      let temp = handleMergeSort(referenceArray, animationArrSwapIdx);
-      setReferenceArray(temp);
+      let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
+      historyArr.push(referenceArray);
+      setHistoryArr(historyArr);
+      setReferenceArray(nextReferenceArray);
     } else {
       let newReferenceArray = handleSwap(
         animationArrSwapIdx[1],
@@ -135,7 +139,9 @@ const Visualizer = () => {
         countArr[height - 1].count += 1;
       }
     } else if (isMergeSort(visualizerAlgorithm)) {
-      setReferenceArray(handleMergeSort(referenceArray, animationArrSwapIdx));
+      let nextReferenceArray = historyArr.pop();
+      setHistoryArr(historyArr);
+      setReferenceArray(nextReferenceArray);
     } else {
       let temp = handleSwap(
         animationArrSwapIdx[1],
@@ -157,9 +163,7 @@ const Visualizer = () => {
   const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
     setIsReplay(true);
-    if (!isMergeSort(visualizerAlgorithm)) {
-      setReferenceArray(resetArray(visualizerAlgorithm, finalReferenceArray));
-    }
+    setReferenceArray(resetArray(visualizerAlgorithm, finalReferenceArray));
   };
 
   const value = {
