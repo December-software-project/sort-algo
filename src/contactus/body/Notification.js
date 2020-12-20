@@ -11,9 +11,6 @@ const Notification = ({isShowMessage, setIsShowMessage}) => {
     root: {
       backgroundColor: "#313131",
       color: 'white',
-      '&$hover': {
-        backgroundColor: "yellow",
-      }
     }
   }))
   
