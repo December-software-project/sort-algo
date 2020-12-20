@@ -91,7 +91,7 @@ const Visualizer = () => {
       }
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
-      historyArr.push(referenceArray)
+      historyArr.push(referenceArray);
       setHistoryArr(historyArr);
       setReferenceArray(nextReferenceArray);
     } else {

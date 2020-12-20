@@ -124,7 +124,7 @@ export const findIndexToUseInMergeSort = (newTempArr, iIdx, jIdx) => {
     }
   }
   return -1;
-}
+};
 
 export const handleMergeSort = (referenceArray, animationArrSwapIdx) => {
   let dataSize = referenceArray.length;
