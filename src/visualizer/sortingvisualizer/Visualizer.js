@@ -30,7 +30,7 @@ import BackButton from './component/button/forwardbackbutton/BackButton';
 import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
 import StepByStep from './component/stepbystep/StepByStep';
-import bubbleSort from '../algorithm/bubbleSort';
+import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -91,7 +91,7 @@ const Visualizer = () => {
       }
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
-      historyArr.push(referenceArray)
+      historyArr.push(referenceArray);
       setHistoryArr(historyArr);
       setReferenceArray(nextReferenceArray);
     } else {
