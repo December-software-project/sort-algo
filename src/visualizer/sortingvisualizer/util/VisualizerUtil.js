@@ -30,7 +30,6 @@ export const resetArray = (algo, arr) => {
     if (isCountingSort(algo)) {
       tempArrElement.isShown = true;
     } else if (isRadixSort(algo)) {
-
     } else if (isMergeSort(algo)) {
       tempArrElement.isShift = false;
     } else {
@@ -126,7 +125,6 @@ export const buckets = [
 // Conditionals
 export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Counting Sort';
 export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Radix Sort';
-export const isBucketSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Bucket Sort';
 export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
 
 export const isSwapInvolvedSort = (visualizerAlgorithm) =>
@@ -135,12 +133,8 @@ export const isSwapInvolvedSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Selection Sort' ||
   visualizerAlgorithm === 'Quick Sort' ||
   visualizerAlgorithm === 'Heap Sort' ||
+  visualizerAlgorithm === 'Merge Sort' ||
   visualizerAlgorithm === 'Shell Sort';
-
-export const isBucketTypeSort = (visualizerAlgorithm) =>
-  visualizerAlgorithm === 'Bucket Sort' ||
-  visualizerAlgorithm === 'Counting Sort' ||
-  visualizerAlgorithm === 'Radix Sort';
 
 // Auto shifting to ensure everything stays at the center
 export const translateXOfVisualizer = (dataSize) => {
