@@ -7,6 +7,8 @@ import { arrayCopy, isBucketTypeSort, isMergeSort } from '../../util/VisualizerU
 import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../bucketsortingvisualizer/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';
+// non-gradual decrease
+const animationSpeedArray = [1000,800,600,400,240,200,160,120,80,50];
 
 const AnimationScreen = () => {
   const {
@@ -50,7 +52,7 @@ const AnimationScreen = () => {
     if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {
         executeForwardSwapAnimation();
-      }, 800 / speed);
+      }, animationSpeedArray[speed]);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish(referenceArray);
     }
