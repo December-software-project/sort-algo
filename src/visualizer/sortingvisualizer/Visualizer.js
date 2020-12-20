@@ -170,6 +170,7 @@ const Visualizer = () => {
     referenceArray,
     animationArr,
     countArr,
+    stackArr,
     isInMidstOfSort,
     dataSize,
     visualizerAlgorithm,

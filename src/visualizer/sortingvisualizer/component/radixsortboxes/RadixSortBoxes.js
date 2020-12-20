@@ -1,17 +1,20 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
+import "./styles.css";
 
 const RadixSortBoxes = () => {
-  const { dataSize, countArr, referenceArray } = useContext(VisualizerStateContext);
+  const { dataSize, referenceArray, stackArr } = useContext(VisualizerStateContext);
 
-  const SingleBox = ({ data }) => <div className="box">{data}</div>;
+  const SingleBox = ({ data }) => <div className="box">{data.height}</div>;
 
-  const StackOfBoxes = ({ item }) => (
+  const StackOfBoxes = ({ individualStack }) => (
     <div className="stack">
-      {item.array.map((x) => (
+      {individualStack.array.map((x) => (
         <SingleBox data={x} />
       ))}
-      <div className="number-with-line">{item.value}</div>
+      <div className="number-with-line">
+        {individualStack.value}
+      </div>
     </div>
   );
 
@@ -22,7 +25,11 @@ const RadixSortBoxes = () => {
           <SingleBox data={x} />
         ))}
       </div>
-      <div className="all-boxes">{}</div>
+      <div className="all-boxes" style={{ marginTop: 50 }}>
+        {stackArr.map((x) => (
+          <StackOfBoxes individualStack={x} />
+        ))}
+      </div>
     </>
   );
 };
