@@ -6,7 +6,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import emailjs from 'emailjs-com';
 import FormHolder from './FormHolder';
-// import Notification from './Notification';
+import Notification from './Notification';
 
 const Form = () => {
   const [type, setType] = useState('Type (Optional)');
@@ -140,7 +140,7 @@ const Form = () => {
               </button>
             </FormHolder>
           </div>
-          {/*<Notification />*/}
+          <Notification isShowMessage={isShowMessage} setIsShowMessage={setIsShowMessage}/>
         </>
       )}
     </Formik>

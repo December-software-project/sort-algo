@@ -177,3 +177,11 @@ textarea:focus {
   width: 200px;
   float: left;
 }
+
+
+.close-notification-button {
+  border-radius: 100%;
+}
+.close-notification-button:hover {
+  background-color: rgba(255, 255, 255, 0.2)
+}
