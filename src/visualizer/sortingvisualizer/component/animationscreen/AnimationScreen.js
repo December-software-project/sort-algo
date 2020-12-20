@@ -3,10 +3,12 @@ import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { arrayCopy, isBucketTypeSort } from '../../util/VisualizerUtil';
+import { arrayCopy, isBucketTypeSort, isMergeSort } from '../../util/VisualizerUtil';
 import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../bucketsortingvisualizer/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';
+// non-gradual decrease
+const animationSpeedArray = [1000,800,600,400,240,200,160,120,80,50];
 
 const AnimationScreen = () => {
   const {
@@ -50,7 +52,7 @@ const AnimationScreen = () => {
     if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {
         executeForwardSwapAnimation();
-      }, 800 / speed);
+      }, animationSpeedArray[speed]);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish(referenceArray);
     }
@@ -58,7 +60,7 @@ const AnimationScreen = () => {
 
   const transitions = useTransition(
     referenceArray.map((data) => {
-      if (visualizerAlgorithm === 'Merge Sort') {
+      if (isMergeSort(visualizerAlgorithm)) {
         return { ...data, x: parseInt(data.xDirection) };
       }
       return { ...data, x: (xDirection += 10) - 10 };
@@ -92,7 +94,7 @@ const AnimationScreen = () => {
         <Buckets />
       </div>
     );
-  } else if (visualizerAlgorithm === 'Merge Sort') {
+  } else if (isMergeSort(visualizerAlgorithm)) {
     return (
       <div className="container-one">
         <div className="list">
@@ -104,7 +106,6 @@ const AnimationScreen = () => {
                 index={index}
                 length={length}
                 key={index}
-                isSwap={item.isSwap}
                 isShift={item.isShift}
                 width={800 / dataSize}
                 pos={item.pos}
@@ -113,7 +114,7 @@ const AnimationScreen = () => {
             );
           })}
         </div>
-        <Buckets />
+        <div className="empty-space-for-merge-sort" />
       </div>
     );
   } else {

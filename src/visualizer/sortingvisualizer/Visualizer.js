@@ -18,6 +18,7 @@ import {
   translateXOfVisualizer,
   handleSwap,
   handleMergeSort,
+  isMergeSort,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -29,7 +30,7 @@ import BackButton from './component/button/forwardbackbutton/BackButton';
 import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
 import StepByStep from './component/stepbystep/StepByStep';
-import bubbleSort from '../algorithm/bubbleSort';
+import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -49,6 +50,8 @@ const Visualizer = () => {
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
   const [countArr, setCountArr] = useState(arrayCopy(buckets));
+  // This is introduced to simplify the back animation for MergeSort
+  const [historyArr, setHistoryArr] = useState([]);
 
   useEffect(() => {
     if (isPlay === false) {
@@ -86,9 +89,11 @@ const Visualizer = () => {
         referenceArray[index].isShown = true;
         countArr[height - 1].count -= 1;
       }
-    } else if (visualizerAlgorithm === 'Merge Sort') {
-      let temp = handleMergeSort(referenceArray, animationArrSwapIdx);
-      setReferenceArray(temp);
+    } else if (isMergeSort(visualizerAlgorithm)) {
+      let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
+      historyArr.push(referenceArray);
+      setHistoryArr(historyArr);
+      setReferenceArray(nextReferenceArray);
     } else {
       let newReferenceArray = handleSwap(
         animationArrSwapIdx[1],
@@ -128,8 +133,10 @@ const Visualizer = () => {
         referenceArray[index].isShown = false;
         countArr[height - 1].count += 1;
       }
-    } else if (visualizerAlgorithm === 'Merge Sort') {
-      setReferenceArray(handleMergeSort(referenceArray, animationArrSwapIdx));
+    } else if (isMergeSort(visualizerAlgorithm)) {
+      let nextReferenceArray = historyArr.pop();
+      setHistoryArr(historyArr);
+      setReferenceArray(nextReferenceArray);
     } else {
       let temp = handleSwap(
         animationArrSwapIdx[1],
@@ -150,9 +157,7 @@ const Visualizer = () => {
   const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
     setIsReplay(true);
-    if (visualizerAlgorithm !== 'Merge Sort') {
-      setReferenceArray(resetArray(visualizerAlgorithm, finalReferenceArray));
-    }
+    setReferenceArray(resetArray(visualizerAlgorithm, finalReferenceArray));
   };
 
   const value = {
