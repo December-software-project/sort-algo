@@ -11,8 +11,10 @@ const selectionSort = (arr) => {
         smallestIdx = j;
       }
     }
-    swap(smallestIdx, i, receivedArr);
-    animationArr.push([smallestIdx, i, true]);
+    if (i !== smallestIdx) {
+      swap(smallestIdx, i, receivedArr);
+      animationArr.push([smallestIdx, i, true]);
+    }
   }
   return animationArr;
 };

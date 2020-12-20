@@ -1,9 +1,9 @@
-import bubbleSort from '../../../../visualizer/algorithm/sortingalgorithms/bubbleSort';
+import insertionSort from '../../../../visualizer/algorithm/sortingalgorithms/insertionSort';
 
 test('Empty Array', () => {
   const arr = [];
   const expected = [];
-  expect(bubbleSort(arr)).toEqual(expected);
+  expect(insertionSort(arr)).toEqual(expected);
 });
 
 test('Already Sorted with duplicates', () => {
@@ -13,7 +13,7 @@ test('Already Sorted with duplicates', () => {
     { id: 3, height: 3, isSwap: false },
     { id: 4, height: 3, isSwap: false },
   ];
-  const actual = bubbleSort(arr);
+  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [2, 1, false],
@@ -35,7 +35,7 @@ test('Already Sorted ascending', () => {
     { id: 3, height: 3, isSwap: false },
     { id: 4, height: 4, isSwap: false },
   ];
-  const actual = bubbleSort(arr);
+  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [2, 1, false],
@@ -57,16 +57,16 @@ test('Descending array', () => {
     { id: 3, height: 2, isSwap: false },
     { id: 4, height: 1, isSwap: false },
   ];
-  const actual = bubbleSort(arr);
+  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [1, 0, true],
     [2, 1, false],
     [2, 1, true],
-    [3, 2, false],
-    [3, 2, true],
     [1, 0, false],
     [1, 0, true],
+    [3, 2, false],
+    [3, 2, true],
     [2, 1, false],
     [2, 1, true],
     [1, 0, false],
@@ -88,15 +88,13 @@ test('random array positive numbers', () => {
     { id: 3, height: 2, isSwap: false },
     { id: 4, height: 3, isSwap: false },
   ];
-  const actual = bubbleSort(arr);
+  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [2, 1, false],
     [2, 1, true],
     [3, 2, false],
     [3, 2, true],
-    [1, 0, false],
-    [2, 1, false],
   ];
   expect(actual).toEqual(expected);
   expect(arr).toStrictEqual([
@@ -114,7 +112,7 @@ test('random array negative numbers', () => {
     { id: 3, height: -2, isSwap: false },
     { id: 4, height: -3, isSwap: false },
   ];
-  const actual = bubbleSort(arr);
+  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [1, 0, true],
@@ -122,10 +120,8 @@ test('random array negative numbers', () => {
     [2, 1, true],
     [3, 2, false],
     [3, 2, true],
-    [1, 0, false],
     [2, 1, false],
     [2, 1, true],
-    [1, 0, false],
   ];
   expect(actual).toEqual(expected);
   expect(arr).toStrictEqual([
@@ -143,14 +139,13 @@ test('random array negative and positive numbers', () => {
     { id: 3, height: 2, isSwap: false },
     { id: 4, height: -3, isSwap: false },
   ];
-  const actual = bubbleSort(arr);
+  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [2, 1, false],
     [2, 1, true],
     [3, 2, false],
     [3, 2, true],
-    [1, 0, false],
     [2, 1, false],
     [2, 1, true],
     [1, 0, false],
