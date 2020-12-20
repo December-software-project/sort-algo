@@ -1,4 +1,4 @@
-import SortingAlgorithms from '../../algorithm/allSorts';
+import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
 
 export const swap = (firstIdx, secondIdx, arr) => {
