@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from "../../component/header/SectionHeader"
+import "./styles.css";
 
 const ContactUsHeader = () => {
   const ContactUsText = () => (
@@ -9,7 +11,7 @@ const ContactUsHeader = () => {
 
   return (
     <div className="contact-us-header-box">
-      <ContactUsHeader sectionHeader={'Contact Us'} translateX={'translateX(23px)'} />
+      <Header sectionHeader={'Contact Us'} translateX={'translateX(23px)'} />
       <ContactUsText />
     </div>
   );
