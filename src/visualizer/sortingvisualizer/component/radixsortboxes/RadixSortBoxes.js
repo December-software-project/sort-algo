@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
-import "./styles.css";
+import './styles.css';
 
 const RadixSortBoxes = () => {
-  const { dataSize, referenceArray, stackArr } = useContext(VisualizerStateContext);
+  const { referenceArray, stackArr } = useContext(VisualizerStateContext);
 
   const SingleBox = ({ data }) => <div className="box">{data.height}</div>;
 
@@ -12,20 +12,18 @@ const RadixSortBoxes = () => {
       {individualStack.array.map((x) => (
         <SingleBox data={x} />
       ))}
-      <div className="number-with-line">
-        {individualStack.value}
-      </div>
+      <div className="number-with-line">{individualStack.value}</div>
     </div>
   );
 
   return (
     <>
-      <div className="all-boxes">
+      <div className="data-arr">
         {referenceArray.map((x) => (
           <SingleBox data={x} />
         ))}
       </div>
-      <div className="all-boxes" style={{ marginTop: 50 }}>
+      <div className="stack-arr">
         {stackArr.map((x) => (
           <StackOfBoxes individualStack={x} />
         ))}

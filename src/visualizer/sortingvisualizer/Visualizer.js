@@ -17,7 +17,11 @@ import {
   resetArray,
   translateXOfVisualizer,
   handleSwap,
-  handleMergeSort, isCountingSort, isMergeSort,
+  handleMergeSort,
+  isCountingSort,
+  isMergeSort,
+  roundToTwoDp,
+  isRadixSort,
 } from './util/VisualizerUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -34,7 +38,6 @@ import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
 const Visualizer = () => {
-
   // isPlay and isReplay simulate the 3 states
   const [isPlay, setIsPlay] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
@@ -52,20 +55,15 @@ const Visualizer = () => {
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
   const [countArr, setCountArr] = useState(arrayCopy(buckets));
+  const [stackArr, setStackArr] = useState(arrayCopy(stack));
   // This is introduced to simplify the back animation for MergeSort
   const [historyArr, setHistoryArr] = useState([]);
-  const [stackArr, setStackArr] = useState(arrayCopy(stack));
 
   useEffect(() => {
     if (isPlay === false) {
       setAnimationArr(getAnimationArr(visualizerAlgorithm, arrayCopy(arrayData)));
     }
   }, [isPlay, speed, dataSize, visualizerAlgorithm, arrayData]);
-
-  // code from Mark G https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
-  const roundToTwo = (num) => {
-    return +(Math.round(num + 'e+2') + 'e-2');
-  };
 
   const changeDataSize = (val) => {
     if (val !== dataSize) {
@@ -79,9 +77,8 @@ const Visualizer = () => {
   };
 
   const executeForwardSwapAnimation = () => {
-
     let animationArrSwapIdx = animationArr[idx];
-    const animationPx = roundToTwo(((idx + 1) / animationArr.length) * 100);
+    const animationPx = roundToTwoDp(((idx + 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
@@ -125,7 +122,7 @@ const Visualizer = () => {
     }
 
     let animationArrSwapIdx = animationArr[idx - 1];
-    const animationPx = roundToTwo(((idx - 1) / animationArr.length) * 100);
+    const animationPx = roundToTwoDp(((idx - 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
       const index = animationArrSwapIdx.id;
@@ -208,7 +205,9 @@ const Visualizer = () => {
           <div
             className="visualizer-box"
             style={{
-              transform: `translateX(-${translateXOfVisualizer(dataSize)}px)`,
+              transform:
+                !isRadixSort(visualizerAlgorithm) &&
+                `translateX(-${translateXOfVisualizer(dataSize)}px)`,
             }}
           >
             <AnimationScreen />

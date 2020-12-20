@@ -53,10 +53,22 @@ export const getStepByStepText = (algo, animationArr, idx, referenceArray) => {
   return sortAlgoStepByStep(animationArr, idx, referenceArray);
 };
 
+// Math util
 const generateValue = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+// code from Mark G https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
+export const roundToTwoDp = (num) => {
+  return +(Math.round(num + 'e+2') + 'e-2');
+};
+
+/**
+ * Generates a random array based on the size chosen and the algorithm selected.
+ * @param size Size of array data.
+ * @param visualizerAlgorithm Algorithm selected.
+ * @returns {[]} Random array generated.
+ */
 export const generateArray = (size, visualizerAlgorithm) => {
   let array = [];
   if (isCountingSort(visualizerAlgorithm)) {
@@ -97,6 +109,7 @@ export const generateArray = (size, visualizerAlgorithm) => {
   return array;
 };
 
+// Fixed array for radix sort
 export const stack = [
   { value: 0, array: [] },
   { value: 1, array: [] },
@@ -110,6 +123,7 @@ export const stack = [
   { value: 9, array: [] },
 ];
 
+// Fixed array for counting sort
 export const buckets = [
   { height: 1, count: 0 },
   { height: 2, count: 0 },

@@ -8,8 +8,9 @@ import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../countingsortbuckets/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';
 import RadixSortBoxes from '../radixsortboxes/RadixSortBoxes';
-// non-gradual decrease
-const animationSpeedArray = [1000,800,600,400,240,200,160,120,80,50];
+
+// non-gradual decrease of animation speed
+const animationSpeedArray = [1000, 800, 600, 400, 240, 200, 160, 120, 80, 50];
 
 const AnimationScreen = () => {
   const {

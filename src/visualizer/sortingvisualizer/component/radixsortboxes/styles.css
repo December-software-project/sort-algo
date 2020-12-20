@@ -1,28 +1,45 @@
-.box {
-  border: 2px solid #5467FF;
-  padding: 5px;
-  text-align: center;
-  margin-left: 10px;
-}
+/*.radix-container {*/
+/*  align-self: flex-start;*/
+/*  box-sizing: border-box;*/
+/*  display: flex;*/
+/*  flex: 1;*/
+/*  flex-direction: column;*/
+/*}*/
 
-.all-boxes {
+.data-arr {
   align-self: center;
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+.stack-arr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 18%;
+}
+
+.box {
+  border: 2px solid #5467FF;
+  font-size: 16px;
+  margin-left: 10px;
+  padding: 5px;
+  text-align: center;
 }
 
 .stack {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
   justify-items: center;
+  margin-left: 10px;
 }
 
 .number-with-line {
-  border-top: 4px solid black;
-  font-size: 16px;
-  width: 80px;
-  text-align: center;
   align-items: center;
+  border-top: 3px solid black;
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  width: 60px;
 }
