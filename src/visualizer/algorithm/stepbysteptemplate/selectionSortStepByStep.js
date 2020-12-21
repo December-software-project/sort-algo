@@ -1,7 +1,7 @@
 export const selectionSortStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';
-  } else if (idx - 1 >= 0) {
+  } else if (idx - 1 >= 0 && referenceArray[0].isShift === undefined) {
     let animationArrSwapIdx = animationArr[idx - 1];
     let firstIdx = animationArrSwapIdx[0];
     let secondIdx = animationArrSwapIdx[1];

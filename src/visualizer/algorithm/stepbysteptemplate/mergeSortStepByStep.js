@@ -3,7 +3,7 @@ import { arrayCopy, findIndexToUseInMergeSort } from '../../sortingvisualizer/ut
 export const mergeSortStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';
-  } else if (idx - 1 >= 0 && referenceArray[0].height !== undefined) {
+  } else if (idx - 1 >= 0 && referenceArray[0].isShift !== undefined) {
     let animationArrSwapIdx = animationArr[idx - 1];
     let isShift = animationArrSwapIdx[2];
     let newTempArr = arrayCopy(referenceArray);
@@ -13,24 +13,24 @@ export const mergeSortStepByStep = (animationArr, idx, referenceArray) => {
     if (isShift) {
       // explaining the moving downwards and comparison
       // this is slightly inefficient but since we are dealing with small data, it should be fine
-      let message = "Currently in merge process: ";
+      let message = 'Currently in merge process: ';
       for (let values of referenceArray) {
         if (values.isShift) {
-          message += (values.height + ", ");
+          message += values.height + ', ';
         }
       }
-      return message.slice(0, - 1);
+      return message.slice(0, -1);
     } else {
       // shifting back up to correct position
       let min = referenceArray[idxToUse].height;
       let message = `Since the minimum is ${min}, we move ${min} up\nCurrently left in the merge process: `;
       for (let values of referenceArray) {
         if (values.isShift) {
-          message += (values.height + ", ");
+          message += values.height + ', ';
         }
       }
-      message = message.slice(0, - 1);
-      return message
+      message = message.slice(0, -1);
+      return message;
     }
   }
 };

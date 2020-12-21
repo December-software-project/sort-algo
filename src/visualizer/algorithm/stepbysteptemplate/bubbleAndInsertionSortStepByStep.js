@@ -1,7 +1,9 @@
 export const bubbleAndInsertionSortStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';
-  } else if (idx - 1 >= 0) {
+  } else if (idx - 1 >= 0 && referenceArray[0].isShift === undefined) {
+    // There is a "lag" in the referenceArray, hence using this hackish method to detect that
+    // this is not a merge sort reference array
     let animationArrSwapIdx = animationArr[idx - 1];
     let firstIdx = animationArrSwapIdx[0];
     let secondIdx = animationArrSwapIdx[1];
