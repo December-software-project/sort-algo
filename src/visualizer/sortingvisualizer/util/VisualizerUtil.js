@@ -12,6 +12,12 @@ export const highlight = (firstIdx, secondIdx, arr) => {
   arr[secondIdx].isSwap = true;
 };
 
+export const handleSwapWithPivot = (firstIdx, secondIdx, pivotIdx, arr, isSwapOccurring, algo) => {
+  let newTempArr = handleSwap(firstIdx, secondIdx, arr, isSwapOccurring, algo);
+  newTempArr[pivotIdx].isSwap = true;
+  return newTempArr;
+};
+
 export const handleSwap = (firstIdx, secondIdx, arr, isSwapOccurring, algo) => {
   let newTempArr = resetArray(algo, arr);
   highlight(firstIdx, secondIdx, newTempArr);
@@ -101,6 +107,8 @@ export const isBucketTypeSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Radix Sort';
 
 export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
+export const isSelectionSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Selection Sort';
+export const isQuickSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Quick Sort';
 
 export const arrayCopy = (arr) => {
   return JSON.parse(JSON.stringify(arr));
