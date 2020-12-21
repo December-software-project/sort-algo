@@ -13,7 +13,7 @@ const RadixSortBoxes = () => {
     } else if (idx < 6 * dataSize) {
       return 3;
     } else {
-      return 4;
+      return -1;
     }
   };
 
@@ -31,11 +31,11 @@ const RadixSortBoxes = () => {
     return numberMapping.map((x) => <span style={{ fontWeight: x[1] && 'bold' }}>{x[0]}</span>);
   };
 
-  const SingleBox = ({ item }) => (
+  const SingleBox = ({ item, display }) => (
     <div
       className="box"
       style={{
-        visibility: item.isShown ? `visible` : `hidden`,
+        visibility: display || item.isShown ? `visible` : `hidden`,
       }}
     >
       <div className="number">{getDisplayNumber(item.height)}</div>
@@ -46,7 +46,7 @@ const RadixSortBoxes = () => {
     <div className="stack">
       <div className="stack-boxes">
         {individualStack.array.map((x) => (
-          <SingleBox item={x} key={x.id} />
+          <SingleBox item={x} key={x.id} display={true} />
         ))}
       </div>
       <div className="number-with-line">{individualStack.value}</div>
