@@ -3,7 +3,7 @@ import LegendInformation from './LegendInformation';
 import LegendHeader from './LegendHeader';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { isSwapInvolvedSort, isMergeSort } from '../../util/VisualizerUtil';
+import { isSwapInvolvedSort, isMergeSort } from '../../util/GeneralUtil';
 
 const Legend = () => {
   const { visualizerAlgorithm } = useContext(VisualizerStateContext);

@@ -3,7 +3,7 @@ import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { arrayCopy, isCountingSort, isMergeSort, isRadixSort } from '../../util/VisualizerUtil';
+import { arrayCopy, isCountingSort, isMergeSort, isRadixSort } from '../../util/GeneralUtil';
 import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../countingsortbuckets/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';

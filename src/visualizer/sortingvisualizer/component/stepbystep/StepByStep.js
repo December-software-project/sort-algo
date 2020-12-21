@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { getStepByStepText } from '../../util/VisualizerUtil';
+import { getStepByStepText } from '../../util/GeneralUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 

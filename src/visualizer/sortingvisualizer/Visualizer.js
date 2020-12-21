@@ -10,19 +10,19 @@ import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
 import {
   arrayCopy,
-  buckets,
-  stack,
   generateArray,
   getAnimationArr,
   resetArray,
   translateXOfVisualizer,
-  handleSwap,
-  handleMergeSort,
   isCountingSort,
   isMergeSort,
   roundToTwoDp,
   isRadixSort,
-} from './util/VisualizerUtil';
+} from './util/GeneralUtil';
+import { handleSwap } from './util/SwappingAlgoUtil';
+import { handleMergeSort } from './util/MergeSortUtil';
+import { buckets } from './util/CountingSortUtil';
+import { stack } from './util/RadixSortUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   DataSizeSelectorProps,

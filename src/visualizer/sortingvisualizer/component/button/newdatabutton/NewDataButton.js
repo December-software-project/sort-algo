@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
-import { arrayCopy, buckets, generateArray } from '../../../util/VisualizerUtil';
+import { arrayCopy, generateArray } from '../../../util/GeneralUtil';
+import { buckets } from '../../../util/CountingSortUtil';
 
 const NewDataButton = () => {
   const {

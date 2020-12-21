@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import '../block/styles.css';
 import './buckets.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { translateXOfVisualizer } from '../../util/VisualizerUtil';
+import { translateXOfVisualizer } from '../../util/GeneralUtil';
 
 const Buckets = () => {
   const { dataSize, countArr } = useContext(VisualizerStateContext);

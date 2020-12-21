@@ -3,11 +3,8 @@ import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-import {
-  arrayCopy,
-  buckets,
-  generateArray,
-} from '../../../util/VisualizerUtil';
+import { arrayCopy, generateArray } from '../../../util/GeneralUtil';
+import { buckets } from '../../../util/CountingSortUtil';
 import './styles.css';
 
 const AlgorithmChooser = () => {
