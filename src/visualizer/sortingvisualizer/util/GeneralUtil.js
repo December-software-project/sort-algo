@@ -93,6 +93,8 @@ export const generateArray = (size, visualizerAlgorithm) => {
 export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Counting Sort';
 export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Radix Sort';
 export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
+export const isSelectionSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Selection Sort';
+export const isQuickSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Quick Sort';
 
 export const isSwapInvolvedSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Bubble Sort' ||

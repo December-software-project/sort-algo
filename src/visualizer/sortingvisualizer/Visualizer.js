@@ -12,19 +12,19 @@ import {
   arrayCopy,
   generateArray,
   getAnimationArr,
-  resetArray,
-  translateXOfVisualizer,
   isCountingSort,
   isMergeSort,
-  roundToTwoDp,
-  isRadixSort,
   isQuickSort,
-  handleSwapWithPivot,
+  isRadixSort,
+  resetArray,
+  roundToTwoDp,
+  translateXOfVisualizer,
 } from './util/GeneralUtil';
 import { handleSwap } from './util/SwappingAlgoUtil';
 import { handleMergeSort } from './util/MergeSortUtil';
 import { buckets, executeCountSort } from './util/CountingSortUtil';
 import { executeRadixSort, stack } from './util/RadixSortUtil';
+import { handleSwapWithPivot } from './util/QuickSortUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   DataSizeSelectorProps,
