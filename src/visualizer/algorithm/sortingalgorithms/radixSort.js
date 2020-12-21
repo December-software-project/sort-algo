@@ -17,23 +17,25 @@ const radixSort = (arr) => {
         height: item.height,
         isShown: true,
         location: location,
+        isDistributing: true,
       });
       id++;
     }
     inputArr = [].concat.apply([], buckets);
     id = 0;
-    let bucketId = 0;
+    let location = 0;
     for (const array of buckets) {
       for (const item of array) {
         animationArr.push({
           id: id,
           height: item.height,
           isShown: true,
-          bucketId: bucketId,
+          location: location,
+          isDistributing: false,
         });
         id++;
       }
-      bucketId++;
+      location++;
     }
     divisor *= 10;
   }

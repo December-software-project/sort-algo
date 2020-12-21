@@ -24,3 +24,24 @@ export const generateRandomValue = () => {
     return generateValue(100, 999);
   }
 };
+
+export const executeRadixSort = (animationArrSwapIdx, referenceArray, stackArr, isForward) => {
+  const index = animationArrSwapIdx.id;
+  const isDistributing = animationArrSwapIdx.isDistributing;
+  const isDistributingAnimation = !(isForward ^ isDistributing);
+
+  if (isDistributingAnimation) {
+    referenceArray[index].isShown = false;
+    const location = animationArrSwapIdx.location;
+    stackArr[location].array.push(animationArrSwapIdx);
+  } else {
+    const location = animationArrSwapIdx.location;
+    referenceArray[index] = animationArrSwapIdx;
+    referenceArray[index].isShown = true;
+    if (isForward) {
+      stackArr[location].array.shift();
+    } else {
+      stackArr[location].array.pop();
+    }
+  }
+}

@@ -22,7 +22,7 @@ import {
 import { handleSwap } from './util/SwappingAlgoUtil';
 import { handleMergeSort } from './util/MergeSortUtil';
 import { buckets, executeCountSort } from './util/CountingSortUtil';
-import { stack } from './util/RadixSortUtil';
+import { executeRadixSort, stack } from './util/RadixSortUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   DataSizeSelectorProps,
@@ -85,17 +85,7 @@ const Visualizer = () => {
     if (isCountingSort(visualizerAlgorithm)) {
       executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, true);
     } else if (isRadixSort(visualizerAlgorithm)) {
-      const index = animationArrSwapIdx.id;
-      if (animationArrSwapIdx.location !== undefined) {
-        referenceArray[index].isShown = false;
-        const location = animationArrSwapIdx.location;
-        stackArr[location].array.push(animationArrSwapIdx);
-      } else if (animationArrSwapIdx.bucketId !== undefined) {
-        const bucketId = animationArrSwapIdx.bucketId;
-        referenceArray[index] = animationArrSwapIdx;
-        referenceArray[index].isShown = true;
-        stackArr[bucketId].array.shift();
-      }
+      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, true);
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
       historyArr.push(referenceArray);
@@ -125,24 +115,13 @@ const Visualizer = () => {
       setIdx(0);
       return;
     }
-
     let animationArrSwapIdx = animationArr[idx - 1];
     const animationPx = roundToTwoDp(((idx - 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
       executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, false);
     } else if (isRadixSort(visualizerAlgorithm)) {
-      const index = animationArrSwapIdx.id;
-      if (animationArrSwapIdx.location !== undefined) {
-        const location = animationArrSwapIdx.location;
-        referenceArray[index] = animationArrSwapIdx;
-        referenceArray[index].isShown = true;
-        stackArr[location].array.pop();
-      } else if (animationArrSwapIdx.bucketId !== undefined) {
-        referenceArray[index].isShown = false;
-        const bucketId = animationArrSwapIdx.bucketId;
-        stackArr[bucketId].array.push(animationArrSwapIdx);
-      }
+      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, false);
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = historyArr.pop();
       setHistoryArr(historyArr);
