@@ -6,6 +6,7 @@ import 'antd/dist/antd.css';
 import { arrayCopy, generateArray } from '../../../util/GeneralUtil';
 import { buckets } from '../../../util/CountingSortUtil';
 import './styles.css';
+import { stack } from '../../../util/RadixSortUtil';
 
 const AlgorithmChooser = () => {
   const {
@@ -19,6 +20,7 @@ const AlgorithmChooser = () => {
     setAnimationPercentage,
     setIsReset,
     setCountArr,
+    setStackArr,
   } = useContext(VisualizerStateContext);
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
   const listOfAlgorithm = [
@@ -45,6 +47,7 @@ const AlgorithmChooser = () => {
       setIsReset(true);
       setArrayData(generateArray(dataSize, algorithmName));
       setCountArr(arrayCopy(buckets));
+      setStackArr(arrayCopy(stack));
       setAnimationPercentage(0);
     }
   };

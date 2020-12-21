@@ -21,7 +21,7 @@ import {
 } from './util/GeneralUtil';
 import { handleSwap } from './util/SwappingAlgoUtil';
 import { handleMergeSort } from './util/MergeSortUtil';
-import { buckets } from './util/CountingSortUtil';
+import { buckets, executeCountSort } from './util/CountingSortUtil';
 import { stack } from './util/RadixSortUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
@@ -56,6 +56,7 @@ const Visualizer = () => {
   const [idx, setIdx] = useState(0);
   const [countArr, setCountArr] = useState(arrayCopy(buckets));
   const [stackArr, setStackArr] = useState(arrayCopy(stack));
+
   // This is introduced to simplify the back animation for MergeSort
   const [historyArr, setHistoryArr] = useState([]);
 
@@ -70,6 +71,7 @@ const Visualizer = () => {
       setDataSize(val);
       setArrayData(generateArray(val, visualizerAlgorithm));
       setCountArr(arrayCopy(buckets));
+      setStackArr(arrayCopy(stack));
       setIsReplay(false);
       setAnimationPercentage(0);
       setIsReset(true);
@@ -81,15 +83,19 @@ const Visualizer = () => {
     const animationPx = roundToTwoDp(((idx + 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
+      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, true);
+    } else if (isRadixSort(visualizerAlgorithm)) {
+
       const index = animationArrSwapIdx.id;
-      const height = animationArrSwapIdx.height;
-      if (animationPx <= 50) {
+      if (animationArrSwapIdx.location !== undefined) {
         referenceArray[index].isShown = false;
-        countArr[height - 1].count += 1;
-      } else {
+        const location = animationArrSwapIdx.location;
+        stackArr[location].array.push(animationArrSwapIdx);
+      } else if (animationArrSwapIdx.bucketId !== undefined) {
+        const bucketId = animationArrSwapIdx.bucketId;
         referenceArray[index] = animationArrSwapIdx;
         referenceArray[index].isShown = true;
-        countArr[height - 1].count -= 1;
+        stackArr[bucketId].array.shift();
       }
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
@@ -125,16 +131,7 @@ const Visualizer = () => {
     const animationPx = roundToTwoDp(((idx - 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
-      const index = animationArrSwapIdx.id;
-      const height = animationArrSwapIdx.height;
-      if (animationPx < 50) {
-        referenceArray[index] = animationArrSwapIdx;
-        referenceArray[index].isShown = true;
-        countArr[height - 1].count -= 1;
-      } else {
-        referenceArray[index].isShown = false;
-        countArr[height - 1].count += 1;
-      }
+      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, false);
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = historyArr.pop();
       setHistoryArr(historyArr);
@@ -189,6 +186,7 @@ const Visualizer = () => {
     setIdx,
     setReferenceArray,
     setCountArr,
+    setStackArr,
     executeForwardSwapAnimation,
     executeBackwardSwapAnimation,
     resetDataWhenAnimationFinish,

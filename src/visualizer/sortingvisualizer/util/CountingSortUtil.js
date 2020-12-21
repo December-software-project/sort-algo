@@ -10,3 +10,19 @@ export const buckets = [
   { height: 8, count: 0 },
   { height: 9, count: 0 },
 ];
+
+// Function to execute the counting sort animation
+export const executeCountSort = (
+  animationArrSwapIdx, referenceArray, animationPx, countArr, isForward) => {
+  const index = animationArrSwapIdx.id;
+  const height = animationArrSwapIdx.height;
+  const isCountAnimation = (isForward && animationPx <= 50) || (!isForward && animationPx >= 50);
+  if (isCountAnimation) {
+    referenceArray[index].isShown = false;
+    countArr[height - 1].count += 1;
+  } else {
+    referenceArray[index] = animationArrSwapIdx;
+    referenceArray[index].isShown = true;
+    countArr[height - 1].count -= 1;
+  }
+};

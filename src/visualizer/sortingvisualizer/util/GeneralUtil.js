@@ -63,6 +63,7 @@ export const generateArray = (size, visualizerAlgorithm) => {
       array.push({
         id: i,
         height: generateRandomValue(),
+        isShown: true,
       });
     }
   } else if (isMergeSort(visualizerAlgorithm)) {

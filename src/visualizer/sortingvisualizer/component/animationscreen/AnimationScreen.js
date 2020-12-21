@@ -98,7 +98,7 @@ const AnimationScreen = () => {
     );
   } else if (isRadixSort(visualizerAlgorithm)) {
     return (
-      <div className="container-one">
+      <div className="container-one" style={{justifyContent: `space-between`, minHeight: 250}}>
         <RadixSortBoxes />
       </div>
     );

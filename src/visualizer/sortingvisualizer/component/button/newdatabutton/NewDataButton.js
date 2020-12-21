@@ -3,6 +3,7 @@ import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
 import { arrayCopy, generateArray } from '../../../util/GeneralUtil';
 import { buckets } from '../../../util/CountingSortUtil';
+import { stack } from '../../../util/RadixSortUtil';
 
 const NewDataButton = () => {
   const {
@@ -14,6 +15,7 @@ const NewDataButton = () => {
     setAnimationPercentage,
     visualizerAlgorithm,
     setCountArr,
+    setStackArr,
     setIsReset,
   } = useContext(VisualizerStateContext);
 
@@ -24,6 +26,7 @@ const NewDataButton = () => {
       setAnimationPercentage(0);
       setIsReplay(false);
       setCountArr(arrayCopy(buckets));
+      setStackArr(arrayCopy(stack));
       setIsReset(true);
     }
   };

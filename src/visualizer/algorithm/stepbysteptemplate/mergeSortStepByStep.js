@@ -4,7 +4,7 @@ import { findIndexToUseInMergeSort } from '../../sortingvisualizer/util/MergeSor
 export const mergeSortStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';
-  } else if (idx - 1 >= 0 && referenceArray[0].height !== undefined) {
+  } else if (referenceArray[0].isShift !== undefined) {
     let animationArrSwapIdx = animationArr[idx - 1];
     let isShift = animationArrSwapIdx[2];
     let newTempArr = arrayCopy(referenceArray);

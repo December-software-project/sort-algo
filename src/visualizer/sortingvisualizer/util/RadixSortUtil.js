@@ -16,14 +16,13 @@ export const stack = [
 
 export const generateRandomValue = () => {
   const randomVal = Math.random();
-  switch (randomVal) {
-    case randomVal < 0.25:
-      return generateValue(1, 9);
-    case randomVal < 0.5:
-      return generateValue(10, 99);
-    case randomVal < 0.75:
-      return generateValue(100, 999);
-    case randomVal <= 1:
-      return generateValue(1000, 4000);
+  if (randomVal < 0.25) {
+    return generateValue(1, 9);
+  } else if (randomVal < 0.5) {
+    return generateValue(10, 99);
+  } else if (randomVal < 0.75) {
+    return generateValue(100, 999);
+  } else if (randomVal <= 1) {
+    return generateValue(1000, 4000);
   }
 };

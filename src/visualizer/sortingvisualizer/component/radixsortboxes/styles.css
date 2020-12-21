@@ -1,7 +1,6 @@
 .data-arr {
   align-self: center;
-  display: flex;
-  flex-direction: row;
+  display: grid;
   justify-content: center;
 }
 
@@ -9,27 +8,37 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 250px;
 }
 
 .box {
   border: 2px solid #5467FF;
   font-size: 16px;
-  margin-left: 10px;
   padding: 5px;
-  text-align: center;
+  width: 50px;
 }
 
 .stack {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  justify-content: flex-end;
   margin-left: 10px;
 }
 
-.number-with-line {
+.stack-boxes {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.number {
   align-items: center;
-  border-top: 3px solid black;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.number-with-line {
+  border-top: 2px solid black;
   font-family: 'Open Sans Semibold', sans-serif;
   font-size: 15px;
   text-align: center;
