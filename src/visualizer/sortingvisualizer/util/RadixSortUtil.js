@@ -16,13 +16,11 @@ export const stack = [
 
 export const generateRandomValue = () => {
   const randomVal = Math.random();
-  if (randomVal < 0.25) {
+  if (randomVal < 0.1) {
     return generateValue(1, 9);
-  } else if (randomVal < 0.5) {
+  } else if (randomVal < 0.4) {
     return generateValue(10, 99);
-  } else if (randomVal < 0.75) {
-    return generateValue(100, 999);
   } else if (randomVal <= 1) {
-    return generateValue(1000, 4000);
+    return generateValue(100, 999);
   }
 };
