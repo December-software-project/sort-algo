@@ -18,6 +18,8 @@ import {
   isMergeSort,
   roundToTwoDp,
   isRadixSort,
+  isQuickSort,
+  handleSwapWithPivot,
 } from './util/GeneralUtil';
 import { handleSwap } from './util/SwappingAlgoUtil';
 import { handleMergeSort } from './util/MergeSortUtil';
@@ -91,6 +93,17 @@ const Visualizer = () => {
       historyArr.push(referenceArray);
       setHistoryArr(historyArr);
       setReferenceArray(nextReferenceArray);
+    } else if (isQuickSort(visualizerAlgorithm)) {
+      setReferenceArray(
+        handleSwapWithPivot(
+          animationArrSwapIdx[1],
+          animationArrSwapIdx[0],
+          animationArrSwapIdx[3],
+          referenceArray,
+          animationArrSwapIdx[2],
+          visualizerAlgorithm
+        )
+      );
     } else {
       let newReferenceArray = handleSwap(
         animationArrSwapIdx[1],
@@ -126,15 +139,27 @@ const Visualizer = () => {
       let nextReferenceArray = historyArr.pop();
       setHistoryArr(historyArr);
       setReferenceArray(nextReferenceArray);
-    } else {
-      let temp = handleSwap(
-        animationArrSwapIdx[1],
-        animationArrSwapIdx[0],
-        referenceArray,
-        animationArrSwapIdx[2],
-        visualizerAlgorithm
+    } else if (isQuickSort(visualizerAlgorithm)) {
+      setReferenceArray(
+        handleSwapWithPivot(
+          animationArrSwapIdx[1],
+          animationArrSwapIdx[0],
+          animationArrSwapIdx[3],
+          referenceArray,
+          animationArrSwapIdx[2],
+          visualizerAlgorithm
+        )
       );
-      setReferenceArray(temp);
+    } else {
+      setReferenceArray(
+        handleSwap(
+          animationArrSwapIdx[1],
+          animationArrSwapIdx[0],
+          referenceArray,
+          animationArrSwapIdx[2],
+          visualizerAlgorithm
+        )
+      );
     }
 
     if (idx === animationArr.length) {

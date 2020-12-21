@@ -1,7 +1,7 @@
 export const quickSortStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';
-  } else if (animationArr[0].length === 5) {
+  } else if (animationArr[0].length === 5 && referenceArray[0].isShift === undefined) {
     let animationArrSwapIdx = animationArr[idx - 1];
     let firstIdx = animationArrSwapIdx[0];
     let secondIdx = animationArrSwapIdx[1];
