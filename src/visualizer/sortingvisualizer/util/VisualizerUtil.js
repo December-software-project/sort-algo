@@ -101,6 +101,7 @@ export const isBucketTypeSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Radix Sort';
 
 export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
+export const isSelectionSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Selection Sort';
 
 export const arrayCopy = (arr) => {
   return JSON.parse(JSON.stringify(arr));
