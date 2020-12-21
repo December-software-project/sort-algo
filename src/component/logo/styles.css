@@ -1,18 +1,18 @@
 .logo {
-  width: 36px;
+  align-items: flex-end;
+  display: flex;
   height: 40px;
   justify-content: space-between;
   margin-right: 6px;
-  align-items: flex-end;
-  display: flex;
   transition: 0.6s;
+  width: 36px;
 }
 
 .logo-block-one {
-  width: 10px;
-  height: 20px;
   background: #ffffff;
+  height: 20px;
   transition: 0.6s;
+  width: 10px;
 }
 
 .logo-block-one.sticky {
@@ -20,10 +20,10 @@
 }
 
 .logo-block-two {
-  width: 10px;
-  height: 30px;
   background: #ffffff;
+  height: 30px;
   transition: 0.6s;
+  width: 10px;
 }
 
 .logo-block-two.sticky {
@@ -31,10 +31,10 @@
 }
 
 .logo-block-three {
-  width: 10px;
-  height: 40px;
   background: #ffffff;
+  height: 40px;
   transition: 0.6s;
+  width: 10px;
 }
 
 .logo-block-three.sticky {

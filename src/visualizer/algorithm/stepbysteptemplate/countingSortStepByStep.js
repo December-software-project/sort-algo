@@ -1,5 +1,4 @@
 export const countingSortStepByStep = (animationArr, idx, referenceArray) => {
-
   const height = animationArr[idx - 1].height;
 
   if (idx > referenceArray.length) {
@@ -7,5 +6,4 @@ export const countingSortStepByStep = (animationArr, idx, referenceArray) => {
   } else {
     return `Increase count of ${animationArr[idx - 1].height} by 1`;
   }
-
 };
