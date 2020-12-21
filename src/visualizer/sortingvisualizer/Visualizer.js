@@ -85,7 +85,6 @@ const Visualizer = () => {
     if (isCountingSort(visualizerAlgorithm)) {
       executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, true);
     } else if (isRadixSort(visualizerAlgorithm)) {
-
       const index = animationArrSwapIdx.id;
       if (animationArrSwapIdx.location !== undefined) {
         referenceArray[index].isShown = false;
@@ -132,6 +131,18 @@ const Visualizer = () => {
 
     if (isCountingSort(visualizerAlgorithm)) {
       executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, false);
+    } else if (isRadixSort(visualizerAlgorithm)) {
+      const index = animationArrSwapIdx.id;
+      if (animationArrSwapIdx.location !== undefined) {
+        const location = animationArrSwapIdx.location;
+        referenceArray[index] = animationArrSwapIdx;
+        referenceArray[index].isShown = true;
+        stackArr[location].array.pop();
+      } else if (animationArrSwapIdx.bucketId !== undefined) {
+        referenceArray[index].isShown = false;
+        const bucketId = animationArrSwapIdx.bucketId;
+        stackArr[bucketId].array.push(animationArrSwapIdx);
+      }
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = historyArr.pop();
       setHistoryArr(historyArr);
