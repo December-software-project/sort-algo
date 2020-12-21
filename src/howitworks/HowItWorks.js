@@ -14,7 +14,7 @@ const HowItWorks = () => {
     <div id="howItWorks" className="how-it-works">
       <HowItWorksHeader sectionHeader={'How it Works'} translateX={'translateX(28px)'} />
       <div className="how-it-works-container">
-        <img className="how-it-works-picture" src={HowItWorksImage} />
+        <img className="how-it-works-picture" src={HowItWorksImage} alt="" />
         <div className="steps">
           <Step
             icon={<AiOutlineSelect size={70} color={'#11C2C9'} />}

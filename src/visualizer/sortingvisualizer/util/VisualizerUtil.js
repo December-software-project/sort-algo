@@ -1,4 +1,4 @@
-import SortingAlgorithms from '../../algorithm/allSorts';
+import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
 
 export const swap = (firstIdx, secondIdx, arr) => {
@@ -27,7 +27,7 @@ export const resetArray = (algo, arr) => {
     let tempArrElement = x;
     if (isBucketTypeSort(algo)) {
       tempArrElement.isShown = true;
-    } else if (algo === 'Merge Sort') {
+    } else if (isMergeSort(algo)) {
       tempArrElement.isShift = false;
     } else {
       tempArrElement.isSwap = false;
@@ -60,7 +60,7 @@ export const generateArray = (size, visualizerAlgorithm) => {
         isShown: true,
       });
     }
-  } else if (visualizerAlgorithm === 'Merge Sort') {
+  } else if (isMergeSort(visualizerAlgorithm)) {
     for (let i = 0; i < size; i++) {
       array.push({
         xDirection: i * 10,
@@ -100,6 +100,8 @@ export const isBucketTypeSort = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Counting Sort' ||
   visualizerAlgorithm === 'Radix Sort';
 
+export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
+
 export const arrayCopy = (arr) => {
   return JSON.parse(JSON.stringify(arr));
 };
@@ -113,25 +115,27 @@ export const translateXOfVisualizer = (dataSize) => {
   return 0;
 };
 
-export const handleMergeSort = (referenceArray, animationArrSwapIdx) => {
-  let isShift = animationArrSwapIdx[2];
-  let newTempArr = arrayCopy(referenceArray);
-  let iIdx = animationArrSwapIdx[0];
-  let jIdx = animationArrSwapIdx[1];
-  let kIdx = animationArrSwapIdx[3];
-  let isReset = animationArrSwapIdx[4];
-  let dataSize = referenceArray.length;
-  let width = 800 / dataSize;
-  let idxToUse = 0;
+export const findIndexToUseInMergeSort = (newTempArr, iIdx, jIdx) => {
   for (let k = 0; k < newTempArr.length; k++) {
     let isUsingIIdx = iIdx === -1 && newTempArr[k].prevPos === jIdx;
     let isUsingJIdx = jIdx === -1 && newTempArr[k].prevPos === iIdx;
     if (isUsingIIdx || isUsingJIdx) {
-      idxToUse = k;
-      break;
+      return k;
     }
   }
+  return -1;
+};
 
+export const handleMergeSort = (referenceArray, animationArrSwapIdx) => {
+  let dataSize = referenceArray.length;
+  let width = 800 / dataSize;
+  let newTempArr = arrayCopy(referenceArray);
+  let isShift = animationArrSwapIdx[2];
+  let iIdx = animationArrSwapIdx[0];
+  let jIdx = animationArrSwapIdx[1];
+  let kIdx = animationArrSwapIdx[3];
+  let isReset = animationArrSwapIdx[4];
+  let idxToUse = findIndexToUseInMergeSort(newTempArr, iIdx, jIdx);
   // is Shift true represents moving down, false means moving back up to the desired position.
   if (isShift) {
     newTempArr[idxToUse].isShift = true;

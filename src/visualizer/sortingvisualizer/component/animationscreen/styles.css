@@ -11,3 +11,8 @@
   flex-direction: column;
   padding-top: 20px;
 }
+
+.empty-space-for-merge-sort {
+  box-sizing: border-box;
+  height: 150px;
+}
