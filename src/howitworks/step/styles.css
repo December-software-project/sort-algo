@@ -3,15 +3,15 @@
   flex-direction: column;
   width: 200px;
   padding: 0 0 20px;
+  background: #ffffff;
 }
 
-.picture {
+.step-picture {
   width: 70px;
   height: 70px;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #d7dbff;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .step-title {

@@ -5,9 +5,12 @@ import { DownOutlined } from '@ant-design/icons';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import emailjs from 'emailjs-com';
+import FormHolder from './FormHolder';
+import Notification from './Notification';
 
 const Form = () => {
   const [type, setType] = useState('Type (Optional)');
+  const [isShowMessage, setIsShowMessage] = useState(false);
 
   const listOfTypes = [
     { type: 'Type (Optional)', key: 0 },
@@ -60,81 +63,85 @@ const Form = () => {
 
   return (
     <Formik
-      className="form-box"
       initialValues={{ name: '', email: '', type: '', message: '' }}
       validationSchema={reviewSchema}
       onSubmit={(values, actions) => {
         sendMessage(values);
-        setType('Type');
+        setType('Type (Optional)');
+        setIsShowMessage(true);
+        setTimeout(() => setIsShowMessage(false), 5000);
         actions.resetForm();
       }}
     >
       {(props) => (
-        <div>
-          <div className="form-particulars" id="form-particulars">
-            <div className="form-particular-error-holder">
-              <div className="form-particulars-holder">
-                <input
-                  placeholder="Name"
-                  required={true}
-                  onChange={props.handleChange}
-                  value={props.values.name}
-                  name="name"
-                />
-              </div>
-              <span>{props.touched.name && props.errors.name && 'Name is a required field'}</span>
+        <>
+          <div className="form-box">
+            <div className="form-particulars" id="form-particulars">
+              <FormHolder classNameToUse="form-particular-error-holder">
+                <div className="form-particulars-holder">
+                  <input
+                    placeholder="Name"
+                    required={true}
+                    onChange={props.handleChange}
+                    value={props.values.name}
+                    name="name"
+                  />
+                </div>
+                <span>{props.touched.name && props.errors.name && 'Name is a required field'}</span>
+              </FormHolder>
+              <FormHolder classNameToUse="form-particular-error-holder">
+                <div className="form-particulars-holder">
+                  <input
+                    placeholder="Email"
+                    required={true}
+                    onChange={props.handleChange}
+                    value={props.values.email}
+                    name="email"
+                  />
+                </div>
+                <span>
+                  {props.touched.email && props.errors.email && 'Email is a required field'}
+                </span>
+              </FormHolder>
+              <FormHolder classNameToUse="form-particular-error-holder">
+                <div className="form-particulars-holder">
+                  <span>{type}</span>
+                  <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'}>
+                    <a
+                      className="ant-dropdown-link"
+                      onClick={(e) => e.preventDefault()}
+                      id="drop-down-arrow-holder"
+                    >
+                      <DownOutlined style={{ transform: 'translateX(-20px)' }} />
+                    </a>
+                  </Dropdown>
+                </div>
+              </FormHolder>
             </div>
-            <div className="form-particular-error-holder">
-              <div className="form-particulars-holder">
-                <input
-                  placeholder="Email"
-                  required={true}
-                  onChange={props.handleChange}
-                  value={props.values.email}
-                  name="email"
-                />
+            <FormHolder classNameToUse="form-details">
+              <div className="form-details-error-holder">
+                <div className="form-details-holder">
+                  <textarea
+                    placeholder="Message"
+                    required={true}
+                    onChange={props.handleChange}
+                    value={props.values.message}
+                    name="message"
+                  />
+                </div>
+                <span>
+                  {props.touched.message && props.errors.message && 'Message is a required field'}
+                </span>
               </div>
-              <span>
-                {props.touched.email && props.errors.email && 'Email is a required field'}
-              </span>
-            </div>
-            <div className="form-particular-error-holder">
-              <div className="form-particulars-holder">
-                <span>{type}</span>
-                <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'}>
-                  <a
-                    className="ant-dropdown-link"
-                    onClick={(e) => e.preventDefault()}
-                    id="drop-down-arrow-holder"
-                  >
-                    <DownOutlined style={{ transform: 'translateX(-20px)' }} />
-                  </a>
-                </Dropdown>
-              </div>
-            </div>
+            </FormHolder>
+            <FormHolder classNameToUse="form-submit-button-box">
+              <button className="form-submit-button" onClick={props.handleSubmit} type="submit">
+                <span>SEND MESSAGE</span>
+              </button>
+            </FormHolder>
           </div>
-          <div className="form-details">
-            <div className="form-details-error-holder">
-              <div className="form-details-holder">
-                <textarea
-                  placeholder="Message"
-                  required={true}
-                  onChange={props.handleChange}
-                  value={props.values.message}
-                  name="message"
-                />
-              </div>
-              <span>
-                {props.touched.message && props.errors.message && 'Message is a required field'}
-              </span>
-            </div>
-          </div>
-          <div className="form-submit-button-box">
-            <button className="form-submit-button" onClick={props.handleSubmit} type="submit">
-              <span>SEND MESSAGE</span>
-            </button>
-          </div>
-        </div>
+          <Notification isShowMessage={isShowMessage} setIsShowMessage={setIsShowMessage}/>
+        </>
       )}
     </Formik>
   );

@@ -14,7 +14,7 @@ const Profile = ({ img, name, description, linkedInLink, gitHubLink }) => {
     <IsVisible once>
       {(isVisible) => (
         <div className="profile-container" style={HeaderLineStyling(isVisible)}>
-          <img className="picture" src={img} />
+          <img className="picture" src={img} alt="" />
           <div className="profile-description-container">
             <p className="profile-title">{name}</p>
             <p className="profile-description">{description}</p>

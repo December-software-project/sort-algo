@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 
 import Particles from 'react-tsparticles';
-import HomeDescription from '../component/homedescription/HomeDescription';
+import HomeDescription from './homedescription/HomeDescription';
 
 const Home = () => {
   return (

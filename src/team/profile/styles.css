@@ -3,6 +3,7 @@
   flex-direction: row;
   width: 350px;
   padding: 0 0 20px;
+  background: #ffffff;
 }
 
 .profile-description-container {
@@ -13,12 +14,16 @@
 }
 
 .picture {
-  width: 70px;
   height: 70px;
+  width: 70px;
   border-radius: 10px;
   border-style: solid;
-  border-width: 1px;
+  border-width: 0.1px;
   border-color: #d7dbff;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* This helps to make the image clearer even though it is being underlined */
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
 }
 
 .profile-title {

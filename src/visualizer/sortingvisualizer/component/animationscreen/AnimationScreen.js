@@ -3,9 +3,12 @@ import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { arrayCopy, isBucketTypeSort } from '../../util/VisualizerUtil';
+import { arrayCopy, isBucketTypeSort, isMergeSort } from '../../util/VisualizerUtil';
 import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../bucketsortingvisualizer/Buckets';
+import MergeSortBlock from '../block/MergeSortBlock';
+// non-gradual decrease
+const animationSpeedArray = [1000,800,600,400,240,200,160,120,80,50];
 
 const AnimationScreen = () => {
   const {
@@ -22,6 +25,8 @@ const AnimationScreen = () => {
     resetDataWhenAnimationFinish,
     dataSize,
     visualizerAlgorithm,
+    isReset,
+    setIsReset,
   } = useContext(VisualizerStateContext);
 
   const length = referenceArray.length;
@@ -29,11 +34,12 @@ const AnimationScreen = () => {
 
   useEffect(() => {
     /**
-     * This is for replay, reset button or any changes to data size or algorithm.
+     * This is for replay, or any changes to arrayData
      */
-    if (!isReplay && !isPlay) {
+    if (isReset) {
       setReferenceArray(arrayCopy(arrayData));
       setIdx(0);
+      setIsReset(false);
     }
   }, [arrayData, isReplay]);
 
@@ -46,21 +52,25 @@ const AnimationScreen = () => {
     if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {
         executeForwardSwapAnimation();
-      }, 800 / speed);
+      }, animationSpeedArray[speed]);
     } else if (!isReplay && isPlay) {
-      resetDataWhenAnimationFinish();
+      resetDataWhenAnimationFinish(referenceArray);
     }
   }, [isPlay, idx]);
 
   const transitions = useTransition(
-    referenceArray.map((data) => ({ ...data, x: (xDirection += 10) - 10 })),
+    referenceArray.map((data) => {
+      if (isMergeSort(visualizerAlgorithm)) {
+        return { ...data, x: parseInt(data.xDirection) };
+      }
+      return { ...data, x: (xDirection += 10) - 10 };
+    }),
     (d) => d.id,
     {
       from: { height: 0, opacity: 1 },
       leave: { height: 0, opacity: 1 },
       enter: ({ x, height }) => ({ x, height, opacity: 1 }),
       update: ({ x, height }) => ({ x, height }),
-      config: { mass: 5, tension: 500, friction: 100 },
     }
   );
 
@@ -82,6 +92,29 @@ const AnimationScreen = () => {
           })}
         </div>
         <Buckets />
+      </div>
+    );
+  } else if (isMergeSort(visualizerAlgorithm)) {
+    return (
+      <div className="container-one">
+        <div className="list">
+          {transitions.map(({ item, props: { x, ...rest } }, index) => {
+            return (
+              <MergeSortBlock
+                item={item}
+                props={{ x, ...rest }}
+                index={index}
+                length={length}
+                key={index}
+                isShift={item.isShift}
+                width={800 / dataSize}
+                pos={item.pos}
+                prevPos={item.prevPos}
+              />
+            );
+          })}
+        </div>
+        <div className="empty-space-for-merge-sort" />
       </div>
     );
   } else {

@@ -92,8 +92,8 @@ const QuickSort = {
     '            arr[i], arr[j] = arr[j], arr[i]\n' +
     '\n' +
     '    # Place pivot in the correct position in the partition\n' +
-    '    arr[i+1], arr[high] = arr[high], arr[i+1]\n' +
-    '    return (i + 1)\n' +
+    '    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n' +
+    '    return i + 1\n' +
     '\n' +
     '\n' +
     'def quick_sort(arr, low, high):\n' +
@@ -133,7 +133,7 @@ const QuickSort = {
     '    }\n' +
     '    // Place pivot in the correct position in the partition\n' +
     '    swap(&arr[i + 1], &arr[high]);\n' +
-    '    return (i + 1);\n' +
+    '    return i + 1;\n' +
     '}\n' +
     '\n' +
     'void quickSort(int arr[], int low, int high)\n' +

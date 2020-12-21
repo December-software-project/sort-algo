@@ -1,7 +1,8 @@
 .home {
   display: flex;
-  height: 100%;
+  height: 105vh;
   overflow: hidden;
+  padding-bottom: 5vh;
 }
 
 .wrapper {

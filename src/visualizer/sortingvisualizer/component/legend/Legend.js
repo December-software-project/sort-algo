@@ -3,7 +3,7 @@ import LegendInformation from './LegendInformation';
 import LegendHeader from './LegendHeader';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { isBucketTypeSort } from '../../util/VisualizerUtil';
+import { isBucketTypeSort, isMergeSort } from '../../util/VisualizerUtil';
 
 const Legend = () => {
   const { visualizerAlgorithm } = useContext(VisualizerStateContext);
@@ -11,11 +11,15 @@ const Legend = () => {
   const legendInformation = [
     {
       color: 'linear-gradient(45deg, #13B1B7, #11C2C9)',
-      description: 'Currently involved in the swap process',
+      description: isMergeSort(visualizerAlgorithm)
+        ? 'Currently involved in the merge process'
+        : 'Currently involved in the swap process',
     },
     {
       color: 'linear-gradient(45deg, #287ED0, #5466FF)',
-      description: 'Not involved in the swap process',
+      description: isMergeSort(visualizerAlgorithm)
+        ? 'Not involved in the merge process'
+        : 'Not involved in the swap process',
     },
   ];
 

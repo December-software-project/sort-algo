@@ -20,7 +20,7 @@ const BubbleSort = {
     '            }\n' +
     '        }\n' +
     '        \n' +
-    '        // Array is already sorted since there are no swaps done in an iteration\n' +
+    '        // Array is already sorted as there are no swaps in this iteration\n' +
     '        if (swapped) {\n' +
     '            break;\n' +
     '        }\n' +
@@ -38,7 +38,7 @@ const BubbleSort = {
     '        swapped = false;\n' +
     '      }\n' +
     '    }\n\n' +
-    '    // Array is already sorted since there are no swaps done in an iteration\n' +
+    '    // Array is already sorted as there are no swaps in this iteration\n' +
     '    if (swapped) {\n' +
     '      break;\n' +
     '    }\n' +
@@ -57,7 +57,7 @@ const BubbleSort = {
     '                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n' +
     '                swapped = False\n' +
     '\n' +
-    '        # Array is already sorted since there are no swaps done in an iteration\n' +
+    '        # Array is already sorted as there are no swaps in this iteration\n' +
     '        if swapped:\n' +
     '            break\n',
   'C/C++':
@@ -88,7 +88,7 @@ const BubbleSort = {
     '            }\n' +
     '        }\n' +
     '\n' +
-    '        // Array is already sorted since there are no swaps done in an iteration\n' +
+    '        // Array is already sorted as there are no swaps in this iteration\n' +
     '        if (swapped)\n' +
     '        {\n' +
     '            break;\n' +

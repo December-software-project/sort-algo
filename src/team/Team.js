@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.css';
 import Ashley from './image/ashley.png';
 import Keane from './image/keanecjy_smaller.png';
+import Sean from './image/sean.jpg';
 import TeamImage from './image/team-image.jpg';
 import TeamHeader from '../component/header/SectionHeader';
 import Profile from './profile/Profile';
@@ -11,7 +12,7 @@ const Team = () => {
     <div className="team" id="team">
       <TeamHeader sectionHeader={'Team'} translateX={'translateX(13px)'} />
       <div className="team-container">
-        <img className="team-picture" src={TeamImage} />
+        <img className="team-picture" src={TeamImage} alt="" />
         <div className="team-profile">
           <p className="team-title">Meet our team</p>
           <p className="team-description">
@@ -20,7 +21,7 @@ const Team = () => {
             us to collaborate on interesting software engineering projects.
           </p>
           <Profile
-            // img={Sean}
+            img={Sean}
             name="Lum Jian Yang Sean"
             description="Sophomore at National University of Singapore"
             linkedInLink="https://www.linkedin.com/in/jyjy98/"
