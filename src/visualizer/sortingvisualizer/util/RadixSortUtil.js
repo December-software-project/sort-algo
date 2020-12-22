@@ -18,7 +18,7 @@ export const generateRandomValue = () => {
   const randomVal = Math.random();
   if (randomVal < 0.1) {
     return generateValue(1, 9);
-  } else if (randomVal < 0.4) {
+  } else if (randomVal < 0.2) {
     return generateValue(10, 99);
   } else if (randomVal <= 1) {
     return generateValue(100, 999);
