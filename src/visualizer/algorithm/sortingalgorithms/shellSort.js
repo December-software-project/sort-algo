@@ -9,7 +9,6 @@ const shellSort = (arr) => {
   for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
     for (let i = gap; i < n; i += 1) {
       let temp = receivedArr[i].height;
-      // let referenceIndex = i;
 
       let j;
       for (j = i; j >= gap; j -= gap) {
@@ -18,11 +17,9 @@ const shellSort = (arr) => {
           animationArr.push([j - gap, j, true]);
           swap(j - gap, j, receivedArr);
           continue;
-          // arr[j] = arr[j - gap];
         }
         break;
       }
-      // arr[j] = temp;
     }
   }
 
