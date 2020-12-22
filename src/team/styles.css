@@ -6,30 +6,30 @@
 }
 
 .team-container {
-  display: flex;
   flex-direction: row;
   justify-content: space-around;
+  display: flex;
   margin-top: 3%;
   width: 90%;
 }
 
 .team-picture {
-  height: 70%;
+  margin-top: 2%;
   width: 45%;
+  height: 85%;
 }
 
 .team-profile {
   flex-direction: column;
   justify-content: space-between;
-  /*height: 60%;*/
   width: 35%;
 }
 
 .team-title {
   color: #595da5;
   font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
   font-weight: 600;
+  font-size: 20px;
 }
 
 .team-description {

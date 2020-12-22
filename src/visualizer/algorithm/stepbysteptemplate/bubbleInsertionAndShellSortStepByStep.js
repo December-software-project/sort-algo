@@ -1,4 +1,4 @@
-export const bubbleAndInsertionSortStepByStep = (animationArr, idx, referenceArray) => {
+export const bubbleInsertionAndShellSortStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';
   }
