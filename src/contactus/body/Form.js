@@ -140,7 +140,7 @@ const Form = () => {
               </button>
             </FormHolder>
           </div>
-          <Notification isShowMessage={isShowMessage} setIsShowMessage={setIsShowMessage}/>
+          <Notification isShowMessage={isShowMessage} setIsShowMessage={setIsShowMessage} />
         </>
       )}
     </Formik>

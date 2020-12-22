@@ -3,27 +3,27 @@ body {
 }
 
 .footer-container {
-  position: absolute;
+  background: #5467ff;
   bottom: 0;
   display: flex;
-  width: 100%;
   height: 400px;
-  background: #5467ff;
+  position: absolute;
+  width: 100%;
 }
 
 .triangle {
-  border-top: 100px solid #ffffff;
   border-left: 1300px solid transparent;
+  border-top: 100px solid #ffffff;
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
 }
 
 .links-container {
-  flex-direction: column;
-  padding-top: 40px;
-  padding-left: 100px;
   display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+  padding-top: 40px;
 }
 
 .footer-title {
@@ -35,11 +35,11 @@ body {
 
 .copy-right {
   align-items: center;
-  color: #ffffff;
-  font-size: 22px;
-  font-family: serif;
-  position: absolute;
   bottom: 70px;
+  color: #ffffff;
+  font-family: serif;
+  font-size: 22px;
+  position: absolute;
 }
 
 .footer-container a {

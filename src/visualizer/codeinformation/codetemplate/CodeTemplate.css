@@ -7,9 +7,9 @@
 }
 
 .editor {
-  background-color: #F1F5FD;
-  border: 1px solid #5E9BD1;
-  border-top: 3px solid #F1F5FD;
+  background-color: #f1f5fd;
+  border: 1px solid #5e9bd1;
+  border-top: 3px solid #f1f5fd;
   box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
   width: 100% !important;
 }

@@ -1,26 +1,26 @@
 .step-container {
+  background: #ffffff;
   display: flex;
   flex-direction: column;
-  width: 200px;
   padding: 0 0 20px;
-  background: #ffffff;
+  width: 200px;
 }
 
 .step-picture {
-  width: 70px;
-  height: 70px;
-  justify-content: center;
   align-items: center;
   display: flex;
+  height: 70px;
+  justify-content: center;
+  width: 70px;
 }
 
 .step-title {
-  font-size: 18px;
-  font-weight: 600;
   color: #595da5;
   font-family: 'Open Sans', sans-serif;
-  margin-top: 0.5em;
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 
 .step-description {

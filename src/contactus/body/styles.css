@@ -144,11 +144,11 @@ textarea:focus {
 }
 
 .form-submit-button-box {
-  display: flex;
-  height: 60px;
   align-items: center;
-  width: 100vw;
+  display: flex;
   flex-direction: column;
+  height: 60px;
+  width: 100vw;
 }
 
 .form-submit-button {
@@ -172,16 +172,16 @@ textarea:focus {
 }
 
 .message-acknowledgement {
-  background-color: #5467FF;
+  background-color: #5467ff;
+  float: left;
   height: 50px;
   width: 200px;
-  float: left;
 }
-
 
 .close-notification-button {
   border-radius: 100%;
 }
+
 .close-notification-button:hover {
-  background-color: rgba(255, 255, 255, 0.2)
+  background-color: rgba(255, 255, 255, 0.2);
 }
