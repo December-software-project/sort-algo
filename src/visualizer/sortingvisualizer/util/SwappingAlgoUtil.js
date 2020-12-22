@@ -1,11 +1,6 @@
 // For swapping algorithms
 import { resetArray } from './GeneralUtil';
-
-const swap = (firstIdx, secondIdx, arr) => {
-  let tmp = arr[firstIdx];
-  arr[firstIdx] = arr[secondIdx];
-  arr[secondIdx] = tmp;
-};
+import { swap } from '../../algorithm/sortingalgorithms/swap';
 
 const highlight = (firstIdx, secondIdx, arr) => {
   arr[firstIdx].isSwap = true;

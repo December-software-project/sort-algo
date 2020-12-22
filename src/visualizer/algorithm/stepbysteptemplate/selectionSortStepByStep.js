@@ -9,18 +9,20 @@ export const selectionSortStepByStep = (animationArr, idx, referenceArray) => {
   let firstIdxVal = referenceArray[firstIdx].height;
   let secondIdxVal = referenceArray[secondIdx].height;
   let isSmaller = secondIdxVal < firstIdxVal;
-  let message = `Check if ${secondIdxVal} is smaller than the smallest value so far: ${firstIdxVal}\n`;
-  let result;
+
   if (isSwap) {
     if (firstIdxVal === secondIdxVal) {
       return `Since the smallest value is still ${firstIdxVal}. There is no change in position`;
     }
     return `The smallest value so far is ${secondIdxVal}. We swap it to index ${secondIdx}`;
   }
+
+  // Comparisons
+  let message = `Check if ${secondIdxVal} is smaller than the smallest value so far: ${firstIdxVal}\n`;
   if (isSmaller) {
-    result = `Since ${secondIdxVal} is smaller than ${firstIdxVal}, smallest value is set to ${secondIdxVal}`;
+    message += `Since ${secondIdxVal} is smaller than ${firstIdxVal}, smallest value is set to ${secondIdxVal}`;
   } else {
-    result = `Since ${secondIdxVal} is not smaller than ${firstIdxVal}, no change to smallest value`;
+    message += `Since ${secondIdxVal} is not smaller than ${firstIdxVal}, no change to smallest value`;
   }
-  return message + result;
+  return message;
 };

@@ -4,13 +4,20 @@ import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 
 const StepByStep = () => {
-  const { animationArr, idx, referenceArray, visualizerAlgorithm } = useContext(
-    VisualizerStateContext
-  );
+  const {
+    animationArr,
+    idx,
+    referenceArray,
+    visualizerAlgorithm,
+    animationPercentage,
+  } = useContext(VisualizerStateContext);
 
   return (
     <div className="step-by-step-holder">
-      <p>{idx >= 1 && getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray)}</p>
+      <p>
+        {animationPercentage > 0 &&
+          getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray)}
+      </p>
     </div>
   );
 };

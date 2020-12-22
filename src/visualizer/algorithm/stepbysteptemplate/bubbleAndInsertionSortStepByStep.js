@@ -9,16 +9,18 @@ export const bubbleAndInsertionSortStepByStep = (animationArr, idx, referenceArr
   let firstIdxVal = referenceArray[firstIdx].height;
   let secondIdxVal = referenceArray[secondIdx].height;
   let isBigger = secondIdxVal > firstIdxVal;
-  let message = `Check if ${secondIdxVal} > ${firstIdxVal} :\n`;
-  let result;
+
   if (isSwap) {
-    result = `Since swap is true, swap ${secondIdxVal} and ${firstIdxVal}`;
-    return result;
+    return `Since swap is true, swap ${secondIdxVal} and ${firstIdxVal}`;
   }
+
+  // Comparisons message
+  let message = `Check if ${secondIdxVal} > ${firstIdxVal} :\n`;
+
   if (isBigger) {
-    result = `Since ${secondIdxVal} > ${firstIdxVal}, swap is set to true`;
+    message += `Since ${secondIdxVal} > ${firstIdxVal}, swap is set to true`;
   } else {
-    result = `Since ${secondIdxVal} <= ${firstIdxVal}, swap is set to false and iteration continues`;
+    message += `Since ${secondIdxVal} <= ${firstIdxVal}, swap is set to false and iteration continues`;
   }
-  return message + result;
+  return message;
 };
