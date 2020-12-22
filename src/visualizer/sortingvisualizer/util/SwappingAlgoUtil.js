@@ -12,7 +12,7 @@ const highlight = (firstIdx, secondIdx, arr) => {
   arr[secondIdx].isSwap = true;
 };
 
-export const handleSwap = (firstIdx, secondIdx, arr, isSwapOccurring, algo) => {
+export const executeSwap = (firstIdx, secondIdx, arr, isSwapOccurring, algo) => {
   let newTempArr = resetArray(algo, arr);
   highlight(firstIdx, secondIdx, newTempArr);
   if (!isSwapOccurring) {

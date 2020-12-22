@@ -8,7 +8,7 @@ const ForwardButton = () => {
   const {
     isPlay,
     animationPercentage,
-    executeForwardSwapAnimation,
+    executeForwardAnimation,
     idx,
     animationArr,
   } = useContext(VisualizerStateContext);
@@ -17,7 +17,7 @@ const ForwardButton = () => {
 
   const handleForwardButtonClick = () => {
     if (idx < animationArr.length) {
-      executeForwardSwapAnimation();
+      executeForwardAnimation();
     }
   };
 

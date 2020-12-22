@@ -20,11 +20,11 @@ import {
   roundToTwoDp,
   translateXOfVisualizer,
 } from './util/GeneralUtil';
-import { handleSwap } from './util/SwappingAlgoUtil';
+import { executeSwap } from './util/SwappingAlgoUtil';
 import { handleMergeSort } from './util/MergeSortUtil';
 import { buckets, executeCountSort } from './util/CountingSortUtil';
 import { executeRadixSort, stack } from './util/RadixSortUtil';
-import { handleSwapWithPivot } from './util/QuickSortUtil';
+import { executeSwapWithPivot } from './util/QuickSortUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   DataSizeSelectorProps,
@@ -80,7 +80,7 @@ const Visualizer = () => {
     }
   };
 
-  const executeForwardSwapAnimation = () => {
+  const executeForwardAnimation = () => {
     let animationArrSwapIdx = animationArr[idx];
     const animationPx = roundToTwoDp(((idx + 1) / animationArr.length) * 100);
 
@@ -95,7 +95,7 @@ const Visualizer = () => {
       setReferenceArray(nextReferenceArray);
     } else if (isQuickSort(visualizerAlgorithm)) {
       setReferenceArray(
-        handleSwapWithPivot(
+        executeSwapWithPivot(
           animationArrSwapIdx[1],
           animationArrSwapIdx[0],
           animationArrSwapIdx[3],
@@ -105,7 +105,7 @@ const Visualizer = () => {
         )
       );
     } else {
-      let newReferenceArray = handleSwap(
+      let newReferenceArray = executeSwap(
         animationArrSwapIdx[1],
         animationArrSwapIdx[0],
         referenceArray,
@@ -122,7 +122,7 @@ const Visualizer = () => {
     setAnimationPercentage(animationPx);
   };
 
-  const executeBackwardSwapAnimation = () => {
+  const executeBackwardAnimation = () => {
     // this occurs if the users click too fast
     if (idx - 1 < 0) {
       setIdx(0);
@@ -141,7 +141,7 @@ const Visualizer = () => {
       setReferenceArray(nextReferenceArray);
     } else if (isQuickSort(visualizerAlgorithm)) {
       setReferenceArray(
-        handleSwapWithPivot(
+        executeSwapWithPivot(
           animationArrSwapIdx[1],
           animationArrSwapIdx[0],
           animationArrSwapIdx[3],
@@ -152,7 +152,7 @@ const Visualizer = () => {
       );
     } else {
       setReferenceArray(
-        handleSwap(
+        executeSwap(
           animationArrSwapIdx[1],
           animationArrSwapIdx[0],
           referenceArray,
@@ -202,8 +202,8 @@ const Visualizer = () => {
     setReferenceArray,
     setCountArr,
     setStackArr,
-    executeForwardSwapAnimation,
-    executeBackwardSwapAnimation,
+    executeForwardAnimation,
+    executeBackwardAnimation,
     resetDataWhenAnimationFinish,
   };
 

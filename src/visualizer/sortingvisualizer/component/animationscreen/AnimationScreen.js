@@ -23,7 +23,7 @@ const AnimationScreen = () => {
     speed,
     setIdx,
     setReferenceArray,
-    executeForwardSwapAnimation,
+    executeForwardAnimation,
     resetDataWhenAnimationFinish,
     dataSize,
     visualizerAlgorithm,
@@ -53,7 +53,7 @@ const AnimationScreen = () => {
   useEffect(() => {
     if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {
-        executeForwardSwapAnimation();
+        executeForwardAnimation();
       }, animationSpeedArray[speed]);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish(referenceArray);
