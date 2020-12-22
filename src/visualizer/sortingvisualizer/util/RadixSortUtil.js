@@ -33,8 +33,13 @@ export const executeRadixSort = (animationArrSwapIdx, referenceArray, stackArr, 
   if (isDistributingAnimation) {
     referenceArray[index].isShown = false;
     const location = animationArrSwapIdx.location;
-    stackArr[location].array.push(animationArrSwapIdx);
+    if (isForward) {
+      stackArr[location].array.push(animationArrSwapIdx);
+    } else {
+      stackArr[location].array.unshift(animationArrSwapIdx);
+    }
   } else {
+    // Putting back into array
     const location = animationArrSwapIdx.location;
     referenceArray[index] = animationArrSwapIdx;
     referenceArray[index].isShown = true;
