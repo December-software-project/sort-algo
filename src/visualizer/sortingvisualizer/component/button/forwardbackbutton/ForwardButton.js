@@ -5,13 +5,9 @@ import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
 
 const ForwardButton = () => {
-  const {
-    isPlay,
-    animationPercentage,
-    executeForwardAnimation,
-    idx,
-    animationArr,
-  } = useContext(VisualizerStateContext);
+  const { isPlay, animationPercentage, executeForwardAnimation, idx, animationArr } = useContext(
+    VisualizerStateContext
+  );
 
   const isFull = animationPercentage === 100;
 

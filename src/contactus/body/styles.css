@@ -172,17 +172,16 @@ textarea:focus {
 }
 
 .message-acknowledgement {
-  background-color: #5467FF;
+  background-color: #5467ff;
   float: left;
   height: 50px;
   width: 200px;
 }
-
 
 .close-notification-button {
   border-radius: 100%;
 }
 
 .close-notification-button:hover {
-  background-color: rgba(255, 255, 255, 0.2)
+  background-color: rgba(255, 255, 255, 0.2);
 }

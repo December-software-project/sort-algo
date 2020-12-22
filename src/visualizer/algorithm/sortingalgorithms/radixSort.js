@@ -2,7 +2,7 @@
 const radixSort = (arr) => {
   let inputArr = arr;
   let animationArr = [];
-  const maxNum = Math.max(...inputArr.map(x => x.height)) * 10;
+  const maxNum = Math.max(...inputArr.map((x) => x.height)) * 10;
   let divisor = 10;
   while (divisor < maxNum) {
     let id = 0;

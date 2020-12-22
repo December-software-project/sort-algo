@@ -13,7 +13,12 @@ export const buckets = [
 
 // Function to execute the counting sort animation
 export const executeCountSort = (
-  animationArrSwapIdx, referenceArray, animationPx, countArr, isForward) => {
+  animationArrSwapIdx,
+  referenceArray,
+  animationPx,
+  countArr,
+  isForward
+) => {
   const index = animationArrSwapIdx.id;
   const height = animationArrSwapIdx.height;
   const isCountAnimation = (isForward && animationPx <= 50) || (!isForward && animationPx >= 50);
