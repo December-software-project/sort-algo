@@ -3,11 +3,17 @@ import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { arrayCopy, isCountingSort, isMergeSort, isRadixSort } from '../../util/GeneralUtil';
+import {
+  arrayCopy,
+  isBucketSort,
+  isCountingSort,
+  isMergeSort,
+  isRadixSort,
+} from '../../util/GeneralUtil';
 import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../countingsortbuckets/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';
-import RadixSortBoxes from '../radixsortboxes/RadixSortBoxes';
+import RadixSortScreen from '../radixsortboxes/RadixSortScreen';
 
 // non-gradual decrease of animation speed
 const animationSpeedArray = [1000, 800, 600, 400, 240, 200, 160, 120, 80, 80];
@@ -80,47 +86,49 @@ const AnimationScreen = () => {
     return (
       <div className="container-one">
         <div className="list">
-          {transitions.map(({ item, props: { x, ...rest } }, index) => {
-            return (
-              <SmallBlock
-                item={item}
-                props={{ x, ...rest }}
-                index={index}
-                length={length}
-                key={index}
-                width={800 / dataSize}
-              />
-            );
-          })}
+          {transitions.map(({ item, props: { x, ...rest } }, index) => (
+            <SmallBlock
+              item={item}
+              props={{ x, ...rest }}
+              index={index}
+              length={length}
+              key={index}
+              width={800 / dataSize}
+            />
+          ))}
         </div>
         <Buckets />
       </div>
     );
   } else if (isRadixSort(visualizerAlgorithm)) {
     return (
-      <div className="container-one" style={{ justifyContent: `space-between`, minHeight: 370 }}>
-        <RadixSortBoxes />
+      <div className="spaced-out-container">
+        <RadixSortScreen />
+      </div>
+    );
+  } else if (isBucketSort(visualizerAlgorithm)) {
+    return (
+      <div className="spaced-out-container">
+        <RadixSortScreen />
       </div>
     );
   } else if (isMergeSort(visualizerAlgorithm)) {
     return (
       <div className="container-one">
         <div className="list">
-          {transitions.map(({ item, props: { x, ...rest } }, index) => {
-            return (
-              <MergeSortBlock
-                item={item}
-                props={{ x, ...rest }}
-                index={index}
-                length={length}
-                key={index}
-                isShift={item.isShift}
-                width={800 / dataSize}
-                pos={item.pos}
-                prevPos={item.prevPos}
-              />
-            );
-          })}
+          {transitions.map(({ item, props: { x, ...rest } }, index) => (
+            <MergeSortBlock
+              item={item}
+              props={{ x, ...rest }}
+              index={index}
+              length={length}
+              key={index}
+              isShift={item.isShift}
+              width={800 / dataSize}
+              pos={item.pos}
+              prevPos={item.prevPos}
+            />
+          ))}
         </div>
         <div className="empty-space-for-merge-sort" />
       </div>
@@ -128,19 +136,17 @@ const AnimationScreen = () => {
   } else {
     return (
       <div className="list">
-        {transitions.map(({ item, props: { x, ...rest } }, index) => {
-          return (
-            <AnimatedBlock
-              item={item}
-              props={{ x, ...rest }}
-              index={index}
-              length={length}
-              key={index}
-              isSwap={item.isSwap}
-              width={800 / dataSize}
-            />
-          );
-        })}
+        {transitions.map(({ item, props: { x, ...rest } }, index) => (
+          <AnimatedBlock
+            item={item}
+            props={{ x, ...rest }}
+            index={index}
+            length={length}
+            key={index}
+            isSwap={item.isSwap}
+            width={800 / dataSize}
+          />
+        ))}
       </div>
     );
   }

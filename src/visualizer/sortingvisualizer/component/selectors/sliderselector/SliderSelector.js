@@ -3,12 +3,12 @@ import { Slider } from 'antd';
 import 'antd/dist/antd.css';
 import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
-import { isRadixSort } from '../../../util/GeneralUtil';
+import { isNeitherRadixNorBucket } from '../../../util/GeneralUtil';
 
 const SliderSelector = ({ setData, min, max, name }) => {
   const { isPlay, visualizerAlgorithm } = useContext(VisualizerStateContext);
 
-  const maxSize = isRadixSort(visualizerAlgorithm) ? 10 : max;
+  const maxSize = isNeitherRadixNorBucket(visualizerAlgorithm) ? max : 10;
 
   const [sliderData, setSliderData] = useState(Math.floor((min + maxSize) / 2));
 

@@ -14,6 +14,7 @@ import {
   getAnimationArr,
   isCountingSort,
   isMergeSort,
+  isNeitherRadixNorBucket,
   isQuickSort,
   isRadixSort,
   resetArray,
@@ -219,7 +220,7 @@ const Visualizer = () => {
             className="visualizer-box"
             style={{
               transform:
-                !isRadixSort(visualizerAlgorithm) &&
+                !isNeitherRadixNorBucket(visualizerAlgorithm) &&
                 `translateX(-${translateXOfVisualizer(dataSize)}px)`,
             }}
           >

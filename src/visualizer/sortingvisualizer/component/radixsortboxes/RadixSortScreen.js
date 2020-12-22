@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
 import './styles.css';
+import HorizontalBoxes from './HorizontalBoxes';
 
-const RadixSortBoxes = () => {
+const RadixSortScreen = () => {
   const { referenceArray, stackArr, dataSize, idx } = useContext(VisualizerStateContext);
 
   const getNumberToHighlight = () => {
@@ -57,14 +58,7 @@ const RadixSortBoxes = () => {
 
   return (
     <>
-      <div
-        className="data-arr"
-        style={{ gridTemplateColumns: `repeat(${dataSize}, 1fr)`, gap: 10 }}
-      >
-        {referenceArray.map((x) => (
-          <SingleBox item={x} key={x.id} />
-        ))}
-      </div>
+      <HorizontalBoxes dataSize={dataSize} referenceArray={referenceArray} />
       <div className="stack-arr">
         {stackArr.map((x) => (
           <StackOfBoxes individualStack={x} key={x.value} />
@@ -74,4 +68,4 @@ const RadixSortBoxes = () => {
   );
 };
 
-export default RadixSortBoxes;
+export default RadixSortScreen;

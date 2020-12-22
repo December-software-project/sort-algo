@@ -1,6 +1,7 @@
 .data-arr {
   align-self: center;
   display: grid;
+  gap: 10px;
   justify-content: center;
 }
 
@@ -15,7 +16,7 @@
   font-size: 16px;
   margin-bottom: 5px;
   padding: 5px;
-  width: 40px;
+  width: 45px;
 }
 
 .stack {

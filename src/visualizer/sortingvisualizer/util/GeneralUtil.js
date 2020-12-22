@@ -1,6 +1,7 @@
 import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
 import { generateRandomValue } from './RadixSortUtil';
+import { generateDecimal } from './BucketSortUtil';
 
 // General array util
 export const resetArray = (algo, arr) => {
@@ -66,6 +67,14 @@ export const generateArray = (size, visualizerAlgorithm) => {
         isShown: true,
       });
     }
+  } else if (isBucketSort(visualizerAlgorithm)) {
+    for (let i = 0; i < size; i++) {
+      array.push({
+        id: i,
+        height: generateDecimal(),
+        isShown: true,
+      });
+    }
   } else if (isMergeSort(visualizerAlgorithm)) {
     for (let i = 0; i < size; i++) {
       array.push({
@@ -92,6 +101,8 @@ export const generateArray = (size, visualizerAlgorithm) => {
 // Conditionals
 export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Counting Sort';
 export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Radix Sort';
+export const isBucketSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Bucket Sort';
+export const isNeitherRadixNorBucket = () => isRadixSort() || isBucketSort();
 export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
 export const isSelectionSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Selection Sort';
 export const isQuickSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Quick Sort';
