@@ -11,7 +11,7 @@
 }
 
 .box {
-  border: 2px solid #5467ff;
+  border: 1px solid black;
   font-size: 16px;
   margin-bottom: 5px;
   padding: 5px;
@@ -39,7 +39,7 @@
 }
 
 .number-with-line {
-  border-top: 2px solid black;
+  border-top: 1px solid black;
   font-family: 'Open Sans Semibold', sans-serif;
   font-size: 15px;
   text-align: center;
