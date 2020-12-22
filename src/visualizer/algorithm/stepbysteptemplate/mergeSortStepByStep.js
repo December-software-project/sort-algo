@@ -1,9 +1,10 @@
-import { arrayCopy, findIndexToUseInMergeSort } from '../../sortingvisualizer/util/VisualizerUtil';
+import { arrayCopy } from '../../sortingvisualizer/util/GeneralUtil';
+import { findIndexToUseInMergeSort } from '../../sortingvisualizer/util/MergeSortUtil';
 
 export const mergeSortStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';
-  } else if (idx - 1 >= 0 && referenceArray[0].isShift !== undefined) {
+  } else if (referenceArray[0].isShift !== undefined) {
     let animationArrSwapIdx = animationArr[idx - 1];
     let isShift = animationArrSwapIdx[2];
     let newTempArr = arrayCopy(referenceArray);

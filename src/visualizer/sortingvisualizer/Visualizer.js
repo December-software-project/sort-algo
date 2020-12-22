@@ -10,18 +10,21 @@ import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
 import {
   arrayCopy,
-  buckets,
   generateArray,
   getAnimationArr,
-  isBucketTypeSort,
-  resetArray,
-  translateXOfVisualizer,
-  handleSwap,
-  handleMergeSort,
+  isCountingSort,
   isMergeSort,
   isQuickSort,
-  handleSwapWithPivot,
-} from './util/VisualizerUtil';
+  isRadixSort,
+  resetArray,
+  roundToTwoDp,
+  translateXOfVisualizer,
+} from './util/GeneralUtil';
+import { executeSwap } from './util/SwappingAlgoUtil';
+import { handleMergeSort } from './util/MergeSortUtil';
+import { buckets, executeCountSort } from './util/CountingSortUtil';
+import { executeRadixSort, stack } from './util/RadixSortUtil';
+import { executeSwapWithPivot } from './util/QuickSortUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   DataSizeSelectorProps,
@@ -40,8 +43,10 @@ const Visualizer = () => {
   // isPlay and isReplay simulate the 3 states
   const [isPlay, setIsPlay] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
+
   // this is to ensure we can click back arrow without trigger any new re-rendering of data
   const [isReset, setIsReset] = useState(false);
+
   const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
@@ -52,6 +57,8 @@ const Visualizer = () => {
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
   const [countArr, setCountArr] = useState(arrayCopy(buckets));
+  const [stackArr, setStackArr] = useState(arrayCopy(stack));
+
   // This is introduced to simplify the back animation for MergeSort
   const [historyArr, setHistoryArr] = useState([]);
 
@@ -61,36 +68,26 @@ const Visualizer = () => {
     }
   }, [isPlay, speed, dataSize, visualizerAlgorithm, arrayData]);
 
-  // code from Mark G https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
-  const roundToTwo = (num) => {
-    return +(Math.round(num + 'e+2') + 'e-2');
-  };
-
   const changeDataSize = (val) => {
     if (val !== dataSize) {
       setDataSize(val);
       setArrayData(generateArray(val, visualizerAlgorithm));
       setCountArr(arrayCopy(buckets));
+      setStackArr(arrayCopy(stack));
       setIsReplay(false);
       setAnimationPercentage(0);
       setIsReset(true);
     }
   };
 
-  const executeForwardSwapAnimation = () => {
+  const executeForwardAnimation = () => {
     let animationArrSwapIdx = animationArr[idx];
-    const animationPx = roundToTwo(((idx + 1) / animationArr.length) * 100);
-    if (isBucketTypeSort(visualizerAlgorithm)) {
-      const index = animationArrSwapIdx.id;
-      const height = animationArrSwapIdx.height;
-      if (animationPx <= 50) {
-        referenceArray[index].isShown = false;
-        countArr[height - 1].count += 1;
-      } else {
-        referenceArray[index] = animationArrSwapIdx;
-        referenceArray[index].isShown = true;
-        countArr[height - 1].count -= 1;
-      }
+    const animationPx = roundToTwoDp(((idx + 1) / animationArr.length) * 100);
+
+    if (isCountingSort(visualizerAlgorithm)) {
+      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, true);
+    } else if (isRadixSort(visualizerAlgorithm)) {
+      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, true);
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
       historyArr.push(referenceArray);
@@ -98,7 +95,7 @@ const Visualizer = () => {
       setReferenceArray(nextReferenceArray);
     } else if (isQuickSort(visualizerAlgorithm)) {
       setReferenceArray(
-        handleSwapWithPivot(
+        executeSwapWithPivot(
           animationArrSwapIdx[1],
           animationArrSwapIdx[0],
           animationArrSwapIdx[3],
@@ -108,7 +105,7 @@ const Visualizer = () => {
         )
       );
     } else {
-      let newReferenceArray = handleSwap(
+      let newReferenceArray = executeSwap(
         animationArrSwapIdx[1],
         animationArrSwapIdx[0],
         referenceArray,
@@ -125,34 +122,26 @@ const Visualizer = () => {
     setAnimationPercentage(animationPx);
   };
 
-  const executeBackwardSwapAnimation = () => {
+  const executeBackwardAnimation = () => {
     // this occurs if the users click too fast
     if (idx - 1 < 0) {
       setIdx(0);
       return;
     }
-
     let animationArrSwapIdx = animationArr[idx - 1];
-    const animationPx = roundToTwo(((idx - 1) / animationArr.length) * 100);
+    const animationPx = roundToTwoDp(((idx - 1) / animationArr.length) * 100);
 
-    if (isBucketTypeSort(visualizerAlgorithm)) {
-      const index = animationArrSwapIdx.id;
-      const height = animationArrSwapIdx.height;
-      if (animationPx < 50) {
-        referenceArray[index] = animationArrSwapIdx;
-        referenceArray[index].isShown = true;
-        countArr[height - 1].count -= 1;
-      } else {
-        referenceArray[index].isShown = false;
-        countArr[height - 1].count += 1;
-      }
+    if (isCountingSort(visualizerAlgorithm)) {
+      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, false);
+    } else if (isRadixSort(visualizerAlgorithm)) {
+      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, false);
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = historyArr.pop();
       setHistoryArr(historyArr);
       setReferenceArray(nextReferenceArray);
     } else if (isQuickSort(visualizerAlgorithm)) {
       setReferenceArray(
-        handleSwapWithPivot(
+        executeSwapWithPivot(
           animationArrSwapIdx[1],
           animationArrSwapIdx[0],
           animationArrSwapIdx[3],
@@ -163,7 +152,7 @@ const Visualizer = () => {
       );
     } else {
       setReferenceArray(
-        handleSwap(
+        executeSwap(
           animationArrSwapIdx[1],
           animationArrSwapIdx[0],
           referenceArray,
@@ -172,6 +161,7 @@ const Visualizer = () => {
         )
       );
     }
+
     if (idx === animationArr.length) {
       setIsReplay(false);
     }
@@ -193,6 +183,7 @@ const Visualizer = () => {
     referenceArray,
     animationArr,
     countArr,
+    stackArr,
     isInMidstOfSort,
     dataSize,
     visualizerAlgorithm,
@@ -210,8 +201,9 @@ const Visualizer = () => {
     setIdx,
     setReferenceArray,
     setCountArr,
-    executeForwardSwapAnimation,
-    executeBackwardSwapAnimation,
+    setStackArr,
+    executeForwardAnimation,
+    executeBackwardAnimation,
     resetDataWhenAnimationFinish,
   };
 
@@ -226,7 +218,9 @@ const Visualizer = () => {
           <div
             className="visualizer-box"
             style={{
-              transform: `translateX(-${translateXOfVisualizer(dataSize)}px)`,
+              transform:
+                !isRadixSort(visualizerAlgorithm) &&
+                `translateX(-${translateXOfVisualizer(dataSize)}px)`,
             }}
           >
             <AnimationScreen />

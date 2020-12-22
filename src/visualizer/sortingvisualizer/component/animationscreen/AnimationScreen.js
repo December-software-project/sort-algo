@@ -3,12 +3,14 @@ import { useTransition } from 'react-spring';
 import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { arrayCopy, isBucketTypeSort, isMergeSort } from '../../util/VisualizerUtil';
+import { arrayCopy, isCountingSort, isMergeSort, isRadixSort } from '../../util/GeneralUtil';
 import SmallBlock from '../smallBlock/SmallBlock';
-import Buckets from '../bucketsortingvisualizer/Buckets';
+import Buckets from '../countingsortbuckets/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';
-// non-gradual decrease
-const animationSpeedArray = [1000,800,600,400,240,200,160,120,80,50];
+import RadixSortBoxes from '../radixsortboxes/RadixSortBoxes';
+
+// non-gradual decrease of animation speed
+const animationSpeedArray = [1000, 800, 600, 400, 240, 200, 160, 120, 80, 50];
 
 const AnimationScreen = () => {
   const {
@@ -21,7 +23,7 @@ const AnimationScreen = () => {
     speed,
     setIdx,
     setReferenceArray,
-    executeForwardSwapAnimation,
+    executeForwardAnimation,
     resetDataWhenAnimationFinish,
     dataSize,
     visualizerAlgorithm,
@@ -51,7 +53,7 @@ const AnimationScreen = () => {
   useEffect(() => {
     if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {
-        executeForwardSwapAnimation();
+        executeForwardAnimation();
       }, animationSpeedArray[speed]);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish(referenceArray);
@@ -74,7 +76,7 @@ const AnimationScreen = () => {
     }
   );
 
-  if (isBucketTypeSort(visualizerAlgorithm)) {
+  if (isCountingSort(visualizerAlgorithm)) {
     return (
       <div className="container-one">
         <div className="list">
@@ -92,6 +94,12 @@ const AnimationScreen = () => {
           })}
         </div>
         <Buckets />
+      </div>
+    );
+  } else if (isRadixSort(visualizerAlgorithm)) {
+    return (
+      <div className="container-one" style={{ justifyContent: `space-between`, minHeight: 370 }}>
+        <RadixSortBoxes />
       </div>
     );
   } else if (isMergeSort(visualizerAlgorithm)) {

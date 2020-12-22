@@ -1,11 +1,11 @@
 .content {
   align-items: center;
   display: flex;
-  position: absolute;
-  width: 100%;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
-  flex-direction: column;
+  position: absolute;
+  width: 100%;
 }
 
 .title {
@@ -19,7 +19,7 @@
 
 .description {
   color: white;
-  margin-top: 50px;
-  justify-content: center;
   font-size: 25px;
+  justify-content: center;
+  margin-top: 50px;
 }

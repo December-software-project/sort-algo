@@ -9,7 +9,7 @@
 .container-one {
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding-top: 25px;
 }
 
 .empty-space-for-merge-sort {

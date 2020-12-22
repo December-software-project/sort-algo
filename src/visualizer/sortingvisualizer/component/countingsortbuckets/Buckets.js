@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import '../block/styles.css';
 import './buckets.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { translateXOfVisualizer } from '../../util/VisualizerUtil';
+import { translateXOfVisualizer } from '../../util/GeneralUtil';
 
 const Buckets = () => {
   const { dataSize, countArr } = useContext(VisualizerStateContext);
@@ -35,7 +35,7 @@ const Buckets = () => {
     '#000000',
   ];
 
-  const countBlock = (item) => (
+  const CountingBlock = ({ item }) => (
     <div
       className="fixed-array-container"
       style={{ transform: `translateX(${translateXOfVisualizer(dataSize)}px)` }}
@@ -45,7 +45,6 @@ const Buckets = () => {
         key={item.height}
         style={{
           height: item.height * 10 + 9,
-          backgroundImage: 'none',
           backgroundColor: colorArr[item.count],
           width: 800 / Math.max(dataSize, 9),
         }}
@@ -56,7 +55,13 @@ const Buckets = () => {
     </div>
   );
 
-  return <div className="fixed-array">{countArr.map((item) => countBlock(item))}</div>;
+  return (
+    <div className="fixed-array">
+      {countArr.map((item) => (
+        <CountingBlock item={item} />
+      ))}
+    </div>
+  );
 };
 
 export default Buckets;
