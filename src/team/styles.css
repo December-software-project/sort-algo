@@ -22,7 +22,6 @@
 .team-profile {
   flex-direction: column;
   justify-content: space-between;
-  /*height: 60%;*/
   width: 35%;
 }
 
