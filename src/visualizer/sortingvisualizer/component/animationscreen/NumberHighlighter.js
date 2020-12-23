@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const getDisplayNumber = (value, numberToHighlight) => {
+export const highlightNumber = (value, numberToHighlight) => {
   const currentHighlighted = numberToHighlight;
   let current = 0;
   let index = 1;
@@ -12,6 +12,13 @@ export const getDisplayNumber = (value, numberToHighlight) => {
     value = Math.floor(value / 10);
   }
   return numberMapping.map((x) => (
-    <span style={{ color: x[1] && '#3443be', fontWeight: x[1] && 'bold' }}>{x[0]}</span>
+    <span style={{ fontWeight: x[1] && 750 }}>{x[0]}</span>
   ));
 };
+
+export const highlightOnesPlacing = (value) => {
+  let stringArray = Array.from(value.toString());
+  return stringArray.map((x) => {
+    return <span>{x}</span>
+  });
+}

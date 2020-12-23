@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
 import { animated, useTransition } from 'react-spring';
+import { highlightOnesPlacing } from './NumberHighlighter';
 
 const BucketSortScreen = () => {
   const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);
@@ -11,11 +12,9 @@ const BucketSortScreen = () => {
         className="box"
         style={{
           visibility: item.isShown ? `visible` : `hidden`,
-          color: 'whitesmoke',
-          background: `linear-gradient(45deg, #287ED0, #5466FF)`,
         }}
       >
-        <span>{item.height}</span>
+        <div className="decimal">{highlightOnesPlacing(item.height)}</div>
       </div>
     );
 
@@ -33,15 +32,14 @@ const BucketSortScreen = () => {
       className="box"
       style={{
         ...rest,
-        height: 35,
-        color: 'whitesmoke',
+        height: 40,
         backgroundImage: item.isSwap
           ? `linear-gradient(45deg, #13B1B7, #11C2C9)`
           : `linear-gradient(45deg, #287ED0, #5466FF)`,
         transform: y.interpolate((y) => `translate3d(0,${y}px,0)`),
       }}
     >
-      <span>{item.height}</span>
+      <div className="decimal">{highlightOnesPlacing(item.height)}</div>
     </animated.div>
   );
 

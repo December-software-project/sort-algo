@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
-import { getDisplayNumber } from './NumberHighlighter';
+import { highlightNumber } from './NumberHighlighter';
 
 const RadixSortScreen = () => {
   const { referenceArray, stackArr, dataSize, idx } = useContext(VisualizerStateContext);
@@ -25,7 +25,7 @@ const RadixSortScreen = () => {
         marginTop: margin,
       }}
     >
-      <div className="number">{getDisplayNumber(item.height, getNumberToHighlight())}</div>
+      <div className="number">{highlightNumber(item.height, getNumberToHighlight())}</div>
     </div>
   );
 
@@ -33,7 +33,7 @@ const RadixSortScreen = () => {
     return (
       <div className="data-arr" style={{ gridTemplateColumns: `repeat(${dataSize}, 1fr)` }}>
         {referenceArray.map((x) => (
-          <SingleBox item={x} key={x.id} margin={0}/>
+          <SingleBox item={x} key={x.id} margin={0} />
         ))}
       </div>
     );

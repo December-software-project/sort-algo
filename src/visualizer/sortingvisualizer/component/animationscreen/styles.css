@@ -57,13 +57,16 @@
 
 .box {
   align-items: center;
-  border: 1px solid black;
+  background: linear-gradient(45deg, #287ED0, #5466FF);
+  border-radius: 50%;
+  color: whitesmoke;
   display: flex;
   font-size: 16px;
+  height: 40px;
   justify-content: center;
   padding: 5px;
   position: relative;
-  width: 45px;
+  width: 50px;
 }
 
 .number {
@@ -71,6 +74,10 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
+}
+
+.decimal > span:nth-child(3) {
+  font-weight: 720;
 }
 
 .empty-space-for-merge-sort {
