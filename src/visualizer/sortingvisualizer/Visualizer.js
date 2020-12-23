@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
-import VisualizerHeader from '../../component/header/SectionHeader';
+import SectionHeader from '../../component/header/SectionHeader';
 import AlgorithmSelector from './component/selectors/algorithmselector/AlgorithmSelector';
 import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
@@ -205,7 +205,7 @@ const Visualizer = () => {
       <VisualizerStateContext.Provider value={{ ...value }}>
         <div className="visualizer">
           <div className="visualizer-header-box">
-            <VisualizerHeader sectionHeader="Visualizer" translateX="translate(25px)" />
+            <SectionHeader sectionHeader="Visualizer" translateX="translate(25px)" />
             <AlgorithmSelector />
           </div>
           <div
