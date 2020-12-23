@@ -27,7 +27,8 @@ const bucketSort = (arr) => {
     });
     // Execute insertion sort animations
     // insertionSort(buckets[i]);  TODO REMOVE
-    animationArr.push(insertionSort(buckets[i]));
+    let insertionSortAnimation = insertionSort(buckets[i]).map((arr) => [...arr, i]);
+    animationArr = animationArr.concat(insertionSortAnimation);
   }
 
   // Restore element back into array
@@ -41,6 +42,7 @@ const bucketSort = (arr) => {
         isShown: true,
         location: location,
         isDistributing: false,
+        isSwap: false,
       });
       id++;
     }

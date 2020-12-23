@@ -2,15 +2,17 @@ import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
 import { generateRandomValue } from './RadixSortUtil';
 import { generateDecimal } from './BucketSortUtil';
-import { executeSwap } from './SwappingAlgoUtil';
 
 // General array util
 export const resetArray = (algo, arr) => {
+  if (isRadixOrBucket(algo)) {
+    return arrayCopy(arr);
+  }
+
   return arrayCopy(arr).map((x) => {
     let tempArrElement = x;
     if (isCountingSort(algo)) {
       tempArrElement.isShown = true;
-    } else if (isRadixSort(algo)) {
     } else if (isMergeSort(algo)) {
       tempArrElement.isShift = false;
     } else {
@@ -125,24 +127,4 @@ export const translateXOfVisualizer = (dataSize) => {
     return (dataSize - 12) * singleBlockWidth;
   }
   return 0;
-};
-
-export const executeGenericSort = (
-  currentAnimation,
-  referenceArray,
-  visualizerAlgorithm,
-  setReferenceArray
-) => {
-  let firstIdx = currentAnimation[0];
-  let secondIdx = currentAnimation[1];
-  let isSwapOccurring = currentAnimation[2];
-  let arrToUse = executeSwap(
-    firstIdx,
-    secondIdx,
-    referenceArray,
-    isSwapOccurring,
-    visualizerAlgorithm
-  );
-  setReferenceArray(arrToUse);
-  return arrToUse;
 };

@@ -10,7 +10,6 @@ import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
 import {
   arrayCopy,
-  executeGenericSort,
   generateArray,
   getAnimationArr,
   isBucketSort,
@@ -23,6 +22,7 @@ import {
   roundToTwoDp,
   translateXOfVisualizer,
 } from './util/GeneralUtil';
+import { executeGenericSort } from './util/SwappingAlgoUtil';
 import { executeMergeSortBackward, executeMergeSortForward } from './util/MergeSortUtil';
 import { executeQuickSort } from './util/QuickSortUtil';
 import { buckets, executeCountSort } from './util/CountingSortUtil';
