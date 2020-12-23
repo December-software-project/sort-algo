@@ -11,7 +11,7 @@ const CodeExplanation = ({ algo }) => {
   }, [algo]);
 
   const HeaderOne = () => <header>How {sort.name} Sort works</header>;
-  const Explanation = () => <p>{sort.description}</p>;
+  const Explanation = () => <p style={{ width: `112%` }}>{sort.description}</p>;
   const HeaderTwo = () => <header>Performance</header>;
 
   const PerformanceSection = () => {
@@ -67,12 +67,19 @@ const CodeExplanation = ({ algo }) => {
     );
   };
 
+  const Link = () => (
+    <a className="link" target="_blank" rel="noopener noreferrer" href={sort.link}>
+      Click for more info
+    </a>
+  );
+
   return (
     <div className="main">
       <HeaderOne />
       <Explanation />
       <HeaderTwo />
       <PerformanceSection />
+      <Link />
     </div>
   );
 };

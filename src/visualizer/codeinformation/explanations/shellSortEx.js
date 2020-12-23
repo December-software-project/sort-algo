@@ -17,6 +17,7 @@ const ShellSort = {
   worstSpace: '1',
   stable: false,
   inPlace: true,
+  link: 'https://www.geeksforgeeks.org/shellsort/',
 };
 
 export default ShellSort;

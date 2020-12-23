@@ -25,6 +25,7 @@ const SelectionSort = {
   worstSpace: '1',
   stable: false,
   inPlace: true,
+  link: 'https://www.geeksforgeeks.org/selection-sort/',
 };
 
 export default SelectionSort;

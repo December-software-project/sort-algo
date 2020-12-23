@@ -21,6 +21,7 @@ const InsertionSort = {
   worstSpace: '1',
   stable: true,
   inPlace: true,
+  link: 'https://www.geeksforgeeks.org/insertion-sort/',
 };
 
 export default InsertionSort;
