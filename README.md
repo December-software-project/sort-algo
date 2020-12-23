@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/December-software-project/sort-algo/tree/main.svg?style=shield)](https://circleci.com/gh/December-software-project/sort-algo/tree/main)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2364c0d1-0366-4601-8ce0-1ac2084a5020/deploy-status)](https://app.netlify.com/sites/algosort/deploys)
 [![Maintainability Status](https://api.codeclimate.com/v1/badges/b7464f445c1a7f5de797/maintainability)](https://codeclimate.com/github/December-software-project/sort-algo/maintainability)
 [![Coverage Status](https://api.codeclimate.com/v1/badges/b7464f445c1a7f5de797/test_coverage)](https://codeclimate.com/github/December-software-project/sort-algo/test_coverage)
 
