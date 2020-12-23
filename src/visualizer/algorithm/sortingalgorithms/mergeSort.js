@@ -5,14 +5,16 @@ const merge = (receivedArr, start, mid, end, animationArr) => {
   const n2 = end - mid;
   let leftArray = [];
   let rightArray = [];
+  let allIndexInSwap = [];
   for (let i = 0; i < n1; i++) {
     leftArray.push(receivedArr[start + i]);
-    animationArr.push([start + i, -1, true, -1, false]);
+    allIndexInSwap.push(start + i);
   }
   for (let j = 0; j < n2; j++) {
     rightArray.push(receivedArr[mid + 1 + j]);
-    animationArr.push([-1, mid + 1 + j, true, -1, false]);
+    allIndexInSwap.push(mid + 1 + j);
   }
+  animationArr.push([-1, -1, true, -1, false, allIndexInSwap]);
   let i = 0,
     j = 0,
     k = start;
