@@ -1,3 +1,4 @@
+// Explanation adapted from https://www.geeksforgeeks.org/quick-sort/
 const QuickSort = {
   name: 'Quick',
   description:
@@ -15,6 +16,7 @@ const QuickSort = {
   worstSpace: 'N',
   stable: false,
   inPlace: true,
+  link: 'https://www.geeksforgeeks.org/quick-sort/',
 };
 
 export default QuickSort;

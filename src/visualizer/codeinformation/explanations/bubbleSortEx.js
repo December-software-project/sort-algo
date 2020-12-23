@@ -21,6 +21,7 @@ const BubbleSort = {
   worstSpace: '1',
   stable: true,
   inPlace: true,
+  link: 'https://www.geeksforgeeks.org/bubble-sort/',
 };
 
 export default BubbleSort;

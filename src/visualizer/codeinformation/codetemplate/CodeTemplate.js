@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import templates from '../templates/Templates';
-import './CodeTemplate.css';
+import './styles.css';
 import AceEditor from 'react-ace';
 import 'ace-builds/webpack-resolver';
 import 'ace-builds/src-noconflict/mode-java';

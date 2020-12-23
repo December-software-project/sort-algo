@@ -13,6 +13,7 @@ const MergeSort = {
   worstSpace: 'N',
   stable: true,
   inPlace: false,
+  link: 'https://www.geeksforgeeks.org/merge-sort/',
 };
 
 export default MergeSort;

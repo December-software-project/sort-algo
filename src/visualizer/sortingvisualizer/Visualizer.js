@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
-import VisualizerHeader from '../../component/header/SectionHeader';
+import SectionHeader from '../../component/header/SectionHeader';
 import AlgorithmSelector from './component/selectors/algorithmselector/AlgorithmSelector';
 import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
 import './styles.css';
-import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
-import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
 import {
   arrayCopy,
   generateArray,
@@ -27,18 +24,17 @@ import { executeMergeSortBackward, executeMergeSortForward } from './util/MergeS
 import { executeQuickSort } from './util/QuickSortUtil';
 import { buckets, executeCountSort } from './util/CountingSortUtil';
 import { executeRadixSort, stack } from './util/RadixSortUtil';
-import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   DataSizeSelectorProps,
   SpeedSelectorProps,
 } from './component/selectors/sliderselector/SelectorProps';
 import AnimationProgressBar from './component/animationprogressbar/AnimationProgressBar';
-import BackButton from './component/button/forwardbackbutton/BackButton';
-import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
 import StepByStep from './component/stepbystep/StepByStep';
 import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
 import { executeBucketSort } from './util/BucketSortUtil';
+import ButtonBox from './component/button/ButtonBox';
+import CodeInformation from '../codeinformation/CodeInformation';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -205,7 +201,7 @@ const Visualizer = () => {
       <VisualizerStateContext.Provider value={{ ...value }}>
         <div className="visualizer">
           <div className="visualizer-header-box">
-            <VisualizerHeader sectionHeader="Visualizer" translateX="translate(25px)" />
+            <SectionHeader sectionHeader="Visualizer" translateX="translate(25px)" />
             <AlgorithmSelector />
           </div>
           <div
@@ -225,24 +221,14 @@ const Visualizer = () => {
               <SpeedSelector setData={(val) => setSpeed(val)} {...SpeedSelectorProps} />
               <DataSizeSelector setData={(val) => changeDataSize(val)} {...DataSizeSelectorProps} />
             </div>
-            <div className="button-box">
-              <BackButton />
-              <div className="play-reset-button-box">
-                <ThreeStateButton />
-                <NewDataButton />
-              </div>
-              <ForwardButton />
-            </div>
+            <ButtonBox />
             <div className="legend-box">
               <Legend />
             </div>
           </div>
         </div>
       </VisualizerStateContext.Provider>
-      <div className="code">
-        <CodeExplanation algo={visualizerAlgorithm} />
-        <CodeTemplate algo={visualizerAlgorithm} />
-      </div>
+      <CodeInformation visualizerAlgorithm={visualizerAlgorithm} />
     </div>
   );
 };

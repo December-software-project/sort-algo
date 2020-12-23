@@ -13,7 +13,7 @@
 .main p {
   color: #8789b5;
   font-size: 16px;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 .explanation-para {
@@ -67,4 +67,11 @@
 .row-container-two div {
   min-width: 100px;
   text-align: center;
+}
+
+.link, .link:focus {
+  margin-top: 6%;
+  color: steelblue;
+  text-decoration: underline;
+  font-size: 15px;
 }

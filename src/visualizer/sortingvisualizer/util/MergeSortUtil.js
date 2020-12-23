@@ -77,4 +77,4 @@ export const generateMergeSortArray = (size) => {
     });
   }
   return array;
-}
+};
