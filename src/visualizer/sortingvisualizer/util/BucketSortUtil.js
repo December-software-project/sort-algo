@@ -37,4 +37,3 @@ const executeResetBucket = (currentAnimation, stackArr) => {
   const location = currentAnimation.location;
   stackArr[location].array = resetArray(innerSortUsed, stackArr[location].array);
 };
-

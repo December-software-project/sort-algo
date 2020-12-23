@@ -17,7 +17,7 @@ export const executeCountSort = (
   referenceArray,
   animationPx,
   countArr,
-  isForward,
+  isForward
 ) => {
   const index = currentAnimation.id;
   const height = currentAnimation.height;

@@ -21,7 +21,7 @@ export const executeGenericSort = (
   currentAnimation,
   referenceArray,
   visualizerAlgorithm,
-  setReferenceArray,
+  setReferenceArray
 ) => {
   let firstIdx = currentAnimation[0];
   let secondIdx = currentAnimation[1];
@@ -31,7 +31,7 @@ export const executeGenericSort = (
     secondIdx,
     referenceArray,
     isSwapOccurring,
-    visualizerAlgorithm,
+    visualizerAlgorithm
   );
   setReferenceArray(arrToUse);
   return arrToUse;
