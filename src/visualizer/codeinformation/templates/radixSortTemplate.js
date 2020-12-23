@@ -93,7 +93,7 @@ const RadixSort = {
     '\n' +
     '    return arr\n',
   'C/C++':
-    'void radixSort(int arr[], int size)\n' +
+    'void radixSort(int arr[], int len)\n' +
     '{\n' +
     '\n' +
     '    int maxNum = arr[0];\n' +
@@ -105,7 +105,7 @@ const RadixSort = {
     '\n' +
     '    // Find the max number and multiply it by 10 to get a number\n' +
     '    // with no. of digits of max + 1\n' +
-    '    for (i = 0; i < size; ++i)\n' +
+    '    for (i = 0; i < len; ++i)\n' +
     '    {\n' +
     '        if (arr[i] > maxNum)\n' +
     '        {\n' +
@@ -124,7 +124,7 @@ const RadixSort = {
     '\n' +
     '        // For each number, get the current significant digit and put it in\n' +
     '        // the respective bucket\n' +
-    '        for (i = 0; i < size; ++i)\n' +
+    '        for (i = 0; i < len; ++i)\n' +
     '        {\n' +
     '            int num = arr[i];\n' +
     '            int index = (num % divisor) / (divisor / 10);\n' +
