@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
+import { getDisplayNumber } from './NumberHighlighter';
 
 const RadixSortScreen = () => {
   const { referenceArray, stackArr, dataSize, idx } = useContext(VisualizerStateContext);
@@ -16,30 +17,15 @@ const RadixSortScreen = () => {
     }
   };
 
-  const getDisplayNumber = (value) => {
-    const currentHighlighted = getNumberToHighlight();
-    let current = 0;
-    let index = 1;
-    let numberMapping = [];
-    while (value > 0) {
-      current = value % 10;
-      numberMapping.push([current, currentHighlighted === index]);
-      index++;
-      value = Math.floor(value / 10);
-    }
-    return numberMapping.map((x) => (
-      <span style={{ color: x[1] && '#3443be', fontWeight: x[1] && 'bold' }}>{x[0]}</span>
-    ));
-  };
-
-  const SingleBox = ({ item, display }) => (
+  const SingleBox = ({ item, display, margin }) => (
     <div
       className="box"
       style={{
         visibility: display || item.isShown ? `visible` : `hidden`,
+        marginTop: margin,
       }}
     >
-      <div className="number">{getDisplayNumber(item.height)}</div>
+      <div className="number">{getDisplayNumber(item.height, getNumberToHighlight())}</div>
     </div>
   );
 
@@ -47,7 +33,7 @@ const RadixSortScreen = () => {
     return (
       <div className="data-arr" style={{ gridTemplateColumns: `repeat(${dataSize}, 1fr)` }}>
         {referenceArray.map((x) => (
-          <SingleBox item={x} key={x.id} />
+          <SingleBox item={x} key={x.id} margin={0}/>
         ))}
       </div>
     );
@@ -57,7 +43,7 @@ const RadixSortScreen = () => {
     <div className="stack">
       <div className="stack-boxes">
         {individualStack.array.map((x) => (
-          <SingleBox item={x} key={x.id} display={true} />
+          <SingleBox item={x} key={x.id} display={true} margin={10} />
         ))}
       </div>
       <div className="number-with-line">{individualStack.value}</div>

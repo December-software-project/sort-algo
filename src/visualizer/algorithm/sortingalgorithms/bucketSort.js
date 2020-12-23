@@ -25,10 +25,16 @@ const bucketSort = (arr) => {
       isSort: true,
       location: i,
     });
+
     // Execute insertion sort animations
-    // insertionSort(buckets[i]);  TODO REMOVE
     let insertionSortAnimation = insertionSort(buckets[i]).map((arr) => [...arr, i]);
     animationArr = animationArr.concat(insertionSortAnimation);
+
+    // Signify end of sort
+    animationArr.push({
+      isSort: false,
+      location: i,
+    });
   }
 
   // Restore element back into array

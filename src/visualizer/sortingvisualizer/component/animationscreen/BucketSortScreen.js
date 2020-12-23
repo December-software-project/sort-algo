@@ -11,9 +11,11 @@ const BucketSortScreen = () => {
         className="box"
         style={{
           visibility: item.isShown ? `visible` : `hidden`,
+          color: 'whitesmoke',
+          background: `linear-gradient(45deg, #287ED0, #5466FF)`,
         }}
       >
-        <div className="number">{item.height}</div>
+        <span>{item.height}</span>
       </div>
     );
 
@@ -26,13 +28,16 @@ const BucketSortScreen = () => {
     );
   };
 
-  const AnimatedBox = ({ item, props: { y, ...rest }, index, length }) => (
+  const AnimatedBox = ({ item, props: { y, ...rest } }) => (
     <animated.div
       className="box"
       style={{
         ...rest,
-        zIndex: length - index,
         height: 35,
+        color: 'whitesmoke',
+        backgroundImage: item.isSwap
+          ? `linear-gradient(45deg, #13B1B7, #11C2C9)`
+          : `linear-gradient(45deg, #287ED0, #5466FF)`,
         transform: y.interpolate((y) => `translate3d(0,${y}px,0)`),
       }}
     >
@@ -61,7 +66,7 @@ const BucketSortScreen = () => {
       <div className="stack">
         <div className="stack-boxes">
           {Transitions(individualStack.array).map(({ item, props: { y, ...rest } }, index) => (
-            <AnimatedBox item={item} props={{ y, ...rest }} index={index} key={index} />
+            <AnimatedBox item={item} props={{ y, ...rest }} key={index} />
           ))}
         </div>
         <div className="number-with-line">{individualStack.value}</div>
