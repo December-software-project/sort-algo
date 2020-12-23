@@ -1,8 +1,6 @@
 import React from 'react';
 import './styles.css';
-import Ashley from './image/ashley.png';
-import Keane from './image/keanecjy_smaller.png';
-import Sean from './image/sean.jpg';
+import { TeamData } from './TeamData';
 import TeamImage from './image/team-image.jpg';
 import TeamHeader from '../component/header/SectionHeader';
 import Profile from './profile/Profile';
@@ -20,27 +18,15 @@ const Team = () => {
             are invested in the field of software engineering and algorithms. Feel free to contact
             us to collaborate on interesting software engineering projects.
           </p>
-          <Profile
-            img={Sean}
-            name="Lum Jian Yang Sean"
-            description="Sophomore at National University of Singapore"
-            linkedInLink="https://www.linkedin.com/in/jyjy98/"
-            gitHubLink="https://github.com/seanjyjy"
-          />
-          <Profile
-            img={Keane}
-            name="Keane Chan Jun Yu"
-            description="Sophomore at National University of Singapore"
-            linkedInLink="https://www.linkedin.com/in/keanecjy/"
-            gitHubLink="https://github.com/keanecjy"
-          />
-          <Profile
-            img={Ashley}
-            name="Lau Jun Hao Ashley"
-            description="Sophomore at National University of Singapore"
-            linkedInLink="https://www.linkedin.com/in/ashley-lau-625237163/"
-            gitHubLink="https://github.com/Ashley-Lau"
-          />
+          {TeamData.map((data) => (
+            <Profile
+              img={data.img}
+              name={data.name}
+              description={data.description}
+              linkedInLink={data.linkedInUrl}
+              gitHubLink={data.gitHubUrl}
+            />
+          ))}
         </div>
       </div>
     </div>
