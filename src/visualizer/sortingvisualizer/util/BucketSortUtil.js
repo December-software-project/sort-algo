@@ -37,3 +37,15 @@ const executeResetBucket = (currentAnimation, stackArr) => {
   const location = currentAnimation.location;
   stackArr[location].array = resetArray(innerSortUsed, stackArr[location].array);
 };
+
+export const generateBucketSortArray = (size) => {
+  let array = [];
+  for (let i = 0; i < size; i++) {
+    array.push({
+      id: i,
+      height: generateDecimal(),
+      isShown: true,
+    });
+  }
+  return array;
+}

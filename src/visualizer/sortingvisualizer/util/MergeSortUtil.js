@@ -1,4 +1,4 @@
-import { arrayCopy } from './GeneralUtil';
+import { arrayCopy, generateValue } from './GeneralUtil';
 
 export const findIndexToUseInMergeSort = (newTempArr, iIdx, jIdx) => {
   for (let k = 0; k < newTempArr.length; k++) {
@@ -58,3 +58,18 @@ export const handleMergeSort = (referenceArray, currentAnimation) => {
   }
   return newTempArr;
 };
+
+export const generateMergeSortArray = (size) => {
+  let array = [];
+  for (let i = 0; i < size; i++) {
+    array.push({
+      xDirection: i * 10,
+      pos: i,
+      prevPos: i,
+      height: generateValue(1, 9),
+      isShift: false,
+      id: i,
+    });
+  }
+  return array;
+}
