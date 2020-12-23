@@ -10,13 +10,14 @@ const StepByStep = () => {
     referenceArray,
     visualizerAlgorithm,
     animationPercentage,
+    stackArr,
   } = useContext(VisualizerStateContext);
 
   return (
     <div className="step-by-step-holder">
       <p>
         {animationPercentage > 0 &&
-          getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray)}
+          getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray, stackArr)}
       </p>
     </div>
   );

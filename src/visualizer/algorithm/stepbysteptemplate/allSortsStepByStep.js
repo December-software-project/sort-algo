@@ -1,4 +1,4 @@
-import { simpleSwapStepByStep } from './simpleSwapStepByStep';
+import { genericSwapStepByStep } from './genericSwapStepByStep';
 import { selectionSortStepByStep } from './selectionSortStepByStep';
 import { mergeSortStepByStep } from './mergeSortStepByStep';
 import { quickSortStepByStep } from './quickSortStepByStep';
@@ -7,13 +7,13 @@ import { radixSortStepByStep } from './radixSortStepByStep';
 import { bucketSortStepByStep } from './bucketSortStepByStep';
 
 const SortingAlgorithmsStepByStep = {
-  'Insertion Sort': simpleSwapStepByStep,
-  'Bubble Sort': simpleSwapStepByStep,
+  'Insertion Sort': genericSwapStepByStep,
+  'Bubble Sort': genericSwapStepByStep,
   'Selection Sort': selectionSortStepByStep,
   'Merge Sort': mergeSortStepByStep,
   'Quick Sort': quickSortStepByStep,
   'Counting Sort': countingSortStepByStep,
-  'Shell Sort': simpleSwapStepByStep,
+  'Shell Sort': genericSwapStepByStep,
   'Radix Sort': radixSortStepByStep,
   'Bucket Sort': bucketSortStepByStep,
 };

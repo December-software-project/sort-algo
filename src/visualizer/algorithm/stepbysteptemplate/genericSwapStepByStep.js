@@ -1,4 +1,4 @@
-export const simpleSwapStepByStep = (animationArr, idx, referenceArray) => {
+export const genericSwapStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';
   }

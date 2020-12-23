@@ -31,8 +31,11 @@ export const getAnimationArr = (algo, arrayData) => {
   return sortAlgo(arrayCopy(arrayData));
 };
 
-export const getStepByStepText = (algo, animationArr, idx, referenceArray) => {
+export const getStepByStepText = (algo, animationArr, idx, referenceArray, stackArr) => {
   const sortAlgoStepByStep = SortingAlgorithmsStepByStep[algo];
+  if (isBucketSort(algo)) {
+    return sortAlgoStepByStep(animationArr, idx, stackArr);
+  }
   return sortAlgoStepByStep(animationArr, idx, referenceArray);
 };
 
