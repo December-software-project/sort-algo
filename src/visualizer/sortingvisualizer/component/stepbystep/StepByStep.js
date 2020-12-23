@@ -1,16 +1,23 @@
 import React, { useContext } from 'react';
-import { getStepByStepText } from '../../util/VisualizerUtil';
+import { getStepByStepText } from '../../util/GeneralUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 
 const StepByStep = () => {
-  const { animationArr, idx, referenceArray, visualizerAlgorithm } = useContext(
-    VisualizerStateContext
-  );
+  const {
+    animationArr,
+    idx,
+    referenceArray,
+    visualizerAlgorithm,
+    animationPercentage,
+  } = useContext(VisualizerStateContext);
 
   return (
     <div className="step-by-step-holder">
-      <p>{getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray)}</p>
+      <p>
+        {animationPercentage > 0 &&
+          getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray)}
+      </p>
     </div>
   );
 };

@@ -3,10 +3,14 @@ import { Slider } from 'antd';
 import 'antd/dist/antd.css';
 import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
+import { isRadixSort } from '../../../util/GeneralUtil';
 
 const SliderSelector = ({ setData, min, max, name }) => {
-  const { isPlay } = useContext(VisualizerStateContext);
-  const [sliderData, setSliderData] = useState(Math.floor((min + max) / 2));
+  const { isPlay, visualizerAlgorithm } = useContext(VisualizerStateContext);
+
+  const maxSize = isRadixSort(visualizerAlgorithm) ? 10 : max;
+
+  const [sliderData, setSliderData] = useState(Math.floor((min + maxSize) / 2));
 
   return (
     <div className="selector-holder">
@@ -14,9 +18,9 @@ const SliderSelector = ({ setData, min, max, name }) => {
         {name}: {sliderData}
       </span>
       <Slider
-        defaultValue={Math.floor((min + max) / 2)}
+        defaultValue={Math.floor((min + maxSize) / 2)}
         min={min}
-        max={max}
+        max={maxSize}
         onChange={(val) => setSliderData(val)}
         onAfterChange={() => setData(sliderData)}
         disabled={isPlay}

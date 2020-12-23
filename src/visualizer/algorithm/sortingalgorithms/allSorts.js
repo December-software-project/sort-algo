@@ -6,6 +6,7 @@ import bucketSort from './bucketSort';
 import countingSort from './countingSort';
 import mergeSort from './mergeSort';
 import selectionSort from './selectionSort';
+import shellSort from './shellSort';
 
 const SortingAlgorithms = {
   'Insertion Sort': insertionSort,
@@ -16,6 +17,7 @@ const SortingAlgorithms = {
   'Counting Sort': countingSort,
   'Selection Sort': selectionSort,
   'Merge Sort': mergeSort,
+  'Shell Sort': shellSort,
 };
 
 export default SortingAlgorithms;
