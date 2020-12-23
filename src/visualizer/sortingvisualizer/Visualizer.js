@@ -193,6 +193,7 @@ const Visualizer = () => {
     stackArr,
     isInMidstOfSort,
     dataSize,
+    setDataSize,
     changeDataSize,
     visualizerAlgorithm,
     animationPercentage,

@@ -11,6 +11,7 @@ import { stack } from '../../../util/RadixSortUtil';
 const AlgorithmChooser = () => {
   const {
     dataSize,
+    setDataSize,
     isPlay,
     isInMidstOfSort,
     setIsReplay,
@@ -21,7 +22,6 @@ const AlgorithmChooser = () => {
     setIsReset,
     setCountArr,
     setStackArr,
-    changeDataSize,
   } = useContext(VisualizerStateContext);
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
   const listOfAlgorithm = [
@@ -44,16 +44,17 @@ const AlgorithmChooser = () => {
       if (isInMidstOfSort) {
         setIsInMidstOfSort(false);
       }
-      // if (isRadixOrBucket(algorithmName)) {
-      //   changeDataSize(10);
-      //   return;
-      // }
-      setIsReplay(false);
-      setIsReset(true);
-      setArrayData(generateArray(dataSize, algorithmName));
-      setCountArr(arrayCopy(buckets));
-      setStackArr(arrayCopy(stack));
-      setAnimationPercentage(0);
+      if (dataSize > 10 && isRadixOrBucket(algorithmName)) {
+        setArrayData(generateArray(10, algorithmName));
+        setDataSize(10);
+      } else {
+        setArrayData(generateArray(dataSize, algorithmName));
+      }
+        setIsReplay(false);
+        setIsReset(true);
+        setCountArr(arrayCopy(buckets));
+        setStackArr(arrayCopy(stack));
+        setAnimationPercentage(0);
     }
   };
 

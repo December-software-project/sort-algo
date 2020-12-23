@@ -8,7 +8,7 @@ import { isRadixOrBucket } from '../../../util/GeneralUtil';
 const SliderSelector = ({ setData, min, max, name }) => {
   const { isPlay, visualizerAlgorithm } = useContext(VisualizerStateContext);
 
-  const maxSize = isRadixOrBucket(visualizerAlgorithm) ? max : 10;
+  const maxSize = isRadixOrBucket(visualizerAlgorithm) ? 10 : max;
 
   const [sliderData, setSliderData] = useState(Math.floor((min + maxSize) / 2));
 

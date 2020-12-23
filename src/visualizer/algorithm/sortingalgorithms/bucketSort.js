@@ -26,7 +26,8 @@ const bucketSort = (arr) => {
       location: i,
     });
     // Execute insertion sort animations
-    animationArr.push(insertionSort(buckets[i]));
+    insertionSort(buckets[i]);
+    // animationArr.push(insertionSort(buckets[i]));
   }
 
   // Restore element back into array
