@@ -11,6 +11,22 @@ export const findIndexToUseInMergeSort = (newTempArr, iIdx, jIdx) => {
   return -1;
 };
 
+export const executeMergeSortForward = (
+  animationArrSwapIdx,
+  referenceArray,
+  historyArr,
+  setReferenceArray
+) => {
+  let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
+  historyArr.push(referenceArray);
+  setReferenceArray(nextReferenceArray);
+  return nextReferenceArray;
+};
+
+export const executeMergeSortBackward = (historyArr, setReferenceArray) => {
+  setReferenceArray(historyArr.pop());
+};
+
 // Merge sort
 export const handleMergeSort = (referenceArray, animationArrSwapIdx) => {
   let dataSize = referenceArray.length;

@@ -1,6 +1,7 @@
 import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
 import { generateRandomValue } from './RadixSortUtil';
+import { executeSwap } from './SwappingAlgoUtil';
 
 // General array util
 export const resetArray = (algo, arr) => {
@@ -112,4 +113,24 @@ export const translateXOfVisualizer = (dataSize) => {
     return (dataSize - 12) * singleBlockWidth;
   }
   return 0;
+};
+
+export const executeGenericSort = (
+  animationArrSwapIdx,
+  referenceArray,
+  visualizerAlgorithm,
+  setReferenceArray
+) => {
+  let firstIdx = animationArrSwapIdx[0];
+  let secondIdx = animationArrSwapIdx[1];
+  let isSwapOccurring = animationArrSwapIdx[2];
+  let arrToUse = executeSwap(
+    firstIdx,
+    secondIdx,
+    referenceArray,
+    isSwapOccurring,
+    visualizerAlgorithm
+  );
+  setReferenceArray(arrToUse);
+  return arrToUse;
 };

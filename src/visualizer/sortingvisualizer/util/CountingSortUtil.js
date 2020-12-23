@@ -17,7 +17,7 @@ export const executeCountSort = (
   referenceArray,
   animationPx,
   countArr,
-  isForward,
+  isForward
 ) => {
   const index = animationArrSwapIdx.id;
   const height = animationArrSwapIdx.height;
@@ -30,4 +30,5 @@ export const executeCountSort = (
     referenceArray[index].isShown = true;
     countArr[height - 1].count -= 1;
   }
+  return referenceArray;
 };

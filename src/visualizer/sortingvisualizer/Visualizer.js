@@ -19,12 +19,12 @@ import {
   resetArray,
   roundToTwoDp,
   translateXOfVisualizer,
+  executeGenericSort,
 } from './util/GeneralUtil';
-import { executeSwap } from './util/SwappingAlgoUtil';
-import { handleMergeSort } from './util/MergeSortUtil';
+import { executeMergeSortForward, executeMergeSortBackward } from './util/MergeSortUtil';
+import { executeQuickSort } from './util/QuickSortUtil';
 import { buckets, executeCountSort } from './util/CountingSortUtil';
 import { executeRadixSort, stack } from './util/RadixSortUtil';
-import { executeSwapWithPivot } from './util/QuickSortUtil';
 import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   DataSizeSelectorProps,
@@ -77,46 +77,50 @@ const Visualizer = () => {
       setIsReplay(false);
       setAnimationPercentage(0);
       setIsReset(true);
+      setHistoryArr([]);
     }
   };
 
   const executeForwardAnimation = () => {
     let animationArrSwapIdx = animationArr[idx];
     const animationPx = roundToTwoDp(((idx + 1) / animationArr.length) * 100);
-
+    let nextReferenceArray;
     if (isCountingSort(visualizerAlgorithm)) {
-      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, true);
+      nextReferenceArray = executeCountSort(
+        animationArrSwapIdx,
+        referenceArray,
+        animationPx,
+        countArr,
+        true
+      );
     } else if (isRadixSort(visualizerAlgorithm)) {
-      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, true);
+      nextReferenceArray = executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, true);
     } else if (isMergeSort(visualizerAlgorithm)) {
-      let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
-      historyArr.push(referenceArray);
-      setHistoryArr(historyArr);
-      setReferenceArray(nextReferenceArray);
+      nextReferenceArray = executeMergeSortForward(
+        animationArrSwapIdx,
+        referenceArray,
+        historyArr,
+        setReferenceArray
+      );
     } else if (isQuickSort(visualizerAlgorithm)) {
-      setReferenceArray(
-        executeSwapWithPivot(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
-          animationArrSwapIdx[3],
-          referenceArray,
-          animationArrSwapIdx[2],
-          visualizerAlgorithm
-        )
+      nextReferenceArray = executeQuickSort(
+        animationArrSwapIdx,
+        referenceArray,
+        visualizerAlgorithm,
+        setReferenceArray
       );
     } else {
-      let newReferenceArray = executeSwap(
-        animationArrSwapIdx[1],
-        animationArrSwapIdx[0],
+      // Generic Sort refers to Insertion, Bubble, Selection, Shell Sort
+      nextReferenceArray = executeGenericSort(
+        animationArrSwapIdx,
         referenceArray,
-        animationArrSwapIdx[2],
-        visualizerAlgorithm
+        visualizerAlgorithm,
+        setReferenceArray
       );
-      if (idx + 1 >= animationArr.length) {
-        resetDataWhenAnimationFinish(newReferenceArray);
-      } else {
-        setReferenceArray(newReferenceArray);
-      }
+    }
+
+    if (idx + 1 >= animationArr.length) {
+      resetDataWhenAnimationFinish(nextReferenceArray);
     }
     setIdx(idx + 1);
     setAnimationPercentage(animationPx);
@@ -136,29 +140,15 @@ const Visualizer = () => {
     } else if (isRadixSort(visualizerAlgorithm)) {
       executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, false);
     } else if (isMergeSort(visualizerAlgorithm)) {
-      let nextReferenceArray = historyArr.pop();
-      setHistoryArr(historyArr);
-      setReferenceArray(nextReferenceArray);
+      executeMergeSortBackward(historyArr, setReferenceArray);
     } else if (isQuickSort(visualizerAlgorithm)) {
-      setReferenceArray(
-        executeSwapWithPivot(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
-          animationArrSwapIdx[3],
-          referenceArray,
-          animationArrSwapIdx[2],
-          visualizerAlgorithm
-        )
-      );
+      executeQuickSort(animationArrSwapIdx, referenceArray, visualizerAlgorithm, setReferenceArray);
     } else {
-      setReferenceArray(
-        executeSwap(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
-          referenceArray,
-          animationArrSwapIdx[2],
-          visualizerAlgorithm
-        )
+      executeGenericSort(
+        animationArrSwapIdx,
+        referenceArray,
+        visualizerAlgorithm,
+        setReferenceArray
       );
     }
 
@@ -202,6 +192,7 @@ const Visualizer = () => {
     setReferenceArray,
     setCountArr,
     setStackArr,
+    setHistoryArr,
     executeForwardAnimation,
     executeBackwardAnimation,
     resetDataWhenAnimationFinish,

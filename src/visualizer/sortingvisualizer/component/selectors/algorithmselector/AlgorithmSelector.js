@@ -21,8 +21,11 @@ const AlgorithmChooser = () => {
     setIsReset,
     setCountArr,
     setStackArr,
+    setHistoryArr,
   } = useContext(VisualizerStateContext);
+
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
+
   const listOfAlgorithm = [
     { algorithmName: 'Bubble Sort', key: '0' },
     { algorithmName: 'Insertion Sort', key: '1' },
@@ -48,6 +51,7 @@ const AlgorithmChooser = () => {
       setArrayData(generateArray(dataSize, algorithmName));
       setCountArr(arrayCopy(buckets));
       setStackArr(arrayCopy(stack));
+      setHistoryArr([]);
       setAnimationPercentage(0);
     }
   };
