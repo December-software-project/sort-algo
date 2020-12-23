@@ -11,14 +11,12 @@ export const highlightNumber = (value, numberToHighlight) => {
     index++;
     value = Math.floor(value / 10);
   }
-  return numberMapping.map((x) => (
-    <span style={{ fontWeight: x[1] && 750 }}>{x[0]}</span>
-  ));
+  return numberMapping.map((x) => <span style={{ fontWeight: x[1] && 750 }}>{x[0]}</span>);
 };
 
 export const highlightOnesPlacing = (value) => {
   let stringArray = Array.from(value.toString());
   return stringArray.map((x) => {
-    return <span>{x}</span>
+    return <span>{x}</span>;
   });
-}
+};

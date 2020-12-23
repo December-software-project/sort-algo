@@ -8,5 +8,4 @@ export const radixSortStepByStep = (animationArr, idx) => {
   } else {
     return `Restore the first element (${height}) in bucket ${location} back to array`;
   }
-
 };

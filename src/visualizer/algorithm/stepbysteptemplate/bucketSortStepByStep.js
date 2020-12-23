@@ -20,5 +20,4 @@ export const bucketSortStepByStep = (animationArr, idx, stackArr) => {
   } else {
     return `Bucket ${currentAnimation.location} has been sorted!`;
   }
-
 };
