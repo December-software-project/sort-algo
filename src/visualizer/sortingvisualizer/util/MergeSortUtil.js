@@ -37,11 +37,16 @@ export const handleMergeSort = (referenceArray, currentAnimation) => {
   let jIdx = currentAnimation[1];
   let kIdx = currentAnimation[3];
   let isReset = currentAnimation[4];
-  let idxToUse = findIndexToUseInMergeSort(newTempArr, iIdx, jIdx);
   // is Shift true represents moving down, false means moving back up to the desired position.
   if (isShift) {
-    newTempArr[idxToUse].isShift = true;
+    let allIndexToShift = currentAnimation[5];
+    for (let value of allIndexToShift) {
+      // hard code one of the index to be -1
+      let idxToUse = findIndexToUseInMergeSort(newTempArr, value, -1);
+      newTempArr[idxToUse].isShift = true;
+    }
   } else {
+    let idxToUse = findIndexToUseInMergeSort(newTempArr, iIdx, jIdx);
     let positiveDiff = Math.abs(kIdx - idxToUse);
     newTempArr[idxToUse].xDirection =
       kIdx - idxToUse <= 0
