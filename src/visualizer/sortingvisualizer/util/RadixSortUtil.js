@@ -18,7 +18,7 @@ export const generateRandomValue = () => {
   const randomVal = Math.random();
   if (randomVal < 0.1) {
     return generateValue(1, 9);
-  } else if (randomVal < 0.4) {
+  } else if (randomVal < 0.2) {
     return generateValue(10, 99);
   } else if (randomVal <= 1) {
     return generateValue(100, 999);
@@ -33,8 +33,13 @@ export const executeRadixSort = (animationArrSwapIdx, referenceArray, stackArr, 
   if (isDistributingAnimation) {
     referenceArray[index].isShown = false;
     const location = animationArrSwapIdx.location;
-    stackArr[location].array.push(animationArrSwapIdx);
+    if (isForward) {
+      stackArr[location].array.push(animationArrSwapIdx);
+    } else {
+      stackArr[location].array.unshift(animationArrSwapIdx);
+    }
   } else {
+    // Putting back into array
     const location = animationArrSwapIdx.location;
     referenceArray[index] = animationArrSwapIdx;
     referenceArray[index].isShown = true;

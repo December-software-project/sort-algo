@@ -28,7 +28,9 @@ const RadixSortBoxes = () => {
       index++;
       value = Math.floor(value / 10);
     }
-    return numberMapping.map((x) => <span style={{ fontWeight: x[1] && 'bold' }}>{x[0]}</span>);
+    return numberMapping.map((x) => (
+      <span style={{ color: x[1] && '#3443be', fontWeight: x[1] && 'bold' }}>{x[0]}</span>
+    ));
   };
 
   const SingleBox = ({ item, display }) => (

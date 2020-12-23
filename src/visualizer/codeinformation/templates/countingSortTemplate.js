@@ -57,7 +57,6 @@ const CountingSort = {
     'def counting_sort(arr):\n' +
     '    # Get max element\n' +
     '    max_element = max(arr)\n' +
-    '    print(max_element)\n' +
     '\n' +
     '    # Create count array of length max_element + 1\n' +
     '    count_arr = [0] * (max_element + 1)\n' +

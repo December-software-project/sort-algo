@@ -81,35 +81,35 @@ const Visualizer = () => {
   };
 
   const executeForwardAnimation = () => {
-    let animationArrSwapIdx = animationArr[idx];
+    let currentAnimation = animationArr[idx];
     const animationPx = roundToTwoDp(((idx + 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
-      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, true);
+      executeCountSort(currentAnimation, referenceArray, animationPx, countArr, true);
     } else if (isRadixSort(visualizerAlgorithm)) {
-      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, true);
+      executeRadixSort(currentAnimation, referenceArray, stackArr, true);
     } else if (isMergeSort(visualizerAlgorithm)) {
-      let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
+      let nextReferenceArray = handleMergeSort(referenceArray, currentAnimation);
       historyArr.push(referenceArray);
       setHistoryArr(historyArr);
       setReferenceArray(nextReferenceArray);
     } else if (isQuickSort(visualizerAlgorithm)) {
       setReferenceArray(
         executeSwapWithPivot(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
-          animationArrSwapIdx[3],
+          currentAnimation[1],
+          currentAnimation[0],
+          currentAnimation[3],
           referenceArray,
-          animationArrSwapIdx[2],
+          currentAnimation[2],
           visualizerAlgorithm
         )
       );
     } else {
       let newReferenceArray = executeSwap(
-        animationArrSwapIdx[1],
-        animationArrSwapIdx[0],
+        currentAnimation[1],
+        currentAnimation[0],
         referenceArray,
-        animationArrSwapIdx[2],
+        currentAnimation[2],
         visualizerAlgorithm
       );
       if (idx + 1 >= animationArr.length) {
@@ -128,13 +128,13 @@ const Visualizer = () => {
       setIdx(0);
       return;
     }
-    let animationArrSwapIdx = animationArr[idx - 1];
+    let currentAnimation = animationArr[idx - 1];
     const animationPx = roundToTwoDp(((idx - 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
-      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, false);
+      executeCountSort(currentAnimation, referenceArray, animationPx, countArr, false);
     } else if (isRadixSort(visualizerAlgorithm)) {
-      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, false);
+      executeRadixSort(currentAnimation, referenceArray, stackArr, false);
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = historyArr.pop();
       setHistoryArr(historyArr);
@@ -142,21 +142,21 @@ const Visualizer = () => {
     } else if (isQuickSort(visualizerAlgorithm)) {
       setReferenceArray(
         executeSwapWithPivot(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
-          animationArrSwapIdx[3],
+          currentAnimation[1],
+          currentAnimation[0],
+          currentAnimation[3],
           referenceArray,
-          animationArrSwapIdx[2],
+          currentAnimation[2],
           visualizerAlgorithm
         )
       );
     } else {
       setReferenceArray(
         executeSwap(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
+          currentAnimation[1],
+          currentAnimation[0],
           referenceArray,
-          animationArrSwapIdx[2],
+          currentAnimation[2],
           visualizerAlgorithm
         )
       );

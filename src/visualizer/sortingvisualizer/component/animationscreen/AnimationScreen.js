@@ -10,7 +10,7 @@ import MergeSortBlock from '../block/MergeSortBlock';
 import RadixSortBoxes from '../radixsortboxes/RadixSortBoxes';
 
 // non-gradual decrease of animation speed
-const animationSpeedArray = [1000, 800, 600, 400, 240, 200, 160, 120, 80, 50];
+const animationSpeedArray = [1000, 800, 600, 400, 240, 200, 160, 120, 80, 80];
 
 const AnimationScreen = () => {
   const {
@@ -54,7 +54,7 @@ const AnimationScreen = () => {
     if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {
         executeForwardAnimation();
-      }, animationSpeedArray[speed]);
+      }, animationSpeedArray[speed - 1]);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish(referenceArray);
     }
