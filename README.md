@@ -5,8 +5,8 @@
 
 # Sort-Algo
 
-Welcome to Sort-Algo, a sorting visualiser app which helps you to learn and understand sorting algorithms.
-Our app is deployed on [heroku](https://sort-algo.herokuapp.com/).
+Welcome to Sort-Algo, a sorting visualiser app which helps you to learn and understand sorting algorithms. <br />
+Check out our app [here!](https://algosort.netlify.app/).
 
 ## Getting Started with Create React App
 
