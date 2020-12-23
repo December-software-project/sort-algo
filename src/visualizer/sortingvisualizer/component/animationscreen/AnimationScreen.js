@@ -1,23 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import { useTransition } from 'react-spring';
-import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import {
-  arrayCopy,
-  isBucketSort,
-  isCountingSort,
-  isMergeSort,
-  isRadixSort,
-} from '../../util/GeneralUtil';
-import SmallBlock from '../smallBlock/SmallBlock';
-import Buckets from '../countingsortbuckets/Buckets';
-import MergeSortBlock from '../block/MergeSortBlock';
-import RadixSortScreen from '../radixsortboxes/RadixSortScreen';
+import { arrayCopy, isBucketSort, isCountingSort, isMergeSort, isRadixSort } from '../../util/GeneralUtil';
+import { animationSpeedArray, mergeSortAnimationSpeedArray } from '../../util/AnimationScreenUtil';
+import CountingSortScreen from './CountingSortScreen';
+import RadixSortScreen from './RadixSortScreen';
 import BucketSortScreen from '../bucketsort/BucketSortScreen';
-
-// non-gradual decrease of animation speed
-const animationSpeedArray = [1000, 800, 600, 400, 240, 200, 160, 120, 80, 80];
+import MergeSortScreen from './MergeSortScreen';
+import GenericSortScreen from './GenericSortScreen';
 
 const AnimationScreen = () => {
   const {
@@ -59,9 +50,12 @@ const AnimationScreen = () => {
    */
   useEffect(() => {
     if (!isReplay && isPlay && idx < animationArr.length) {
+      let timeOutDuration = isMergeSort(visualizerAlgorithm)
+        ? mergeSortAnimationSpeedArray[speed - 1]
+        : animationSpeedArray[speed - 1];
       setTimeout(() => {
         executeForwardAnimation();
-      }, animationSpeedArray[speed - 1]);
+      }, timeOutDuration);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish(referenceArray);
     }
@@ -84,29 +78,9 @@ const AnimationScreen = () => {
   );
 
   if (isCountingSort(visualizerAlgorithm)) {
-    return (
-      <div className="container-one">
-        <div className="list">
-          {transitions.map(({ item, props: { x, ...rest } }, index) => (
-            <SmallBlock
-              item={item}
-              props={{ x, ...rest }}
-              index={index}
-              length={length}
-              key={index}
-              width={800 / dataSize}
-            />
-          ))}
-        </div>
-        <Buckets />
-      </div>
-    );
+    return <CountingSortScreen transitions={transitions} dataSize={dataSize} length={length} />;
   } else if (isRadixSort(visualizerAlgorithm)) {
-    return (
-      <div className="spaced-out-container">
-        <RadixSortScreen />
-      </div>
-    );
+    return <RadixSortScreen />;
   } else if (isBucketSort(visualizerAlgorithm)) {
     return (
       <div className="spaced-out-container">
@@ -114,42 +88,9 @@ const AnimationScreen = () => {
       </div>
     );
   } else if (isMergeSort(visualizerAlgorithm)) {
-    return (
-      <div className="container-one">
-        <div className="list">
-          {transitions.map(({ item, props: { x, ...rest } }, index) => (
-            <MergeSortBlock
-              item={item}
-              props={{ x, ...rest }}
-              index={index}
-              length={length}
-              key={index}
-              isShift={item.isShift}
-              width={800 / dataSize}
-              pos={item.pos}
-              prevPos={item.prevPos}
-            />
-          ))}
-        </div>
-        <div className="empty-space-for-merge-sort" />
-      </div>
-    );
+    return <MergeSortScreen transitions={transitions} dataSize={dataSize} length={length} />;
   } else {
-    return (
-      <div className="list">
-        {transitions.map(({ item, props: { x, ...rest } }, index) => (
-          <AnimatedBlock
-            item={item}
-            props={{ x, ...rest }}
-            index={index}
-            length={length}
-            key={index}
-            isSwap={item.isSwap}
-            width={800 / dataSize}
-          />
-        ))}
-      </div>
-    );
+    return <GenericSortScreen transitions={transitions} dataSize={dataSize} length={length} />;
   }
 };
 

@@ -21,17 +21,16 @@ export const mergeSortStepByStep = (animationArr, idx, referenceArray) => {
         }
       }
       return message.slice(0, -1);
-    } else {
-      // shifting back up to correct position
-      let min = referenceArray[idxToUse].height;
-      let message = `Since the minimum is ${min}, we move ${min} up\nCurrently left in the merge process: `;
-      for (let values of referenceArray) {
-        if (values.isShift) {
-          message += values.height + ', ';
-        }
-      }
-      message = message.slice(0, -1);
-      return message;
     }
+    // shifting back up to correct position
+    let min = referenceArray[idxToUse].height;
+    let message = `Since the minimum is ${min}, we move ${min} up\nCurrently left in the merge process: `;
+    for (let values of referenceArray) {
+      if (values.isShift) {
+        message += values.height + ', ';
+      }
+    }
+    message = message.slice(0, -1);
+    return message;
   }
 };

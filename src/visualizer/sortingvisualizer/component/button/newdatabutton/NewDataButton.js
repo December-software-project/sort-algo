@@ -17,6 +17,7 @@ const NewDataButton = () => {
     setCountArr,
     setStackArr,
     setIsReset,
+    setHistoryArr,
   } = useContext(VisualizerStateContext);
 
   const handleNewDataButtonClick = () => {
@@ -27,6 +28,7 @@ const NewDataButton = () => {
       setIsReplay(false);
       setCountArr(arrayCopy(buckets));
       setStackArr(arrayCopy(stack));
+      setHistoryArr([]);
       setIsReset(true);
     }
   };

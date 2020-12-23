@@ -2,6 +2,7 @@ import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
 import { generateRandomValue } from './RadixSortUtil';
 import { generateDecimal } from './BucketSortUtil';
+import { executeSwap } from './SwappingAlgoUtil';
 
 // General array util
 export const resetArray = (algo, arr) => {
@@ -124,4 +125,24 @@ export const translateXOfVisualizer = (dataSize) => {
     return (dataSize - 12) * singleBlockWidth;
   }
   return 0;
+};
+
+export const executeGenericSort = (
+  currentAnimation,
+  referenceArray,
+  visualizerAlgorithm,
+  setReferenceArray
+) => {
+  let firstIdx = currentAnimation[0];
+  let secondIdx = currentAnimation[1];
+  let isSwapOccurring = currentAnimation[2];
+  let arrToUse = executeSwap(
+    firstIdx,
+    secondIdx,
+    referenceArray,
+    isSwapOccurring,
+    visualizerAlgorithm
+  );
+  setReferenceArray(arrToUse);
+  return arrToUse;
 };

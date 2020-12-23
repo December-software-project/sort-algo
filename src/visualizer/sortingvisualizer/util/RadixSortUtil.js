@@ -49,4 +49,5 @@ export const executeRadixSort = (currentAnimation, referenceArray, stackArr, isF
       stackArr[location].array.pop();
     }
   }
+  return referenceArray;
 };

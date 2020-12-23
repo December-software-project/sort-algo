@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { VisualizerStateContext } from '../../../Visualizer';
@@ -22,8 +22,11 @@ const AlgorithmChooser = () => {
     setIsReset,
     setCountArr,
     setStackArr,
+    setHistoryArr,
   } = useContext(VisualizerStateContext);
+
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
+
   const listOfAlgorithm = [
     { algorithmName: 'Bubble Sort', key: '0' },
     { algorithmName: 'Insertion Sort', key: '1' },
@@ -50,11 +53,12 @@ const AlgorithmChooser = () => {
       } else {
         setArrayData(generateArray(dataSize, algorithmName));
       }
-        setIsReplay(false);
-        setIsReset(true);
-        setCountArr(arrayCopy(buckets));
-        setStackArr(arrayCopy(stack));
-        setAnimationPercentage(0);
+      setIsReplay(false);
+      setIsReset(true);
+      setCountArr(arrayCopy(buckets));
+      setStackArr(arrayCopy(stack));
+      setHistoryArr([]);
+      setAnimationPercentage(0);
     }
   };
 

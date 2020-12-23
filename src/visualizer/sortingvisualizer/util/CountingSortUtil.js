@@ -13,21 +13,22 @@ export const buckets = [
 
 // Function to execute the counting sort animation
 export const executeCountSort = (
-  animationArrSwapIdx,
+  currentAnimation,
   referenceArray,
   animationPx,
   countArr,
   isForward
 ) => {
-  const index = animationArrSwapIdx.id;
-  const height = animationArrSwapIdx.height;
+  const index = currentAnimation.id;
+  const height = currentAnimation.height;
   const isCountAnimation = (isForward && animationPx <= 50) || (!isForward && animationPx >= 50);
   if (isCountAnimation) {
     referenceArray[index].isShown = false;
     countArr[height - 1].count += 1;
   } else {
-    referenceArray[index] = animationArrSwapIdx;
+    referenceArray[index] = currentAnimation;
     referenceArray[index].isShown = true;
     countArr[height - 1].count -= 1;
   }
+  return referenceArray;
 };
