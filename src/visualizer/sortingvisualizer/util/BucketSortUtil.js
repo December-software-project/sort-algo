@@ -11,4 +11,5 @@ export const executeBucketSort = (currentAnimation, referenceArray, stackArr, is
   } else {
     executeRadixSort(currentAnimation, referenceArray, stackArr, isForward);
   }
+  return referenceArray;
 }

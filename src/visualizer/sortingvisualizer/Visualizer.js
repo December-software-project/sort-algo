@@ -10,20 +10,20 @@ import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation
 import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
 import {
   arrayCopy,
+  executeGenericSort,
   generateArray,
   getAnimationArr,
+  isBucketSort,
   isCountingSort,
   isMergeSort,
-  isRadixOrBucket,
   isQuickSort,
+  isRadixOrBucket,
   isRadixSort,
-  isBucketSort,
   resetArray,
   roundToTwoDp,
   translateXOfVisualizer,
-  executeGenericSort,
 } from './util/GeneralUtil';
-import { executeMergeSortForward, executeMergeSortBackward } from './util/MergeSortUtil';
+import { executeMergeSortBackward, executeMergeSortForward } from './util/MergeSortUtil';
 import { executeQuickSort } from './util/QuickSortUtil';
 import { buckets, executeCountSort } from './util/CountingSortUtil';
 import { executeRadixSort, stack } from './util/RadixSortUtil';
@@ -97,9 +97,8 @@ const Visualizer = () => {
       );
     } else if (isRadixSort(visualizerAlgorithm)) {
       nextReferenceArray = executeRadixSort(currentAnimation, referenceArray, stackArr, true);
-      executeRadixSort(currentAnimation, referenceArray, stackArr, true);
     } else if (isBucketSort(visualizerAlgorithm)) {
-      executeBucketSort(currentAnimation, referenceArray, stackArr, true);
+      nextReferenceArray = executeBucketSort(currentAnimation, referenceArray, stackArr, true);
     } else if (isMergeSort(visualizerAlgorithm)) {
       nextReferenceArray = executeMergeSortForward(
         currentAnimation,
@@ -179,7 +178,6 @@ const Visualizer = () => {
     isInMidstOfSort,
     dataSize,
     setDataSize,
-    changeDataSize,
     visualizerAlgorithm,
     animationPercentage,
     idx,

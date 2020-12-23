@@ -1,11 +1,30 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
-import '../radixsortboxes/styles.css';
 import { animated, useTransition } from 'react-spring';
-import HorizontalBoxes from '../radixsortboxes/HorizontalBoxes';
 
 const BucketSortScreen = () => {
   const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);
+
+  const HorizontalBoxes = ({ dataSize, referenceArray }) => {
+    const SingleBox = ({ item }) => (
+      <div
+        className="box"
+        style={{
+          visibility: item.isShown ? `visible` : `hidden`,
+        }}
+      >
+        <div className="number">{item.height}</div>
+      </div>
+    );
+
+    return (
+      <div className="data-arr" style={{ gridTemplateColumns: `repeat(${dataSize}, 1fr)` }}>
+        {referenceArray.map((x) => (
+          <SingleBox item={x} key={x.id} />
+        ))}
+      </div>
+    );
+  };
 
   const AnimatedBox = ({ item, props: { y, ...rest }, index, length }) => (
     <animated.div
@@ -51,14 +70,14 @@ const BucketSortScreen = () => {
   };
 
   return (
-    <>
+    <div className="spaced-out-container">
       <HorizontalBoxes dataSize={dataSize} referenceArray={referenceArray} />
       <div className="stack-arr">
         {stackArr.map((x) => (
           <StackOfBoxes individualStack={x} key={x.value} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -20,6 +20,58 @@
   padding-top: 25px;
 }
 
+.stack-arr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.stack {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 10px;
+}
+
+.stack-boxes {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.number-with-line {
+  border-top: 1px solid black;
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  width: 60px;
+}
+
+.data-arr {
+  align-self: center;
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+}
+
+.box {
+  align-items: center;
+  border: 1px solid black;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  width: 45px;
+}
+
+.number {
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
 .empty-space-for-merge-sort {
   box-sizing: border-box;
   height: 150px;
