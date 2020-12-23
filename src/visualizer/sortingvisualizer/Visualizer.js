@@ -77,12 +77,11 @@ const Visualizer = () => {
       setIsReplay(false);
       setAnimationPercentage(0);
       setIsReset(true);
-      setHistoryArr([]);
     }
   };
 
   const executeForwardAnimation = () => {
-    let animationArrSwapIdx = animationArr[idx];
+    let currentAnimation = animationArr[idx];
     const animationPx = roundToTwoDp(((idx + 1) / animationArr.length) * 100);
     let nextReferenceArray;
     if (isCountingSort(visualizerAlgorithm)) {
@@ -132,7 +131,7 @@ const Visualizer = () => {
       setIdx(0);
       return;
     }
-    let animationArrSwapIdx = animationArr[idx - 1];
+    let currentAnimation = animationArr[idx - 1];
     const animationPx = roundToTwoDp(((idx - 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
