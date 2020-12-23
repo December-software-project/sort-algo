@@ -9,7 +9,7 @@ const insertionSort = (arr) => {
     while (j >= 0 && receivedArr[j].height > key.height) {
       receivedArr[j + 1] = receivedArr[j];
       animationArr.push([j + 1, j, true]);
-      j = j - 1;
+      j--;
       if (j >= 0 && receivedArr[j].height > key.height) {
         animationArr.push([j + 1, j, false]);
       }

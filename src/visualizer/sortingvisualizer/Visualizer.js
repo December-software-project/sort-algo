@@ -12,16 +12,18 @@ import {
   arrayCopy,
   generateArray,
   getAnimationArr,
+  isBucketSort,
   isCountingSort,
   isMergeSort,
   isQuickSort,
+  isRadixOrBucket,
   isRadixSort,
   resetArray,
   roundToTwoDp,
   translateXOfVisualizer,
-  executeGenericSort,
 } from './util/GeneralUtil';
-import { executeMergeSortForward, executeMergeSortBackward } from './util/MergeSortUtil';
+import { executeGenericSort } from './util/SwappingAlgoUtil';
+import { executeMergeSortBackward, executeMergeSortForward } from './util/MergeSortUtil';
 import { executeQuickSort } from './util/QuickSortUtil';
 import { buckets, executeCountSort } from './util/CountingSortUtil';
 import { executeRadixSort, stack } from './util/RadixSortUtil';
@@ -36,6 +38,7 @@ import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
 import StepByStep from './component/stepbystep/StepByStep';
 import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
+import { executeBucketSort } from './util/BucketSortUtil';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -94,6 +97,8 @@ const Visualizer = () => {
       );
     } else if (isRadixSort(visualizerAlgorithm)) {
       nextReferenceArray = executeRadixSort(currentAnimation, referenceArray, stackArr, true);
+    } else if (isBucketSort(visualizerAlgorithm)) {
+      nextReferenceArray = executeBucketSort(currentAnimation, referenceArray, stackArr, true);
     } else if (isMergeSort(visualizerAlgorithm)) {
       nextReferenceArray = executeMergeSortForward(
         currentAnimation,
@@ -138,6 +143,8 @@ const Visualizer = () => {
       executeCountSort(currentAnimation, referenceArray, animationPx, countArr, false);
     } else if (isRadixSort(visualizerAlgorithm)) {
       executeRadixSort(currentAnimation, referenceArray, stackArr, false);
+    } else if (isBucketSort(visualizerAlgorithm)) {
+      executeBucketSort(currentAnimation, referenceArray, stackArr, false);
     } else if (isMergeSort(visualizerAlgorithm)) {
       executeMergeSortBackward(historyArr, setReferenceArray);
     } else if (isQuickSort(visualizerAlgorithm)) {
@@ -170,6 +177,7 @@ const Visualizer = () => {
     stackArr,
     isInMidstOfSort,
     dataSize,
+    setDataSize,
     visualizerAlgorithm,
     animationPercentage,
     idx,
@@ -204,7 +212,7 @@ const Visualizer = () => {
             className="visualizer-box"
             style={{
               transform:
-                !isRadixSort(visualizerAlgorithm) &&
+                !isRadixOrBucket(visualizerAlgorithm) &&
                 `translateX(-${translateXOfVisualizer(dataSize)}px)`,
             }}
           >
