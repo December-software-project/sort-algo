@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './CodeExplanation.css';
+import './styles.css';
 import explanations from '../explanations/Explanations';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
