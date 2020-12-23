@@ -48,4 +48,4 @@ export const generateBucketSortArray = (size) => {
     });
   }
   return array;
-}
+};

@@ -35,7 +35,7 @@ export const generateRadixSortArray = (size) => {
     });
   }
   return array;
-}
+};
 
 export const executeRadixSort = (currentAnimation, referenceArray, stackArr, isForward) => {
   const index = currentAnimation.id;
