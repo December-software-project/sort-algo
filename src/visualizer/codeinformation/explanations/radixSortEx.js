@@ -6,7 +6,7 @@ const RadixSort = {
     'place, then the 10’s place, and so on. To do this, radix sort uses counting sort as a ' +
     'subroutine to sort the digits in each place value.',
   additionalDesc:
-    'd is the number of digits in the input numbers, b is the number of values each digit can have,',
+    'd is the number of digits in the input numbers, b is the base for representing numbers,',
   worstTime: 'd(n + b)',
   averageTime: 'd(n + b)',
   bestTime: 'd(n + b)',
