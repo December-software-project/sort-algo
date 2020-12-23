@@ -15,25 +15,22 @@ test('Already Sorted with duplicates', () => {
   ];
   const actual = quickSort(arr);
   const expected = [
-    [0, 3, false, 1, 'iToIdx'],
-    [0, 3, false, 1, 'jToIdx'],
-    [0, 3, false, 1, 'iToJ'],
-    [1, 2, false, 1, 'iToIdx'],
-    [1, 2, false, 1, 'jToIdx'],
-    [1, 2, false, 1, 'iToJ'],
-    [0, 1, false, 0, 'iToIdx'],
-    [0, 1, false, 0, 'jToIdx'],
-    [0, 1, false, 0, 'iToJ'],
-    [2, 3, false, 2, 'iToIdx'],
-    [2, 3, false, 2, 'jToIdx'],
-    [2, 3, false, 2, 'iToJ'],
+    [0, 0, false, 3, 'jToPivot', -1],
+    [1, 1, false, 3, 'jToPivot', -1],
+    [2, 2, false, 3, 'jToPivot', -1],
+    [0, 3, true, 3, 'swapPivot', -1],
+    [1, 1, false, 3, 'jToPivot', 0],
+    [2, 2, false, 3, 'jToPivot', 0],
+    [1, 3, true, 3, 'swapPivot', 0],
+    [2, 2, false, 3, 'jToPivot', 1],
+    [2, 3, true, 3, 'swapPivot', 1],
   ];
   expect(actual).toEqual(expected);
   expect(arr).toStrictEqual([
+    { id: 4, height: 3, isSwap: false },
     { id: 1, height: 3, isSwap: false },
     { id: 2, height: 3, isSwap: false },
     { id: 3, height: 3, isSwap: false },
-    { id: 4, height: 3, isSwap: false },
   ]);
 });
 
@@ -46,20 +43,15 @@ test('Already Sorted ascending', () => {
   ];
   const actual = quickSort(arr);
   const expected = [
-    [0, 3, false, 1, 'iToIdx'],
-    [1, 3, false, 1, 'iToIdx'],
-    [1, 3, false, 1, 'jToIdx'],
-    [1, 2, false, 1, 'jToIdx'],
-    [1, 1, false, 1, 'jToIdx'],
-    [1, 1, false, 1, 'iToJ'],
-    [0, 1, false, 0, 'iToIdx'],
-    [0, 1, false, 0, 'jToIdx'],
-    [0, 0, false, 0, 'jToIdx'],
-    [0, 0, false, 0, 'iToJ'],
-    [2, 3, false, 2, 'iToIdx'],
-    [2, 3, false, 2, 'jToIdx'],
-    [2, 2, false, 2, 'jToIdx'],
-    [2, 2, false, 2, 'iToJ'],
+    [0, 0, false, 3, 'incI', -1],
+    [1, 1, false, 3, 'incI', 0],
+    [2, 2, false, 3, 'incI', 1],
+    [3, 3, true, 3, 'swapPivot', 2],
+    [0, 0, false, 2, 'incI', -1],
+    [1, 1, false, 2, 'incI', 0],
+    [2, 2, true, 2, 'swapPivot', 1],
+    [0, 0, false, 1, 'incI', -1],
+    [1, 1, true, 1, 'swapPivot', 0],
   ];
   expect(actual).toEqual(expected);
   expect(arr).toStrictEqual([
@@ -79,22 +71,15 @@ test('Descending array', () => {
   ];
   const actual = quickSort(arr);
   const expected = [
-    [0, 3, false, 1, 'iToIdx'],
-    [0, 3, false, 1, 'jToIdx'],
-    [0, 3, false, 1, 'iToJ'],
-    [0, 3, true, 1, 'iToJ'],
-    [1, 2, false, 1, 'iToIdx'],
-    [1, 2, false, 1, 'jToIdx'],
-    [1, 2, false, 1, 'iToJ'],
-    [1, 2, true, 1, 'iToJ'],
-    [0, 1, false, 0, 'iToIdx'],
-    [0, 1, false, 0, 'jToIdx'],
-    [0, 0, false, 0, 'jToIdx'],
-    [0, 0, false, 0, 'iToJ'],
-    [2, 3, false, 2, 'iToIdx'],
-    [2, 3, false, 2, 'jToIdx'],
-    [2, 2, false, 2, 'jToIdx'],
-    [2, 2, false, 2, 'iToJ'],
+    [0, 0, false, 3, 'jToPivot', -1],
+    [1, 1, false, 3, 'jToPivot', -1],
+    [2, 2, false, 3, 'jToPivot', -1],
+    [0, 3, true, 3, 'swapPivot', -1],
+    [1, 1, false, 3, 'incI', 0],
+    [2, 2, false, 3, 'incI', 1],
+    [3, 3, true, 3, 'swapPivot', 2],
+    [1, 1, false, 2, 'jToPivot', 0],
+    [1, 2, true, 2, 'swapPivot', 0],
   ];
   expect(actual).toEqual(expected);
   expect(arr).toStrictEqual([
@@ -114,23 +99,13 @@ test('random array positive numbers', () => {
   ];
   const actual = quickSort(arr);
   const expected = [
-    [0, 3, false, 1, 'iToIdx'],
-    [1, 3, false, 1, 'iToIdx'],
-    [1, 3, false, 1, 'jToIdx'],
-    [1, 3, false, 1, 'iToJ'],
-    [1, 3, true, 1, 'iToJ'],
-    [2, 2, false, 1, 'iToIdx'],
-    [3, 2, false, 1, 'iToIdx'],
-    [3, 2, false, 1, 'jToIdx'],
-    [0, 2, false, 1, 'iToIdx'],
-    [1, 2, false, 1, 'iToIdx'],
-    [1, 2, false, 1, 'jToIdx'],
-    [1, 2, false, 1, 'iToJ'],
-    [1, 2, true, 1, 'iToJ'],
-    [0, 1, false, 0, 'iToIdx'],
-    [0, 1, false, 0, 'jToIdx'],
-    [0, 0, false, 0, 'jToIdx'],
-    [0, 0, false, 0, 'iToJ'],
+    [0, 0, false, 3, 'incI', -1],
+    [1, 1, false, 3, 'jToPivot', 0],
+    [2, 2, false, 3, 'incI', 0],
+    [1, 2, true, 3, 'iToJ', 1],
+    [2, 3, true, 3, 'swapPivot', 1],
+    [0, 0, false, 1, 'incI', -1],
+    [1, 1, true, 1, 'swapPivot', 0],
   ];
   expect(actual).toEqual(expected);
   expect(arr).toStrictEqual([
@@ -150,23 +125,13 @@ test('random array negative numbers', () => {
   ];
   const actual = quickSort(arr);
   const expected = [
-    [0, 3, false, 1, 'iToIdx'],
-    [0, 3, false, 1, 'jToIdx'],
-    [0, 2, false, 1, 'jToIdx'],
-    [0, 1, false, 1, 'jToIdx'],
-    [0, 1, false, 1, 'iToJ'],
-    [0, 1, true, 1, 'iToJ'],
-    [1, 3, false, 2, 'iToIdx'],
-    [1, 3, false, 2, 'jToIdx'],
-    [1, 3, false, 2, 'iToJ'],
-    [1, 3, true, 2, 'iToJ'],
-    [2, 2, false, 2, 'iToIdx'],
-    [2, 2, false, 2, 'jToIdx'],
-    [2, 2, false, 2, 'iToJ'],
-    [1, 2, false, 1, 'iToIdx'],
-    [1, 2, false, 1, 'jToIdx'],
-    [1, 1, false, 1, 'jToIdx'],
-    [1, 1, false, 1, 'iToJ'],
+    [0, 0, false, 3, 'jToPivot', -1],
+    [1, 1, false, 3, 'incI', -1],
+    [0, 1, true, 3, 'iToJ', 0],
+    [2, 2, false, 3, 'jToPivot', 0],
+    [1, 3, true, 3, 'swapPivot', 0],
+    [2, 2, false, 3, 'incI', 1],
+    [3, 3, true, 3, 'swapPivot', 2],
   ];
   expect(actual).toEqual(expected);
   expect(arr).toStrictEqual([
@@ -186,23 +151,15 @@ test('random array negative and positive numbers', () => {
   ];
   const actual = quickSort(arr);
   const expected = [
-    [0, 3, false, 1, 'iToIdx'],
-    [1, 3, false, 1, 'iToIdx'],
-    [1, 3, false, 1, 'jToIdx'],
-    [1, 3, false, 1, 'iToJ'],
-    [1, 3, true, 1, 'iToJ'],
-    [2, 2, false, 1, 'iToIdx'],
-    [3, 2, false, 1, 'iToIdx'],
-    [3, 2, false, 1, 'jToIdx'],
-    [0, 2, false, 1, 'iToIdx'],
-    [0, 2, false, 1, 'jToIdx'],
-    [0, 1, false, 1, 'jToIdx'],
-    [0, 1, false, 1, 'iToJ'],
-    [0, 1, true, 1, 'iToJ'],
-    [1, 2, false, 1, 'iToIdx'],
-    [1, 2, false, 1, 'jToIdx'],
-    [1, 1, false, 1, 'jToIdx'],
-    [1, 1, false, 1, 'iToJ'],
+    [0, 0, false, 3, 'jToPivot', -1],
+    [1, 1, false, 3, 'jToPivot', -1],
+    [2, 2, false, 3, 'jToPivot', -1],
+    [0, 3, true, 3, 'swapPivot', -1],
+    [1, 1, false, 3, 'jToPivot', 0],
+    [2, 2, false, 3, 'jToPivot', 0],
+    [1, 3, true, 3, 'swapPivot', 0],
+    [2, 2, false, 3, 'incI', 1],
+    [3, 3, true, 3, 'swapPivot', 2],
   ];
   expect(actual).toEqual(expected);
   expect(arr).toStrictEqual([

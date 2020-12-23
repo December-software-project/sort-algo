@@ -25,23 +25,23 @@ export const generateRandomValue = () => {
   }
 };
 
-export const executeRadixSort = (animationArrSwapIdx, referenceArray, stackArr, isForward) => {
-  const index = animationArrSwapIdx.id;
-  const isDistributing = animationArrSwapIdx.isDistributing;
+export const executeRadixSort = (currentAnimation, referenceArray, stackArr, isForward) => {
+  const index = currentAnimation.id;
+  const isDistributing = currentAnimation.isDistributing;
   const isDistributingAnimation = !(isForward ^ isDistributing);
 
   if (isDistributingAnimation) {
     referenceArray[index].isShown = false;
-    const location = animationArrSwapIdx.location;
+    const location = currentAnimation.location;
     if (isForward) {
-      stackArr[location].array.push(animationArrSwapIdx);
+      stackArr[location].array.push(currentAnimation);
     } else {
-      stackArr[location].array.unshift(animationArrSwapIdx);
+      stackArr[location].array.unshift(currentAnimation);
     }
   } else {
     // Putting back into array
-    const location = animationArrSwapIdx.location;
-    referenceArray[index] = animationArrSwapIdx;
+    const location = currentAnimation.location;
+    referenceArray[index] = currentAnimation;
     referenceArray[index].isShown = true;
     if (isForward) {
       stackArr[location].array.shift();
@@ -49,4 +49,5 @@ export const executeRadixSort = (animationArrSwapIdx, referenceArray, stackArr, 
       stackArr[location].array.pop();
     }
   }
+  return referenceArray;
 };
