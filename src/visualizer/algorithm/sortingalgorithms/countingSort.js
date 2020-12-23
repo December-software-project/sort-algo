@@ -1,6 +1,6 @@
 const countingSort = (arr) => {
   let receivedArr = arr;
-  let countArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  let countArr = [...Array(10)].map(() => 0);
   for (let i = 0; i < receivedArr.length; i++) {
     countArr[receivedArr[i].height]++;
   }

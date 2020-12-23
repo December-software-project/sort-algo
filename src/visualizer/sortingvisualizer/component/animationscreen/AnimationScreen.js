@@ -14,6 +14,7 @@ import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../countingsortbuckets/Buckets';
 import MergeSortBlock from '../block/MergeSortBlock';
 import RadixSortScreen from '../radixsortboxes/RadixSortScreen';
+import BucketSortScreen from '../bucketsort/BucketSortScreen';
 
 // non-gradual decrease of animation speed
 const animationSpeedArray = [1000, 800, 600, 400, 240, 200, 160, 120, 80, 80];
@@ -109,7 +110,7 @@ const AnimationScreen = () => {
   } else if (isBucketSort(visualizerAlgorithm)) {
     return (
       <div className="spaced-out-container">
-        <RadixSortScreen />
+        <BucketSortScreen />
       </div>
     );
   } else if (isMergeSort(visualizerAlgorithm)) {

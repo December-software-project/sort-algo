@@ -1,30 +1,51 @@
 import insertionSort from './insertionSort';
 
 const bucketSort = (arr) => {
-  let buckets = [];
   const totalSlots = 10;
-
-  for (let i = 0; i < totalSlots; i++) {
-    buckets[i] = [];
+  let buckets = [...Array(totalSlots)].map(() => []);
+  let animationArr = [];
+  let id = 0;
+  for (const item of arr) {
+    const location = Math.floor(totalSlots * item.height);
+    animationArr.push({
+      id: id,
+      height: item.height,
+      isShown: true,
+      location: location,
+      isDistributing: true,
+    });
+    id++;
+    buckets[location].push(item);
   }
 
-  for (let i = 0; i < arr.length; i++) {
-    // const current = arr[i];
-    // const bucket_idx = Math.floor(totalSlots * current);
-    // buckets[bucket_idx].push(current);
+  // Sort all arrays in buckets
+  for (let i = 0; i < totalSlots; i++) {
+    // Signify start of sort
+    animationArr.push({
+      isSort: true,
+      location: i,
+    });
+    // Execute insertion sort animations
+    animationArr.push(insertionSort(buckets[i]));
   }
 
-  for (let i = 0; i < totalSlots; i++) {
-    insertionSort(buckets[i]);
-  }
-
-  let index = 0;
-  for (let i = 0; i < totalSlots; i++) {
-    for (let j = 0; j < buckets[i].length; j++) {
-      arr[index] = buckets[i][j];
-      index += 1;
+  // Restore element back into array
+  id = 0;
+  let location = 0;
+  for (const array of buckets) {
+    for (const item of array) {
+      animationArr.push({
+        id: id,
+        height: item.height,
+        isShown: true,
+        location: location,
+        isDistributing: false,
+      });
+      id++;
     }
+    location++;
   }
+  return animationArr;
 };
 
 export default bucketSort;

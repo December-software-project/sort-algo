@@ -3,7 +3,7 @@ import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-import { arrayCopy, generateArray } from '../../../util/GeneralUtil';
+import { arrayCopy, generateArray, isRadixOrBucket } from '../../../util/GeneralUtil';
 import { buckets } from '../../../util/CountingSortUtil';
 import './styles.css';
 import { stack } from '../../../util/RadixSortUtil';
@@ -21,6 +21,7 @@ const AlgorithmChooser = () => {
     setIsReset,
     setCountArr,
     setStackArr,
+    changeDataSize,
   } = useContext(VisualizerStateContext);
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
   const listOfAlgorithm = [
@@ -43,6 +44,10 @@ const AlgorithmChooser = () => {
       if (isInMidstOfSort) {
         setIsInMidstOfSort(false);
       }
+      // if (isRadixOrBucket(algorithmName)) {
+      //   changeDataSize(10);
+      //   return;
+      // }
       setIsReplay(false);
       setIsReset(true);
       setArrayData(generateArray(dataSize, algorithmName));

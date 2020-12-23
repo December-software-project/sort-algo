@@ -14,9 +14,10 @@ import {
   getAnimationArr,
   isCountingSort,
   isMergeSort,
-  isNeitherRadixNorBucket,
+  isRadixOrBucket,
   isQuickSort,
   isRadixSort,
+  isBucketSort,
   resetArray,
   roundToTwoDp,
   translateXOfVisualizer,
@@ -37,6 +38,7 @@ import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
 import StepByStep from './component/stepbystep/StepByStep';
 import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
+import { executeBucketSort } from './util/BucketSortUtil';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -89,6 +91,8 @@ const Visualizer = () => {
       executeCountSort(currentAnimation, referenceArray, animationPx, countArr, true);
     } else if (isRadixSort(visualizerAlgorithm)) {
       executeRadixSort(currentAnimation, referenceArray, stackArr, true);
+    } else if (isBucketSort(visualizerAlgorithm)) {
+      executeBucketSort(currentAnimation, referenceArray, stackArr, true);
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = handleMergeSort(referenceArray, currentAnimation);
       historyArr.push(referenceArray);
@@ -136,6 +140,8 @@ const Visualizer = () => {
       executeCountSort(currentAnimation, referenceArray, animationPx, countArr, false);
     } else if (isRadixSort(visualizerAlgorithm)) {
       executeRadixSort(currentAnimation, referenceArray, stackArr, false);
+    } else if (isBucketSort(visualizerAlgorithm)) {
+      executeBucketSort(currentAnimation, referenceArray, stackArr, false);
     } else if (isMergeSort(visualizerAlgorithm)) {
       let nextReferenceArray = historyArr.pop();
       setHistoryArr(historyArr);
@@ -187,6 +193,7 @@ const Visualizer = () => {
     stackArr,
     isInMidstOfSort,
     dataSize,
+    changeDataSize,
     visualizerAlgorithm,
     animationPercentage,
     idx,
@@ -220,7 +227,7 @@ const Visualizer = () => {
             className="visualizer-box"
             style={{
               transform:
-                !isNeitherRadixNorBucket(visualizerAlgorithm) &&
+                !isRadixOrBucket(visualizerAlgorithm) &&
                 `translateX(-${translateXOfVisualizer(dataSize)}px)`,
             }}
           >
