@@ -86,24 +86,24 @@ const Visualizer = () => {
     let nextReferenceArray;
     if (isCountingSort(visualizerAlgorithm)) {
       nextReferenceArray = executeCountSort(
-        animationArrSwapIdx,
+        currentAnimation,
         referenceArray,
         animationPx,
         countArr,
         true
       );
     } else if (isRadixSort(visualizerAlgorithm)) {
-      nextReferenceArray = executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, true);
+      nextReferenceArray = executeRadixSort(currentAnimation, referenceArray, stackArr, true);
     } else if (isMergeSort(visualizerAlgorithm)) {
       nextReferenceArray = executeMergeSortForward(
-        animationArrSwapIdx,
+        currentAnimation,
         referenceArray,
         historyArr,
         setReferenceArray
       );
     } else if (isQuickSort(visualizerAlgorithm)) {
       nextReferenceArray = executeQuickSort(
-        animationArrSwapIdx,
+        currentAnimation,
         referenceArray,
         visualizerAlgorithm,
         setReferenceArray
@@ -111,7 +111,7 @@ const Visualizer = () => {
     } else {
       // Generic Sort refers to Insertion, Bubble, Selection, Shell Sort
       nextReferenceArray = executeGenericSort(
-        animationArrSwapIdx,
+        currentAnimation,
         referenceArray,
         visualizerAlgorithm,
         setReferenceArray
@@ -135,20 +135,15 @@ const Visualizer = () => {
     const animationPx = roundToTwoDp(((idx - 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
-      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, false);
+      executeCountSort(currentAnimation, referenceArray, animationPx, countArr, false);
     } else if (isRadixSort(visualizerAlgorithm)) {
-      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, false);
+      executeRadixSort(currentAnimation, referenceArray, stackArr, false);
     } else if (isMergeSort(visualizerAlgorithm)) {
       executeMergeSortBackward(historyArr, setReferenceArray);
     } else if (isQuickSort(visualizerAlgorithm)) {
-      executeQuickSort(animationArrSwapIdx, referenceArray, visualizerAlgorithm, setReferenceArray);
+      executeQuickSort(currentAnimation, referenceArray, visualizerAlgorithm, setReferenceArray);
     } else {
-      executeGenericSort(
-        animationArrSwapIdx,
-        referenceArray,
-        visualizerAlgorithm,
-        setReferenceArray
-      );
+      executeGenericSort(currentAnimation, referenceArray, visualizerAlgorithm, setReferenceArray);
     }
 
     if (idx === animationArr.length) {

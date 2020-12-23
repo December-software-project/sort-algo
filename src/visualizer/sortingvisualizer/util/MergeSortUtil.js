@@ -12,12 +12,12 @@ export const findIndexToUseInMergeSort = (newTempArr, iIdx, jIdx) => {
 };
 
 export const executeMergeSortForward = (
-  animationArrSwapIdx,
+  currentAnimation,
   referenceArray,
   historyArr,
   setReferenceArray
 ) => {
-  let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
+  let nextReferenceArray = handleMergeSort(referenceArray, currentAnimation);
   historyArr.push(referenceArray);
   setReferenceArray(nextReferenceArray);
   return nextReferenceArray;
@@ -28,15 +28,15 @@ export const executeMergeSortBackward = (historyArr, setReferenceArray) => {
 };
 
 // Merge sort
-export const handleMergeSort = (referenceArray, animationArrSwapIdx) => {
+export const handleMergeSort = (referenceArray, currentAnimation) => {
   let dataSize = referenceArray.length;
   let width = 800 / dataSize;
   let newTempArr = arrayCopy(referenceArray);
-  let isShift = animationArrSwapIdx[2];
-  let iIdx = animationArrSwapIdx[0];
-  let jIdx = animationArrSwapIdx[1];
-  let kIdx = animationArrSwapIdx[3];
-  let isReset = animationArrSwapIdx[4];
+  let isShift = currentAnimation[2];
+  let iIdx = currentAnimation[0];
+  let jIdx = currentAnimation[1];
+  let kIdx = currentAnimation[3];
+  let isReset = currentAnimation[4];
   let idxToUse = findIndexToUseInMergeSort(newTempArr, iIdx, jIdx);
   // is Shift true represents moving down, false means moving back up to the desired position.
   if (isShift) {

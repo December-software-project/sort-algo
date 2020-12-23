@@ -1,15 +1,15 @@
 import { executeSwap } from './SwappingAlgoUtil';
 
 export const executeQuickSort = (
-  animationArrSwapIdx,
+  currentAnimation,
   referenceArray,
   visualizerAlgorithm,
   setReferenceArray
 ) => {
-  let firstIdx = animationArrSwapIdx[1];
-  let secondIdx = animationArrSwapIdx[0];
-  let pivotIdx = animationArrSwapIdx[3];
-  let isSwapOccurring = animationArrSwapIdx[2];
+  let firstIdx = currentAnimation[1];
+  let secondIdx = currentAnimation[0];
+  let pivotIdx = currentAnimation[3];
+  let isSwapOccurring = currentAnimation[2];
   let arrToUse = executeSwapWithPivot(
     firstIdx,
     secondIdx,

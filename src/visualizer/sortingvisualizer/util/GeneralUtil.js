@@ -116,14 +116,14 @@ export const translateXOfVisualizer = (dataSize) => {
 };
 
 export const executeGenericSort = (
-  animationArrSwapIdx,
+  currentAnimation,
   referenceArray,
   visualizerAlgorithm,
   setReferenceArray
 ) => {
-  let firstIdx = animationArrSwapIdx[0];
-  let secondIdx = animationArrSwapIdx[1];
-  let isSwapOccurring = animationArrSwapIdx[2];
+  let firstIdx = currentAnimation[0];
+  let secondIdx = currentAnimation[1];
+  let isSwapOccurring = currentAnimation[2];
   let arrToUse = executeSwap(
     firstIdx,
     secondIdx,
