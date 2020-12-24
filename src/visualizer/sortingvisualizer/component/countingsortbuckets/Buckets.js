@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import '../block/styles.css';
-import './buckets.css';
+import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 import { translateXOfVisualizer } from '../../util/GeneralUtil';
 

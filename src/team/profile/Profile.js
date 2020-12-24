@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import 'intersection-observer';
 import IsVisible from 'react-is-visible';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Profile = ({ img, name, description, linkedInLink, gitHubLink }) => {
   const HeaderLineStyling = (isVisible) => ({
@@ -18,10 +18,10 @@ const Profile = ({ img, name, description, linkedInLink, gitHubLink }) => {
           <div className="profile-description-container">
             <p className="profile-title">{name}</p>
             <p className="profile-description">{description}</p>
-            <a href={linkedInLink}>
+            <a href={linkedInLink} target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={23} color={'#0e76a8'} />
             </a>
-            <a href={gitHubLink} className="github-logo">
+            <a href={gitHubLink} target="_blank" rel="noopener noreferrer" className="github-logo">
               <FaGithub size={23} color={'#211F1F'} />
             </a>
           </div>

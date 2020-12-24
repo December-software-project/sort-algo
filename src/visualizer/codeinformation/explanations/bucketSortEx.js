@@ -18,6 +18,7 @@ const BucketSort = {
   worstSpace: 'N',
   stable: true,
   inPlace: false,
+  link: 'https://www.geeksforgeeks.org/bucket-sort-2/',
 };
 
 export default BucketSort;

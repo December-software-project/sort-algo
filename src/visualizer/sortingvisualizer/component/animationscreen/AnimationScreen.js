@@ -2,10 +2,17 @@ import React, { useContext, useEffect } from 'react';
 import { useTransition } from 'react-spring';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { arrayCopy, isCountingSort, isMergeSort, isRadixSort } from '../../util/GeneralUtil';
+import {
+  arrayCopy,
+  isBucketSort,
+  isCountingSort,
+  isMergeSort,
+  isRadixSort,
+} from '../../util/GeneralUtil';
 import { animationSpeedArray, mergeSortAnimationSpeedArray } from '../../util/AnimationScreenUtil';
 import CountingSortScreen from './CountingSortScreen';
 import RadixSortScreen from './RadixSortScreen';
+import BucketSortScreen from './BucketSortScreen';
 import MergeSortScreen from './MergeSortScreen';
 import GenericSortScreen from './GenericSortScreen';
 
@@ -80,6 +87,8 @@ const AnimationScreen = () => {
     return <CountingSortScreen transitions={transitions} dataSize={dataSize} length={length} />;
   } else if (isRadixSort(visualizerAlgorithm)) {
     return <RadixSortScreen />;
+  } else if (isBucketSort(visualizerAlgorithm)) {
+    return <BucketSortScreen />;
   } else if (isMergeSort(visualizerAlgorithm)) {
     return <MergeSortScreen transitions={transitions} dataSize={dataSize} length={length} />;
   } else {

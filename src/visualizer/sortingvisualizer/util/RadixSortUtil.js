@@ -25,6 +25,18 @@ export const generateRandomValue = () => {
   }
 };
 
+export const generateRadixSortArray = (size) => {
+  let array = [];
+  for (let i = 0; i < size; i++) {
+    array.push({
+      id: i,
+      height: generateRandomValue(),
+      isShown: true,
+    });
+  }
+  return array;
+};
+
 export const executeRadixSort = (currentAnimation, referenceArray, stackArr, isForward) => {
   const index = currentAnimation.id;
   const isDistributing = currentAnimation.isDistributing;

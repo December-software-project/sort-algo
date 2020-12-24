@@ -1,4 +1,4 @@
-// Explanation adapted from https://www.geeksforgeeks.org/bubble-sort/.
+// Explanation adapted from https://www.geeksforgeeks.org/counting-sort/
 const CountingSort = {
   name: 'Counting',
   description:
@@ -13,6 +13,7 @@ const CountingSort = {
   worstSpace: 'N + k',
   stable: true,
   inPlace: false,
+  link: 'https://www.geeksforgeeks.org/counting-sort/',
 };
 
 export default CountingSort;

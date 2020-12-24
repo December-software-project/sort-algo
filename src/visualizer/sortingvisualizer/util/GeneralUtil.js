@@ -1,15 +1,20 @@
 import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import SortingAlgorithmsStepByStep from '../../algorithm/stepbysteptemplate/allSortsStepByStep';
-import { generateRandomValue } from './RadixSortUtil';
-import { executeSwap } from './SwappingAlgoUtil';
+import { generateRadixSortArray } from './RadixSortUtil';
+import { generateBucketSortArray } from './BucketSortUtil';
+import { generateCountSortArray } from './CountingSortUtil';
+import { generateMergeSortArray } from './MergeSortUtil';
 
 // General array util
 export const resetArray = (algo, arr) => {
+  if (isRadixOrBucket(algo)) {
+    return arrayCopy(arr);
+  }
+
   return arrayCopy(arr).map((x) => {
     let tempArrElement = x;
     if (isCountingSort(algo)) {
       tempArrElement.isShown = true;
-    } else if (isRadixSort(algo)) {
     } else if (isMergeSort(algo)) {
       tempArrElement.isShift = false;
     } else {
@@ -28,8 +33,11 @@ export const getAnimationArr = (algo, arrayData) => {
   return sortAlgo(arrayCopy(arrayData));
 };
 
-export const getStepByStepText = (algo, animationArr, idx, referenceArray) => {
+export const getStepByStepText = (algo, animationArr, idx, referenceArray, stackArr) => {
   const sortAlgoStepByStep = SortingAlgorithmsStepByStep[algo];
+  if (isBucketSort(algo)) {
+    return sortAlgoStepByStep(animationArr, idx, stackArr);
+  }
   return sortAlgoStepByStep(animationArr, idx, referenceArray);
 };
 
@@ -43,6 +51,18 @@ export const roundToTwoDp = (num) => {
   return +(Math.round(num + 'e+2') + 'e-2');
 };
 
+const arrayGenerator = {
+  'Insertion Sort': (size) => generateDefaultArray(size),
+  'Bubble Sort': (size) => generateDefaultArray(size),
+  'Quick Sort': (size) => generateDefaultArray(size),
+  'Shell Sort': (size) => generateDefaultArray(size),
+  'Selection Sort': (size) => generateDefaultArray(size),
+  'Merge Sort': (size) => generateMergeSortArray(size),
+  'Counting Sort': (size) => generateCountSortArray(size),
+  'Radix Sort': (size) => generateRadixSortArray(size),
+  'Bucket Sort': (size) => generateBucketSortArray(size),
+};
+
 /**
  * Generates a random array based on the size chosen and the algorithm selected.
  * @param size Size of array data.
@@ -50,42 +70,17 @@ export const roundToTwoDp = (num) => {
  * @returns {[]} Random array generated.
  */
 export const generateArray = (size, visualizerAlgorithm) => {
+  return arrayGenerator[visualizerAlgorithm](size);
+};
+
+const generateDefaultArray = (size) => {
   let array = [];
-  if (isCountingSort(visualizerAlgorithm)) {
-    for (let i = 0; i < size; i++) {
-      array.push({
-        id: i,
-        height: generateValue(1, 9),
-        isShown: true,
-      });
-    }
-  } else if (isRadixSort(visualizerAlgorithm)) {
-    for (let i = 0; i < size; i++) {
-      array.push({
-        id: i,
-        height: generateRandomValue(),
-        isShown: true,
-      });
-    }
-  } else if (isMergeSort(visualizerAlgorithm)) {
-    for (let i = 0; i < size; i++) {
-      array.push({
-        xDirection: i * 10,
-        pos: i,
-        prevPos: i,
-        height: generateValue(1, 9),
-        isShift: false,
-        id: i,
-      });
-    }
-  } else {
-    for (let i = 0; i < size; i++) {
-      array.push({
-        id: i,
-        height: generateValue(5, 20),
-        isSwap: false,
-      });
-    }
+  for (let i = 0; i < size; i++) {
+    array.push({
+      id: i,
+      height: generateValue(5, 20),
+      isSwap: false,
+    });
   }
   return array;
 };
@@ -93,11 +88,14 @@ export const generateArray = (size, visualizerAlgorithm) => {
 // Conditionals
 export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Counting Sort';
 export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Radix Sort';
+export const isBucketSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Bucket Sort';
+export const isRadixOrBucket = (visualizerAlgorithm) =>
+  isRadixSort(visualizerAlgorithm) || isBucketSort(visualizerAlgorithm);
 export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
 export const isSelectionSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Selection Sort';
 export const isQuickSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Quick Sort';
 
-export const isSwapInvolvedSort = (visualizerAlgorithm) =>
+export const hasLegend = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Bubble Sort' ||
   visualizerAlgorithm === 'Insertion Sort' ||
   visualizerAlgorithm === 'Selection Sort' ||
@@ -113,24 +111,4 @@ export const translateXOfVisualizer = (dataSize) => {
     return (dataSize - 12) * singleBlockWidth;
   }
   return 0;
-};
-
-export const executeGenericSort = (
-  currentAnimation,
-  referenceArray,
-  visualizerAlgorithm,
-  setReferenceArray
-) => {
-  let firstIdx = currentAnimation[0];
-  let secondIdx = currentAnimation[1];
-  let isSwapOccurring = currentAnimation[2];
-  let arrToUse = executeSwap(
-    firstIdx,
-    secondIdx,
-    referenceArray,
-    isSwapOccurring,
-    visualizerAlgorithm
-  );
-  setReferenceArray(arrToUse);
-  return arrToUse;
 };

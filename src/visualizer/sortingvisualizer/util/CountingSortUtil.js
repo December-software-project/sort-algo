@@ -1,4 +1,6 @@
 // Fixed array for counting sort
+import { generateValue } from './GeneralUtil';
+
 export const buckets = [
   { height: 1, count: 0 },
   { height: 2, count: 0 },
@@ -10,6 +12,18 @@ export const buckets = [
   { height: 8, count: 0 },
   { height: 9, count: 0 },
 ];
+
+export const generateCountSortArray = (size) => {
+  let array = [];
+  for (let i = 0; i < size; i++) {
+    array.push({
+      id: i,
+      height: generateValue(1, 9),
+      isShown: true,
+    });
+  }
+  return array;
+};
 
 // Function to execute the counting sort animation
 export const executeCountSort = (
