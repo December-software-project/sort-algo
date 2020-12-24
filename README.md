@@ -8,7 +8,7 @@
 Welcome to Sort-Algo, a sorting visualiser app which helps you to learn and understand sorting algorithms through interacting animations as well as explanations. <br />
 <br />
 We built this app as we feel that usually when learning sorting algorithms, there is a lack of visual representation, and hence would like to help future students who are learning these sorting algorithms to have a way to visualize such algorithms with step by step explanation. We hope that you enjoy learning and playing around with this visualization tool.
-Check out our app [here!](https://algosort.netlify.app/).
+Check out our app [here!](https://algosort.netlify.app/)
 
 ## Project structure
 The current project structure and its important directories are shown below:
