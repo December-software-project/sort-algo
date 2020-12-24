@@ -1,4 +1,4 @@
-import bubbleSort from '../../../../app/visualizer/algorithm/sortingalgorithms/bubbleSort';
+import bubbleSort from '../../../../visualizer/algorithm/sortingalgorithms/bubbleSort';
 
 test('Empty Array', () => {
   const arr = [];
