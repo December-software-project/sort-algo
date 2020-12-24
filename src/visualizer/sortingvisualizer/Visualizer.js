@@ -222,9 +222,7 @@ const Visualizer = () => {
               <DataSizeSelector setData={(val) => changeDataSize(val)} {...DataSizeSelectorProps} />
             </div>
             <ButtonBox />
-            <div className="legend-box">
-              <Legend />
-            </div>
+            <Legend />
           </div>
         </div>
       </VisualizerStateContext.Provider>

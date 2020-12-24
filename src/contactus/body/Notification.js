@@ -4,6 +4,13 @@ import { Alert } from '@material-ui/lab';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
+/**
+ * A pop-up notification on the bottom left-hand corner to indicate that message is being sent.
+ *
+ * @param isShowMessage Boolean value of whether to show the message notification.
+ * @param setIsShowMessage A setter which changes the state of isShowMessage.
+ * @returns {JSX.Element} A notification which appears at the bottom left-hand corner.
+ */
 const Notification = ({ isShowMessage, setIsShowMessage }) => {
   const styles = makeStyles((theme) => ({
     root: {
@@ -14,6 +21,10 @@ const Notification = ({ isShowMessage, setIsShowMessage }) => {
 
   const useStyles = styles();
 
+  /**
+   * Handle the close event of the notification. Blocks all other method of closing except when
+   * clicking the cross button.
+   */
   const handleClose = (event, reason) => {
     // to prevent users from clicking elsewhere to close the notification
     if (reason === 'clickaway') return;

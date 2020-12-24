@@ -8,6 +8,9 @@ import mergeSort from './mergeSort';
 import selectionSort from './selectionSort';
 import shellSort from './shellSort';
 
+/**
+ * An Object component that is used to access the sorting method.
+ */
 const SortingAlgorithms = {
   'Insertion Sort': insertionSort,
   'Bubble Sort': bubbleSort,

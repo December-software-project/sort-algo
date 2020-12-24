@@ -6,6 +6,9 @@ import { countingSortStepByStep } from './countingSortStepByStep';
 import { radixSortStepByStep } from './radixSortStepByStep';
 import { bucketSortStepByStep } from './bucketSortStepByStep';
 
+/**
+ * An Object component that is used to access the sorting method step by step template.
+ */
 const SortingAlgorithmsStepByStep = {
   'Insertion Sort': genericSwapStepByStep,
   'Bubble Sort': genericSwapStepByStep,
