@@ -19,12 +19,11 @@ SortAlgo
 └─src/
   └─__test__/
   └─app/
-    └─component/
-    └─contactus/
-    └─home/
-    └─howitworks/
-    └─team/
-    └─visualizer/
-    └─App
-    └─index
+  └─component/
+  └─contactus/
+  └─home/
+  └─howitworks/
+  └─team/
+  └─visualizer/
+  └─index
 ```
