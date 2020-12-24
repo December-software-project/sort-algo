@@ -1,4 +1,4 @@
-import selectionSort from '../../../../app/visualizer/algorithm/sortingalgorithms/selectionSort';
+import selectionSort from '../../../../visualizer/algorithm/sortingalgorithms/selectionSort';
 
 test('Empty Array', () => {
   const arr = [];

@@ -1,4 +1,4 @@
-import mergeSort from '../../../../app/visualizer/algorithm/sortingalgorithms/mergeSort';
+import mergeSort from '../../../../visualizer/algorithm/sortingalgorithms/mergeSort';
 
 test('Empty Array', () => {
   const arr = [];

@@ -1,4 +1,4 @@
-import quickSort from '../../../../app/visualizer/algorithm/sortingalgorithms/quickSort';
+import quickSort from '../../../../visualizer/algorithm/sortingalgorithms/quickSort';
 
 test('Empty Array', () => {
   const arr = [];

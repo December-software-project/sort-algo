@@ -1,4 +1,4 @@
-import insertionSort from '../../../../app/visualizer/algorithm/sortingalgorithms/insertionSort';
+import insertionSort from '../../../../visualizer/algorithm/sortingalgorithms/insertionSort';
 
 test('Empty Array', () => {
   const arr = [];
