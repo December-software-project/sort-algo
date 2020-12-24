@@ -1,0 +1,11 @@
+.code {
+  align-content: center;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 2.5fr;
+  justify-items: start;
+  margin-left: 4%;
+  margin-top: 4%;
+  padding: 0 20px 40px;
+  transform: translateX(3vw);
+}

@@ -11,36 +11,49 @@ export const quickSortStepByStep = (animationArr, idx, referenceArray) => {
   let secondIdxVal = referenceArray[secondIdx].height;
   let pivotIdx = animationArrSwapIdx[3];
   let pivotIdxVal = referenceArray[pivotIdx].height;
-  let comparisonTarget = animationArrSwapIdx[4];
+  let command = animationArrSwapIdx[4];
+  let indexOfSmallerElement = animationArrSwapIdx[5];
 
+  // when a swap occurs, it is either swapping two element while iterating, else, it is swapping
+  // the pivot to its position
+  let incJ = ` Now we increment the loop variable from ${secondIdx} to ${secondIdx + 1}.`;
+  let incI = `we increment the index of the smaller element from ${indexOfSmallerElement} to ${
+    indexOfSmallerElement + 1
+  }.`;
   if (isSwap) {
-    return `Since swap is true, swap ${secondIdxVal} and ${firstIdxVal}`;
+    if (command === 'iToJ') {
+      return (
+        `Since swap is true, we swap index of the smaller element, ${indexOfSmallerElement} with` +
+        ` value ${firstIdxVal}, with loop variable index ${secondIdx}, ` +
+        `with value ${secondIdxVal}.` +
+        incJ
+      );
+    }
+    return (
+      `Since we finish one iteration, we swap the pivot to next of index of smallest` +
+      `element ${firstIdx}`
+    );
+  }
+  // Comparison to determine if to increment both loop variable or just one
+  let comparisonStatement;
+  let swapStatement;
+  if (command === 'incI') {
+    comparisonStatement = `Since ${secondIdxVal} < pivot value ${pivotIdxVal}, `;
+    // if both index are the same, no need to set swap to true
+    if (secondIdx !== indexOfSmallerElement + 1) {
+      swapStatement = ` Since index of smaller element ${
+        indexOfSmallerElement + 1
+      } not equal to index of loop variable ${secondIdx}, Swap is set to true.`;
+    } else {
+      swapStatement = ` Since index of smaller element ${
+        indexOfSmallerElement + 1
+      } equal to index of loop variable ${secondIdx}, Swap is set to false.`;
+      swapStatement += incJ;
+    }
+    return comparisonStatement + incI + swapStatement;
   }
 
-  // Checking of swaps
-  if (comparisonTarget === 'iToJ') {
-    if (firstIdxVal > secondIdxVal) {
-      return `Since ${firstIdxVal} > ${secondIdxVal} swap is set to true`;
-    } else {
-      return `Since ${firstIdxVal} <= ${secondIdxVal}, no swap occurs`;
-    }
-  }
-
-  // Comparing to pivot
-  let message = `Comparing to a random pivot at index ${pivotIdx}, with value ${pivotIdxVal}\n`;
-
-  if (comparisonTarget === 'iToIdx') {
-    if (firstIdxVal < pivotIdxVal) {
-      message += `Since ${firstIdxVal} < ${pivotIdxVal}, increment the left index`;
-    } else {
-      message += `Since ${firstIdxVal} >= ${pivotIdxVal}, stop incrementing left index`;
-    }
-  } else if (comparisonTarget === 'jToIdx') {
-    if (secondIdxVal > pivotIdxVal) {
-      message += `Since ${secondIdxVal} > ${pivotIdxVal}, decrement the right index`;
-    } else {
-      message += `Since ${secondIdxVal} <= ${pivotIdxVal}, stop decrement the right index`;
-    }
-  }
-  return message;
+  comparisonStatement = `Since ${secondIdxVal} >= pivot value ${pivotIdxVal}, `;
+  swapStatement = `Swap is set to false`;
+  return comparisonStatement + swapStatement + incJ;
 };

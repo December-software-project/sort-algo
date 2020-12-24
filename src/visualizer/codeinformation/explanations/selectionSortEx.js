@@ -2,10 +2,10 @@
 const SelectionSort = {
   name: 'Selection',
   description:
-    'The selection sort algorithm sorts an array by repeatedly finding the minimum element ' +
+    'Selection Sort algorithm sorts an array by repeatedly finding the minimum element ' +
     '(considering ascending order) from unsorted part and putting it at the beginning. The ' +
-    'algorithm maintains two sub arrays, a subarray which is sorted and the remaining array which' +
-    'is unsorted',
+    'algorithm maintains two subarrays, a subarray which is sorted and the remaining array which' +
+    ' is unsorted',
   additionalDesc: '',
   worstTime: (
     <span>
@@ -25,6 +25,7 @@ const SelectionSort = {
   worstSpace: '1',
   stable: false,
   inPlace: true,
+  link: 'https://www.geeksforgeeks.org/selection-sort/',
 };
 
 export default SelectionSort;

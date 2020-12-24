@@ -18,25 +18,42 @@ export const generateRandomValue = () => {
   const randomVal = Math.random();
   if (randomVal < 0.1) {
     return generateValue(1, 9);
-  } else if (randomVal < 0.4) {
+  } else if (randomVal < 0.2) {
     return generateValue(10, 99);
   } else if (randomVal <= 1) {
     return generateValue(100, 999);
   }
 };
 
-export const executeRadixSort = (animationArrSwapIdx, referenceArray, stackArr, isForward) => {
-  const index = animationArrSwapIdx.id;
-  const isDistributing = animationArrSwapIdx.isDistributing;
+export const generateRadixSortArray = (size) => {
+  let array = [];
+  for (let i = 0; i < size; i++) {
+    array.push({
+      id: i,
+      height: generateRandomValue(),
+      isShown: true,
+    });
+  }
+  return array;
+};
+
+export const executeRadixSort = (currentAnimation, referenceArray, stackArr, isForward) => {
+  const index = currentAnimation.id;
+  const isDistributing = currentAnimation.isDistributing;
   const isDistributingAnimation = !(isForward ^ isDistributing);
 
   if (isDistributingAnimation) {
     referenceArray[index].isShown = false;
-    const location = animationArrSwapIdx.location;
-    stackArr[location].array.push(animationArrSwapIdx);
+    const location = currentAnimation.location;
+    if (isForward) {
+      stackArr[location].array.push(currentAnimation);
+    } else {
+      stackArr[location].array.unshift(currentAnimation);
+    }
   } else {
-    const location = animationArrSwapIdx.location;
-    referenceArray[index] = animationArrSwapIdx;
+    // Putting back into array
+    const location = currentAnimation.location;
+    referenceArray[index] = currentAnimation;
     referenceArray[index].isShown = true;
     if (isForward) {
       stackArr[location].array.shift();
@@ -44,4 +61,5 @@ export const executeRadixSort = (animationArrSwapIdx, referenceArray, stackArr, 
       stackArr[location].array.pop();
     }
   }
+  return referenceArray;
 };

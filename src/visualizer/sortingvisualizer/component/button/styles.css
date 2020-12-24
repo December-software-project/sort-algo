@@ -1,0 +1,11 @@
+.button-box {
+  display: flex;
+  flex: 3;
+  justify-content: center;
+}
+
+.play-reset-button-box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

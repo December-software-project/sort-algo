@@ -3,7 +3,7 @@ import LegendInformation from './LegendInformation';
 import LegendHeader from './LegendHeader';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { isSwapInvolvedSort, isMergeSort, isSelectionSort } from '../../util/GeneralUtil';
+import { hasLegend, isMergeSort, isSelectionSort } from '../../util/GeneralUtil';
 
 const Legend = () => {
   const { visualizerAlgorithm } = useContext(VisualizerStateContext);
@@ -28,18 +28,20 @@ const Legend = () => {
   ];
 
   return (
-    isSwapInvolvedSort(visualizerAlgorithm) && (
-      <div>
-        <div className="legend-header-box">
-          <LegendHeader />
+    <div className="legend-box">
+      {hasLegend(visualizerAlgorithm) && (
+        <div>
+          <div className="legend-header-box">
+            <LegendHeader />
+          </div>
+          <div className="legend-information-box">
+            {legendInformation.map(({ color, description }, index) => (
+              <LegendInformation color={color} description={description} key={index} />
+            ))}
+          </div>
         </div>
-        <div className="legend-information-box">
-          {legendInformation.map(({ color, description }, index) => (
-            <LegendInformation color={color} description={description} key={index} />
-          ))}
-        </div>
-      </div>
-    )
+      )}
+    </div>
   );
 };
 

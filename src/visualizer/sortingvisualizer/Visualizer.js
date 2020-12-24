@@ -1,41 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import ThreeStateButton from './component/button/threestatebutton/ThreeStateButton';
 import Legend from './component/legend/Legend';
-import VisualizerHeader from '../../component/header/SectionHeader';
+import SectionHeader from '../../component/header/SectionHeader';
 import AlgorithmSelector from './component/selectors/algorithmselector/AlgorithmSelector';
 import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
 import './styles.css';
-import CodeExplanation from '../codeinformation/codeexplaination/CodeExplanation';
-import CodeTemplate from '../codeinformation/codetemplate/CodeTemplate';
 import {
   arrayCopy,
   generateArray,
   getAnimationArr,
+  isBucketSort,
   isCountingSort,
   isMergeSort,
   isQuickSort,
+  isRadixOrBucket,
   isRadixSort,
   resetArray,
   roundToTwoDp,
   translateXOfVisualizer,
 } from './util/GeneralUtil';
-import { executeSwap } from './util/SwappingAlgoUtil';
-import { handleMergeSort } from './util/MergeSortUtil';
+import { executeGenericSort } from './util/SwappingAlgoUtil';
+import { executeMergeSortBackward, executeMergeSortForward } from './util/MergeSortUtil';
+import { executeQuickSort } from './util/QuickSortUtil';
 import { buckets, executeCountSort } from './util/CountingSortUtil';
 import { executeRadixSort, stack } from './util/RadixSortUtil';
-import { executeSwapWithPivot } from './util/QuickSortUtil';
-import NewDataButton from './component/button/newdatabutton/NewDataButton';
 import {
   DataSizeSelectorProps,
   SpeedSelectorProps,
 } from './component/selectors/sliderselector/SelectorProps';
 import AnimationProgressBar from './component/animationprogressbar/AnimationProgressBar';
-import BackButton from './component/button/forwardbackbutton/BackButton';
-import ForwardButton from './component/button/forwardbackbutton/ForwardButton';
 import AnimationScreen from './component/animationscreen/AnimationScreen';
 import StepByStep from './component/stepbystep/StepByStep';
 import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
+import { executeBucketSort } from './util/BucketSortUtil';
+import ButtonBox from './component/button/ButtonBox';
+import CodeInformation from '../codeinformation/CodeInformation';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
@@ -81,42 +80,47 @@ const Visualizer = () => {
   };
 
   const executeForwardAnimation = () => {
-    let animationArrSwapIdx = animationArr[idx];
+    let currentAnimation = animationArr[idx];
     const animationPx = roundToTwoDp(((idx + 1) / animationArr.length) * 100);
-
+    let nextReferenceArray;
     if (isCountingSort(visualizerAlgorithm)) {
-      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, true);
+      nextReferenceArray = executeCountSort(
+        currentAnimation,
+        referenceArray,
+        animationPx,
+        countArr,
+        true
+      );
     } else if (isRadixSort(visualizerAlgorithm)) {
-      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, true);
+      nextReferenceArray = executeRadixSort(currentAnimation, referenceArray, stackArr, true);
+    } else if (isBucketSort(visualizerAlgorithm)) {
+      nextReferenceArray = executeBucketSort(currentAnimation, referenceArray, stackArr, true);
     } else if (isMergeSort(visualizerAlgorithm)) {
-      let nextReferenceArray = handleMergeSort(referenceArray, animationArrSwapIdx);
-      historyArr.push(referenceArray);
-      setHistoryArr(historyArr);
-      setReferenceArray(nextReferenceArray);
+      nextReferenceArray = executeMergeSortForward(
+        currentAnimation,
+        referenceArray,
+        historyArr,
+        setReferenceArray
+      );
     } else if (isQuickSort(visualizerAlgorithm)) {
-      setReferenceArray(
-        executeSwapWithPivot(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
-          animationArrSwapIdx[3],
-          referenceArray,
-          animationArrSwapIdx[2],
-          visualizerAlgorithm
-        )
+      nextReferenceArray = executeQuickSort(
+        currentAnimation,
+        referenceArray,
+        visualizerAlgorithm,
+        setReferenceArray
       );
     } else {
-      let newReferenceArray = executeSwap(
-        animationArrSwapIdx[1],
-        animationArrSwapIdx[0],
+      // Generic Sort refers to Insertion, Bubble, Selection, Shell Sort
+      nextReferenceArray = executeGenericSort(
+        currentAnimation,
         referenceArray,
-        animationArrSwapIdx[2],
-        visualizerAlgorithm
+        visualizerAlgorithm,
+        setReferenceArray
       );
-      if (idx + 1 >= animationArr.length) {
-        resetDataWhenAnimationFinish(newReferenceArray);
-      } else {
-        setReferenceArray(newReferenceArray);
-      }
+    }
+
+    if (idx + 1 >= animationArr.length) {
+      resetDataWhenAnimationFinish(nextReferenceArray);
     }
     setIdx(idx + 1);
     setAnimationPercentage(animationPx);
@@ -128,38 +132,21 @@ const Visualizer = () => {
       setIdx(0);
       return;
     }
-    let animationArrSwapIdx = animationArr[idx - 1];
+    let currentAnimation = animationArr[idx - 1];
     const animationPx = roundToTwoDp(((idx - 1) / animationArr.length) * 100);
 
     if (isCountingSort(visualizerAlgorithm)) {
-      executeCountSort(animationArrSwapIdx, referenceArray, animationPx, countArr, false);
+      executeCountSort(currentAnimation, referenceArray, animationPx, countArr, false);
     } else if (isRadixSort(visualizerAlgorithm)) {
-      executeRadixSort(animationArrSwapIdx, referenceArray, stackArr, false);
+      executeRadixSort(currentAnimation, referenceArray, stackArr, false);
+    } else if (isBucketSort(visualizerAlgorithm)) {
+      executeBucketSort(currentAnimation, referenceArray, stackArr, false);
     } else if (isMergeSort(visualizerAlgorithm)) {
-      let nextReferenceArray = historyArr.pop();
-      setHistoryArr(historyArr);
-      setReferenceArray(nextReferenceArray);
+      executeMergeSortBackward(historyArr, setReferenceArray);
     } else if (isQuickSort(visualizerAlgorithm)) {
-      setReferenceArray(
-        executeSwapWithPivot(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
-          animationArrSwapIdx[3],
-          referenceArray,
-          animationArrSwapIdx[2],
-          visualizerAlgorithm
-        )
-      );
+      executeQuickSort(currentAnimation, referenceArray, visualizerAlgorithm, setReferenceArray);
     } else {
-      setReferenceArray(
-        executeSwap(
-          animationArrSwapIdx[1],
-          animationArrSwapIdx[0],
-          referenceArray,
-          animationArrSwapIdx[2],
-          visualizerAlgorithm
-        )
-      );
+      executeGenericSort(currentAnimation, referenceArray, visualizerAlgorithm, setReferenceArray);
     }
 
     if (idx === animationArr.length) {
@@ -186,6 +173,7 @@ const Visualizer = () => {
     stackArr,
     isInMidstOfSort,
     dataSize,
+    setDataSize,
     visualizerAlgorithm,
     animationPercentage,
     idx,
@@ -202,6 +190,7 @@ const Visualizer = () => {
     setReferenceArray,
     setCountArr,
     setStackArr,
+    setHistoryArr,
     executeForwardAnimation,
     executeBackwardAnimation,
     resetDataWhenAnimationFinish,
@@ -212,14 +201,14 @@ const Visualizer = () => {
       <VisualizerStateContext.Provider value={{ ...value }}>
         <div className="visualizer">
           <div className="visualizer-header-box">
-            <VisualizerHeader sectionHeader="Visualizer" translateX="translate(25px)" />
+            <SectionHeader sectionHeader="Visualizer" translateX="translate(25px)" />
             <AlgorithmSelector />
           </div>
           <div
             className="visualizer-box"
             style={{
               transform:
-                !isRadixSort(visualizerAlgorithm) &&
+                !isRadixOrBucket(visualizerAlgorithm) &&
                 `translateX(-${translateXOfVisualizer(dataSize)}px)`,
             }}
           >
@@ -232,24 +221,12 @@ const Visualizer = () => {
               <SpeedSelector setData={(val) => setSpeed(val)} {...SpeedSelectorProps} />
               <DataSizeSelector setData={(val) => changeDataSize(val)} {...DataSizeSelectorProps} />
             </div>
-            <div className="button-box">
-              <BackButton />
-              <div className="play-reset-button-box">
-                <ThreeStateButton />
-                <NewDataButton />
-              </div>
-              <ForwardButton />
-            </div>
-            <div className="legend-box">
-              <Legend />
-            </div>
+            <ButtonBox />
+            <Legend />
           </div>
         </div>
       </VisualizerStateContext.Provider>
-      <div className="code">
-        <CodeExplanation algo={visualizerAlgorithm} />
-        <CodeTemplate algo={visualizerAlgorithm} />
-      </div>
+      <CodeInformation visualizerAlgorithm={visualizerAlgorithm} />
     </div>
   );
 };

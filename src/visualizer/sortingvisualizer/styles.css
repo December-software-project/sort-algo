@@ -32,7 +32,7 @@
   flex-direction: column;
   flex-grow: 0;
   justify-content: center;
-  min-height: 675px;
+  min-height: 700px;
   width: 100%;
 }
 
@@ -43,39 +43,8 @@
   flex-direction: column;
 }
 
-.button-box {
-  display: flex;
-  flex: 3;
-  justify-content: center;
-}
-
-.legend-box {
-  display: flex;
-  flex: 4;
-  height: 100%;
-  justify-content: flex-start;
-}
-
-.code {
-  align-content: center;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 2.5fr;
-  justify-items: start;
-  margin-left: 4%;
-  margin-top: 4%;
-  padding: 0 20px 40px;
-  transform: translateX(3vw);
-}
-
 #visualizer {
   min-width: 100%;
   padding-bottom: 3%;
   width: 0;
-}
-
-.play-reset-button-box {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
 }
