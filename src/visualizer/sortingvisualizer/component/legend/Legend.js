@@ -28,18 +28,20 @@ const Legend = () => {
   ];
 
   return (
-    hasLegend(visualizerAlgorithm) && (
-      <div>
-        <div className="legend-header-box">
-          <LegendHeader />
+    <div className="legend-box">
+      {hasLegend(visualizerAlgorithm) && (
+        <div>
+          <div className="legend-header-box">
+            <LegendHeader />
+          </div>
+          <div className="legend-information-box">
+            {legendInformation.map(({ color, description }, index) => (
+              <LegendInformation color={color} description={description} key={index} />
+            ))}
+          </div>
         </div>
-        <div className="legend-information-box">
-          {legendInformation.map(({ color, description }, index) => (
-            <LegendInformation color={color} description={description} key={index} />
-          ))}
-        </div>
-      </div>
-    )
+      )}
+    </div>
   );
 };
 
