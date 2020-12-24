@@ -8,6 +8,11 @@ import emailjs from 'emailjs-com';
 import FormHolder from './FormHolder';
 import Notification from './Notification';
 
+/**
+ * A form for user to fill in their details.
+ *
+ * @returns {JSX.Element} A fill up form boxes.
+ */
 const Form = () => {
   const [type, setType] = useState('Type (Optional)');
   const [isShowMessage, setIsShowMessage] = useState(false);
@@ -20,10 +25,20 @@ const Form = () => {
     { type: 'Others', key: 4 },
   ];
 
+  /**
+   * Change the type of message.
+   *
+   * @param {String}
+   */
   const handleMenuClick = (type) => {
     setType(type);
   };
 
+  /**
+   * A drop down list to provide a list of types of message to choose from.
+   *
+   * @type {JSX.Element}
+   */
   const menu = (
     <Menu style={{ transform: 'translateY(-5px)' }}>
       {listOfTypes.map(({ type, key }) => {
@@ -36,6 +51,11 @@ const Form = () => {
     </Menu>
   );
 
+  /**
+   * Sends a message to the users and the developers upon the user sends a message.
+   *
+   * @param values User's details
+   */
   const sendMessage = (values) => {
     const message = {
       name: values.name,
@@ -48,6 +68,9 @@ const Form = () => {
       .then((r) => {});
   };
 
+  /**
+   * A Schema which checks the validity of the inputs from the user.
+   */
   const reviewSchema = yup.object({
     name: yup.string().required(),
     email: yup
