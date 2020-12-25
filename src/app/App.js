@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import HowItWorks from './howitworks/HowItWorks';
-import ContactUs from './contactus/ContactUs';
-import Home from './home/Home';
-import Team from './team/Team';
-import Visualizer from './visualizer/sortingvisualizer/Visualizer';
-import Logo from './component/logo/logo';
+import HowItWorks from '../howitworks/HowItWorks';
+import ContactUs from '../contactus/ContactUs';
+import Home from '../home/Home';
+import Team from '../team/Team';
+import Visualizer from '../visualizer/sortingvisualizer/Visualizer';
+import Logo from '../component/logo/logo';
 
 function App() {
   return (
