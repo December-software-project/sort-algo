@@ -7,7 +7,7 @@ import { swap } from '../../algorithm/sortingalgorithms/swap';
  *
  * @param firstIdx {number} The first block" or "oval" to be highlighted.
  * @param secondIdx {number} The second block" or "oval" to be highlighted.
- * @param arr {object[]} The array which the index at {@code firstIdx} and {@code secondIdx} 
+ * @param arr {object[]} The array which the index at {@code firstIdx} and {@code secondIdx}
  *        is highlighted
  */
 export const highlight = (firstIdx, secondIdx, arr) => {
@@ -20,11 +20,11 @@ export const highlight = (firstIdx, secondIdx, arr) => {
  *
  * @param firstIdx {number} The first index to be swapped in the array.
  * @param secondIdx {number} The second index to be swapped in the array.
- * @param arr {object[]} The array which the index at {@code firstIdx} and {@code secondIdx} 
+ * @param arr {object[]} The array which the index at {@code firstIdx} and {@code secondIdx}
  *        is swapped and highlighted or just highlighted.
  * @param isSwapOccurring {boolean} A boolean value denoting whether a swap will occur.
  * @param visualizerAlgorithm {string} The current algorithm of the visualizer.
- * @returns {object[]} A new Object array which has been been swap and highlighted or 
+ * @returns {object[]} A new Object array which has been been swap and highlighted or
  *          just highlighted.
  */
 export const executeSwap = (firstIdx, secondIdx, arr, isSwapOccurring, visualizerAlgorithm) => {

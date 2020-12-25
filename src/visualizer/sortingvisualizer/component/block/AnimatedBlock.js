@@ -3,7 +3,7 @@ import './styles.css';
 import { animated } from 'react-spring';
 
 /**
- * A block which animates to show the sorting animation. 
+ * A block which animates to show the sorting animation.
  *
  * @param item {object} The information of the block.
  * @param x {number} The displacement of the block.

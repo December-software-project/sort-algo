@@ -3,7 +3,7 @@ import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 
 /**
- * Animation screen which shows the Insertion, Bubble, Selection, Shell Sort algorithm. 
+ * Animation screen which shows the Insertion, Bubble, Selection, Shell Sort algorithm.
  *
  * @param transitions {object[]} An array which contains the animated blocks.
  * @param dataSize {number} The number of blocks.

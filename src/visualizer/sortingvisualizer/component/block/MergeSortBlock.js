@@ -4,7 +4,7 @@ import { animated } from 'react-spring';
 
 /**
  * A block which animates to show the merge sort algorithm.
- * 
+ *
  * @param item {object} The information of the block.
  * @param x {number} The displacement of the block.
  * @param rest {object} All other information of the props.
