@@ -99,6 +99,7 @@ const arrayGenerator = {
   'Bubble Sort': (size) => generateDefaultArray(size),
   'Quick Sort': (size) => generateDefaultArray(size),
   'Shell Sort': (size) => generateDefaultArray(size),
+  'Heap Sort': (size) => generateDefaultArray(size),
   'Selection Sort': (size) => generateDefaultArray(size),
   'Merge Sort': (size) => generateMergeSortArray(size),
   'Counting Sort': (size) => generateCountSortArray(size),

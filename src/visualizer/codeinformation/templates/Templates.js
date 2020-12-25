@@ -7,6 +7,7 @@ import CountingSort from './countingSortTemplate';
 import SelectionSort from './selectionSortTemplate';
 import MergeSort from './mergeSortTemplate';
 import ShellSort from './shellSortTemplate';
+import HeapSort from './heapSortTemplate';
 
 const templates = {
   'Bubble Sort': BubbleSort,
@@ -18,6 +19,7 @@ const templates = {
   'Selection Sort': SelectionSort,
   'Merge Sort': MergeSort,
   'Shell Sort': ShellSort,
+  'Heap Sort': HeapSort,
 };
 
 export default templates;
