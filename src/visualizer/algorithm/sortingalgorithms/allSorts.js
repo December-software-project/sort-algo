@@ -7,6 +7,7 @@ import countingSort from './countingSort';
 import mergeSort from './mergeSort';
 import selectionSort from './selectionSort';
 import shellSort from './shellSort';
+import heapSort from './heapSort';
 
 /**
  * An Object component that is used to access the sorting method.
@@ -21,6 +22,7 @@ const SortingAlgorithms = {
   'Selection Sort': selectionSort,
   'Merge Sort': mergeSort,
   'Shell Sort': shellSort,
+  'Heap Sort': heapSort,
 };
 
 export default SortingAlgorithms;

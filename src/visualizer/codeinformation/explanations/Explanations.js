@@ -7,6 +7,7 @@ import CountingSort from './countingSortEx';
 import SelectionSort from './selectionSortEx';
 import MergeSort from './mergeSortEx';
 import ShellSort from './shellSortEx';
+import HeapSort from './heapSortEx';
 
 const explanations = {
   'Bubble Sort': BubbleSort,
@@ -18,6 +19,7 @@ const explanations = {
   'Selection Sort': SelectionSort,
   'Merge Sort': MergeSort,
   'Shell Sort': ShellSort,
+  'Heap Sort': HeapSort,
 };
 
 export default explanations;
