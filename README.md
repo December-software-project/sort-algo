@@ -27,3 +27,39 @@ SortAlgo
   └─visualizer/
   └─index
 ```
+
+## Features preview
+
+<img src="images/SortingVisualizer.png" />
+
+### Choose the algorithm you want
+
+There are a list of algorithms available as well as its complexity evaluations and code available in `Java`, `JavaScript`, `Python` and `C/C++`
+
+Available algorithms are:
+* Bubble Sort
+* Insertion Sort
+* Selection Sort
+* Merge Sort
+* Quick Sort
+* Heap Sort
+* Shell Sort
+* Counting Sort
+* Radix Sort
+* Bucket Sort
+
+### Adjust the speed of the visualizer and array size
+
+There are sliders to adjust the size and speed of the visualizer. The speed ranges from 1-10 and size ranges from 5-25 and 1-10 depending on the algorithm selected.
+
+### Start the animation
+
+There is a play button which starts the animation, however, at any point in time, you can also pause the animation. Once the animation is done, there is a replay button available.
+
+### Step-by-step
+
+There is a step-by-step feature provided whereby pressing the arrow buttons will allow you to execute the animation step by step to fully understand how the algorithm works.
+
+## Collaboration
+
+If you like this project, and wishes to contribute more to it, do give us some time to reply as we are might be busy with school work.
