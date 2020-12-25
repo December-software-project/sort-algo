@@ -2,9 +2,9 @@
 const ShellSort = {
   name: 'Shell',
   description:
-    'ShellSort is mainly a variation of Insertion Sort. The idea of ShellSort is to allow exchange ' +
+    'Shell Sort is mainly a variation of Insertion Sort. The idea of Shell Sort is to allow exchange ' +
     'of items far apart from each other, then progressively reducing the gap between elements ' +
-    'to be compared. In the last iteration of shell sort where gap equals 1, regular insertion sort ' +
+    'to be compared. In the last iteration of Shell Sort where gap equals 1, regular Insertion Sort ' +
     'is performed on the resultant array.',
   additionalDesc: '',
   worstTime: (
