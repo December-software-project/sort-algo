@@ -13,28 +13,19 @@ const heap_root = (arr, i) => {
   let left = 2 * i + 1;
   let right = 2 * i + 2;
   let max = i;
-  let isLeft = false;
 
   if (left < array_length && arr[left].height > arr[max].height) {
     max = left;
-    isLeft = true;
   }
 
   if (right < array_length && arr[right].height > arr[max].height) {
     max = right;
-    isLeft = false;
   }
 
-  if (max !== i) {
-    if (isLeft) {
-      animationArr.push([i, max, false]);
-      animationArr.push([i, max, true]);
-    }
+  animationArr.push([i, max, false, false]);
 
-    if (!isLeft) {
-      animationArr.push([i, max, false]);
-      animationArr.push([i, max, true]);
-    }
+  if (max !== i) {
+    animationArr.push([i, max, true, false]);
 
     swap(i, max, arr);
     heap_root(arr, max);
@@ -53,7 +44,7 @@ const heapSort = (arr) => {
 
   // Sorting the array by extracting the the element and placing at the end of the array
   for (let i = arr.length - 1; i > 0; i--) {
-    animationArr.push([0, i, true]);
+    animationArr.push([i, 0, true, true]);
     swap(0, i, receivedArr);
     array_length--;
 

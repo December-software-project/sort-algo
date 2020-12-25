@@ -27,3 +27,7 @@ export const TeamData = [
     gitHubUrl: 'https://github.com/Ashley-Lau',
   },
 ];
+export const TeamDescription =
+  'We are a group of highly motivated students from National ' +
+  'University of Singapore that are invested in the field of software engineering and algorithms.' +
+  ' Feel free to contact us to collaborate on interesting software engineering projects.';
