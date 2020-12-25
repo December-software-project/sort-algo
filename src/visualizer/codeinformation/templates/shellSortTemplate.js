@@ -3,11 +3,11 @@
 
 const ShellSort = {
   Java:
-    'int shellSort(int[] arr) { \n' +
+    'void shellSort(int[] arr) { \n' +
     '    int n = arr.length; \n' +
     '\n' +
     '    // Start with a big gap, then reduce the gap \n' +
-    '    for (int gap = n/2; gap > 0; gap /= 2) { \n' +
+    '    for (int gap = n / 2; gap > 0; gap /= 2) { \n' +
     '\n' +
     '    // Do a gapped insertion sort for this gap size \n' +
     '        for (int i = gap; i < n; i += 1) { \n' +
@@ -31,18 +31,18 @@ const ShellSort = {
     "  // Start with a really large gap, and then reduce the gap until there isn't any. \n" +
     '  // With this, the gap starts as half of the array length, and then half of that \n' +
     '  // every time \n' +
-    '  for (let gap = Math.floor(n/2); gap > 0; gap = Math.floor(gap/2)) { \n' +
+    '  for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) { \n' +
     '  \n' +
-    '    //Do a insertion sort for each of the section the gap ends up dividing \n' +
+    '    // Do a insertion sort for each of the section the gap ends up dividing \n' +
     '    for (let i = gap; i < n; i += 1) { \n' +
     '  \n' +
     '      // We store the current variable \n' +
     '      let temp = arr[i]; \n' +
     '  \n' +
-    '      // This is the insection sort to sort the section into order \n' +
+    '      // This is the insertion sort to sort the section into order \n' +
     '      let j; \n' +
-    '      for (j = i; j >= gap && arr[j-gap] > temp; j-=gap) { \n' +
-    '        arr[j] = arr[j-gap]; \n' +
+    '      for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) { \n' +
+    '        arr[j] = arr[j - gap]; \n' +
     '      }\n' +
     '      arr[j] = temp;\n' +
     '    } \n' +
@@ -54,18 +54,18 @@ const ShellSort = {
     '\n' +
     '    # Start with a big gap, then reduce the gap \n' +
     '    n = len(arr) \n' +
-    '    gap = n//2\n' +
+    '    gap = n // 2\n' +
     '\n' +
     '    # Do a gapped insertion sort for this gap size' +
     '    while gap > 0: \n' +
-    '        for i in range(gap,n): \n' +
+    '        for i in range(gap, n): \n' +
     '            temp = arr[i] \n' +
     '  \n' +
     '            # Shift earlier gap-sorted elements up until the correct \n' +
     '            # location for a[i] is found \n' +
     '            j = i \n' +
-    '            while  j >= gap and arr[j-gap] >temp: \n' +
-    '                arr[j] = arr[j-gap] \n' +
+    '            while  j >= gap and arr[j - gap] > temp: \n' +
+    '                arr[j] = arr[j - gap] \n' +
     '                j -= gap \n' +
     '  \n' +
     '            # Put temp (the original a[i]) in its correct location \n' +
@@ -75,9 +75,9 @@ const ShellSort = {
     'int shellSort(int arr[], int n) \n' +
     '{ \n' +
     '    // Start with a big gap, then reduce the gap \n' +
-    '    for (int gap = n/2; gap > 0; gap /= 2) \n' +
+    '    for (int gap = n / 2; gap > 0; gap /= 2) \n' +
     '    { \n' +
-    '        // Do a gapped insertion sort for this gap size. \n' +
+    '        // Do a gapped insertion sort for this gap size \n' +
     '        for (int i = gap; i < n; i += 1) \n' +
     '        { \n' +
     '            int temp = arr[i]; \n' +
@@ -85,10 +85,11 @@ const ShellSort = {
     '            // Shift earlier gap-sorted elements up until the correct  \n' +
     '            // location for a[i] is found \n' +
     '            int j; \n' +
-    '            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) \n' +
+    '            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {\n' +
     '                arr[j] = arr[j - gap]; \n' +
-    '              \n' +
-    '            //  Put temp (the original a[i]) in its correct location \n' +
+    '            } \n' +
+    '  \n' +
+    '            // Put temp (the original a[i]) in its correct location \n' +
     '            arr[j] = temp; \n' +
     '        } \n' +
     '    } \n' +

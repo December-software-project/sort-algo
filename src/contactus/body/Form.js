@@ -28,7 +28,7 @@ const Form = () => {
   /**
    * Change the type of message.
    *
-   * @param {string} type
+   * @param {string} type Type of input form.
    */
   const handleMenuClick = (type) => {
     setType(type);

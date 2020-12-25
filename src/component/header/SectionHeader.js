@@ -14,7 +14,7 @@ const SectionHeader = ({ sectionHeader, translateX }) => {
   /**
    * Animates the header to the center.
    *
-   * @param isVisible Boolean value denoting whether the component is visible in user's view port.
+   * @param isVisible boolean value denoting whether the component is visible in user's view port.
    * @returns {{transform: string, transition: string}} Inline-styling for animation.
    */
   const HeaderStyling = (isVisible) => ({
