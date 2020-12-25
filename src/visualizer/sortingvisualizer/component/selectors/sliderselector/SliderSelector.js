@@ -5,6 +5,15 @@ import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
 import { isRadixOrBucket } from '../../../util/GeneralUtil';
 
+/**
+ * A generic component for the slider.
+ *
+ * @param setData {function} A method to change the data upon sliding.
+ * @param min {number} The minimum value for the slider.
+ * @param max {number} The maximum value for the slider.
+ * @param name {string} The name to be displayed for the slider.
+ * @returns {JSX.Element} A slider component that is bounded by {@code min} and {@code max}.
+ */
 const SliderSelector = ({ setData, min, max, name }) => {
   const { isPlay, visualizerAlgorithm } = useContext(VisualizerStateContext);
 

@@ -1,5 +1,14 @@
 import { executeSwap } from './SwappingAlgoUtil';
 
+/**
+ * A sorting execution for Quick Sort.
+ *
+ * @param currentAnimation {any[]} The current animation to be executed.
+ * @param referenceArray {object[]} The array holding data for the "blocks".
+ * @param visualizerAlgorithm {string} The current algorithm of the visualizer.
+ * @param setReferenceArray {function} A set state method for reference array.
+ * @returns {Object[]} The resultant array upon the swap animation.
+ */
 export const executeQuickSort = (
   currentAnimation,
   referenceArray,
@@ -22,8 +31,26 @@ export const executeQuickSort = (
   return arrToUse;
 };
 
-export const executeSwapWithPivot = (firstIdx, secondIdx, pivotIdx, arr, isSwapOccurring, algo) => {
-  let newTempArr = executeSwap(firstIdx, secondIdx, arr, isSwapOccurring, algo);
+/**
+ *  A sorting execution for Quick Sort
+ *
+ * @param firstIdx {number} The first index to be swapped
+ * @param secondIdx {number} The second index to be swapped
+ * @param pivotIdx {number} The pivot index that is being compared to
+ * @param arr {object[]} The array which the index at {@code firstIdx} and {@code secondIdx} is swapped
+ * @param isSwapOccurring {boolean} A boolean value denoting whether a swap will occur
+ * @param visualizerAlgorithm {string} The current algorithm of the visualizer
+ * @returns {object[]} A new Object array which has been been swap and highlighted or just highlighted
+ */
+export const executeSwapWithPivot = (
+  firstIdx,
+  secondIdx,
+  pivotIdx,
+  arr,
+  isSwapOccurring,
+  visualizerAlgorithm
+) => {
+  let newTempArr = executeSwap(firstIdx, secondIdx, arr, isSwapOccurring, visualizerAlgorithm);
   newTempArr[pivotIdx].isSwap = true;
   return newTempArr;
 };

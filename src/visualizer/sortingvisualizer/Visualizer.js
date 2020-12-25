@@ -67,6 +67,11 @@ const Visualizer = () => {
     }
   }, [isPlay, speed, dataSize, visualizerAlgorithm, arrayData]);
 
+  /**
+   * Changes the number of "block" or "ovals" for the sorting animation.
+   *
+   * @param val {number} The number of "block" or "ovals" for sorting animation.
+   */
   const changeDataSize = (val) => {
     if (val !== dataSize) {
       setDataSize(val);
@@ -79,6 +84,9 @@ const Visualizer = () => {
     }
   };
 
+  /**
+   * Executes one step of the sorting animation, depending on the selected algorithm.
+   */
   const executeForwardAnimation = () => {
     let currentAnimation = animationArr[idx];
     const animationPx = roundToTwoDp(((idx + 1) / animationArr.length) * 100);
@@ -126,6 +134,9 @@ const Visualizer = () => {
     setAnimationPercentage(animationPx);
   };
 
+  /**
+   * Executes one step of the reverse in the sorting animation, depending on the sorting algorithm
+   */
   const executeBackwardAnimation = () => {
     // this occurs if the users click too fast
     if (idx - 1 < 0) {
@@ -156,12 +167,20 @@ const Visualizer = () => {
     setAnimationPercentage(animationPx);
   };
 
+  /**
+   * Resets the states of the "blocks" or "oval" when the sorting animation is done
+   *
+   * @param finalReferenceArray The end state of the array holding the states of each block.
+   */
   const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
     setIsReplay(true);
     setReferenceArray(resetArray(visualizerAlgorithm, finalReferenceArray));
   };
 
+  /**
+   * A object contains values to be passed around the other components via React's context
+   */
   const value = {
     isPlay,
     isReplay,

@@ -5,6 +5,9 @@ import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 import { hasLegend, isMergeSort, isSelectionSort } from '../../util/GeneralUtil';
 
+/**
+ * A legend which display information about the current sorting animation.
+ */
 const Legend = () => {
   const { visualizerAlgorithm } = useContext(VisualizerStateContext);
 

@@ -4,6 +4,9 @@ import { highlightOnesPlacing } from './NumberHighlighter';
 import StackOfBoxes from './StackOfBoxes';
 import './styles.css';
 
+/**
+ * Animation screen which shows the bucket sort algorithm.
+ */
 const BucketSortScreen = () => {
   const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);
 

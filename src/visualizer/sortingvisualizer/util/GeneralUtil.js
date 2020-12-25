@@ -9,8 +9,8 @@ import { generateMergeSortArray } from './MergeSortUtil';
  * Resets the array given.
  *
  * @param {string} algo Algorithm used.
- * @param {Object[]} arr Array to be reset.
- * @returns {Object[]} Array that has been reset.
+ * @param {object[]} arr Array to be reset.
+ * @returns {object[]} Array that has been reset.
  */
 export const resetArray = (algo, arr) => {
   if (isRadixOrBucket(algo)) {
@@ -33,8 +33,8 @@ export const resetArray = (algo, arr) => {
 /**
  * Creates a deep copy of the array.
  *
- * @param {Object[]} arr Array to be copied.
- * @returns {Object[]} Deep copy of the input array.
+ * @param {object[]} arr Array to be copied.
+ * @returns {object[]} Deep copy of the input array.
  */
 export const arrayCopy = (arr) => {
   return JSON.parse(JSON.stringify(arr));
@@ -43,27 +43,33 @@ export const arrayCopy = (arr) => {
 /**
  * Retrieves the animation array by based on the given array and algorithm selected.
  *
- * @param {string} algo Algorithm selected.
- * @param {Object[]} arrayData Given array.
+ * @param visualizerAlgorithm {string} The current algorithm of the visualizer.
+ * @param {object[]} arrayData Given array.
  */
-export const getAnimationArr = (algo, arrayData) => {
-  const sortAlgo = SortingAlgorithms[algo];
+export const getAnimationArr = (visualizerAlgorithm, arrayData) => {
+  const sortAlgo = SortingAlgorithms[visualizerAlgorithm];
   return sortAlgo(arrayCopy(arrayData));
 };
 
 /**
  * Gets the step by step text to display to the user.
  *
- * @param {*} algo Algorithm selected.
- * @param {*} animationArr Animation array.
- * @param {*} idx Index of animation.
- * @param {*} referenceArray Reference array of blocks displayed.
- * @param {*} stackArr Stack array, present only in bucket and radix sort.
- * @returns Step by step text generated.
+ * @param visualizerAlgorithm {string} The current algorithm of the visualizer.
+ * @param {object[]} animationArr Animation array.
+ * @param {number} idx Index of animation.
+ * @param {object[]} referenceArray Reference array of blocks displayed.
+ * @param {object[]} stackArr Stack array, present only in bucket and radix sort.
+ * @returns {string} Step by step text generated.
  */
-export const getStepByStepText = (algo, animationArr, idx, referenceArray, stackArr) => {
-  const sortAlgoStepByStep = SortingAlgorithmsStepByStep[algo];
-  if (isBucketSort(algo)) {
+export const getStepByStepText = (
+  visualizerAlgorithm,
+  animationArr,
+  idx,
+  referenceArray,
+  stackArr
+) => {
+  const sortAlgoStepByStep = SortingAlgorithmsStepByStep[visualizerAlgorithm];
+  if (isBucketSort(visualizerAlgorithm)) {
     return sortAlgoStepByStep(animationArr, idx, stackArr);
   }
   return sortAlgoStepByStep(animationArr, idx, referenceArray);
@@ -112,7 +118,7 @@ const arrayGenerator = {
  *
  * @param {number} size
  * @param {string} visualizerAlgorithm
- * @returns {Object[]} Random array generated.
+ * @returns {object[]} Random array generated.
  */
 export const generateArray = (size, visualizerAlgorithm) => {
   return arrayGenerator[visualizerAlgorithm](size);
@@ -122,7 +128,7 @@ export const generateArray = (size, visualizerAlgorithm) => {
  * Generates the default array. Used by all sorting algorithms involving swaps only.
  *
  * @param {number} size Size of array selected by user.
- * @returns {Object[]} Random array generated.
+ * @returns {object[]} Random array generated.
  */
 const generateDefaultArray = (size) => {
   let array = [];

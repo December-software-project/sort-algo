@@ -1,5 +1,13 @@
 import { arrayCopy, generateValue } from './GeneralUtil';
 
+/**
+ * This is to find the "correct" index to be swapped since the actual array is not being swapped.
+ *
+ * @param newTempArr {object[]} The new input array.
+ * @param iIdx {number} I-th Index to be swapped.
+ * @param jIdx {number} J-th Index to be swapped.
+ * @returns {number} The index to be used in the swap animation.
+ */
 export const findIndexToUseInMergeSort = (newTempArr, iIdx, jIdx) => {
   for (let k = 0; k < newTempArr.length; k++) {
     let isUsingIIdx = iIdx === -1 && newTempArr[k].prevPos === jIdx;
@@ -11,6 +19,15 @@ export const findIndexToUseInMergeSort = (newTempArr, iIdx, jIdx) => {
   return -1;
 };
 
+/**
+ * A sorting execution for Merge Sort.
+ *
+ * @param currentAnimation {any[]} The current animation to be executed.
+ * @param referenceArray {object[]} The array holding data for the "blocks".
+ * @param historyArr {object[]} An array holding the data of each states of the reference array.
+ * @param setReferenceArray {function} A set state method for reference array.
+ * @returns {Object[]} The resultant array upon the swap animation.
+ */
 export const executeMergeSortForward = (
   currentAnimation,
   referenceArray,
@@ -23,11 +40,23 @@ export const executeMergeSortForward = (
   return nextReferenceArray;
 };
 
+/**
+ * A sorting execution for Merge Sort in the reverse direction.
+ *
+ * @param historyArr {object[]} An array holding the data of each states of the reference array.
+ * @param setReferenceArray {function} A set state method for reference array.
+ */
 export const executeMergeSortBackward = (historyArr, setReferenceArray) => {
   setReferenceArray(historyArr.pop());
 };
 
-// Merge sort
+/**
+ * A "hackish" method to simulate the swapping in merge swap without actually sorting the array.
+ *
+ * @param referenceArray {object[]} The array holding data for the "blocks".
+ * @param currentAnimation {any[]} The current animation to be executed.
+ * @returns {Object[]} The resultant array upon the swap animation.
+ */
 export const handleMergeSort = (referenceArray, currentAnimation) => {
   let dataSize = referenceArray.length;
   let width = 800 / dataSize;
@@ -64,6 +93,12 @@ export const handleMergeSort = (referenceArray, currentAnimation) => {
   return newTempArr;
 };
 
+/**
+ * Generates the random data for merge sort.
+ *
+ * @param size The number of blocks to be shown.
+ * @returns {object[]} A array containing the states of each block.
+ */
 export const generateMergeSortArray = (size) => {
   let array = [];
   for (let i = 0; i < size; i++) {

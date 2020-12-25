@@ -2,14 +2,13 @@ import React from 'react';
 import IsVisible from 'react-is-visible';
 
 /**
- * A wrapper component which helps to animate the form component upwards.
+ * A wrapper component which helps to animate the component upwards.
  *
- * @param props {JSX.Element} form component
- * @returns {JSX.Element} A wrapped form component which animate upwards.
+ * @param props Attribute to be passed into this component.
  */
-const FormHolder = (props) => {
+const IsVisibleYDirection = (props) => {
   const transitionStyling = (isVisible) => ({
-    transform: isVisible ? `translateY(0px)` : `translateY(100px)`,
+    transform: isVisible ? `translateY(0px)` : props.yValue,
     transition: `all 1.0s ease-in-out`,
   });
 
@@ -24,4 +23,4 @@ const FormHolder = (props) => {
   );
 };
 
-export default FormHolder;
+export default IsVisibleYDirection;

@@ -8,7 +8,7 @@ import IsVisible from 'react-is-visible';
  *
  * @param {string} sectionHeader Name of the section header.
  * @param {string} translateX Extra translation in x direction for the line underneath the header.
- * @returns {JSX.Element} Header
+ * @returns {JSX.Element} Header for each category.
  */
 const SectionHeader = ({ sectionHeader, translateX }) => {
   /**

@@ -3,6 +3,9 @@ import './styles.css';
 
 import { MdCopyright } from 'react-icons/md';
 
+/**
+ * Footer at the end of page.
+ */
 const Footer = () => {
   return (
     <div className="footer-container">
