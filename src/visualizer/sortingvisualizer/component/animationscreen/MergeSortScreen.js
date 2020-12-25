@@ -1,5 +1,6 @@
 import React from 'react';
 import MergeSortBlock from '../block/MergeSortBlock';
+import './styles.css';
 
 const MergeSortScreen = ({ transitions, length, dataSize }) => {
   return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import AnimatedBlock from '../block/AnimatedBlock';
+import './styles.css';
 
 const GenericSortScreen = ({ transitions, length, dataSize }) => {
   return (

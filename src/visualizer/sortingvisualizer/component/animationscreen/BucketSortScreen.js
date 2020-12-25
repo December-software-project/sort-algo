@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
 import { animated, useTransition } from 'react-spring';
 import { highlightOnesPlacing } from './NumberHighlighter';
+import './styles.css';
 
 const BucketSortScreen = () => {
   const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);

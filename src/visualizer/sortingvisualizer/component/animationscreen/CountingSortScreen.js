@@ -1,6 +1,7 @@
 import React from 'react';
 import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../countingsortbuckets/Buckets';
+import './styles.css';
 
 const CountingSortScreen = ({ transitions, length, dataSize }) => {
   return (

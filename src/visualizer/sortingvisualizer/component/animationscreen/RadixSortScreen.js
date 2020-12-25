@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
 import { highlightNumber } from './NumberHighlighter';
+import './styles.css';
 
 const RadixSortScreen = () => {
   const { referenceArray, stackArr, dataSize, idx } = useContext(VisualizerStateContext);

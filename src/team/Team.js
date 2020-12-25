@@ -18,13 +18,14 @@ const Team = () => {
             are invested in the field of software engineering and algorithms. Feel free to contact
             us to collaborate on interesting software engineering projects.
           </p>
-          {TeamData.map((data) => (
+          {TeamData.map((data, index) => (
             <Profile
               img={data.img}
               name={data.name}
               description={data.description}
               linkedInLink={data.linkedInUrl}
               gitHubLink={data.gitHubUrl}
+              key={index}
             />
           ))}
         </div>
