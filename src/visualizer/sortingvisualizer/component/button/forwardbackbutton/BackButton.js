@@ -3,13 +3,16 @@ import { AiOutlineLeft } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import './styles.css';
-import { resetArray } from '../../../util/VisualizerUtil';
+import { resetArray } from '../../../util/GeneralUtil';
 
+/**
+ * A button which executes one step in reverse for the sorting animation.
+ */
 const BackButton = () => {
   const {
     isPlay,
     animationPercentage,
-    executeBackwardSwapAnimation,
+    executeBackwardAnimation,
     idx,
     arrayData,
     setArrayData,
@@ -20,7 +23,7 @@ const BackButton = () => {
   const isEmpty = animationPercentage === 0;
 
   const handleBackButtonClick = () => {
-    executeBackwardSwapAnimation();
+    executeBackwardAnimation();
     // this is to check if we are at the start animation, to reset the color of the block
     if (idx - 1 <= 0) {
       setArrayData(resetArray(visualizerAlgorithm, arrayData));

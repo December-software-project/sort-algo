@@ -1,4 +1,5 @@
 //Code adapted from https://www.geeksforgeeks.org/insertion-sort/
+
 const InsertionSort = {
   Java:
     'void insertionSort(int[] arr) {\n' +
@@ -23,8 +24,8 @@ const InsertionSort = {
     '  // Elements from 0 to i - 1 are sorted\n' +
     '  for (let i = 1; i < arr.length; i++) {\n' +
     '      \n' +
-    '    key = arr[i];\n' +
-    '    j = i - 1;\n' +
+    '    const key = arr[i];\n' +
+    '    let j = i - 1;\n' +
     '\n' +
     '    // Locate position of key to insert in the sorted region\n' +
     '    while (j >= 0 && arr[j] > key) {\n' +

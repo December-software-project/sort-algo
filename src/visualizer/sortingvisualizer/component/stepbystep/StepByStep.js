@@ -1,16 +1,27 @@
 import React, { useContext } from 'react';
-import { getStepByStepText } from '../../util/VisualizerUtil';
+import { getStepByStepText } from '../../util/GeneralUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 
+/**
+ * A component which display each steps of the sorting algorithm.
+ */
 const StepByStep = () => {
-  const { animationArr, idx, referenceArray, visualizerAlgorithm } = useContext(
-    VisualizerStateContext
-  );
+  const {
+    animationArr,
+    idx,
+    referenceArray,
+    visualizerAlgorithm,
+    animationPercentage,
+    stackArr,
+  } = useContext(VisualizerStateContext);
 
   return (
     <div className="step-by-step-holder">
-      <p>{getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray)}</p>
+      <p>
+        {animationPercentage > 0 &&
+          getStepByStepText(visualizerAlgorithm, animationArr, idx, referenceArray, stackArr)}
+      </p>
     </div>
   );
 };

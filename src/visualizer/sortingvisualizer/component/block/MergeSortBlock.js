@@ -2,6 +2,18 @@ import React from 'react';
 import './styles.css';
 import { animated } from 'react-spring';
 
+/**
+ * A block which animates to show the merge sort algorithm.
+ *
+ * @param item {object} The information of the block.
+ * @param x {number} The displacement of the block.
+ * @param rest {object} All other information of the props.
+ * @param length {number} The number of blocks.
+ * @param index {number} Index of the block.
+ * @param isSwap {boolean} A boolean value denoting whether this block is in a shift animation.
+ * @param width {number} Width of the block.
+ * @returns {JSX.Element} An animated block which translate in either the X or Y-Direction.
+ */
 const MergeSortBlock = ({ item, props: { x, ...rest }, length, index, isShift, width }) => {
   return (
     <animated.div

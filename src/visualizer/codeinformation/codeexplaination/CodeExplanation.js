@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './CodeExplanation.css';
+import './styles.css';
 import explanations from '../explanations/Explanations';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
@@ -10,12 +10,12 @@ const CodeExplanation = ({ algo }) => {
     setSort(explanations[algo]);
   }, [algo]);
 
-  const headerOne = () => <header>How {sort.name} Sort works</header>;
-  const explanation = () => <p>{sort.description}</p>;
-  const headerTwo = () => <header>Performance</header>;
+  const HeaderOne = () => <header>How {sort.name} Sort works</header>;
+  const Explanation = () => <p style={{ width: `112%` }}>{sort.description}</p>;
+  const HeaderTwo = () => <header>Performance</header>;
 
-  const performanceSection = () => {
-    const text = () => (
+  const PerformanceSection = () => {
+    const ListOfComplexities = () => (
       <div className="text">
         <p>Worst time complexity</p>
         <p>Average time complexity</p>
@@ -24,7 +24,7 @@ const CodeExplanation = ({ algo }) => {
       </div>
     );
 
-    const complexity = () => (
+    const Complexity = () => (
       <div className="complexity">
         <p>O({sort.worstTime})</p>
         <p>θ({sort.averageTime})</p>
@@ -33,8 +33,8 @@ const CodeExplanation = ({ algo }) => {
       </div>
     );
 
-    const wordWithIcon = (word, boolean) => {
-      const getIcon = () => {
+    const WordWithIcon = ({ word, boolean }) => {
+      const CircleType = () => {
         return boolean ? (
           <FaCheckCircle size="25" color="#11C2C9" />
         ) : (
@@ -45,7 +45,7 @@ const CodeExplanation = ({ algo }) => {
       return (
         <div className="wordWithIcon">
           <p>{word}</p>
-          {getIcon()}
+          <CircleType />
         </div>
       );
     };
@@ -56,23 +56,30 @@ const CodeExplanation = ({ algo }) => {
           {`Assuming N is the size of array, ` + sort.additionalDesc}
         </p>
         <div className="row-container-one">
-          {text()}
-          {complexity()}
+          <ListOfComplexities />
+          <Complexity />
         </div>
         <div className="row-container-two">
-          {wordWithIcon('Stable', sort.stable)}
-          {wordWithIcon('In-place', sort.inPlace)}
+          <WordWithIcon word={'Stable'} boolean={sort.stable} />
+          <WordWithIcon word={'In-place'} boolean={sort.inPlace} />
         </div>
       </div>
     );
   };
 
+  const Link = () => (
+    <a className="link" target="_blank" rel="noopener noreferrer" href={sort.link}>
+      Click for more info
+    </a>
+  );
+
   return (
     <div className="main">
-      {headerOne()}
-      {explanation()}
-      {headerTwo()}
-      {performanceSection()}
+      <HeaderOne />
+      <Explanation />
+      <HeaderTwo />
+      <PerformanceSection />
+      <Link />
     </div>
   );
 };

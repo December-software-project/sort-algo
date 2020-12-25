@@ -1,25 +1,14 @@
 import React from 'react';
-
 import './styles.css';
-import 'intersection-observer';
-import IsVisible from 'react-is-visible';
+import IsVisibleYDirection from '../../component/IsVisibleYDirection/IsVisibleYDirection';
 
 const Step = ({ icon, title, description }) => {
-  const HeaderLineStyling = (isVisible) => ({
-    transform: isVisible ? `translateY(0px)` : `translateY(125px)`,
-    transition: `all 1.0s ease-in-out`,
-  });
-
   return (
-    <IsVisible once>
-      {(isVisible) => (
-        <div className="step-container" style={HeaderLineStyling(isVisible)}>
-          <div className="step-picture">{icon}</div>
-          <p className="step-title">{title}</p>
-          <p className="step-description">{description}</p>
-        </div>
-      )}
-    </IsVisible>
+    <IsVisibleYDirection classNameToUse="step-container" yValue={`translateY(125px)`}>
+      <div className="step-picture">{icon}</div>
+      <p className="step-title">{title}</p>
+      <p className="step-description">{description}</p>
+    </IsVisibleYDirection>
   );
 };
 

@@ -1,13 +1,23 @@
 import React, { useContext, useEffect } from 'react';
 import { useTransition } from 'react-spring';
-import AnimatedBlock from '../block/AnimatedBlock';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { arrayCopy, isBucketTypeSort, isMergeSort } from '../../util/VisualizerUtil';
-import SmallBlock from '../smallBlock/SmallBlock';
-import Buckets from '../bucketsortingvisualizer/Buckets';
-import MergeSortBlock from '../block/MergeSortBlock';
+import {
+  arrayCopy,
+  isBucketSort,
+  isCountingSort,
+  isMergeSort,
+  isRadixSort,
+} from '../../util/GeneralUtil';
+import CountingSortScreen from './CountingSortScreen';
+import RadixSortScreen from './RadixSortScreen';
+import BucketSortScreen from './BucketSortScreen';
+import MergeSortScreen from './MergeSortScreen';
+import GenericSortScreen from './GenericSortScreen';
 
+/**
+ * The screen which shows the animation for the sorting visualizer.
+ */
 const AnimationScreen = () => {
   const {
     isPlay,
@@ -19,15 +29,14 @@ const AnimationScreen = () => {
     speed,
     setIdx,
     setReferenceArray,
-    executeForwardSwapAnimation,
+    executeForwardAnimation,
     resetDataWhenAnimationFinish,
     dataSize,
     visualizerAlgorithm,
     isReset,
     setIsReset,
   } = useContext(VisualizerStateContext);
-
-  const length = referenceArray.length;
+  const animationSpeedArray = [1000, 800, 600, 500, 400, 320, 260, 200, 160, 120];
   let xDirection = 0;
 
   useEffect(() => {
@@ -49,8 +58,8 @@ const AnimationScreen = () => {
   useEffect(() => {
     if (!isReplay && isPlay && idx < animationArr.length) {
       setTimeout(() => {
-        executeForwardSwapAnimation();
-      }, 800 / speed);
+        executeForwardAnimation();
+      }, animationSpeedArray[speed - 1]);
     } else if (!isReplay && isPlay) {
       resetDataWhenAnimationFinish(referenceArray);
     }
@@ -72,67 +81,21 @@ const AnimationScreen = () => {
     }
   );
 
-  if (isBucketTypeSort(visualizerAlgorithm)) {
-    return (
-      <div className="container-one">
-        <div className="list">
-          {transitions.map(({ item, props: { x, ...rest } }, index) => {
-            return (
-              <SmallBlock
-                item={item}
-                props={{ x, ...rest }}
-                index={index}
-                length={length}
-                key={index}
-                width={800 / dataSize}
-              />
-            );
-          })}
-        </div>
-        <Buckets />
-      </div>
-    );
+  const dataItem = {
+    transitions: transitions,
+    dataSize: dataSize,
+  };
+
+  if (isCountingSort(visualizerAlgorithm)) {
+    return <CountingSortScreen {...dataItem} />;
+  } else if (isRadixSort(visualizerAlgorithm)) {
+    return <RadixSortScreen />;
+  } else if (isBucketSort(visualizerAlgorithm)) {
+    return <BucketSortScreen />;
   } else if (isMergeSort(visualizerAlgorithm)) {
-    return (
-      <div className="container-one">
-        <div className="list">
-          {transitions.map(({ item, props: { x, ...rest } }, index) => {
-            return (
-              <MergeSortBlock
-                item={item}
-                props={{ x, ...rest }}
-                index={index}
-                length={length}
-                key={index}
-                isShift={item.isShift}
-                width={800 / dataSize}
-                pos={item.pos}
-                prevPos={item.prevPos}
-              />
-            );
-          })}
-        </div>
-        <div className="empty-space-for-merge-sort" />
-      </div>
-    );
+    return <MergeSortScreen {...dataItem} />;
   } else {
-    return (
-      <div className="list">
-        {transitions.map(({ item, props: { x, ...rest } }, index) => {
-          return (
-            <AnimatedBlock
-              item={item}
-              props={{ x, ...rest }}
-              index={index}
-              length={length}
-              key={index}
-              isSwap={item.isSwap}
-              width={800 / dataSize}
-            />
-          );
-        })}
-      </div>
-    );
+    return <GenericSortScreen {...dataItem} />;
   }
 };
 

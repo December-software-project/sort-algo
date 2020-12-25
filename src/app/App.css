@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 59px;
+}
+
+.app {
+  display: flex;
+}
+
+.app-container {
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}

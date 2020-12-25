@@ -1,18 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 
-// listener to show current navigation window/menu
+/**
+ * Listener to show current navigation window/menu.
+ */
 window.addEventListener('scroll', (event) => {
   let navigationLinks = document.querySelectorAll('nav ul li a');
   let fromTop = window.scrollY + 60 + window.innerHeight * 0.05;
-  let header = document.querySelector('nav');
-  let header2 = document.querySelectorAll('nav div a div');
+  let navigationMenu = document.querySelector('nav');
+  let menuHeaders = document.querySelectorAll('nav div a div');
 
-  header.classList.toggle('sticky', window.scrollY > 0);
-  header2.forEach((link) => {
+  // Header transits to the next state when scrollY > 0 (upon scrolling from the top)
+  navigationMenu.classList.toggle('sticky', window.scrollY > 0);
+  menuHeaders.forEach((link) => {
     link.classList.toggle('sticky', window.scrollY > 0);
   });
 

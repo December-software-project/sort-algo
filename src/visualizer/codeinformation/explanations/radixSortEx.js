@@ -1,29 +1,19 @@
-// todo radix sort explanation
 const RadixSort = {
   name: 'Radix',
   description:
-    'QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions' +
-    ' the given array around the picked pivot. There are many different versions of quickSort that ' +
-    'pick pivot in different ways.',
-  additionalDesc: '',
-  worstTime: (
-    <span>
-      N<sup>2</sup>
-    </span>
-  ),
-  averageTime: (
-    <span>
-      Log<sub>2</sub>N
-    </span>
-  ),
-  bestTime: 'N',
-  worstSpace: (
-    <span>
-      Log<sub>2</sub>N
-    </span>
-  ),
-  stable: false,
-  inPlace: true,
+    'Radix sort works by sorting each digit from least significant digit to most significant ' +
+    "digit. So in base 10 (the decimal system), radix sort would sort by the digits in the 1's " +
+    'place, then the 10’s place, and so on. To do this, radix sort uses counting sort as a ' +
+    'subroutine to sort the digits in each place value.',
+  additionalDesc:
+    'd is the number of digits in the input numbers, b is the base for representing numbers,',
+  worstTime: 'd(n + b)',
+  averageTime: 'd(n + b)',
+  bestTime: 'd(n + b)',
+  worstSpace: 'n + b',
+  stable: true,
+  inPlace: false,
+  link: 'https://www.programiz.com/dsa/radix-sort',
 };
 
 export default RadixSort;

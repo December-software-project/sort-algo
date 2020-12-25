@@ -1,36 +1,36 @@
 .profile-container {
+  background: #ffffff;
   display: flex;
   flex-direction: row;
-  width: 350px;
   padding: 0 0 20px;
-  background: #ffffff;
+  width: 350px;
 }
 
 .profile-description-container {
-  padding-top: 9px;
-  padding-left: 20px;
   flex-direction: column;
   line-height: 0;
+  padding-left: 20px;
+  padding-top: 9px;
 }
 
 .picture {
-  height: 70px;
-  width: 70px;
+  border-color: #d7dbff;
   border-radius: 10px;
   border-style: solid;
   border-width: 0.1px;
-  border-color: #d7dbff;
+  height: 70px;
   image-rendering: -moz-crisp-edges; /* Firefox */
   image-rendering: -o-crisp-edges; /* Opera */
   image-rendering: -webkit-optimize-contrast; /* This helps to make the image clearer even though it is being underlined */
   -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+  width: 70px;
 }
 
 .profile-title {
-  font-size: 18px;
-  font-weight: 600;
   color: #595da5;
   font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .profile-description {
