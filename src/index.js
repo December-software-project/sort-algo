@@ -4,7 +4,7 @@ import './index.css';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 
-// listener to show current navigation window/menu
+// Listener to show current navigation window/menu
 window.addEventListener('scroll', (event) => {
   let navigationLinks = document.querySelectorAll('nav ul li a');
   let fromTop = window.scrollY + 60 + window.innerHeight * 0.05;
