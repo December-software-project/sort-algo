@@ -26,7 +26,7 @@ export const findIndexToUseInMergeSort = (newTempArr, iIdx, jIdx) => {
  * @param referenceArray {object[]} The array holding data for the "blocks".
  * @param historyArr {object[]} An array holding the data of each states of the reference array.
  * @param setReferenceArray {function} A set state method for reference array.
- * @returns {Object[]} The resultant array upon the swap animation.
+ * @returns {object[]} The resultant array upon the swap animation.
  */
 export const executeMergeSortForward = (
   currentAnimation,
@@ -55,7 +55,7 @@ export const executeMergeSortBackward = (historyArr, setReferenceArray) => {
  *
  * @param referenceArray {object[]} The array holding data for the "blocks".
  * @param currentAnimation {any[]} The current animation to be executed.
- * @returns {Object[]} The resultant array upon the swap animation.
+ * @returns {object[]} The resultant array upon the swap animation\.
  */
 export const handleMergeSort = (referenceArray, currentAnimation) => {
   let dataSize = referenceArray.length;

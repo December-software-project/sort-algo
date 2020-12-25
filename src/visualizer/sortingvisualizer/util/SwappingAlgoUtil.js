@@ -44,7 +44,7 @@ export const executeSwap = (firstIdx, secondIdx, arr, isSwapOccurring, visualize
  * @param referenceArray {object[]} The array holding data for the "blocks"
  * @param visualizerAlgorithm {string} The current algorithm of the visualizer
  * @param setReferenceArray {function} A set state method for reference array.
- * @returns {Object[]} The resultant array upon the swap animation
+ * @returns {object[]} The resultant array upon the swap animation
  */
 export const executeGenericSort = (
   currentAnimation,
