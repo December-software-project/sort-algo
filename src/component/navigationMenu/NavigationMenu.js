@@ -1,6 +1,7 @@
 import React from 'react';
-import Logo from '../logo/logo';
 import './styles.css';
+
+import Logo from '../logo/logo';
 
 const NavigationMenu = () => {
   return (
