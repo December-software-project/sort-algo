@@ -30,7 +30,7 @@ SortAlgo
 
 ## Features preview
 
-<img src="images/SortingVisualizer.png" />
+<img src="images/App.png" />
 
 ### Choose the algorithm you want
 
