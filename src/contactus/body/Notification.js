@@ -7,7 +7,7 @@ import CloseIcon from '@material-ui/icons/Close';
 /**
  * A pop-up notification on the bottom left-hand corner to indicate that message is being sent.
  *
- * @param isShowMessage Boolean value of whether to show the message notification.
+ * @param isShowMessage boolean value of whether to show the message notification.
  * @param setIsShowMessage A setter which changes the state of isShowMessage.
  * @returns {JSX.Element} A notification which appears at the bottom left-hand corner.
  */

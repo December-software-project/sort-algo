@@ -80,10 +80,10 @@ export const generateValue = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-// code from Mark G https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
 /**
  * Rounds the number to 2 decimal places, if necessary.
  *
+ * @see {@link https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary|Stack Overflow}
  * @param {number} num Input number.
  * @returns {number} Rounded number with maximum 2 decimal places.
  */
@@ -139,7 +139,7 @@ const generateDefaultArray = (size) => {
  * Returns true if the algorithm input is counting sort.
  *
  * @param {string} visualizerAlgorithm Input algorithm.
- * @returns {boolean} True iff the algorithm is counting sort.
+ * @returns {boolean} True if the algorithm is counting sort.
  */
 export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Counting Sort';
 
@@ -147,7 +147,7 @@ export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === '
  * Returns true if the algorithm input is radix sort.
  *
  * @param {string} visualizerAlgorithm Input algorithm.
- * @returns {boolean} True iff the algorithm is radix sort.
+ * @returns {boolean} True if the algorithm is radix sort.
  */
 export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Radix Sort';
 
@@ -155,7 +155,7 @@ export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Rad
  * Returns true if the algorithm input is bucket sort.
  *
  * @param {string} visualizerAlgorithm Input algorithm.
- * @returns {boolean} True iff the algorithm is bucket sort.
+ * @returns {boolean} True if the algorithm is bucket sort.
  */
 export const isBucketSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Bucket Sort';
 
@@ -163,7 +163,7 @@ export const isBucketSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Bu
  * Returns true if the algorithm input is radix or bucket sort.
  *
  * @param {string} visualizerAlgorithm Input algorithm.
- * @returns {boolean} True iff the algorithm is radix or bucket sort.
+ * @returns {boolean} True if the algorithm is radix or bucket sort.
  */
 export const isRadixOrBucket = (visualizerAlgorithm) =>
   isRadixSort(visualizerAlgorithm) || isBucketSort(visualizerAlgorithm);
@@ -172,7 +172,7 @@ export const isRadixOrBucket = (visualizerAlgorithm) =>
  * Returns true if the algorithm input is merge sort.
  *
  * @param {string} visualizerAlgorithm Input algorithm.
- * @returns {boolean} True iff the algorithm is merge sort.
+ * @returns {boolean} True if the algorithm is merge sort.
  */
 export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
 
@@ -180,7 +180,7 @@ export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Mer
  * Returns true if the algorithm input is selection sort.
  *
  * @param {string} visualizerAlgorithm Input algorithm.
- * @returns {boolean} True iff the algorithm is selection sort.
+ * @returns {boolean} True if the algorithm is selection sort.
  */
 export const isSelectionSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Selection Sort';
 
@@ -188,7 +188,7 @@ export const isSelectionSort = (visualizerAlgorithm) => visualizerAlgorithm === 
  * Returns true if the algorithm input is quick sort.
  *
  * @param {string} visualizerAlgorithm Input algorithm.
- * @returns {boolean} True iff the algorithm is quick sort.
+ * @returns {boolean} True if the algorithm is quick sort.
  */
 export const isQuickSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Quick Sort';
 
@@ -196,7 +196,7 @@ export const isQuickSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Qui
  * Returns true if the algorithm input is any sort aside from bucket, radix and counting sort.
  *
  * @param {string} visualizerAlgorithm Input algorithm.
- * @returns {boolean} True iff the algorithm is any sort aside from bucket, radix and counting sort.
+ * @returns {boolean} True if the algorithm is any sort aside from bucket, radix and counting sort.
  */
 export const hasLegend = (visualizerAlgorithm) =>
   visualizerAlgorithm === 'Bubble Sort' ||
