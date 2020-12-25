@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { TeamData } from './TeamData';
+import { TeamData, TeamDescription } from './TeamData';
 import TeamImage from './image/team-image.jpg';
 import TeamHeader from '../component/header/SectionHeader';
 import Profile from './profile/Profile';
