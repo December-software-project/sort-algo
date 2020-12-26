@@ -20,7 +20,7 @@ import 'ace-builds/src-noconflict/theme-textmate';
  */
 const CodeTemplate = ({ algo }) => {
   // Code templates used of this algorithm
-  const [template, setTemplate] = useState(templates[algo]);
+  const [template, setTemplate] = useState(() => templates[algo]);
 
   // Current programming language selected
   const [selected, setSelected] = useState('Java');

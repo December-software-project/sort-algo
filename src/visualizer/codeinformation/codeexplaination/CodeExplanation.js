@@ -13,7 +13,7 @@ import PerformanceSection from './PerformanceSection';
  */
 const CodeExplanation = ({ algo }) => {
   // Sort details of the algorithm.
-  const [sortDetails, setSortDetails] = useState(explanations[algo]);
+  const [sortDetails, setSortDetails] = useState(() => explanations[algo]);
 
   useEffect(() => {
     setSortDetails(explanations[algo]);
