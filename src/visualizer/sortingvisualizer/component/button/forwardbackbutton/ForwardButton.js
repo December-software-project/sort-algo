@@ -4,6 +4,9 @@ import { AiOutlineRight } from 'react-icons/ai';
 import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
 
+/**
+ * A button which executes one step forward for the sorting animation.
+ */
 const ForwardButton = () => {
   const { isPlay, animationPercentage, executeForwardAnimation, idx, animationArr } = useContext(
     VisualizerStateContext

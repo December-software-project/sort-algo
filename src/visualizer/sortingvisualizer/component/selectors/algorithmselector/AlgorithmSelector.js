@@ -8,6 +8,9 @@ import { buckets } from '../../../util/CountingSortUtil';
 import './styles.css';
 import { stack } from '../../../util/RadixSortUtil';
 
+/**
+ * A drop down menu which allows users to pick their algorithm for the visualizer.
+ */
 const AlgorithmChooser = () => {
   const {
     dataSize,

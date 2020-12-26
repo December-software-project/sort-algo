@@ -3,6 +3,9 @@ import { VisualizerStateContext } from '../../../Visualizer';
 import PlayPauseReplayButton from './PlayPauseReplayButton';
 import './styles.css';
 
+/**
+ * A component which holds the 3 states, Play, Pause, Replay.
+ */
 const ThreeStateButton = () => {
   const {
     isPlay,

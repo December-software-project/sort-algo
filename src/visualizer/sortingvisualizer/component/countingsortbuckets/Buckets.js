@@ -57,8 +57,8 @@ const Buckets = () => {
 
   return (
     <div className="fixed-array">
-      {countArr.map((item) => (
-        <CountingBlock item={item} />
+      {countArr.map((item, index) => (
+        <CountingBlock item={item} key={index} />
       ))}
     </div>
   );

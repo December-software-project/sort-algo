@@ -1,7 +1,8 @@
 import React from 'react';
 import MergeSortBlock from '../block/MergeSortBlock';
+import './styles.css';
 
-const MergeSortScreen = ({ transitions, length, dataSize }) => {
+const MergeSortScreen = ({ transitions, dataSize }) => {
   return (
     <div className="container-one">
       <div className="list">
@@ -11,7 +12,7 @@ const MergeSortScreen = ({ transitions, length, dataSize }) => {
               item={item}
               props={{ x, ...rest }}
               index={index}
-              length={length}
+              length={dataSize}
               key={index}
               isShift={item.isShift}
               width={800 / dataSize}
