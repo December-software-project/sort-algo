@@ -1,5 +1,5 @@
 import bubbleSort from '../../../../visualizer/algorithm/sortingalgorithms/bubbleSort';
-import { assertSortSuccess } from './TestUtil';
+import { assertSortSuccess } from '../testutil/TestUtil';
 import {
   ARRAY_DUPLICATES,
   ARRAY_EXPECTED_RANDOM_MIXED,
@@ -12,7 +12,7 @@ import {
   ARRAY_STRICTLY_ASCENDING,
   ARRAY_STRICTLY_DESCENDING,
   EMPTY_ARRAY,
-} from './ArraysUtil';
+} from '../testutil/ArraysUtil';
 
 test('Empty Array', () => {
   assertBubbleSortSuccess(EMPTY_ARRAY, EMPTY_ARRAY, EMPTY_ARRAY);
