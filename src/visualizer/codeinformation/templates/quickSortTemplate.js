@@ -1,4 +1,10 @@
-//Code adapted from https://www.geeksforgeeks.org/quick-sort/
+/**
+ * Quick sort algorithm details.
+ *
+ * @see {@link https://www.geeksforgeeks.org/quick-sort/|Geeks for Geeks}
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const QuickSort = {
   Java:
     'void swap(int[] arr, int i, int j) {\n' +

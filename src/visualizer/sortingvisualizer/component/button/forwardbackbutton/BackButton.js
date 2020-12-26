@@ -5,6 +5,9 @@ import { VisualizerStateContext } from '../../../Visualizer';
 import './styles.css';
 import { resetArray } from '../../../util/GeneralUtil';
 
+/**
+ * A button which executes one step in reverse for the sorting animation.
+ */
 const BackButton = () => {
   const {
     isPlay,

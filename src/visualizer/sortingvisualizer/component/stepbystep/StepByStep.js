@@ -3,6 +3,12 @@ import { getStepByStepText } from '../../util/GeneralUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 
+/**
+ * A component which display each steps of the sorting algorithm.
+ *
+ * @component
+ * @category Visualizer
+ */
 const StepByStep = () => {
   const {
     animationArr,

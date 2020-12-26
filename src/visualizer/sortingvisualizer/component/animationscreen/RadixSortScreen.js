@@ -1,7 +1,14 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
 import { highlightNumber } from './NumberHighlighter';
+import './styles.css';
 
+/**
+ * Animation screen which shows the Radix Sort algorithm.
+ *
+ * @component
+ * @category AnimationScreen
+ */
 const RadixSortScreen = () => {
   const { referenceArray, stackArr, dataSize, idx } = useContext(VisualizerStateContext);
 

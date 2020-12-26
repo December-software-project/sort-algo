@@ -1,4 +1,21 @@
-// Explanation adapted from https://www.geeksforgeeks.org/heap-sort/
+/**
+ * Heap sort algorithm details.
+ *
+ * @memberOf Explanations
+ * @see {@link https://www.geeksforgeeks.org/heap-sort/|Geeks for Geeks}
+ * @type {
+ * {bestTime: string,
+ * worstSpace: string,
+ * additionalDesc: string,
+ * averageTime: string,
+ * stable: boolean,
+ * name: string,
+ * worstTime: string,
+ * link: string,
+ * description: string,
+ * inPlace: boolean}
+ * }
+ */
 const HeapSort = {
   name: 'Heap',
   description:

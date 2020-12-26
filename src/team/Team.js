@@ -14,13 +14,14 @@ const Team = () => {
         <div className="team-profile">
           <p className="team-title">Meet our team</p>
           <p className="team-description">{TeamDescription}</p>
-          {TeamData.map((data) => (
+          {TeamData.map((data, index) => (
             <Profile
               img={data.img}
               name={data.name}
               description={data.description}
               linkedInLink={data.linkedInUrl}
               gitHubLink={data.gitHubUrl}
+              key={index}
             />
           ))}
         </div>

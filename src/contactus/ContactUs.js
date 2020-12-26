@@ -4,6 +4,11 @@ import Footer from './footer/Footer';
 import './styles.css';
 import ContactUsHeader from './contactusheader/ContactUsHeader';
 
+/**
+ * Contains all component of the Contact Us portion.
+ *
+ * @component
+ */
 const ContactUs = () => {
   return (
     <div id="contactUs" className="contact-us">

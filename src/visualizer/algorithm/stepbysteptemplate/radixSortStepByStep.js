@@ -1,3 +1,12 @@
+/**
+ * Generates the step by step template Radix Sort.
+ *
+ * @method
+ * @memberOf StepByStepTemplate
+ * @param {any[]} animationArr An array that contains all the animation steps.
+ * @param {number} idx Index of the current animation step.
+ * @returns {string} The information regarding the current step of the animation.
+ */
 export const radixSortStepByStep = (animationArr, idx) => {
   const currentAnimation = animationArr[idx - 1];
   const height = currentAnimation.height;

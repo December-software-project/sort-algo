@@ -9,6 +9,12 @@ import MergeSort from './mergeSortEx';
 import ShellSort from './shellSortEx';
 import HeapSort from './heapSortEx';
 
+/**
+ * Contains all the explanations for the sorting algorithms.
+ *
+ * @namespace Explanations
+ * @type {Object}
+ */
 const explanations = {
   'Bubble Sort': BubbleSort,
   'Insertion Sort': InsertionSort,

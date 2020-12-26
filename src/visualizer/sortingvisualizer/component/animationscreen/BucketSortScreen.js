@@ -2,7 +2,14 @@ import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
 import { highlightOnesPlacing } from './NumberHighlighter';
 import StackOfBoxes from './StackOfBoxes';
+import './styles.css';
 
+/**
+ * Animation screen which shows the Bucket Sort algorithm
+ *
+ * @component
+ * @category AnimationScreen
+ */
 const BucketSortScreen = () => {
   const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);
 
@@ -31,8 +38,8 @@ const BucketSortScreen = () => {
     <div className="spaced-out-container">
       <HorizontalBoxes dataSize={dataSize} referenceArray={referenceArray} />
       <div className="stack-arr">
-        {stackArr.map((x) => (
-          <StackOfBoxes individualStack={x.array} key={x.value} />
+        {stackArr.map((stack) => (
+          <StackOfBoxes individualStack={stack.array} value={stack.value} key={stack.value} />
         ))}
       </div>
     </div>

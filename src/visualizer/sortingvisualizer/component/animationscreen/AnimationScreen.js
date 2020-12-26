@@ -15,6 +15,12 @@ import BucketSortScreen from './BucketSortScreen';
 import MergeSortScreen from './MergeSortScreen';
 import GenericSortScreen from './GenericSortScreen';
 
+/**
+ * The screen which shows the animation for the sorting visualizer.
+ *
+ * @component
+ * @category Visualizer
+ */
 const AnimationScreen = () => {
   const {
     isPlay,
@@ -34,7 +40,6 @@ const AnimationScreen = () => {
     setIsReset,
   } = useContext(VisualizerStateContext);
   const animationSpeedArray = [1000, 800, 600, 500, 400, 320, 260, 200, 160, 120];
-  const length = referenceArray.length;
   let xDirection = 0;
 
   useEffect(() => {
@@ -82,7 +87,6 @@ const AnimationScreen = () => {
   const dataItem = {
     transitions: transitions,
     dataSize: dataSize,
-    length: length,
   };
 
   if (isCountingSort(visualizerAlgorithm)) {

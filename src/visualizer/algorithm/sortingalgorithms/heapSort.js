@@ -1,5 +1,11 @@
-// Code adapted from https://www.w3resource.com/javascript-exercises/searching-and-sorting
-// -algorithm/searching-and-sorting-algorithm-exercise-3.php
+/**
+ * Sorts the array using Heap Sort and stores each sorting step into the animation array.
+ *
+ * @memberOf SortingAlgorithms
+ * @see {@link https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-3.php}
+ * @param {Object[]} arr The array to be sorted.
+ * @returns {any[]} Animation array which contains the animation instruction for each step.
+ */
 import { swap } from './swap';
 
 // Keeps track of how many items are not sorted

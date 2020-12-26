@@ -1,3 +1,13 @@
+/**
+ * Generates the step by step template for Quick Sort.
+ *
+ * @method
+ * @memberOf StepByStepTemplate
+ * @param {any[]} animationArr An array that contains all the animation steps.
+ * @param {number} idx Index of the current animation step.
+ * @param {Object[]} referenceArray An array containing the data which is being sorted.
+ * @returns {string} The information regarding the current step of the animation.
+ */
 export const quickSortStepByStep = (animationArr, idx, referenceArray) => {
   if (idx === animationArr.length) {
     return 'Array is sorted';

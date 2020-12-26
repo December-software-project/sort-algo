@@ -1,4 +1,21 @@
-// Explanation adapted from https://www.geeksforgeeks.org/selection-sort/
+/**
+ * Selection sort algorithm details.
+ *
+ * @memberOf Explanations
+ * @see {@link https://www.geeksforgeeks.org/selection-sort/|Geeks for Geeks}
+ * @type {
+ * {bestTime: JSX.Element,
+ * worstSpace: string,
+ * additionalDesc: string,
+ * averageTime: JSX.Element,
+ * stable: boolean,
+ * name: string,
+ * worstTime: JSX.Element,
+ * link: string,
+ * description: string,
+ * inPlace: boolean}
+ * }
+ */
 const SelectionSort = {
   name: 'Selection',
   description:

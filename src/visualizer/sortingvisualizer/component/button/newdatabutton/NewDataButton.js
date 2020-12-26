@@ -5,6 +5,9 @@ import { arrayCopy, generateArray } from '../../../util/GeneralUtil';
 import { buckets } from '../../../util/CountingSortUtil';
 import { stack } from '../../../util/RadixSortUtil';
 
+/**
+ * A button to generate new data for the "blocks" for the sorting animation.
+ */
 const NewDataButton = () => {
   const {
     isPlay,

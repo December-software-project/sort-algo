@@ -1,5 +1,12 @@
-//Code adapted from https://www.geeksforgeeks.org/selection-sort/ and
-// https://stackabuse.com/selection-sort-in-javascript/ and https://stackabuse.com/selection-sort-in-python/
+/**
+ * Selection sort algorithm details.
+ *
+ * @see {@link https://www.geeksforgeeks.org/selection-sort/|Geeks for Geeks}
+ * @see {@link https://stackabuse.com/selection-sort-in-javascript/|StackAbuse}
+ * @see {@link https://stackabuse.com/selection-sort-in-python/|StackAbuse}
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const SelectionSort = {
   Java:
     'void sort(int[] arr) {\n' +

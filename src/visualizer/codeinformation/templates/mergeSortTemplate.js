@@ -1,5 +1,11 @@
-//Code adapted from https://www.geeksforgeeks.org/merge-sort/ and
-//https://stackabuse.com/merge-sort-in-javascript/
+/**
+ * Merge sort algorithm details.
+ *
+ * @see {@link https://www.geeksforgeeks.org/merge-sort/|Geeks for Geeks}
+ * @see {@link https://stackabuse.com/merge-sort-in-javascript/|StackAbuse}
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const MergeSort = {
   Java:
     '/* Merges two subarrays of arr[]. First subarray is arr[l..m]\n' +
@@ -79,7 +85,7 @@ const MergeSort = {
     '  }\n' +
     '\n' +
     '  /* Concatenating the leftover elements\n' +
-    "   * (in case we didn't go through the entire left or right array) */\n" +
+    '   * (in case we didn\'t go through the entire left or right array) */\n' +
     '  return [ ...arr, ...left, ...right ]\n' +
     '}\n' +
     '\n' +

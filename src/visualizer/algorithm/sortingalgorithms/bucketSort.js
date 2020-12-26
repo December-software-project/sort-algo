@@ -1,5 +1,12 @@
 import insertionSort from './insertionSort';
 
+/**
+ * Sorts the array using Bucket Sort and stores each sorting step into the animation array.
+ *
+ * @memberOf SortingAlgorithms
+ * @param {Object[]} arr The array to be sorted.
+ * @returns {any[]} Animation array which contains the animation instruction for each step.
+ */
 const bucketSort = (arr) => {
   const totalSlots = 10;
   let buckets = [...Array(totalSlots)].map(() => []);

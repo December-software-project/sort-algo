@@ -1,6 +1,11 @@
-// Code adapted from https://levelup.gitconnected.com/shell-sort-in-javascript-c8a487041cdb
-// and https://www.geeksforgeeks.org/shellsort/
-
+/**
+ * Shell sort algorithm details.
+ *
+ * @see {@link https://levelup.gitconnected.com/shell-sort-in-javascript-c8a487041cdb|GitConnected}
+ * @see {@link https://www.geeksforgeeks.org/shellsort/|Geeks for Geeks}
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const ShellSort = {
   Java:
     'void shellSort(int[] arr) { \n' +
@@ -28,7 +33,7 @@ const ShellSort = {
     'function shellSort(arr) {\n' +
     '  let n = arr.length;\n' +
     '  \n' +
-    "  // Start with a really large gap, and then reduce the gap until there isn't any. \n" +
+    '  // Start with a really large gap, and then reduce the gap until there isn\'t any. \n' +
     '  // With this, the gap starts as half of the array length, and then half of that \n' +
     '  // every time \n' +
     '  for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) { \n' +
