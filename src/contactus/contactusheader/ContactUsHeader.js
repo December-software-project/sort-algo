@@ -4,6 +4,8 @@ import './styles.css';
 
 /**
  * Header for contact us.
+ *
+ * @component
  */
 const ContactUsHeader = () => {
   const ContactUsText = () => (

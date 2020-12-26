@@ -7,6 +7,9 @@ import './styles.css';
 
 /**
  * A component which holds forward and backward button, as well as the play, pause and replay button.
+ *
+ * @component
+ * @category Visualizer
  */
 const ButtonBox = () => (
   <div className="button-box">

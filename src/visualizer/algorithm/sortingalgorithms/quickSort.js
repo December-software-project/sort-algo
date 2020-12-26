@@ -1,5 +1,5 @@
 import { swap } from './swap';
-// Code adapted from https://www.geeksforgeeks.org/quick-sort/
+
 const partition = (arr, low, high, animationArr) => {
   let pivot = arr[high].height;
   let i = low - 1;
@@ -29,6 +29,14 @@ const quickSortHelper = (arr, low, high, animationArr) => {
   }
 };
 
+/**
+ * Sorts the array using Quick Sort and stores each sorting step into the animation array.
+ *
+ * @memberOf SortingAlgorithms
+ * @see {@link https://www.geeksforgeeks.org/quick-sort/}
+ * @param {Object[]} arr The array to be sorted.
+ * @returns {any[]} Animation array which contains the animation instruction for each step.
+ */
 const quickSort = (arr) => {
   let animationArr = [];
   quickSortHelper(arr, 0, arr.length - 1, animationArr);

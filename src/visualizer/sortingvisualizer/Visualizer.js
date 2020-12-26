@@ -38,6 +38,12 @@ import CodeInformation from '../codeinformation/CodeInformation';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
+/**
+ * The sorting visualizer.
+ *
+ * @component
+ * @category Visualizer
+ */
 const Visualizer = () => {
   // isPlay and isReplay simulate the 3 states
   const [isPlay, setIsPlay] = useState(false);
@@ -70,7 +76,7 @@ const Visualizer = () => {
   /**
    * Changes the number of "block" or "ovals" for the sorting animation.
    *
-   * @param {number} val. The number of "block" or "ovals" for sorting animation.
+   * @param {number} val The number of "block" or "ovals" for sorting animation.
    */
   const changeDataSize = (val) => {
     if (val !== dataSize) {
@@ -170,7 +176,7 @@ const Visualizer = () => {
   /**
    * Resets the states of the "blocks" or "oval" when the sorting animation is done.
    *
-   * @param {object[]} finalReferenceArray. The end state of the array holding the states of each block.
+   * @param {object[]} finalReferenceArray The end state of the array holding the states of each block.
    */
   const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
@@ -179,7 +185,7 @@ const Visualizer = () => {
   };
 
   /**
-   * @const {object} A object contains different values and methods to be passed around the other components
+   * @const {object} ContextProviderValue A object contains different values and methods to be passed around the other components
    * via React's context.
    */
   const value = {

@@ -3,10 +3,11 @@ import { executeSwap } from './SwappingAlgoUtil';
 /**
  * A sorting execution for Quick Sort.
  *
- * @param {any[]} currentAnimation. The current animation to be executed.
- * @param {Object[]} referenceArray. The array holding data for the "blocks".
- * @param {string} visualizerAlgorithm. The current algorithm of the visualizer.
- * @param {function} setReferenceArray. A set state method for reference array.
+ * @method
+ * @param {any[]} currentAnimation The current animation to be executed.
+ * @param {Object[]} referenceArray The array holding data for the "blocks".
+ * @param {string} visualizerAlgorithm The current algorithm of the visualizer.
+ * @param {function} setReferenceArray A set state method for reference array.
  * @returns {Object[]} The resultant array upon the swap animation.
  */
 export const executeQuickSort = (
@@ -32,14 +33,15 @@ export const executeQuickSort = (
 };
 
 /**
- *  A sorting execution for Quick Sort
+ * A sorting execution for Quick Sort
  *
- * @param {number} firstIdx. The first index to be swapped
- * @param {number} secondIdx. The second index to be swapped
- * @param {number} pivotIdx. The pivot index that is being compared to
- * @param {Object[]} arr. The array which the index at {@code firstIdx} and {@code secondIdx} is swapped
- * @param {boolean} isSwapOccurring. A boolean value denoting whether a swap will occur
- * @param {string} visualizerAlgorithm. The current algorithm of the visualizer
+ * @method
+ * @param {number} firstIdx The first index to be swapped
+ * @param {number} secondIdx The second index to be swapped
+ * @param {number} pivotIdx The pivot index that is being compared to
+ * @param {Object[]} arr The array which the index at {@code firstIdx} and {@code secondIdx} is swapped
+ * @param {boolean} isSwapOccurring A boolean value denoting whether a swap will occur
+ * @param {string} visualizerAlgorithm The current algorithm of the visualizer
  * @returns {Object[]} A new Object array which has been been swap and highlighted or just highlighted
  */
 export const executeSwapWithPivot = (

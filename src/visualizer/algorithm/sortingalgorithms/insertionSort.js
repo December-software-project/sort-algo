@@ -1,3 +1,10 @@
+/**
+ * Sorts the array using Insertion Sort and stores each sorting step into the animation array.
+ *
+ * @memberOf SortingAlgorithms
+ * @param {Object[]} arr The array to be sorted.
+ * @returns {any[]} Animation array which contains the animation instruction for each step.
+ */
 const insertionSort = (arr) => {
   let receivedArr = arr;
   let animationArr = [];
