@@ -8,7 +8,7 @@ import HorizontalArray from './HorizontalArray';
  * Radix sort screen which encapsulates the fields and components of the screen.
  *
  * @component
- * @category BucketSort
+ * @category RadixSort
  * @returns {JSX.Element} Radix sort screen.
  */
 const RadixSortScreen = () => {
@@ -77,8 +77,8 @@ const RadixSortScreen = () => {
         SingleOval={SingleOval}
       />
       <div className="stack-arr">
-        {stackArr.map((x) => (
-          <StackOfBoxes individualStack={x} key={x.value} />
+        {stackArr.map((stack) => (
+          <StackOfBoxes individualStack={stack} key={stack.value} />
         ))}
       </div>
     </div>

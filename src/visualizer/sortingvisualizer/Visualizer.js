@@ -53,6 +53,11 @@ const Visualizer = () => {
   // this is to ensure we can click back arrow without trigger any new re-rendering of data
   const [isReset, setIsReset] = useState(false);
 
+  const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
+  const [speed, setSpeed] = useState(5);
+  const [dataSize, setDataSize] = useState(15);
+  const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Bubble Sort');
+
   // Original state of the array
   const [arrayData, setArrayData] = useState(() => generateArray(dataSize, visualizerAlgorithm));
 
@@ -77,11 +82,6 @@ const Visualizer = () => {
 
   // This is introduced to simplify the back animation for MergeSort
   const [historyArr, setHistoryArr] = useState([]);
-
-  const [isInMidstOfSort, setIsInMidstOfSort] = useState(false);
-  const [speed, setSpeed] = useState(5);
-  const [dataSize, setDataSize] = useState(15);
-  const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Bubble Sort');
 
   useEffect(() => {
     if (isPlay === false) {
