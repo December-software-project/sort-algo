@@ -1,10 +1,10 @@
-import { generateValue } from './GeneralUtil';
+import { generateValue } from './MathUtil';
 
 /**
  * Fixed stack array created for radix and bucket sort usage.
  *
- * @category RadixSort
- * @type {Object[]}
+ * @category RadixSortUtil
+ * @const {Object[]}
  */
 export const stack = [
   { value: 0, array: [] },
@@ -23,7 +23,7 @@ export const stack = [
  * Generates a random value for generation of array in radix sort.
  *
  * @method
- * @category RadixSort
+ * @category RadixSortUtil
  * @returns {number} Random number generated.
  */
 export const generateRandomValue = () => {
@@ -41,7 +41,7 @@ export const generateRandomValue = () => {
  * Generates the random array for radix sort.
  *
  * @method
- * @category RadixSort
+ * @category RadixSortUtil
  * @param {number} size Size of array generated.
  * @returns {Object[]} Random array for radix sort.
  */
@@ -61,7 +61,7 @@ export const generateRadixSortArray = (size) => {
  * Executes one step of the radix sort algorithm.
  *
  * @method
- * @category RadixSort
+ * @category RadixSortUtil
  * @param {Object} currentAnimation Current animation object.
  * @param {Object[]} referenceArray Current state of the data array in the sorting execution.
  * @param {Object[]} stackArr Current state of the stack array in the sorting execution.

@@ -1,11 +1,11 @@
 import { executeRadixSort } from './RadixSortUtil';
 import { executeSwap } from './SwappingAlgoUtil';
-import { resetArray } from './GeneralUtil';
+import { resetArray } from './ArrayUtil';
 
 /**
  * Generates a random decimal.
  *
- * @category BucketSort
+ * @category BucketSortUtil
  * @returns {number} Random decimal generated.
  */
 const generateDecimal = () => {
@@ -15,7 +15,7 @@ const generateDecimal = () => {
 /**
  * Inner sorting algorithm used for bucket sort.
  *
- * @category BucketSort
+ * @category BucketSortUtil
  * @type {string}
  */
 const innerSortUsed = 'Insertion Sort';
@@ -24,7 +24,7 @@ const innerSortUsed = 'Insertion Sort';
  * Executes one step of the bucket sort algorithm.
  *
  * @method
- * @category BucketSort
+ * @category BucketSortUtil
  * @param {Object} currentAnimation Current animation object.
  * @param {Object[]} referenceArray Current state of the data array in the sorting execution.
  * @param {Object[]} stackArr Current state of the stack array in the sorting execution.
@@ -45,7 +45,7 @@ export const executeBucketSort = (currentAnimation, referenceArray, stackArr, is
 /**
  * Executes one step of insertion sort on one single bucket.
  *
- * @category BucketSort
+ * @category BucketSortUtil
  * @param {any[]} currentAnimation Current animation object.
  * @param {Object[]} stackArr Current stack array.
  */
@@ -79,7 +79,7 @@ const executeResetBucket = (currentAnimation, stackArr) => {
  * Generates the random array for bucket sort.
  *
  * @method
- * @category BucketSort
+ * @category BucketSortUtil
  * @param {number} size Size of array generated.
  * @returns {Object[]} Random array for bucket sort.
  */

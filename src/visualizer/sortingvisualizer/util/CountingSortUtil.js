@@ -1,10 +1,10 @@
-import { generateValue } from './GeneralUtil';
+import { generateValue } from './MathUtil';
 
 /**
  * Buckets used for counting sort animation.
  *
- * @category CountingSort
- * @type {Object[]}
+ * @category CountingSortUtil
+ * @const {Object[]}
  */
 export const buckets = [
   { height: 1, count: 0 },
@@ -22,7 +22,7 @@ export const buckets = [
  * Generates the random array for counting sort.
  *
  * @method
- * @category CountingSort
+ * @category CountingSortUtil
  * @param {number} size Size of array generated.
  * @returns {Object[]} Random array for counting sort.
  */
@@ -44,7 +44,7 @@ export const generateCountSortArray = (size) => {
  * Executes one step of the counting sort algorithm.
  *
  * @method
- * @category CountingSort
+ * @category CountingSortUtil
  * @param {Object} currentAnimation Current animation object.
  * @param {Object[]} referenceArray Current state of the data array in the sorting execution.
  * @param {number} animationPx Current animation percentage.

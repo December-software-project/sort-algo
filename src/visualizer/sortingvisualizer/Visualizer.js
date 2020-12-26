@@ -6,19 +6,15 @@ import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
 import './styles.css';
 import {
-  arrayCopy,
-  generateArray,
-  getAnimationArr,
   isBucketSort,
   isCountingSort,
   isMergeSort,
   isQuickSort,
   isRadixOrBucket,
   isRadixSort,
-  resetArray,
-  roundToTwoDp,
-  translateXOfVisualizer,
 } from './util/GeneralUtil';
+import { translateXOfVisualizer } from './VisualizerUtil';
+import { roundToTwoDp } from './util/MathUtil';
 import { executeGenericSort } from './util/SwappingAlgoUtil';
 import { executeMergeSortBackward, executeMergeSortForward } from './util/MergeSortUtil';
 import { executeQuickSort } from './util/QuickSortUtil';
@@ -35,6 +31,7 @@ import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
 import { executeBucketSort } from './util/BucketSortUtil';
 import ButtonBox from './component/button/ButtonBox';
 import CodeInformation from '../codeinformation/CodeInformation';
+import { arrayCopy, generateArray, getAnimationArr, resetArray } from './util/ArrayUtil';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 

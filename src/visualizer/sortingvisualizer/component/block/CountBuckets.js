@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { translateXOfVisualizer } from '../../util/GeneralUtil';
+import { translateXOfVisualizer } from '../../VisualizerUtil';
 
 /**
  * Creates the buckets to be used for counting sort algorithm.
