@@ -18,11 +18,6 @@
     "better-docs/component",
     "better-docs/category"
   ],
-  "templates": {
-    "better-docs": {
-      "name": "My React components"
-    }
-  },
   "opts": {
     "destination": "docs",
     "recurse": true,
