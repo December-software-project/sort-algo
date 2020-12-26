@@ -15,6 +15,7 @@ import 'ace-builds/src-noconflict/theme-textmate';
  * editor.
  *
  * @component
+ * @category CodeTemplate
  * @param {string} algo Current algorithm selected.
  * @returns {JSX.Element} Code template component.
  */

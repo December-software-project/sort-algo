@@ -8,6 +8,7 @@ import PerformanceSection from './PerformanceSection';
  * and the performance of the algorithm.
  *
  * @component
+ * @category CodeExplanation
  * @param {string} algo Current algorithm selected.
  * @returns {JSX.Element} Code explanation component.
  */

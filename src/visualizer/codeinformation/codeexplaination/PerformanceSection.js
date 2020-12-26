@@ -6,6 +6,7 @@ import './styles.css';
  * Performance section detailing the performance of the current sorting algorithm.
  *
  * @component
+ * @category CodeExplanation
  * @returns {JSX.Element} Performance section component.
  */
 const PerformanceSection = ({ sortDetails }) => {

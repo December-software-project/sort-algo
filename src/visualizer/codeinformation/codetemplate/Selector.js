@@ -6,6 +6,7 @@ import './styles.css';
  * language.
  *
  * @component
+ * @category CodeTemplate
  * @returns {JSX.Element} Selector component.
  */
 const Selector = ({ selected, setSelected }) => {

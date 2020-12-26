@@ -1,6 +1,10 @@
 import { generateValue } from './GeneralUtil';
 
-// Fixed array for radix sort
+/**
+ * Fixed stack array created for radix and bucket sort usage.
+ *
+ * @type {Object} Stack array.
+ */
 export const stack = [
   { value: 0, array: [] },
   { value: 1, array: [] },
