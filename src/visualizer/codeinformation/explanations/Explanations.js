@@ -13,7 +13,7 @@ import HeapSort from './heapSortEx';
  * Contains all the explanations for the sorting algorithms.
  *
  * @namespace Explanations
- * @type {Object} explanations Contains all the explanations for the sorting algorithms.
+ * @type {Object}
  */
 const explanations = {
   'Bubble Sort': BubbleSort,

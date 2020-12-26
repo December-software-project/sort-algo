@@ -13,7 +13,7 @@ import HeapSort from './heapSortTemplate';
  * Contains all the code templates for the sorting algorithms.
  *
  * @namespace Code templates
- * @type {Object} Contains all the code templates for the sorting algorithms.
+ * @type {Object}
  */
 const templates = {
   'Bubble Sort': BubbleSort,
