@@ -3,7 +3,6 @@ import { useTransition } from 'react-spring';
 import BucketSortBlock from '../block/BucketSortBlock';
 
 const StackOfBoxes = ({ individualStack, value }) => {
-
   let yDirection = 0;
   const transition = useTransition(
     individualStack.map((data) => {
