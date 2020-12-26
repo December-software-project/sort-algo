@@ -5,13 +5,14 @@ import { animated } from 'react-spring';
 /**
  * A block which animates to show the sorting animation.
  *
- * @param {object} item. The information of the block.
- * @param {number} x. The displacement of the block.
- * @param {object} rest. All other information of the props.
- * @param {number} length. The number of blocks.
- * @param {number} index. Index of the block.
- * @param {boolean} isSwap. A boolean value denoting whether this block is in a swap animation.
- * @param {number} width. Width of the block.
+ * @component
+ * @param {object} item The information of the block.
+ * @param {number} x The displacement of the block in the X-Direction.
+ * @param {object} rest All other information of the props.
+ * @param {number} length The number of blocks.
+ * @param {number} index Index of the block.
+ * @param {boolean} isSwap A boolean value denoting whether this block is in a swap animation.
+ * @param {number} width Width of the block.
  * @returns {JSX.Element} An animated block which translate in the X-Direction.
  */
 const AnimatedBlock = ({ item, props: { x, ...rest }, length, index, isSwap, width }) => {

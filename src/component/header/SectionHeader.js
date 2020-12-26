@@ -6,6 +6,7 @@ import IsVisible from 'react-is-visible';
 /**
  * General component header that animates to the center upon entering user's view port.
  *
+ * @component
  * @param {string} sectionHeader Name of the section header.
  * @param {string} translateX Extra translation in x direction for the line underneath the header.
  * @returns {JSX.Element} Header for each category.

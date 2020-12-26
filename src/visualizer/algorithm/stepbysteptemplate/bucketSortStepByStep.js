@@ -1,6 +1,16 @@
 import { radixSortStepByStep } from './radixSortStepByStep';
 import { genericSwapStepByStep } from './genericSwapStepByStep';
 
+/**
+ * Generates the step by step template for Bucket Sort.
+ *
+ * @method
+ * @memberOf StepByStepTemplate
+ * @param animationArr An array that contains all the animation steps.
+ * @param idx Index of the current animation step.
+ * @param stackArr An array representing the buckets.
+ * @returns {string} The information regarding the current step of the animation.
+ */
 export const bucketSortStepByStep = (animationArr, idx, stackArr) => {
   const currentAnimation = animationArr[idx - 1];
 

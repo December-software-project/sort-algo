@@ -10,6 +10,8 @@ import Notification from './Notification';
 
 /**
  * A form for user to fill in their details.
+ *
+ * @component
  */
 const Form = () => {
   const [type, setType] = useState('Type (Optional)');
@@ -52,7 +54,7 @@ const Form = () => {
   /**
    * Sends a message to the users and the developers upon the user sends a message.
    *
-   * @param values User's details
+   * @param {Object} values User's details
    */
   const sendMessage = (values) => {
     const message = {

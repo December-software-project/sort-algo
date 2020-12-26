@@ -1,3 +1,10 @@
+/**
+ * Sorts the array using Counting Sort and stores each sorting step into the animation array.
+ *
+ * @memberOf SortingAlgorithms
+ * @param {Object[]} arr The array to be sorted.
+ * @returns {any[]} Animation array which contains the animation instruction for each step.
+ */
 const countingSort = (arr) => {
   let receivedArr = arr;
   let countArr = [...Array(10)].map(() => 0);
