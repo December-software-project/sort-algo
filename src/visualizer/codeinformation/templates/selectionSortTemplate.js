@@ -5,7 +5,7 @@
  * @see {@link https://stackabuse.com/selection-sort-in-javascript/|StackAbuse}
  * @see {@link https://stackabuse.com/selection-sort-in-python/|StackAbuse}
  * @memberOf Code templates
- * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ * @const {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
  */
 const SelectionSort = {
   Java:
