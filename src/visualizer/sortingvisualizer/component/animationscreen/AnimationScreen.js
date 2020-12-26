@@ -17,7 +17,7 @@ import GenericSortScreen from './GenericSortScreen';
 
 /**
  * The screen which shows the animation for the sorting visualizer.
- * 
+ *
  * @component
  */
 const AnimationScreen = () => {

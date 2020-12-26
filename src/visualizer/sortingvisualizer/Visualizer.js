@@ -40,7 +40,7 @@ const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: fa
 
 /**
  * The sorting visualizer.
- * 
+ *
  * @component
  */
 const Visualizer = () => {
