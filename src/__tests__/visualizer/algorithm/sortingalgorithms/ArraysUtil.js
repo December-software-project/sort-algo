@@ -69,4 +69,3 @@ export const ARRAY_EXPECTED_RANDOM_MIXED = [
   { id: 3, height: 2 },
   { id: 2, height: 5 },
 ];
-

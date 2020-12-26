@@ -43,4 +43,4 @@ const generateAppendedArray = (arr) => {
     height: obj.height,
     isShown: true,
   }));
-}; 
+};
