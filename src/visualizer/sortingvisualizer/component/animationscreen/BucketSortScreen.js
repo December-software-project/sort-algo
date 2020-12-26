@@ -1,47 +1,30 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
-import { highlightOnesPlacing } from './NumberHighlighter';
-import StackOfBoxes from './StackOfBoxes';
+import StackOfAnimatedBoxes from '../multipleblocks/StackOfAnimatedBoxes';
 import './styles.css';
-import HorizontalArray from './HorizontalArray';
+import HorizontalArray from '../multipleblocks/HorizontalArray';
+import Oval from '../block/Oval';
 
 /**
- * Bucket sort screen which encapsulates the fields and components of the screen.
+ * Bucket sort screen which encapsulates the fields and components of the animation.
  *
  * @component
- * @category BucketSort
+ * @category AnimationScreen
  * @returns {JSX.Element} Bucket sort screen.
  */
 const BucketSortScreen = () => {
   const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);
 
-  /**
-   * Single oval to represent an item in the data array.
-   *
-   * @param {Object} item Element in the data array.
-   * @returns {JSX.Element} Single oval containing the item.
-   */
-  const SingleOval = ({ item }) => (
-    <div
-      className="box"
-      style={{
-        visibility: item.isShown ? `visible` : `hidden`,
-      }}
-    >
-      <div className="decimal">{highlightOnesPlacing(item.height)}</div>
-    </div>
-  );
-
   return (
     <div className="spaced-out-container">
-      <HorizontalArray
-        dataSize={dataSize}
-        referenceArray={referenceArray}
-        SingleOval={SingleOval}
-      />
+      <HorizontalArray dataSize={dataSize} referenceArray={referenceArray} OvalType={Oval} />
       <div className="stack-arr">
         {stackArr.map((stack) => (
-          <StackOfBoxes individualStack={stack.array} value={stack.value} key={stack.value} />
+          <StackOfAnimatedBoxes
+            individualStack={stack.array}
+            value={stack.value}
+            key={stack.value}
+          />
         ))}
       </div>
     </div>

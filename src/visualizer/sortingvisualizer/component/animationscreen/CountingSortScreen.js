@@ -1,18 +1,25 @@
 import React from 'react';
-import SmallBlock from '../smallBlock/SmallBlock';
-import Buckets from '../countingsortbuckets/Buckets';
+import CountingSortBlock from '../block/CountingSortBlock';
+import CountBuckets from '../block/CountBuckets';
 import './styles.css';
 
 /**
- * Animation screen which shows the counting sort algorithm.
+ * Counting sort screen which encapsulates the fields and components of the animation.
+ *
+ * @component
+ * @category AnimationScreen
+ * @param {Object[]} transitions An array which contains the animated blocks.
+ * @param {number} dataSize The number of blocks to show.
+ * @returns {JSX.Element} Counting sort screen component.
  */
+
 const CountingSortScreen = ({ transitions, dataSize }) => {
   return (
     <div className="container-one">
       <div className="list">
         {transitions.map(({ item, props: { x, ...rest } }, index) => {
           return (
-            <SmallBlock
+            <CountingSortBlock
               item={item}
               props={{ x, ...rest }}
               index={index}
@@ -23,7 +30,7 @@ const CountingSortScreen = ({ transitions, dataSize }) => {
           );
         })}
       </div>
-      <Buckets />
+      <CountBuckets />
     </div>
   );
 };

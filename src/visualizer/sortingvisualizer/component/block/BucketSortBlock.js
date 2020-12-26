@@ -1,11 +1,23 @@
 import React from 'react';
 import { animated } from 'react-spring';
-import { highlightOnesPlacing } from '../animationscreen/NumberHighlighter';
+import { spreadNumber } from './HighlightUtil';
+import './styles.css';
 
+/**
+ * A counting sort block which animates to show the sorting animation.
+ *
+ * @component
+ * @category Block
+ * @param {object} item. The information of the block.
+ * @param {object} x. The displacement of the block.
+ * @param {object} rest. All other information of the props.
+ * @param {number} index. Index of the block.
+ * @returns {JSX.Element} An animated block which translates in the y direction.
+ */
 const BucketSortBlock = ({ item, props: { y, ...rest }, index }) => {
   return (
     <animated.div
-      className="box"
+      className="oval"
       key={index}
       index={index}
       style={{
@@ -17,7 +29,7 @@ const BucketSortBlock = ({ item, props: { y, ...rest }, index }) => {
         transform: y.interpolate((y) => `translate3d(0,${y}px,0)`),
       }}
     >
-      <div className="decimal">{highlightOnesPlacing(item.height)}</div>
+      <div className="decimal">{spreadNumber(item.height)}</div>
     </animated.div>
   );
 };

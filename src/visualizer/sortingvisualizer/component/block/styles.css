@@ -1,3 +1,4 @@
+/* For all blocks */
 .animated-block {
   align-items: flex-end;
   border-radius: 5px;
@@ -9,4 +10,53 @@
 
 .animated-block > span {
   color: whitesmoke;
+}
+
+/* Counting sort */
+.fixed-array {
+  align-items: flex-end;
+  align-self: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  margin-top: 6%;
+}
+
+.fixed-array-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.count {
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* Bucket and radix sort */
+.oval {
+  align-items: center;
+  background: linear-gradient(45deg, #287ED0, #5466FF);
+  border-radius: 50%;
+  color: whitesmoke;
+  display: flex;
+  font-size: 16px;
+  height: 40px;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  width: 50px;
+}
+
+.decimal > span:nth-child(3) {
+  font-weight: 720;
+}
+
+.reversed-number {
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
 }

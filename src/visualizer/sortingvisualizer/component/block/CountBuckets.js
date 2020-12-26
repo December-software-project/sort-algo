@@ -1,12 +1,23 @@
 import React, { useContext } from 'react';
-import '../block/styles.css';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
 import { translateXOfVisualizer } from '../../util/GeneralUtil';
 
-const Buckets = () => {
+/**
+ * Creates the buckets to be used for counting sort algorithm.
+ *
+ * @component
+ * @category Block
+ * @returns {JSX.Element} Buckets component.
+ */
+const CountBuckets = () => {
   const { dataSize, countArr } = useContext(VisualizerStateContext);
 
+  /**
+   * Color array used to represent the intensity of the highlight for each bucket.
+   *
+   * @const {string[]}
+   */
   const colorArr = [
     '#B8B8B8',
     '#b4d3de',
@@ -35,7 +46,13 @@ const Buckets = () => {
     '#000000',
   ];
 
-  const CountingBlock = ({ item }) => (
+  /**
+   * Represents a count block in counting sort.
+   *
+   * @param {Object} item Each block.
+   * @returns {JSX.Element} Count block.
+   */
+  const CountBlock = ({ item }) => (
     <div
       className="fixed-array-container"
       style={{ transform: `translateX(${translateXOfVisualizer(dataSize)}px)` }}
@@ -58,10 +75,10 @@ const Buckets = () => {
   return (
     <div className="fixed-array">
       {countArr.map((item, index) => (
-        <CountingBlock item={item} key={index} />
+        <CountBlock item={item} key={index} />
       ))}
     </div>
   );
 };
 
-export default Buckets;
+export default CountBuckets;
