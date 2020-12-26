@@ -5,7 +5,10 @@ import StackOfBoxes from './StackOfBoxes';
 import './styles.css';
 
 /**
- * Animation screen which shows the bucket sort algorithm.
+ * Animation screen which shows the Bucket Sort algorithm
+ *
+ * @component
+ * @category AnimationScreen
  */
 const BucketSortScreen = () => {
   const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);

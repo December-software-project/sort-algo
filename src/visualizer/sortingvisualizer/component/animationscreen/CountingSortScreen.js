@@ -4,7 +4,12 @@ import Buckets from '../countingsortbuckets/Buckets';
 import './styles.css';
 
 /**
- * Animation screen which shows the counting sort algorithm.
+ * Animation screen which shows the Counting Sort algorithm.
+ *
+ * @component
+ * @category AnimationScreen
+ * @param {Object[]} transitions An array which contains the animated blocks.
+ * @param {number} dataSize The number of blocks.
  */
 const CountingSortScreen = ({ transitions, dataSize }) => {
   return (

@@ -6,6 +6,7 @@ import { animated } from 'react-spring';
  * A block which animates to show the Merge Sort algorithm.
  *
  * @component
+ * @category AnimationScreen
  * @param {object} item The information of the block.
  * @param {number} x The displacement of the block in the X-Direction.
  * @param {object} rest All other information of the props.
