@@ -8,6 +8,8 @@ import { generateMergeSortArray } from './MergeSortUtil';
 /**
  * Resets the array given.
  *
+ * @method
+ * @category ArrayUtil
  * @param {string} visualizerAlgorithm. Algorithm used.
  * @param {Object[]} arr. Array to be reset.
  * @returns {Object[]} Array that has been reset.
@@ -33,6 +35,8 @@ export const resetArray = (visualizerAlgorithm, arr) => {
 /**
  * Creates a deep copy of the array.
  *
+ * @method
+ * @category ArrayUtil
  * @param {Object[]} arr. Array to be copied.
  * @returns {Object[]} Deep copy of the input array.
  */
@@ -43,6 +47,8 @@ export const arrayCopy = (arr) => {
 /**
  * Retrieves the animation array by based on the given array and algorithm selected.
  *
+ * @method
+ * @category ArrayUtil
  * @param {string} visualizerAlgorithm. The current algorithm of the visualizer.
  * @param {Object[]} arrayData. Given array.
  */
@@ -54,6 +60,7 @@ export const getAnimationArr = (visualizerAlgorithm, arrayData) => {
 /**
  * Gets the step by step text to display to the user.
  *
+ * @method
  * @param {string} visualizerAlgorithm. The current algorithm of the visualizer.
  * @param {Object[]} animationArr. Animation array.
  * @param {number} idx. Index of animation.
@@ -78,6 +85,7 @@ export const getStepByStepText = (
 /**
  * Generates a random number within [min, max].
  *
+ * @method
  * @param {number} min. Min number selected.
  * @param {number} max. Max number selected.
  * @returns {number} Random number generated.
@@ -89,6 +97,7 @@ export const generateValue = (min, max) => {
 /**
  * Rounds the number to 2 decimal places, if necessary.
  *
+ * @method
  * @see {@link https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary|Stack Overflow}
  * @param {number} num. Input number.
  * @returns {number} Rounded number with maximum 2 decimal places.
@@ -116,6 +125,7 @@ const arrayGenerator = {
 /**
  * Generates a random array based on the size chosen and the algorithm selected.
  *
+ * @method
  * @param {number} size. Size of array selected by user.
  * @param {string} visualizerAlgorithm. The current algorithm of the visualizer.
  * @returns {Object[]} Random array generated.
@@ -126,7 +136,7 @@ export const generateArray = (size, visualizerAlgorithm) => {
 
 /**
  * Generates the default array. Used by all sorting algorithms involving swaps only.
- *
+ * @category ArrayUtil
  * @param {number} size. Size of array selected by user.
  * @returns {Object[]} Random array generated.
  */

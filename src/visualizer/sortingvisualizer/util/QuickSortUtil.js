@@ -3,7 +3,7 @@ import { executeSwap } from './SwappingAlgoUtil';
 /**
  * A sorting execution for Quick Sort.
  *
- * @param {*[]} currentAnimation. The current animation to be executed.
+ * @param {any[]} currentAnimation. The current animation to be executed.
  * @param {Object[]} referenceArray. The array holding data for the "blocks".
  * @param {string} visualizerAlgorithm. The current algorithm of the visualizer.
  * @param {function} setReferenceArray. A set state method for reference array.
