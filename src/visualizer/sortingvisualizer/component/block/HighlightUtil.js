@@ -1,9 +1,11 @@
 import React from 'react';
 
 /**
- * Retrieves the current number to highlight. This depends on the stage of the animation.
+ * Retrieves the current digit to highlight.
  *
- * @category RadixSort
+ * @category HighlightUtil
+ * @param {number} idx Index of the current animation.
+ * @param {number} dataSize Size of data array.
  * @returns {number} Digit to highlight.
  */
 const getDigitToHighlight = (idx, dataSize) => {
@@ -22,7 +24,8 @@ const getDigitToHighlight = (idx, dataSize) => {
 /**
  * Highlights a digit in the value based on the current stage of the animation.
  *
- * @category RadixSort
+ * @method
+ * @category HighlightUtil
  * @param {number} value Value of element.
  * @param {number} idx Current index of the animation.
  * @param {number} dataSize Size of data selected.
@@ -45,8 +48,9 @@ export const highlightDigit = (value, idx, dataSize) => {
 /**
  * Spreads the number into spans of digits.
  *
- * @category BucketSort
- * @param value Number to spread.
+ * @method
+ * @category HighlightUtil
+ * @param {number} value Number to spread.
  * @returns {JSX.Element[]} Array of digits.
  */
 export const spreadNumber = (value) => {

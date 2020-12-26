@@ -9,7 +9,7 @@ import './styles.css';
  * @component
  * @category Block
  * @param {Object} item Element in the data array.
- * @param {boolean} display
+ * @param {boolean} display States if the oval should be highlighted.
  * @param {number} marginTop Margin
  * @returns {JSX.Element} Single oval containing the item.
  */

@@ -5,6 +5,8 @@ import './styles.css';
 /**
  * Single oval to represent an item in the data array.
  *
+ * @component
+ * @category Block
  * @param {Object} item Element in the data array.
  * @returns {JSX.Element} Single oval containing the item.
  */

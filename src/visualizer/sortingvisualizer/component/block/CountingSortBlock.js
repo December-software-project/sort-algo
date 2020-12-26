@@ -7,12 +7,12 @@ import { animated } from 'react-spring';
  *
  * @component
  * @category Block
- * @param {object} item. The information of the block.
- * @param {object} x. The displacement of the block.
- * @param {object} rest. All other information of the props.
- * @param {number} length. The number of blocks.
- * @param {number} index. Index of the block.
- * @param {number} width. Width of the block.
+ * @param {object} item The information of the block.
+ * @param {object} x The displacement of the block.
+ * @param {object} rest All other information of the props.
+ * @param {number} length The number of blocks.
+ * @param {number} index Index of the block.
+ * @param {number} width Width of the block.
  * @returns {JSX.Element} An animated block which translates in the x direction.
  */
 const CountingSortBlock = ({ item, props: { x, ...rest }, length, index, width }) => {

@@ -8,8 +8,8 @@ import './styles.css';
  *
  * @component
  * @category MultipleBlocks
- * @param individualStack Individual bucket in the stack.
- * @param value Index of the stack.
+ * @param {any[]} individualStack Individual bucket in the stack.
+ * @param {number} value Index of the stack.
  * @returns {JSX.Element} Stack of boxes component.
  */
 const StackOfAnimatedBoxes = ({ individualStack, value }) => {
