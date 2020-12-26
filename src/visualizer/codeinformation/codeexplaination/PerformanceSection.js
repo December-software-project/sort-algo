@@ -44,10 +44,10 @@ const PerformanceSection = ({ sortDetails }) => {
    * stable and in-place.
    *
    * @param {string} type Input type.
-   * @param boolean Boolean detailing whether the type is true or false.
+   * @param {boolean} isTick detailing whether the type is true or false.
    * @returns {JSX.Element} Type with icon component.
    */
-  const TypeWithIcon = ({ type, boolean }) => {
+  const TypeWithIcon = ({ type, isTick }) => {
     /**
      * Icon type which describes whether the boolean is true or false. Returns the Tick symbol
      * if boolean is true, otherwise it returns the Cross symbol.
@@ -55,7 +55,7 @@ const PerformanceSection = ({ sortDetails }) => {
      * @returns {JSX.Element} IconType.
      */
     const IconType = () => {
-      return boolean ? (
+      return isTick ? (
         <FaCheckCircle size="25" color="#11C2C9" />
       ) : (
         <FaTimesCircle size="25" color="#FF4E4E" />
@@ -80,8 +80,8 @@ const PerformanceSection = ({ sortDetails }) => {
         <Complexity />
       </div>
       <div className="row-container-two">
-        <TypeWithIcon type={'Stable'} boolean={sortDetails.stable} />
-        <TypeWithIcon type={'In-place'} boolean={sortDetails.inPlace} />
+        <TypeWithIcon type={'Stable'} isTick={sortDetails.stable} />
+        <TypeWithIcon type={'In-place'} isTick={sortDetails.inPlace} />
       </div>
     </div>
   );
