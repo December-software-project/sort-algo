@@ -75,7 +75,7 @@ export const getStepByStepText = (
   animationArr,
   idx,
   referenceArray,
-  stackArr
+  stackArr,
 ) => {
   const sortAlgoStepByStep = SortingAlgorithmsStepByStep[visualizerAlgorithm];
   if (isBucketSort(visualizerAlgorithm)) {

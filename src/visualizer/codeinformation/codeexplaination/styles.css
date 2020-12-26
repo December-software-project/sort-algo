@@ -70,8 +70,8 @@
 }
 
 .link, .link:focus {
-  margin-top: 6%;
   color: steelblue;
-  text-decoration: underline;
   font-size: 15px;
+  margin-top: 6%;
+  text-decoration: underline;
 }

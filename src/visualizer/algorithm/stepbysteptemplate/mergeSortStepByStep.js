@@ -1,5 +1,6 @@
 import { arrayCopy } from '../../sortingvisualizer/util/GeneralUtil';
 import { findIndexToUseInMergeSort } from '../../sortingvisualizer/util/MergeSortUtil';
+
 /**
  * Generates the step by step template for Merge Sort.
  *
