@@ -1,4 +1,11 @@
-// code adapted from https://www.tutorialspoint.com/radix-sort-in-javascript
+/**
+ * Sorts the array using Radix Sort and stores each sorting step into the animation array.
+ *
+ * @memberOf SortingAlgorithms
+ * @see {@link https://www.tutorialspoint.com/radix-sort-in-javascript}
+ * @param {Object[]} arr The array to be sorted.
+ * @returns {any[]} Animation array which contains the animation instruction for each step.
+ */
 const radixSort = (arr) => {
   let inputArr = arr;
   let animationArr = [];

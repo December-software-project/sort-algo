@@ -1,4 +1,21 @@
-// Explanation adapted from https://www.geeksforgeeks.org/quick-sort/
+/**
+ * Quick sort algorithm details.
+ *
+ * @memberOf Explanations
+ * @see {@link https://www.geeksforgeeks.org/quick-sort/|Geeks for Geeks}
+ * @type {
+ * {bestTime: string,
+ * worstSpace: string,
+ * additionalDesc: string,
+ * averageTime: string,
+ * stable: boolean,
+ * name: string,
+ * worstTime: JSX.Element,
+ * link: string,
+ * description: string,
+ * inPlace: boolean}
+ * }
+ */
 const QuickSort = {
   name: 'Quick',
   description:

@@ -11,6 +11,9 @@ import heapSort from './heapSort';
 
 /**
  * An Object component that is used to access the sorting method.
+ *
+ * @namespace SortingAlgorithms
+ * @type {Object}
  */
 const SortingAlgorithms = {
   'Insertion Sort': insertionSort,

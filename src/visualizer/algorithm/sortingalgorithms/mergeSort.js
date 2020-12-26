@@ -1,5 +1,3 @@
-// Code adapted from https://www.geeksforgeeks.org/merge-sort/
-
 const merge = (receivedArr, start, mid, end, animationArr) => {
   const n1 = mid - start + 1;
   const n2 = end - mid;
@@ -56,6 +54,14 @@ const mergeSortHelper = (receivedArr, animationArr, start, end) => {
   }
 };
 
+/**
+ * Sorts the array using Merge Sort and stores each sorting step into the animation array.
+ *
+ * @memberOf SortingAlgorithms
+ * @see {@link https://www.geeksforgeeks.org/merge-sort/}
+ * @param {Object[]} arr The array to be sorted.
+ * @returns {any[]} Animation array which contains the animation instruction for each step.
+ */
 const mergeSort = (arr) => {
   let receivedArr = arr;
   let animationArr = [];

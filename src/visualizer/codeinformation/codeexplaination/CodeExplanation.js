@@ -1,74 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
 import explanations from '../explanations/Explanations';
-import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import PerformanceSection from './PerformanceSection';
 
+/**
+ * CodeExplanation component which encapsulates the details for how the sorting algorithm works,
+ * and the performance of the algorithm.
+ *
+ * @component
+ * @category CodeExplanation
+ * @param {string} algo Current algorithm selected.
+ * @returns {JSX.Element} Code explanation component.
+ */
 const CodeExplanation = ({ algo }) => {
-  const [sort, setSort] = useState(explanations[algo]);
+  // Sort details of the algorithm.
+  const [sortDetails, setSortDetails] = useState(() => explanations[algo]);
 
   useEffect(() => {
-    setSort(explanations[algo]);
+    setSortDetails(explanations[algo]);
   }, [algo]);
 
-  const HeaderOne = () => <header>How {sort.name} Sort works</header>;
-  const Explanation = () => <p style={{ width: `112%` }}>{sort.description}</p>;
+  /**
+   * First header component for the explanation section.
+   *
+   * @returns {JSX.Element} First header component for the explanation section.
+   */
+  const HeaderOne = () => <header>How {sortDetails.name} Sort works</header>;
+
+  /**
+   * Explanation component detailing how the code works.
+   *
+   * @returns {JSX.Element} Explanation component detailing how the code works.
+   */
+  const Explanation = () => <p style={{ width: `112%` }}>{sortDetails.description}</p>;
+
+  /**
+   * Second header component for the performance section.
+   *
+   * @returns {JSX.Element} Second header component for the performance section.
+   */
   const HeaderTwo = () => <header>Performance</header>;
 
-  const PerformanceSection = () => {
-    const ListOfComplexities = () => (
-      <div className="text">
-        <p>Worst time complexity</p>
-        <p>Average time complexity</p>
-        <p>Best time complexity</p>
-        <p>Worst space complexity</p>
-      </div>
-    );
-
-    const Complexity = () => (
-      <div className="complexity">
-        <p>O({sort.worstTime})</p>
-        <p>θ({sort.averageTime})</p>
-        <p>Ω({sort.bestTime})</p>
-        <p>O({sort.worstSpace})</p>
-      </div>
-    );
-
-    const WordWithIcon = ({ word, boolean }) => {
-      const CircleType = () => {
-        return boolean ? (
-          <FaCheckCircle size="25" color="#11C2C9" />
-        ) : (
-          <FaTimesCircle size="25" color="#FF4E4E" />
-        );
-      };
-
-      return (
-        <div className="wordWithIcon">
-          <p>{word}</p>
-          <CircleType />
-        </div>
-      );
-    };
-
-    return (
-      <div className="performance">
-        <p className="explanation-para">
-          {`Assuming N is the size of array, ` + sort.additionalDesc}
-        </p>
-        <div className="row-container-one">
-          <ListOfComplexities />
-          <Complexity />
-        </div>
-        <div className="row-container-two">
-          <WordWithIcon word={'Stable'} boolean={sort.stable} />
-          <WordWithIcon word={'In-place'} boolean={sort.inPlace} />
-        </div>
-      </div>
-    );
-  };
-
+  /**
+   * Link component which provides a link to an external website for more information about the
+   * sorting algorithm used.
+   *
+   * @returns {JSX.Element} Link component.
+   */
   const Link = () => (
-    <a className="link" target="_blank" rel="noopener noreferrer" href={sort.link}>
+    <a className="link" target="_blank" rel="noopener noreferrer" href={sortDetails.link}>
       Click for more info
     </a>
   );
@@ -78,7 +58,7 @@ const CodeExplanation = ({ algo }) => {
       <HeaderOne />
       <Explanation />
       <HeaderTwo />
-      <PerformanceSection />
+      <PerformanceSection sortDetails={sortDetails} />
       <Link />
     </div>
   );

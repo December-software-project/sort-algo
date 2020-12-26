@@ -35,8 +35,8 @@ const BucketSortScreen = () => {
     <div className="spaced-out-container">
       <HorizontalBoxes dataSize={dataSize} referenceArray={referenceArray} />
       <div className="stack-arr">
-        {stackArr.map((x) => (
-          <StackOfBoxes individualStack={x.array} key={x.value} />
+        {stackArr.map((stack) => (
+          <StackOfBoxes individualStack={stack.array} value={stack.value} key={stack.value} />
         ))}
       </div>
     </div>

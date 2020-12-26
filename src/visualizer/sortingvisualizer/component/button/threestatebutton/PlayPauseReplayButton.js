@@ -6,7 +6,7 @@ import './styles.css';
 /**
  * Depending on the {@code type}, it will show the relevant button state.
  *
- * @param type {string} The state of the button to be shown: 'play', 'pause', 'replay'.
+ * @param {string} type The state of the button to be shown: 'play', 'pause', 'replay'.
  */
 const PlayPauseReplayButton = ({ type }) => {
   return (

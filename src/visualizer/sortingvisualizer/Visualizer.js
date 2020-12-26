@@ -38,6 +38,11 @@ import CodeInformation from '../codeinformation/CodeInformation';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
+/**
+ * The sorting visualizer.
+ *
+ * @component
+ */
 const Visualizer = () => {
   // isPlay and isReplay simulate the 3 states
   const [isPlay, setIsPlay] = useState(false);
@@ -50,13 +55,13 @@ const Visualizer = () => {
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
   const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Bubble Sort');
-  const [arrayData, setArrayData] = useState(generateArray(dataSize, visualizerAlgorithm));
-  const [referenceArray, setReferenceArray] = useState(arrayCopy(arrayData));
-  const [animationArr, setAnimationArr] = useState(bubbleSort(arrayCopy(arrayData)));
+  const [arrayData, setArrayData] = useState(() => generateArray(dataSize, visualizerAlgorithm));
+  const [referenceArray, setReferenceArray] = useState(() => arrayCopy(arrayData));
+  const [animationArr, setAnimationArr] = useState(() => bubbleSort(arrayCopy(arrayData)));
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
-  const [countArr, setCountArr] = useState(arrayCopy(buckets));
-  const [stackArr, setStackArr] = useState(arrayCopy(stack));
+  const [countArr, setCountArr] = useState(() => arrayCopy(buckets));
+  const [stackArr, setStackArr] = useState(() => arrayCopy(stack));
 
   // This is introduced to simplify the back animation for MergeSort
   const [historyArr, setHistoryArr] = useState([]);
@@ -70,7 +75,7 @@ const Visualizer = () => {
   /**
    * Changes the number of "block" or "ovals" for the sorting animation.
    *
-   * @param val {number} The number of "block" or "ovals" for sorting animation.
+   * @param {number} val The number of "block" or "ovals" for sorting animation.
    */
   const changeDataSize = (val) => {
     if (val !== dataSize) {
@@ -135,7 +140,7 @@ const Visualizer = () => {
   };
 
   /**
-   * Executes one step of the reverse in the sorting animation, depending on the sorting algorithm
+   * Executes one step of the reverse in the sorting animation, depending on the sorting algorithm.
    */
   const executeBackwardAnimation = () => {
     // this occurs if the users click too fast
@@ -168,9 +173,9 @@ const Visualizer = () => {
   };
 
   /**
-   * Resets the states of the "blocks" or "oval" when the sorting animation is done
+   * Resets the states of the "blocks" or "oval" when the sorting animation is done.
    *
-   * @param finalReferenceArray The end state of the array holding the states of each block.
+   * @param {object[]} finalReferenceArray The end state of the array holding the states of each block.
    */
   const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
@@ -179,7 +184,8 @@ const Visualizer = () => {
   };
 
   /**
-   * A object contains values to be passed around the other components via React's context
+   * @const {object} A object contains different values and methods to be passed around the other components
+   * via React's context.
    */
   const value = {
     isPlay,

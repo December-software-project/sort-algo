@@ -1,4 +1,21 @@
-// Explanation adapted from https://www.geeksforgeeks.org/insertion-sort/
+/**
+ * Insertion sort algorithm details.
+ *
+ * @memberOf Explanations
+ * @see {@link https://www.geeksforgeeks.org/insertion-sort/|Geeks for Geeks}
+ * @type {
+ * {bestTime: string,
+ * worstSpace: string,
+ * additionalDesc: string,
+ * averageTime: JSX.Element,
+ * stable: boolean,
+ * name: string,
+ * worstTime: JSX.Element,
+ * link: string,
+ * description: string,
+ * inPlace: boolean}
+ * }
+ */
 const InsertionSort = {
   name: 'Insertion',
   description:

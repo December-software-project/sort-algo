@@ -1,4 +1,21 @@
-// Explanation adapted from https://www.geeksforgeeks.org/bubble-sort/.
+/**
+ * Bubble sort algorithm details.
+ *
+ * @memberOf Explanations
+ * @see {@link https://www.geeksforgeeks.org/bubble-sort/|Geeks for Geeks}
+ * @type {
+ * {bestTime: string,
+ * worstSpace: string,
+ * additionalDesc: string,
+ * averageTime: JSX.Element,
+ * stable: boolean,
+ * name: string,
+ * worstTime: JSX.Element,
+ * link: string,
+ * description: string,
+ * inPlace: boolean}
+ * }
+ */
 const BubbleSort = {
   name: 'Bubble',
   description:

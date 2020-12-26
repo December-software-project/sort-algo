@@ -1,3 +1,9 @@
+/**
+ * Radix sort algorithm details.
+ *
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const RadixSort = {
   Java:
     'void radixSort(int[] arr) {\n' +

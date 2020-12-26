@@ -1,4 +1,21 @@
-// Explanation adapted from CLRS Introduction to Algorithms textbook.
+/**
+ * Bucket sort algorithm details.
+ * Explanation adapted from CLRS Introduction to Algorithms textbook.
+ *
+ * @memberOf Explanations
+ * @type {
+ * {bestTime: string,
+ * worstSpace: string,
+ * additionalDesc: string,
+ * averageTime: string,
+ * stable: boolean,
+ * name: string,
+ * worstTime: JSX.Element,
+ * link: string,
+ * description: string,
+ * inPlace: boolean}
+ * }
+ */
 const BucketSort = {
   name: 'Bucket',
   description:
