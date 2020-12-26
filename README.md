@@ -4,16 +4,21 @@
 
 # Sort-Algo
 
-Welcome to Sort-Algo, a sorting visualiser app which helps you to learn and understand sorting algorithms through interacting animations as well as explanations. <br />
+Welcome to Sort-Algo, a sorting visualiser app which helps you to learn and understand sorting algorithms through
+interacting animations as well as explanations. <br />
 <br />
-We built this app as we feel that usually when learning sorting algorithms, there is a lack of visual representation, and hence would like to help future students who are learning these sorting algorithms to have a way to visualize such algorithms with step by step explanation. We hope that you enjoy learning and playing around with this visualization tool.
-Check out our app [here!](https://algosort.netlify.app/)
+We built this app as we feel that usually when learning sorting algorithms, there is a lack of visual representation,
+and hence would like to help future students who are learning these sorting algorithms to have a way to visualize such
+algorithms with step by step explanation. We hope that you enjoy learning and playing around with this visualization
+tool. Check out our app [here!](https://algosort.netlify.app/)
 
 ## Features preview
 
 <p align="center"><strong>Bubble Sort preview</strong></p>
 
+<div width='125%' height='125%'>
 <img src="images/bubblesort.gif" alt="" width='125%' height='125%'/>
+</div>
 
 <br/>
 
@@ -33,9 +38,11 @@ Check out our app [here!](https://algosort.netlify.app/)
 
 ### Choose the algorithm you want
 
-There are a list of algorithms available as well as its complexity evaluations and code available in `Java`, `JavaScript`, `Python` and `C/C++`
+There are a list of algorithms available as well as its complexity evaluations and code available in `Java`
+, `JavaScript`, `Python` and `C/C++`
 
 Available algorithms are:
+
 * Bubble Sort
 * Insertion Sort
 * Selection Sort
@@ -49,18 +56,22 @@ Available algorithms are:
 
 ### Adjust the speed of the visualizer and array size
 
-There are sliders to adjust the size and speed of the visualizer. The speed ranges from 1-10 and size ranges from 5-25 and 1-10 depending on the algorithm selected.
+There are sliders to adjust the size and speed of the visualizer. The speed ranges from 1-10 and size ranges from 5-25
+and 1-10 depending on the algorithm selected.
 
 ### Start the animation
 
-There is a play button which starts the animation, however, at any point in time, you can also pause the animation. Once the animation is done, there is a replay button available.
+There is a play button which starts the animation, however, at any point in time, you can also pause the animation. Once
+the animation is done, there is a replay button available.
 
 ### Step tracing
 
-There is a step tracing feature provided whereby pressing the arrow buttons will allow you to execute the animation step by step to fully understand how the algorithm works through
-visual animation and a description of what is happening at each step.
+There is a step tracing feature provided whereby pressing the arrow buttons will allow you to execute the animation step
+by step to fully understand how the algorithm works through visual animation and a description of what is happening at
+each step.
 
 ## Project structure
+
 The current project structure and its important directories are shown below:
 
 ```
