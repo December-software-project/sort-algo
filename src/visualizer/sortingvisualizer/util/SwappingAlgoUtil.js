@@ -5,9 +5,9 @@ import { swap } from '../../algorithm/sortingalgorithms/swap';
 /**
  * Sets the state of the "block" or "oval" to be highlighted.
  *
- * @param firstIdx {number} The first block" or "oval" to be highlighted.
- * @param secondIdx {number} The second block" or "oval" to be highlighted.
- * @param arr {object[]} The array which the index at {@code firstIdx} and {@code secondIdx}
+ * @param {number} firstIdx. The first block" or "oval" to be highlighted.
+ * @param {number} secondIdx. The second block" or "oval" to be highlighted.
+ * @param {Object[]} arr. The array which the index at {@code firstIdx} and {@code secondIdx}
  *        is highlighted
  */
 export const highlight = (firstIdx, secondIdx, arr) => {
@@ -18,13 +18,13 @@ export const highlight = (firstIdx, secondIdx, arr) => {
 /**
  * Swaps the position of the two object in the array.
  *
- * @param firstIdx {number} The first index to be swapped in the array.
- * @param secondIdx {number} The second index to be swapped in the array.
- * @param arr {object[]} The array which the index at {@code firstIdx} and {@code secondIdx}
+ * @param {number} firstIdx. The first index to be swapped in the array.
+ * @param {number} secondIdx. The second index to be swapped in the array.
+ * @param {Object[]} arr. The array which the index at {@code firstIdx} and {@code secondIdx}
  *        is swapped and highlighted or just highlighted.
- * @param isSwapOccurring {boolean} A boolean value denoting whether a swap will occur.
- * @param visualizerAlgorithm {string} The current algorithm of the visualizer.
- * @returns {object[]} A new Object array which has been been swap and highlighted or
+ * @param {boolean} isSwapOccurring. A boolean value denoting whether a swap will occur.
+ * @param {string} visualizerAlgorithm. The current algorithm of the visualizer.
+ * @returns {Object[]} A new Object array which has been been swap and highlighted or
  *          just highlighted.
  */
 export const executeSwap = (firstIdx, secondIdx, arr, isSwapOccurring, visualizerAlgorithm) => {
@@ -40,11 +40,11 @@ export const executeSwap = (firstIdx, secondIdx, arr, isSwapOccurring, visualize
 /**
  * A generic sorting execution for Insertion, Bubble, Selection, Shell Sort
  *
- * @param currentAnimation {any[]} The current animation to be executed.
- * @param referenceArray {object[]} The array holding data for the "blocks"
- * @param visualizerAlgorithm {string} The current algorithm of the visualizer
- * @param setReferenceArray {function} A set state method for reference array.
- * @returns {object[]} The resultant array upon the swap animation
+ * @param {*[]} currentAnimation. The current animation to be executed.
+ * @param {Object[]} referenceArray. The array holding data for the "blocks"
+ * @param {string} visualizerAlgorithm. The current algorithm of the visualizer
+ * @param {function} setReferenceArray. A set state method for reference array.
+ * @returns {Object[]} The resultant array upon the swap animation
  */
 export const executeGenericSort = (
   currentAnimation,
