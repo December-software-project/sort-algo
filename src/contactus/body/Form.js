@@ -5,13 +5,11 @@ import { DownOutlined } from '@ant-design/icons';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import emailjs from 'emailjs-com';
-import FormHolder from './FormHolder';
+import IsVisibleYDirection from '../../component/IsVisibleYDirection/IsVisibleYDirection';
 import Notification from './Notification';
 
 /**
  * A form for user to fill in their details.
- *
- * @returns {JSX.Element} A fill up form boxes.
  */
 const Form = () => {
   const [type, setType] = useState('Type (Optional)');
@@ -84,6 +82,8 @@ const Form = () => {
     message: yup.string().required(),
   });
 
+  const yValue = `translateY(50px)`;
+
   return (
     <Formik
       initialValues={{ name: '', email: '', type: '', message: '' }}
@@ -100,7 +100,7 @@ const Form = () => {
         <>
           <div className="form-box">
             <div className="form-particulars" id="form-particulars">
-              <FormHolder classNameToUse="form-particular-error-holder">
+              <IsVisibleYDirection classNameToUse="form-particular-error-holder" yValue={yValue}>
                 <div className="form-particulars-holder">
                   <input
                     placeholder="Name"
@@ -111,8 +111,8 @@ const Form = () => {
                   />
                 </div>
                 <span>{props.touched.name && props.errors.name && 'Name is a required field'}</span>
-              </FormHolder>
-              <FormHolder classNameToUse="form-particular-error-holder">
+              </IsVisibleYDirection>
+              <IsVisibleYDirection classNameToUse="form-particular-error-holder" yValue={yValue}>
                 <div className="form-particulars-holder">
                   <input
                     placeholder="Email"
@@ -125,8 +125,8 @@ const Form = () => {
                 <span>
                   {props.touched.email && props.errors.email && 'Email is a required field'}
                 </span>
-              </FormHolder>
-              <FormHolder classNameToUse="form-particular-error-holder">
+              </IsVisibleYDirection>
+              <IsVisibleYDirection classNameToUse="form-particular-error-holder" yValue={yValue}>
                 <div className="form-particulars-holder">
                   <span>{type}</span>
                   <Dropdown overlay={menu} trigger={['click']} placement={'bottomCenter'}>
@@ -139,9 +139,9 @@ const Form = () => {
                     </a>
                   </Dropdown>
                 </div>
-              </FormHolder>
+              </IsVisibleYDirection>
             </div>
-            <FormHolder classNameToUse="form-details">
+            <IsVisibleYDirection classNameToUse="form-details" yValue={yValue}>
               <div className="form-details-error-holder">
                 <div className="form-details-holder">
                   <textarea
@@ -156,12 +156,12 @@ const Form = () => {
                   {props.touched.message && props.errors.message && 'Message is a required field'}
                 </span>
               </div>
-            </FormHolder>
-            <FormHolder classNameToUse="form-submit-button-box">
+            </IsVisibleYDirection>
+            <IsVisibleYDirection classNameToUse="form-submit-button-box" yValue={yValue}>
               <button className="form-submit-button" onClick={props.handleSubmit} type="submit">
                 <span>SEND MESSAGE</span>
               </button>
-            </FormHolder>
+            </IsVisibleYDirection>
           </div>
           <Notification isShowMessage={isShowMessage} setIsShowMessage={setIsShowMessage} />
         </>

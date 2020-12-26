@@ -1,8 +1,12 @@
 import React from 'react';
 import SmallBlock from '../smallBlock/SmallBlock';
 import Buckets from '../countingsortbuckets/Buckets';
+import './styles.css';
 
-const CountingSortScreen = ({ transitions, length, dataSize }) => {
+/**
+ * Animation screen which shows the counting sort algorithm.
+ */
+const CountingSortScreen = ({ transitions, dataSize }) => {
   return (
     <div className="container-one">
       <div className="list">
@@ -12,7 +16,7 @@ const CountingSortScreen = ({ transitions, length, dataSize }) => {
               item={item}
               props={{ x, ...rest }}
               index={index}
-              length={length}
+              length={dataSize}
               key={index}
               width={800 / dataSize}
             />
