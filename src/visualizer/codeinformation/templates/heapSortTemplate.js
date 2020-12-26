@@ -1,7 +1,11 @@
-// Code adapted from https://www.geeksforgeeks.org/heap-sort/ and
-// https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching
-// -and-sorting-algorithm-exercise-3.php
-
+/**
+ * Heap sort algorithm details.
+ *
+ * @see {@link https://www.geeksforgeeks.org/heap-sort/|Geeks for Geeks}
+ * @see {@link https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-3.php|w3resource}
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const HeapSort = {
   Java:
     '// To heapify a sub-tree rooted with node i which is \n' +

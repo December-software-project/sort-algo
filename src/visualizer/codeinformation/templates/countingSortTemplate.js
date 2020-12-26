@@ -1,3 +1,9 @@
+/**
+ * Counting sort algorithm details.
+ *
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const CountingSort = {
   Java:
     '// Assume array contains only non-zero digits\n' +

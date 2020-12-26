@@ -1,3 +1,9 @@
+/**
+ * Bucket sort algorithm details.
+ *
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const BucketSort = {
   Java:
     'void bucketSort(double[] arr) {\n' +

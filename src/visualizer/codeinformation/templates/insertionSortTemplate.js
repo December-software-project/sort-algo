@@ -1,5 +1,10 @@
-//Code adapted from https://www.geeksforgeeks.org/insertion-sort/
-
+/**
+ * Insertion sort algorithm details.
+ *
+ * @see {@link https://www.geeksforgeeks.org/insertion-sort/|Geeks for Geeks}
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const InsertionSort = {
   Java:
     'void insertionSort(int[] arr) {\n' +

@@ -9,6 +9,12 @@ import MergeSort from './mergeSortTemplate';
 import ShellSort from './shellSortTemplate';
 import HeapSort from './heapSortTemplate';
 
+/**
+ * Contains all the code templates for the sorting algorithms.
+ *
+ * @namespace Code templates
+ * @type {Object}
+ */
 const templates = {
   'Bubble Sort': BubbleSort,
   'Insertion Sort': InsertionSort,

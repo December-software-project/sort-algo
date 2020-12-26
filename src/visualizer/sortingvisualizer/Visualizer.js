@@ -50,13 +50,13 @@ const Visualizer = () => {
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
   const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Bubble Sort');
-  const [arrayData, setArrayData] = useState(generateArray(dataSize, visualizerAlgorithm));
-  const [referenceArray, setReferenceArray] = useState(arrayCopy(arrayData));
-  const [animationArr, setAnimationArr] = useState(bubbleSort(arrayCopy(arrayData)));
+  const [arrayData, setArrayData] = useState(() => generateArray(dataSize, visualizerAlgorithm));
+  const [referenceArray, setReferenceArray] = useState(() => arrayCopy(arrayData));
+  const [animationArr, setAnimationArr] = useState(() => bubbleSort(arrayCopy(arrayData)));
   const [animationPercentage, setAnimationPercentage] = useState(0);
   const [idx, setIdx] = useState(0);
-  const [countArr, setCountArr] = useState(arrayCopy(buckets));
-  const [stackArr, setStackArr] = useState(arrayCopy(stack));
+  const [countArr, setCountArr] = useState(() => arrayCopy(buckets));
+  const [stackArr, setStackArr] = useState(() => arrayCopy(stack));
 
   // This is introduced to simplify the back animation for MergeSort
   const [historyArr, setHistoryArr] = useState([]);

@@ -1,3 +1,9 @@
+/**
+ * Bubble sort algorithm details.
+ *
+ * @memberOf Code templates
+ * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ */
 const BubbleSort = {
   Java:
     'void swap(int[] arr, int i, int j) {\n' +

@@ -19,7 +19,7 @@ const SliderSelector = ({ setData, min, max, name }) => {
 
   const maxSize = isRadixOrBucket(visualizerAlgorithm) ? 10 : max;
 
-  const [sliderData, setSliderData] = useState(Math.floor((min + maxSize) / 2));
+  const [sliderData, setSliderData] = useState(() => Math.floor((min + maxSize) / 2));
 
   return (
     <div className="selector-holder">

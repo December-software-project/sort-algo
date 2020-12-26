@@ -40,7 +40,7 @@ export const executeSwap = (firstIdx, secondIdx, arr, isSwapOccurring, visualize
 /**
  * A generic sorting execution for Insertion, Bubble, Selection, Shell Sort
  *
- * @param {*[]} currentAnimation. The current animation to be executed.
+ * @param {any[]} currentAnimation. The current animation to be executed.
  * @param {Object[]} referenceArray. The array holding data for the "blocks"
  * @param {string} visualizerAlgorithm. The current algorithm of the visualizer
  * @param {function} setReferenceArray. A set state method for reference array.
