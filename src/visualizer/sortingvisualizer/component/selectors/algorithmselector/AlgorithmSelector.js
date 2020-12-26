@@ -10,6 +10,9 @@ import { stack } from '../../../util/RadixSortUtil';
 
 /**
  * A drop down menu which allows users to pick their algorithm for the visualizer.
+ * 
+ * @component
+ * @category Visualizer
  */
 const AlgorithmChooser = () => {
   const {
