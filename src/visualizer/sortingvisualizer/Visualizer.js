@@ -184,7 +184,7 @@ const Visualizer = () => {
   };
 
   /**
-   * @const {object} A object contains different values and methods to be passed around the other components
+   * @const {object} ContextProviderValue A object contains different values and methods to be passed around the other components
    * via React's context.
    */
   const value = {
