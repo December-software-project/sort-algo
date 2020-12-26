@@ -16,19 +16,19 @@ tool. Check out our app [here!](https://algosort.netlify.app/)
 
 <p align="center"><strong>Bubble Sort preview</strong></p>
 
-<img src="images/bubblesort.gif" alt="" />
+<img src="images/BubbleSort.gif" alt="" />
 
 <br/>
 
 <p align="center"><strong>Counting Sort preview</strong></p>
 
-<img src="images/countingsort.gif" alt="" />
+<img src="images/CountingSort.gif" alt="" />
 
 <br/>
 
 <p align="center"><strong>Radix Sort preview</strong></p>
 
-<img src="images/radixsort.gif" alt="" />
+<img src="images/RadixSort.gif" alt="" />
 
 <br/>
 

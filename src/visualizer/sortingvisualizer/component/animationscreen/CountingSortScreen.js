@@ -12,7 +12,6 @@ import './styles.css';
  * @param {number} dataSize The number of blocks to show.
  * @returns {JSX.Element} Counting sort screen component.
  */
-
 const CountingSortScreen = ({ transitions, dataSize }) => {
   return (
     <div className="container-one">

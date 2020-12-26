@@ -6,6 +6,8 @@ import ContactUsHeader from './contactusheader/ContactUsHeader';
 
 /**
  * Contains all component of the Contact Us portion.
+ *
+ * @component
  */
 const ContactUs = () => {
   return (

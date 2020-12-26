@@ -1,5 +1,12 @@
 import { swap } from './swap';
 
+/**
+ * Sorts the array using Bubble Sort and stores each sorting step into the animation array.
+ *
+ * @memberOf SortingAlgorithms
+ * @param {Object[]} arr The array to be sorted.
+ * @returns {any[]} Animation array which contains the animation instruction for each step.
+ */
 const bubbleSort = (arr) => {
   let receivedArr = arr;
   let animationArr = [];

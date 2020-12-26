@@ -10,8 +10,8 @@ import { generateMergeSortArray } from './MergeSortUtil';
  *
  * @method
  * @category ArrayUtil
- * @param {string} visualizerAlgorithm. Algorithm used.
- * @param {Object[]} arr. Array to be reset.
+ * @param {string} visualizerAlgorithm Algorithm used.
+ * @param {Object[]} arr Array to be reset.
  * @returns {Object[]} Array that has been reset.
  */
 export const resetArray = (visualizerAlgorithm, arr) => {
@@ -37,7 +37,7 @@ export const resetArray = (visualizerAlgorithm, arr) => {
  *
  * @method
  * @category ArrayUtil
- * @param {Object[]} arr. Array to be copied.
+ * @param {Object[]} arr Array to be copied.
  * @returns {Object[]} Deep copy of the input array.
  */
 export const arrayCopy = (arr) => {
@@ -45,12 +45,13 @@ export const arrayCopy = (arr) => {
 };
 
 /**
- * Retrieves the animation array by based on the given array and algorithm selected.
+ * Retrieves the animation array based on the given array and algorithm selected.
  *
  * @method
  * @category ArrayUtil
- * @param {string} visualizerAlgorithm. The current algorithm of the visualizer.
- * @param {Object[]} arrayData. Given array.
+ * @param {string} visualizerAlgorithm The current algorithm of the visualizer.
+ * @param {Object[]} arrayData Given array.
+ * @returns {any[]} An array that contains all the animation steps.
  */
 export const getAnimationArr = (visualizerAlgorithm, arrayData) => {
   const sortAlgo = SortingAlgorithms[visualizerAlgorithm];
@@ -61,11 +62,12 @@ export const getAnimationArr = (visualizerAlgorithm, arrayData) => {
  * Gets the step by step text to display to the user.
  *
  * @method
- * @param {string} visualizerAlgorithm. The current algorithm of the visualizer.
- * @param {Object[]} animationArr. Animation array.
- * @param {number} idx. Index of animation.
- * @param {Object[]} referenceArray. Reference array of blocks displayed.
- * @param {Object[]} stackArr. Stack array, present only in bucket and radix sort.
+ * @category StepTracingUtil
+ * @param {string} visualizerAlgorithm The current algorithm of the visualizer.
+ * @param {Object[]} animationArr Animation array.
+ * @param {number} idx Index of animation.
+ * @param {Object[]} referenceArray Reference array of blocks displayed.
+ * @param {Object[]} stackArr Stack array, present only in bucket and radix sort.
  * @returns {string} Step by step text generated.
  */
 export const getStepByStepText = (
@@ -86,8 +88,8 @@ export const getStepByStepText = (
  * Generates a random number within [min, max].
  *
  * @method
- * @param {number} min. Min number selected.
- * @param {number} max. Max number selected.
+ * @param {number} min Min number selected.
+ * @param {number} max Max number selected.
  * @returns {number} Random number generated.
  */
 export const generateValue = (min, max) => {
@@ -99,7 +101,7 @@ export const generateValue = (min, max) => {
  *
  * @method
  * @see {@link https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary|Stack Overflow}
- * @param {number} num. Input number.
+ * @param {number} num Input number.
  * @returns {number} Rounded number with maximum 2 decimal places.
  */
 export const roundToTwoDp = (num) => {
@@ -126,8 +128,9 @@ const arrayGenerator = {
  * Generates a random array based on the size chosen and the algorithm selected.
  *
  * @method
- * @param {number} size. Size of array selected by user.
- * @param {string} visualizerAlgorithm. The current algorithm of the visualizer.
+ * @category ArrayUtil
+ * @param {number} size Size of array selected by user.
+ * @param {string} visualizerAlgorithm The current algorithm of the visualizer.
  * @returns {Object[]} Random array generated.
  */
 export const generateArray = (size, visualizerAlgorithm) => {
@@ -136,8 +139,9 @@ export const generateArray = (size, visualizerAlgorithm) => {
 
 /**
  * Generates the default array. Used by all sorting algorithms involving swaps only.
+ *
  * @category ArrayUtil
- * @param {number} size. Size of array selected by user.
+ * @param {number} size Size of array selected by user.
  * @returns {Object[]} Random array generated.
  */
 const generateDefaultArray = (size) => {
@@ -155,7 +159,8 @@ const generateDefaultArray = (size) => {
 /**
  * Returns true if the algorithm input is counting sort.
  *
- * @param {string} visualizerAlgorithm. Input algorithm.
+ * @method
+ * @param {string} visualizerAlgorithm Input algorithm.
  * @returns {boolean} True if the algorithm is counting sort.
  */
 export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Counting Sort';
@@ -163,7 +168,8 @@ export const isCountingSort = (visualizerAlgorithm) => visualizerAlgorithm === '
 /**
  * Returns true if the algorithm input is radix sort.
  *
- * @param {string} visualizerAlgorithm. Input algorithm.
+ * @method
+ * @param {string} visualizerAlgorithm Input algorithm.
  * @returns {boolean} True if the algorithm is radix sort.
  */
 export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Radix Sort';
@@ -171,7 +177,8 @@ export const isRadixSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Rad
 /**
  * Returns true if the algorithm input is bucket sort.
  *
- * @param {string} visualizerAlgorithm. Input algorithm.
+ * @method
+ * @param {string} visualizerAlgorithm Input algorithm.
  * @returns {boolean} True if the algorithm is bucket sort.
  */
 export const isBucketSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Bucket Sort';
@@ -179,7 +186,8 @@ export const isBucketSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Bu
 /**
  * Returns true if the algorithm input is radix or bucket sort.
  *
- * @param {string} visualizerAlgorithm. Input algorithm.
+ * @method
+ * @param {string} visualizerAlgorithm Input algorithm.
  * @returns {boolean} True if the algorithm is radix or bucket sort.
  */
 export const isRadixOrBucket = (visualizerAlgorithm) =>
@@ -188,7 +196,8 @@ export const isRadixOrBucket = (visualizerAlgorithm) =>
 /**
  * Returns true if the algorithm input is merge sort.
  *
- * @param {string} visualizerAlgorithm. Input algorithm.
+ * @method
+ * @param {string} visualizerAlgorithm Input algorithm.
  * @returns {boolean} True if the algorithm is merge sort.
  */
 export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Merge Sort';
@@ -196,7 +205,8 @@ export const isMergeSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Mer
 /**
  * Returns true if the algorithm input is selection sort.
  *
- * @param {string} visualizerAlgorithm. Input algorithm.
+ * @method
+ * @param {string} visualizerAlgorithm Input algorithm.
  * @returns {boolean} True if the algorithm is selection sort.
  */
 export const isSelectionSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Selection Sort';
@@ -204,7 +214,8 @@ export const isSelectionSort = (visualizerAlgorithm) => visualizerAlgorithm === 
 /**
  * Returns true if the algorithm input is quick sort.
  *
- * @param {string} visualizerAlgorithm. Input algorithm.
+ * @method
+ * @param {string} visualizerAlgorithm Input algorithm.
  * @returns {boolean} True if the algorithm is quick sort.
  */
 export const isQuickSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Quick Sort';
@@ -212,7 +223,8 @@ export const isQuickSort = (visualizerAlgorithm) => visualizerAlgorithm === 'Qui
 /**
  * Returns true if the algorithm input is any sort aside from bucket, radix and counting sort.
  *
- * @param {string} visualizerAlgorithm. Input algorithm.
+ * @method
+ * @param {string} visualizerAlgorithm Input algorithm.
  * @returns {boolean} True if the algorithm is any sort aside from bucket, radix and counting sort.
  */
 export const hasLegend = (visualizerAlgorithm) =>
@@ -227,7 +239,8 @@ export const hasLegend = (visualizerAlgorithm) =>
 /**
  * Generates a translation in the x direction to shift the visualizer when the data size is more than 12.
  *
- * @param {number} dataSize. Data size.
+ * @method
+ * @param {number} dataSize Data size.
  * @returns {number} Translation in the x direction when the data size is more than 12.
  */
 export const translateXOfVisualizer = (dataSize) => {

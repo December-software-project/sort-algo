@@ -1,6 +1,13 @@
 import { swap } from './swap';
 
-// code adapted from https://levelup.gitconnected.com/shell-sort-in-javascript-c8a487041cdb
+/**
+ * Sorts the array using Shell Sort and stores each sorting step into the animation array.
+ *
+ * @memberOf SortingAlgorithms
+ * @see {@link https://levelup.gitconnected.com/shell-sort-in-javascript-c8a487041cdb}
+ * @param {Object[]} arr The array to be sorted.
+ * @returns {any[]} Animation array which contains the animation instruction for each step.
+ */
 const shellSort = (arr) => {
   let n = arr.length;
   let receivedArr = arr;
