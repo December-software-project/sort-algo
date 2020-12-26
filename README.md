@@ -12,10 +12,19 @@ Check out our app [here!](https://algosort.netlify.app/)
 
 ## Features preview
 
-<img src="images/App.png" alt=""/>
+<p align="center"><strong>Bubble Sort preview</strong></p>
+
 <img src="images/bubblesort.gif" alt=""/>
+
+<p align="center"><strong>Counting Sort preview</strong></p>
+
 <img src="images/countingsort.gif" alt=""/>
+
+<p align="center"><strong>Radix Sort preview</strong></p>
+
 <img src="images/radixsort.gif" alt=""/>
+
+<br/>
 
 ### Choose the algorithm you want
 
