@@ -6,9 +6,9 @@ import { genericSwapStepByStep } from './genericSwapStepByStep';
  *
  * @method
  * @memberOf StepByStepTemplate
- * @param animationArr An array that contains all the animation steps.
- * @param idx Index of the current animation step.
- * @param stackArr An array representing the buckets.
+ * @param {any[]} animationArr An array that contains all the animation steps.
+ * @param {number} idx Index of the current animation step.
+ * @param {Object[]} stackArr An array representing the buckets.
  * @returns {string} The information regarding the current step of the animation.
  */
 export const bucketSortStepByStep = (animationArr, idx, stackArr) => {

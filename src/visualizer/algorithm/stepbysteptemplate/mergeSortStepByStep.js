@@ -5,9 +5,9 @@ import { findIndexToUseInMergeSort } from '../../sortingvisualizer/util/MergeSor
  *
  * @method
  * @memberOf StepByStepTemplate
- * @param animationArr An array that contains all the animation steps.
- * @param idx Index of the current animation step.
- * @param referenceArray An array containing the data which is being sorted.
+ * @param {any[]} animationArr An array that contains all the animation steps.
+ * @param {number} idx Index of the current animation step.
+ * @param {Object[]} referenceArray An array containing the data which is being sorted.
  * @returns {string} The information regarding the current step of the animation.
  */
 export const mergeSortStepByStep = (animationArr, idx, referenceArray) => {
