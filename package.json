@@ -35,8 +35,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "pretty": "prettier --write \"./**/*.{js,jsx,json}\"",
-    "docs": "jsdoc -c jsdoc.conf.json"
+    "pretty": "prettier --write \"./**/*.{js,jsx,json,css}\"",
+    "docs": "jsdoc -c jsdoc.conf.json",
+    "css": "npx stylelint \"**/*.css\""
   },
   "eslintConfig": {
     "extends": [
@@ -59,6 +60,8 @@
   "devDependencies": {
     "@material-ui/icons": "^4.11.2",
     "jsdoc": "^3.6.6",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0"
   }
 }
