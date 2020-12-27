@@ -2,24 +2,20 @@ import React, { useContext, useEffect } from 'react';
 import { useTransition } from 'react-spring';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import {
-  arrayCopy,
-  isBucketSort,
-  isCountingSort,
-  isMergeSort,
-  isRadixSort,
-} from '../../util/GeneralUtil';
+import { isBucketSort, isCountingSort, isMergeSort, isRadixSort } from '../../util/GeneralUtil';
 import CountingSortScreen from './CountingSortScreen';
 import RadixSortScreen from './RadixSortScreen';
 import BucketSortScreen from './BucketSortScreen';
 import MergeSortScreen from './MergeSortScreen';
 import GenericSortScreen from './GenericSortScreen';
+import { arrayCopy } from '../../util/ArrayUtil';
 
 /**
  * The screen which shows the animation for the sorting visualizer.
  *
  * @component
  * @category Visualizer
+ * @returns {JSX.Element} Animation sort screen component.
  */
 const AnimationScreen = () => {
   const {
@@ -90,7 +86,7 @@ const AnimationScreen = () => {
   };
 
   if (isCountingSort(visualizerAlgorithm)) {
-    return <CountingSortScreen {...dataItem} />;
+    return <CountingSortScreen />;
   } else if (isRadixSort(visualizerAlgorithm)) {
     return <RadixSortScreen />;
   } else if (isBucketSort(visualizerAlgorithm)) {

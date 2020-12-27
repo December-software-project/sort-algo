@@ -3,7 +3,7 @@
  *
  * @see {@link https://www.geeksforgeeks.org/quick-sort/|Geeks for Geeks}
  * @memberOf Code templates
- * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ * @const {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
  */
 const QuickSort = {
   Java:

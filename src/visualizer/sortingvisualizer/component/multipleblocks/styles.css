@@ -1,0 +1,29 @@
+.horiz-arr {
+  align-self: center;
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: column;
+  justify-content: center;
+}
+
+.stack {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 10px;
+}
+
+.stack-boxes {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.number-with-line {
+  border-top: 1px solid black;
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 15px;
+  margin-top: 10px;
+  text-align: center;
+  width: 60px;
+}

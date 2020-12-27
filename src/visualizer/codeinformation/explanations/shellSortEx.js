@@ -3,7 +3,7 @@
  *
  * @memberOf Explanations
  * @see {@link https://www.geeksforgeeks.org/shellsort/|Geeks for Geeks}
- * @type {
+ * @const {
  * {bestTime: string,
  * worstSpace: string,
  * additionalDesc: string,
