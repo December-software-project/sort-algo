@@ -36,7 +36,7 @@ const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: fa
 /**
  * Encapsulates the fields and methods of the Visualizer Component.
  *
- * @category Visualizer
+ * @category App Body
  * @component
  * @returns {JSX.Element} Visualizer Component.
  */

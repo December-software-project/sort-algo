@@ -5,6 +5,12 @@ import TeamImage from './image/team-image.jpg';
 import TeamHeader from '../component/header/SectionHeader';
 import Profile from './profile/Profile';
 
+/**
+ * Team Section of the app.
+ *
+ * @component
+ * @category App Body
+ */
 const Team = () => {
   return (
     <div className="team" id="team">

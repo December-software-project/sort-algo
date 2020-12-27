@@ -5,9 +5,10 @@ import './styles.css';
 import ContactUsHeader from './contactusheader/ContactUsHeader';
 
 /**
- * Contains all component of the Contact Us portion.
+ * Contact Us Section of the app.
  *
  * @component
+ * @category App Body
  */
 const ContactUs = () => {
   return (

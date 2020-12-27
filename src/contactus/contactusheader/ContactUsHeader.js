@@ -6,6 +6,7 @@ import './styles.css';
  * Header for contact us.
  *
  * @component
+ * @category Contact Us
  */
 const ContactUsHeader = () => {
   const ContactUsText = () => (

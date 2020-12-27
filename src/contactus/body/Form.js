@@ -12,6 +12,7 @@ import Notification from './Notification';
  * A form for user to fill in their details.
  *
  * @component
+ * @category Contact Us
  */
 const Form = () => {
   const [type, setType] = useState('Type (Optional)');
@@ -37,7 +38,7 @@ const Form = () => {
   /**
    * A drop down list to provide a list of types of message to choose from.
    *
-   * @type {JSX.Element}
+   * @type {JSX.Element} A drop down list.
    */
   const menu = (
     <Menu style={{ transform: 'translateY(-5px)' }}>
