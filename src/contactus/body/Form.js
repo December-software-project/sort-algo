@@ -12,6 +12,7 @@ import Notification from './Notification';
  * A form for user to fill in their details.
  *
  * @component
+ * @category Contact Us
  */
 const Form = () => {
   const [type, setType] = useState('Type (Optional)');

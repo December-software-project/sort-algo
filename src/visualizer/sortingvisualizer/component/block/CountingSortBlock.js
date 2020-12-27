@@ -5,6 +5,8 @@ import { VisualizerStateContext } from '../../Visualizer';
 /**
  * A counting sort block which represents a data item in the array.
  *
+ * @component
+ * @category Block
  * @param item Data item from the reference array.
  * @returns {JSX.Element}
  */

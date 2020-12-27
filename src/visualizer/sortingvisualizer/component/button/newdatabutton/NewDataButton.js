@@ -7,6 +7,9 @@ import { arrayCopy, generateArray } from '../../../util/ArrayUtil';
 
 /**
  * A button to generate new data for the "blocks" for the sorting animation.
+ *
+ * @component
+ * @category Button
  */
 const NewDataButton = () => {
   const {
@@ -23,6 +26,9 @@ const NewDataButton = () => {
     setHistoryArr,
   } = useContext(VisualizerStateContext);
 
+  /**
+   * Event handler to generate new data set for the sorting animation.
+   */
   const handleNewDataButtonClick = () => {
     if (!isPlay) {
       setArrayData(generateArray(dataSize, visualizerAlgorithm));

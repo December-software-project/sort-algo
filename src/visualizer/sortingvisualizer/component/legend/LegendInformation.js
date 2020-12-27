@@ -3,6 +3,9 @@ import './styles.css';
 
 /**
  * The information which is displayed in the legend component.
+ *
+ * @component
+ * @category Legend
  */
 const LegendInformation = ({ color, description }) => {
   return (

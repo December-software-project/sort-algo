@@ -26,9 +26,9 @@ tool. Check out our app [here!](https://algosort.netlify.app/)
 
 <br/>
 
-<p align="center"><strong>Radix Sort preview</strong></p>
+<p align="center"><strong>Bucket Sort preview</strong></p>
 
-<img src="images/RadixSort.gif" alt="" />
+<img src="images/BucketSort.gif" alt="" />
 
 <br/>
 

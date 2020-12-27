@@ -1,19 +1,24 @@
 import quickSort from '../../../../visualizer/algorithm/sortingalgorithms/quickSort';
+import { assertSortSuccess } from '../../../../_testutil/TestUtil';
+import {
+  ARRAY_DUPLICATES,
+  ARRAY_EXPECTED_RANDOM_MIXED,
+  ARRAY_EXPECTED_RANDOM_NEGATIVE,
+  ARRAY_EXPECTED_RANDOM_POSITIVE,
+  ARRAY_EXPECTED_STRICTLY_DESCENDING,
+  ARRAY_RANDOM_MIXED,
+  ARRAY_RANDOM_NEGATIVE,
+  ARRAY_RANDOM_POSITIVE,
+  ARRAY_STRICTLY_ASCENDING,
+  ARRAY_STRICTLY_DESCENDING,
+  EMPTY_ARRAY,
+} from '../../../../_testutil/ArraysUtil';
 
 test('Empty Array', () => {
-  const arr = [];
-  const expected = [];
-  expect(quickSort(arr)).toEqual(expected);
+  assertQuickSortSuccess(EMPTY_ARRAY, EMPTY_ARRAY, EMPTY_ARRAY);
 });
 
 test('Already Sorted with duplicates', () => {
-  const arr = [
-    { id: 1, height: 3, isSwap: false },
-    { id: 2, height: 3, isSwap: false },
-    { id: 3, height: 3, isSwap: false },
-    { id: 4, height: 3, isSwap: false },
-  ];
-  const actual = quickSort(arr);
   const expected = [
     [0, 0, false, 3, 'jToPivot', -1],
     [1, 1, false, 3, 'jToPivot', -1],
@@ -25,23 +30,11 @@ test('Already Sorted with duplicates', () => {
     [2, 2, false, 3, 'jToPivot', 1],
     [2, 3, true, 3, 'swapPivot', 1],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 4, height: 3, isSwap: false },
-    { id: 1, height: 3, isSwap: false },
-    { id: 2, height: 3, isSwap: false },
-    { id: 3, height: 3, isSwap: false },
-  ]);
+
+  assertQuickSortSuccess(ARRAY_DUPLICATES, ARRAY_DUPLICATES, expected);
 });
 
 test('Already Sorted ascending', () => {
-  const arr = [
-    { id: 1, height: 1, isSwap: false },
-    { id: 2, height: 2, isSwap: false },
-    { id: 3, height: 3, isSwap: false },
-    { id: 4, height: 4, isSwap: false },
-  ];
-  const actual = quickSort(arr);
   const expected = [
     [0, 0, false, 3, 'incI', -1],
     [1, 1, false, 3, 'incI', 0],
@@ -53,23 +46,11 @@ test('Already Sorted ascending', () => {
     [0, 0, false, 1, 'incI', -1],
     [1, 1, true, 1, 'swapPivot', 0],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 1, height: 1, isSwap: false },
-    { id: 2, height: 2, isSwap: false },
-    { id: 3, height: 3, isSwap: false },
-    { id: 4, height: 4, isSwap: false },
-  ]);
+
+  assertQuickSortSuccess(ARRAY_STRICTLY_ASCENDING, ARRAY_STRICTLY_ASCENDING, expected);
 });
 
 test('Descending array', () => {
-  const arr = [
-    { id: 1, height: 4, isSwap: false },
-    { id: 2, height: 3, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 4, height: 1, isSwap: false },
-  ];
-  const actual = quickSort(arr);
   const expected = [
     [0, 0, false, 3, 'jToPivot', -1],
     [1, 1, false, 3, 'jToPivot', -1],
@@ -81,23 +62,11 @@ test('Descending array', () => {
     [1, 1, false, 2, 'jToPivot', 0],
     [1, 2, true, 2, 'swapPivot', 0],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 4, height: 1, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 2, height: 3, isSwap: false },
-    { id: 1, height: 4, isSwap: false },
-  ]);
+
+  assertQuickSortSuccess(ARRAY_STRICTLY_DESCENDING, ARRAY_EXPECTED_STRICTLY_DESCENDING, expected);
 });
 
 test('random array positive numbers', () => {
-  const arr = [
-    { id: 1, height: 1, isSwap: false },
-    { id: 2, height: 5, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 4, height: 3, isSwap: false },
-  ];
-  const actual = quickSort(arr);
   const expected = [
     [0, 0, false, 3, 'incI', -1],
     [1, 1, false, 3, 'jToPivot', 0],
@@ -107,23 +76,11 @@ test('random array positive numbers', () => {
     [0, 0, false, 1, 'incI', -1],
     [1, 1, true, 1, 'swapPivot', 0],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 1, height: 1, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 4, height: 3, isSwap: false },
-    { id: 2, height: 5, isSwap: false },
-  ]);
+
+  assertQuickSortSuccess(ARRAY_RANDOM_POSITIVE, ARRAY_EXPECTED_RANDOM_POSITIVE, expected);
 });
 
 test('random array negative numbers', () => {
-  const arr = [
-    { id: 1, height: -1, isSwap: false },
-    { id: 2, height: -5, isSwap: false },
-    { id: 3, height: -2, isSwap: false },
-    { id: 4, height: -3, isSwap: false },
-  ];
-  const actual = quickSort(arr);
   const expected = [
     [0, 0, false, 3, 'jToPivot', -1],
     [1, 1, false, 3, 'incI', -1],
@@ -133,23 +90,11 @@ test('random array negative numbers', () => {
     [2, 2, false, 3, 'incI', 1],
     [3, 3, true, 3, 'swapPivot', 2],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 2, height: -5, isSwap: false },
-    { id: 4, height: -3, isSwap: false },
-    { id: 3, height: -2, isSwap: false },
-    { id: 1, height: -1, isSwap: false },
-  ]);
+
+  assertQuickSortSuccess(ARRAY_RANDOM_NEGATIVE, ARRAY_EXPECTED_RANDOM_NEGATIVE, expected);
 });
 
 test('random array negative and positive numbers', () => {
-  const arr = [
-    { id: 1, height: -1, isSwap: false },
-    { id: 2, height: 5, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 4, height: -3, isSwap: false },
-  ];
-  const actual = quickSort(arr);
   const expected = [
     [0, 0, false, 3, 'jToPivot', -1],
     [1, 1, false, 3, 'jToPivot', -1],
@@ -161,11 +106,9 @@ test('random array negative and positive numbers', () => {
     [2, 2, false, 3, 'incI', 1],
     [3, 3, true, 3, 'swapPivot', 2],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 4, height: -3, isSwap: false },
-    { id: 1, height: -1, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 2, height: 5, isSwap: false },
-  ]);
+
+  assertQuickSortSuccess(ARRAY_RANDOM_MIXED, ARRAY_EXPECTED_RANDOM_MIXED, expected);
 });
+
+const assertQuickSortSuccess = (initialArray, sortedArray, expected) =>
+  assertSortSuccess(initialArray, sortedArray, expected, quickSort);
