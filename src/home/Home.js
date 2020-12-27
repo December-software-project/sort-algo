@@ -47,7 +47,7 @@ const Home = () => {
           },
           particles: {
             color: {
-              value: '#ffffff',
+              value: '#fff',
             },
             collisions: {
               enable: true,
