@@ -1,6 +1,7 @@
 /* For all blocks */
 .animated-block {
   align-items: flex-end;
+  align-self: flex-end;
   border-radius: 5px;
   box-shadow: 0 5px 13px 1px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -14,19 +15,14 @@
 
 /* Counting sort */
 .fixed-array {
-  align-items: flex-end;
-  align-self: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
   margin-top: 6%;
 }
 
 .fixed-array-container {
   align-items: center;
+  align-self: flex-end;
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
 }
 
 .count {

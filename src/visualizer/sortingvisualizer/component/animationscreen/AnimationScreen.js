@@ -85,7 +85,7 @@ const AnimationScreen = () => {
   };
 
   if (isCountingSort(visualizerAlgorithm)) {
-    return <CountingSortScreen {...dataItem} />;
+    return <CountingSortScreen />;
   } else if (isRadixSort(visualizerAlgorithm)) {
     return <RadixSortScreen />;
   } else if (isBucketSort(visualizerAlgorithm)) {

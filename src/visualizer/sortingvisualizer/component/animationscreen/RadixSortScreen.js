@@ -14,15 +14,11 @@ import StackOfBoxes from '../multipleblocks/StackOfBoxes';
  * @returns {JSX.Element} Radix sort screen.
  */
 const RadixSortScreen = () => {
-  const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);
+  const { referenceArray, stackArr } = useContext(VisualizerStateContext);
 
   return (
     <div className="container-one" style={{ justifyContent: `space-between`, minHeight: 370 }}>
-      <HorizontalArray
-        dataSize={dataSize}
-        referenceArray={referenceArray}
-        OvalType={HighlightedOval}
-      />
+      <HorizontalArray referenceArray={referenceArray} OvalType={HighlightedOval} />
       <div className="stack-arr">
         {stackArr.map((stack) => (
           <StackOfBoxes individualStack={stack} key={stack.value} />

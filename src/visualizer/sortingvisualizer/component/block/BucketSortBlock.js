@@ -4,14 +4,14 @@ import { spreadNumber } from './HighlightUtil';
 import './styles.css';
 
 /**
- * A counting sort block which animates to show the sorting animation.
+ * A bucket sort block which animates to show the sorting animation.
  *
  * @component
  * @category Block
- * @param {object} item. The information of the block.
- * @param {object} x. The displacement of the block.
- * @param {object} rest. All other information of the props.
- * @param {number} index. Index of the block.
+ * @param {object} item The information of the block.
+ * @param {object} x The displacement of the block.
+ * @param {object} rest All other information of the props.
+ * @param {number} index Index of the block.
  * @returns {JSX.Element} An animated block which translates in the y direction.
  */
 const BucketSortBlock = ({ item, props: { y, ...rest }, index }) => {

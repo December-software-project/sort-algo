@@ -3,11 +3,11 @@ import React from 'react';
 import './styles.css';
 
 /**
- * Single oval to represent an item in the data array.
+ * Single oval to represent an item in the reference array.
  *
  * @component
  * @category Block
- * @param {Object} item Element in the data array.
+ * @param {Object} item Element in the reference array.
  * @returns {JSX.Element} Single oval containing the item.
  */
 const Oval = ({ item }) => (

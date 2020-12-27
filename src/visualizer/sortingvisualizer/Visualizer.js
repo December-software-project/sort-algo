@@ -10,10 +10,8 @@ import {
   isCountingSort,
   isMergeSort,
   isQuickSort,
-  isRadixOrBucket,
   isRadixSort,
 } from './util/GeneralUtil';
-import { translateXOfVisualizer } from './VisualizerUtil';
 import { roundToTwoDp } from './util/MathUtil';
 import { executeGenericSort } from './util/SwappingAlgoUtil';
 import { executeMergeSortBackward, executeMergeSortForward } from './util/MergeSortUtil';
@@ -247,14 +245,7 @@ const Visualizer = () => {
             <SectionHeader sectionHeader="Visualizer" translateX="translate(25px)" />
             <AlgorithmSelector />
           </div>
-          <div
-            className="visualizer-box"
-            style={{
-              transform:
-                !isRadixOrBucket(visualizerAlgorithm) &&
-                `translateX(-${translateXOfVisualizer(dataSize)}px)`,
-            }}
-          >
+          <div className="visualizer-box">
             <AnimationScreen />
           </div>
           <StepByStep />

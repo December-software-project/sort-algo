@@ -1,6 +1,7 @@
 import React from 'react';
 import MergeSortBlock from '../block/MergeSortBlock';
 import './styles.css';
+import { translateXOfVisualizer } from './AnimationScreenUtil';
 
 /**
  * Animation screen which shows the Merge Sort algorithm.
@@ -13,7 +14,12 @@ import './styles.css';
 const MergeSortScreen = ({ transitions, dataSize }) => {
   return (
     <div className="container-one">
-      <div className="list">
+      <div
+        className="list"
+        style={{
+          transform: `translateX(-${translateXOfVisualizer(dataSize)}px)`,
+        }}
+      >
         {transitions.map(({ item, props: { x, ...rest } }, index) => {
           return (
             <MergeSortBlock

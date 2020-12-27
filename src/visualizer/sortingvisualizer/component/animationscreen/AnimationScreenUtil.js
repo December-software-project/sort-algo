@@ -1,5 +1,6 @@
 /**
- * Generates a translation in the x direction to shift the visualizer when the data size is more than 12.
+ * Generates a translation in the x direction to shift the animation screen when the data size
+ * is more than 12.
  *
  * @method
  * @category VisualizerUtil
