@@ -7,7 +7,7 @@ import { isBucketSort } from '../../util/GeneralUtil';
  * @method
  * @category StepTracingUtil
  * @param {string} visualizerAlgorithm The current algorithm of the visualizer.
- * @param {Object[]} animationArr Animation array.
+ * @param {any[]} animationArr Animation array.
  * @param {number} idx Index of animation.
  * @param {Object[]} referenceArray Reference array of blocks displayed.
  * @param {Object[]} stackArr Stack array, present only in bucket and radix sort.

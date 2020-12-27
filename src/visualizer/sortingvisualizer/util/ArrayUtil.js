@@ -7,7 +7,7 @@ import SortingAlgorithms from '../../algorithm/sortingalgorithms/allSorts';
 import { isCountingSort, isMergeSort, isRadixOrBucket } from './GeneralUtil';
 
 /**
- * Resets the array given.
+ * Resets the given array.
  *
  * @method
  * @category ArrayUtil
