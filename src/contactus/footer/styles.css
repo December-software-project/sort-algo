@@ -13,7 +13,7 @@ body {
 
 .triangle {
   border-left: 1300px solid transparent;
-  border-top: 100px solid #ffffff;
+  border-top: 100px solid #fff;
   position: absolute;
   right: 0;
   top: 0;
@@ -27,7 +27,7 @@ body {
 }
 
 .footer-title {
-  color: #ffffff;
+  color: #fff;
   font-size: 21px;
   font-weight: 500;
   line-height: 50px;
@@ -36,14 +36,14 @@ body {
 .copy-right {
   align-items: center;
   bottom: 70px;
-  color: #ffffff;
+  color: #fff;
   font-family: serif;
   font-size: 22px;
   position: absolute;
 }
 
 .footer-container a {
-  color: #ffffff;
+  color: #fff;
   font-size: 18px;
   line-height: 30px;
   scroll-behavior: unset;
