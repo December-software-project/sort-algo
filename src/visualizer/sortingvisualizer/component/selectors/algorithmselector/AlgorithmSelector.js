@@ -35,7 +35,7 @@ const AlgorithmChooser = () => {
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
 
   /**
-   * List of available Algorithms available in Sort-Algo
+   * List of available Algorithms available in Sort-Algo.
    */
   const listOfAlgorithm = [
     { algorithmName: 'Bubble Sort', key: '0' },

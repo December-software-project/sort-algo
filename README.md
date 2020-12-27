@@ -8,7 +8,7 @@ Welcome to Sort-Algo, a sorting visualiser app which helps you to learn and unde
 interacting animations as well as explanations. <br />
 <br />
 We built this app as we feel there is a lack of visual representation when students learn sorting algorithms.
-Hence we would like to help future students who are learning these sorting algorithms to have a way to visualize such
+Hence we would like to provide future students who are learning these sorting algorithms a platform to visualize such
 algorithms with step by step explanation. We hope that you enjoy learning and playing around with this visualization
 tool. Check out our app [here!](https://algosort.netlify.app/)
 
@@ -37,7 +37,7 @@ tool. Check out our app [here!](https://algosort.netlify.app/)
 ### Choose the algorithm you want
 
 There are a wide range of algorithms, each with their complexity evaluations and code in `Java`
-, `JavaScript`, `Python` and `C/C++`
+, `JavaScript`, `Python` and `C/C++`.
 
 Available algorithms are:
 
@@ -55,12 +55,12 @@ Available algorithms are:
 ### Adjust the speed of the visualizer and array size
 
 There are sliders to adjust the size and speed of the visualizer. The speed ranges from 1-10 and size ranges from 5-25
-and 1-10 depending on the algorithm selected.
+or 1-10 depending on the algorithm selected.
 
 ### Start the animation
 
-There is a play button which starts the animation, however, at any point in time, you can also pause the animation. Once
-the animation is done, there is a replay button available.
+There is a play button which starts the animation. Additionally, at any point in time, you can also pause the animation. Once
+the animation is done, the play button will be replaced with a replay button.
 
 ### Step tracing
 
@@ -89,4 +89,5 @@ SortAlgo
 
 ## Collaboration
 
-If you like this project, and wishes to contribute more to it, do contact us in the form from the website itself.
+If you like this project, and wish to contribute more to it, do contact us through the form in the
+ `Contact Us` section from the [website](https://algosort.netlify.app/).
