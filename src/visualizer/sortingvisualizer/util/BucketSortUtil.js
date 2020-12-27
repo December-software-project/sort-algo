@@ -25,7 +25,7 @@ const innerSortUsed = 'Insertion Sort';
  *
  * @method
  * @category BucketSortUtil
- * @param {Object} currentAnimation Current animation object.
+ * @param {any} currentAnimation Current animation object.
  * @param {Object[]} referenceArray Current state of the data array in the sorting execution.
  * @param {Object[]} stackArr Current state of the stack array in the sorting execution.
  * @param {boolean} isForward Boolean value which states if this is a forward or backward animation.

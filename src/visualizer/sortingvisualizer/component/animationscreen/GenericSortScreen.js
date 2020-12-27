@@ -10,6 +10,7 @@ import { translateXOfVisualizer } from './AnimationScreenUtil';
  * @category AnimationScreen
  * @param {Object[]} transitions An array which contains the animated blocks.
  * @param {number} dataSize The number of blocks.
+ * @returns {JSX.Element} Generic sort screen component.
  */
 const GenericSortScreen = ({ transitions, dataSize }) => {
   return (

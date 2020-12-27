@@ -15,6 +15,7 @@ import { arrayCopy } from '../../util/ArrayUtil';
  *
  * @component
  * @category Visualizer
+ * @returns {JSX.Element} Animation sort screen component.
  */
 const AnimationScreen = () => {
   const {

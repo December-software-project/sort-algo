@@ -11,7 +11,7 @@ import StackOfBoxes from '../multipleblocks/StackOfBoxes';
  *
  * @component
  * @category AnimationScreen
- * @returns {JSX.Element} Radix sort screen.
+ * @returns {JSX.Element} Radix sort screen component.
  */
 const RadixSortScreen = () => {
   const { referenceArray, stackArr } = useContext(VisualizerStateContext);

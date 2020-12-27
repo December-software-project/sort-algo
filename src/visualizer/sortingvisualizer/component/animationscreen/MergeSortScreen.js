@@ -10,6 +10,7 @@ import { translateXOfVisualizer } from './AnimationScreenUtil';
  * @category AnimationScreen
  * @param {Object[]} transitions An array which contains the animated blocks.
  * @param {number} dataSize The number of blocks.
+ * @returns {JSX.Element} Merge sort screen component.
  */
 const MergeSortScreen = ({ transitions, dataSize }) => {
   return (

@@ -12,8 +12,8 @@ import React from 'react';
 const HorizontalArray = ({ referenceArray, BlockType }) => {
   return (
     <div className="horiz-arr">
-      {referenceArray.map((x, index) => (
-        <BlockType item={x} key={index} />
+      {referenceArray.map((x) => (
+        <BlockType item={x} key={x.id} />
       ))}
     </div>
   );

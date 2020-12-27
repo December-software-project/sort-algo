@@ -33,7 +33,7 @@ const StackOfAnimatedBoxes = ({ individualStack, value }) => {
     <div className="stack">
       <div className="stack-boxes">
         {transition.map(({ item, props: { y, ...rest } }) => (
-          <BucketSortBlock item={item} props={{ y, ...rest }} key={item.height} />
+          <BucketSortBlock item={item} props={{ y, ...rest }} key={item.id} />
         ))}
       </div>
       <div className="number-with-line">{value}</div>

@@ -32,6 +32,7 @@ export const resetArray = (visualizerAlgorithm, arr) => {
     return tempArrElement;
   });
 };
+
 /**
  * Creates a deep copy of the array.
  *
@@ -43,6 +44,7 @@ export const resetArray = (visualizerAlgorithm, arr) => {
 export const arrayCopy = (arr) => {
   return JSON.parse(JSON.stringify(arr));
 };
+
 /**
  * Retrieves the animation array based on the given array and algorithm selected.
  *
@@ -56,6 +58,7 @@ export const getAnimationArr = (visualizerAlgorithm, arrayData) => {
   const sortAlgo = SortingAlgorithms[visualizerAlgorithm];
   return sortAlgo(arrayCopy(arrayData));
 };
+
 /**
  * Object used to map the names of each algorithm to its generated array.
  *
@@ -75,6 +78,7 @@ const arrayGenerator = {
   'Radix Sort': (size) => generateRadixSortArray(size),
   'Bucket Sort': (size) => generateBucketSortArray(size),
 };
+
 /**
  * Generates a random array based on the size chosen and the algorithm selected.
  *
@@ -87,6 +91,7 @@ const arrayGenerator = {
 export const generateArray = (size, visualizerAlgorithm) => {
   return arrayGenerator[visualizerAlgorithm](size);
 };
+
 /**
  * Generates the default array. Used by all sorting algorithms involving swaps only.
  *

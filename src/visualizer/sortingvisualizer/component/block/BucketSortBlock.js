@@ -11,15 +11,12 @@ import './styles.css';
  * @param {Object} item The information of the block.
  * @param {Object} x The displacement of the block.
  * @param {Object} rest All other information of the props.
- * @param {number} index Index of the block.
  * @returns {JSX.Element} An animated block which translates in the y direction.
  */
-const BucketSortBlock = ({ item, props: { y, ...rest }, index }) => {
+const BucketSortBlock = ({ item, props: { y, ...rest } }) => {
   return (
     <animated.div
       className="oval"
-      key={index}
-      index={index}
       style={{
         ...rest,
         height: 40,

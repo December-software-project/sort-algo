@@ -10,7 +10,7 @@ import Oval from '../block/Oval';
  *
  * @component
  * @category AnimationScreen
- * @returns {JSX.Element} Bucket sort screen.
+ * @returns {JSX.Element} Bucket sort screen component.
  */
 const BucketSortScreen = () => {
   const { referenceArray, stackArr } = useContext(VisualizerStateContext);
