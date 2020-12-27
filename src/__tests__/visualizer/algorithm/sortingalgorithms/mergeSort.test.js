@@ -1,19 +1,24 @@
 import mergeSort from '../../../../visualizer/algorithm/sortingalgorithms/mergeSort';
+import { assertSortSuccess } from '../../../../_testutil/TestUtil';
+import {
+  ARRAY_DUPLICATES,
+  ARRAY_EXPECTED_RANDOM_MIXED,
+  ARRAY_EXPECTED_RANDOM_NEGATIVE,
+  ARRAY_EXPECTED_RANDOM_POSITIVE,
+  ARRAY_EXPECTED_STRICTLY_DESCENDING,
+  ARRAY_RANDOM_MIXED,
+  ARRAY_RANDOM_NEGATIVE,
+  ARRAY_RANDOM_POSITIVE,
+  ARRAY_STRICTLY_ASCENDING,
+  ARRAY_STRICTLY_DESCENDING,
+  EMPTY_ARRAY,
+} from '../../../../_testutil/ArraysUtil';
 
 test('Empty Array', () => {
-  const arr = [];
-  const expected = [];
-  expect(mergeSort(arr)).toEqual(expected);
+  assertMergeSortSuccess(EMPTY_ARRAY, EMPTY_ARRAY, EMPTY_ARRAY);
 });
 
 test('Already Sorted with duplicates', () => {
-  const arr = [
-    { id: 1, height: 3, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 2, height: 3, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 3, height: 3, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 4, height: 3, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-  ];
-  const actual = mergeSort(arr);
   const expected = [
     [-1, -1, true, -1, false, [0, 1]],
     [0, -1, false, 0, false],
@@ -27,23 +32,11 @@ test('Already Sorted with duplicates', () => {
     [-1, 2, false, 2, false],
     [-1, 3, false, 3, true],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 1, height: 3, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 2, height: 3, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 3, height: 3, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 4, height: 3, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-  ]);
+
+  assertMergeSortSuccess(ARRAY_DUPLICATES, ARRAY_DUPLICATES, expected);
 });
 
 test('Already Sorted ascending', () => {
-  const arr = [
-    { id: 1, height: 1, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 2, height: 2, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 3, height: 3, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 4, height: 4, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-  ];
-  const actual = mergeSort(arr);
   const expected = [
     [-1, -1, true, -1, false, [0, 1]],
     [0, -1, false, 0, false],
@@ -57,23 +50,11 @@ test('Already Sorted ascending', () => {
     [-1, 2, false, 2, false],
     [-1, 3, false, 3, true],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 1, height: 1, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 2, height: 2, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 3, height: 3, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 4, height: 4, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-  ]);
+
+  assertMergeSortSuccess(ARRAY_STRICTLY_ASCENDING, ARRAY_STRICTLY_ASCENDING, expected);
 });
 
 test('Descending array', () => {
-  const arr = [
-    { id: 1, height: 4, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 2, height: 3, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 3, height: 2, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 4, height: 1, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-  ];
-  const actual = mergeSort(arr);
   const expected = [
     [-1, -1, true, -1, false, [0, 1]],
     [-1, 1, false, 0, false],
@@ -88,23 +69,10 @@ test('Descending array', () => {
     [1, -1, false, 3, true],
   ];
 
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 4, height: 1, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-    { id: 3, height: 2, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 2, height: 3, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 1, height: 4, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-  ]);
+  assertMergeSortSuccess(ARRAY_STRICTLY_DESCENDING, ARRAY_EXPECTED_STRICTLY_DESCENDING, expected);
 });
 
 test('random array positive numbers', () => {
-  const arr = [
-    { id: 1, height: 1, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 2, height: 5, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 3, height: 2, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 4, height: 3, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-  ];
-  const actual = mergeSort(arr);
   const expected = [
     [-1, -1, true, -1, false, [0, 1]],
     [0, -1, false, 0, false],
@@ -118,23 +86,11 @@ test('random array positive numbers', () => {
     [-1, 3, false, 2, false],
     [1, -1, false, 3, true],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 1, height: 1, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 3, height: 2, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 4, height: 3, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-    { id: 2, height: 5, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-  ]);
+
+  assertMergeSortSuccess(ARRAY_RANDOM_POSITIVE, ARRAY_EXPECTED_RANDOM_POSITIVE, expected);
 });
 
 test('random array negative numbers', () => {
-  const arr = [
-    { id: 1, height: -1, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 2, height: -5, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 3, height: -2, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 4, height: -3, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-  ];
-  const actual = mergeSort(arr);
   const expected = [
     [-1, -1, true, -1, false, [0, 1]],
     [-1, 1, false, 0, false],
@@ -148,23 +104,11 @@ test('random array negative numbers', () => {
     [-1, 3, false, 2, false],
     [1, -1, false, 3, true],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 2, height: -5, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 4, height: -3, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-    { id: 3, height: -2, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 1, height: -1, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-  ]);
+
+  assertMergeSortSuccess(ARRAY_RANDOM_NEGATIVE, ARRAY_EXPECTED_RANDOM_NEGATIVE, expected);
 });
 
 test('random array negative and positive numbers', () => {
-  const arr = [
-    { id: 1, height: -1, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 2, height: 5, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-    { id: 3, height: 2, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 4, height: -3, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-  ];
-  const actual = mergeSort(arr);
   const expected = [
     [-1, -1, true, -1, false, [0, 1]],
     [0, -1, false, 0, false],
@@ -178,11 +122,9 @@ test('random array negative and positive numbers', () => {
     [-1, 3, false, 2, false],
     [1, -1, false, 3, true],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 4, height: -3, isShift: false, xDirection: 30, pos: 3, prevPos: 3 },
-    { id: 1, height: -1, isShift: false, xDirection: 0, pos: 0, prevPos: 0 },
-    { id: 3, height: 2, isShift: false, xDirection: 20, pos: 2, prevPos: 2 },
-    { id: 2, height: 5, isShift: false, xDirection: 10, pos: 1, prevPos: 1 },
-  ]);
+
+  assertMergeSortSuccess(ARRAY_RANDOM_MIXED, ARRAY_EXPECTED_RANDOM_MIXED, expected);
 });
+
+const assertMergeSortSuccess = (initialArray, sortedArray, expected) =>
+  assertSortSuccess(initialArray, sortedArray, expected, mergeSort);
