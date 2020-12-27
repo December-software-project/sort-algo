@@ -18,40 +18,30 @@ test('Empty Array', () => {
   assertMergeSortSuccess(EMPTY_ARRAY, EMPTY_ARRAY, EMPTY_ARRAY);
 });
 
-test('Already Sorted with duplicates', () => {
-  const expected = [
-    [-1, -1, true, -1, false, [0, 1]],
-    [0, -1, false, 0, false],
-    [-1, 1, false, 1, true],
-    [-1, -1, true, -1, false, [2, 3]],
-    [2, -1, false, 2, false],
-    [-1, 3, false, 3, true],
-    [-1, -1, true, -1, false, [0, 1, 2, 3]],
-    [0, -1, false, 0, false],
-    [1, -1, false, 1, false],
-    [-1, 2, false, 2, false],
-    [-1, 3, false, 3, true],
-  ];
+const expectedForSortedAtStart = [
+  [-1, -1, true, -1, false, [0, 1]],
+  [0, -1, false, 0, false],
+  [-1, 1, false, 1, true],
+  [-1, -1, true, -1, false, [2, 3]],
+  [2, -1, false, 2, false],
+  [-1, 3, false, 3, true],
+  [-1, -1, true, -1, false, [0, 1, 2, 3]],
+  [0, -1, false, 0, false],
+  [1, -1, false, 1, false],
+  [-1, 2, false, 2, false],
+  [-1, 3, false, 3, true],
+];
 
-  assertMergeSortSuccess(ARRAY_DUPLICATES, ARRAY_DUPLICATES, expected);
+test('Already Sorted with duplicates', () => {
+  assertMergeSortSuccess(ARRAY_DUPLICATES, ARRAY_DUPLICATES, expectedForSortedAtStart);
 });
 
 test('Already Sorted ascending', () => {
-  const expected = [
-    [-1, -1, true, -1, false, [0, 1]],
-    [0, -1, false, 0, false],
-    [-1, 1, false, 1, true],
-    [-1, -1, true, -1, false, [2, 3]],
-    [2, -1, false, 2, false],
-    [-1, 3, false, 3, true],
-    [-1, -1, true, -1, false, [0, 1, 2, 3]],
-    [0, -1, false, 0, false],
-    [1, -1, false, 1, false],
-    [-1, 2, false, 2, false],
-    [-1, 3, false, 3, true],
-  ];
-
-  assertMergeSortSuccess(ARRAY_STRICTLY_ASCENDING, ARRAY_STRICTLY_ASCENDING, expected);
+  assertMergeSortSuccess(
+    ARRAY_STRICTLY_ASCENDING,
+    ARRAY_STRICTLY_ASCENDING,
+    expectedForSortedAtStart
+  );
 });
 
 test('Descending array', () => {

@@ -38,7 +38,7 @@ const Form = () => {
   /**
    * A drop down list to provide a list of types of message to choose from.
    *
-   * @type {JSX.Element} A drop down list.
+   * @type {JSX.Element}
    */
   const menu = (
     <Menu style={{ transform: 'translateY(-5px)' }}>

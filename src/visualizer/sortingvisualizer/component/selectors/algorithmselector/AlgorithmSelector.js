@@ -80,7 +80,7 @@ const AlgorithmChooser = () => {
   /**
    * A drop down list which displays a list of algorithms available in Sort-Algo.
    *
-   * @type {JSX.Element} A drop down list of algorithms available.
+   * @type {JSX.Element}
    */
   const menu = (
     <Menu>
