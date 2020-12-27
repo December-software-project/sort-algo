@@ -9,6 +9,7 @@ import { isRadixOrBucket } from '../../../util/GeneralUtil';
  * A generic component for the slider.
  *
  * @component
+ * @category Visualizer
  * @param {function} setData A method to change the data upon sliding.
  * @param {number} min The minimum value for the slider.
  * @param {number} max The maximum value for the slider.

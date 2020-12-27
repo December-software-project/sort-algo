@@ -7,6 +7,9 @@ import { hasLegend, isMergeSort, isSelectionSort } from '../../util/GeneralUtil'
 
 /**
  * A legend which display information about the current sorting animation.
+ *
+ * @component
+ * @category Visualizer
  */
 const Legend = () => {
   const { visualizerAlgorithm } = useContext(VisualizerStateContext);

@@ -6,7 +6,8 @@ import { VisualizerStateContext } from '../../Visualizer';
 /**
  * Progress bar for the animation completion.
  *
- * @returns {JSX.Element} A bar showing the progression of the animation.
+ * @component
+ * @category Visualizer
  */
 const AnimationProgressBar = () => {
   const { animationPercentage } = useContext(VisualizerStateContext);

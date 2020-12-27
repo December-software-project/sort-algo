@@ -6,6 +6,7 @@ import { highlightOnesPlacing } from '../animationscreen/NumberHighlighter';
  * A block which animates to show the Bucket Sort algorithm.
  *
  * @component
+ * @category AnimationScreen
  * @param {object} item The information of the block.
  * @param {number} y The displacement of the block in the Y-Direction.
  * @param {object} rest All other information of the props.

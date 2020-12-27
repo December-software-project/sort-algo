@@ -42,6 +42,7 @@ const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: fa
  * The sorting visualizer.
  *
  * @component
+ * @category Visualizer
  */
 const Visualizer = () => {
   // isPlay and isReplay simulate the 3 states
