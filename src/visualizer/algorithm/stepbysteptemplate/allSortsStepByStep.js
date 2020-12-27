@@ -9,6 +9,9 @@ import { heapSortStepByStep } from './heapSortStepByStep';
 
 /**
  * An Object component that is used to access the sorting method step by step template.
+ *
+ * @namespace StepByStepTemplate
+ * @type {Object}
  */
 const SortingAlgorithmsStepByStep = {
   'Insertion Sort': genericSwapStepByStep,

@@ -3,6 +3,13 @@ import { IconContext } from 'react-icons';
 import { AiFillCaretRight, AiOutlinePause, AiOutlineReload } from 'react-icons/ai';
 import './styles.css';
 
+/**
+ * Depending on the {@code type}, it will show the relevant button state.
+ *
+ * @component
+ * @category Button
+ * @param {string} type The state of the button to be shown: 'play', 'pause', 'replay'.
+ */
 const PlayPauseReplayButton = ({ type }) => {
   return (
     <IconContext.Provider

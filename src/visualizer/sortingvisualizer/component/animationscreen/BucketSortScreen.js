@@ -1,83 +1,30 @@
 import React, { useContext } from 'react';
 import { VisualizerStateContext } from '../../Visualizer';
-import { animated, useTransition } from 'react-spring';
-import { highlightOnesPlacing } from './NumberHighlighter';
+import StackOfAnimatedBoxes from '../multipleblocks/StackOfAnimatedBoxes';
+import './styles.css';
+import HorizontalArray from '../multipleblocks/HorizontalArray';
+import Oval from '../block/Oval';
 
+/**
+ * Bucket sort screen which encapsulates the fields and components of the animation.
+ *
+ * @component
+ * @category AnimationScreen
+ * @returns {JSX.Element} Bucket sort screen component.
+ */
 const BucketSortScreen = () => {
-  const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);
-
-  const HorizontalBoxes = ({ dataSize, referenceArray }) => {
-    const SingleBox = ({ item }) => (
-      <div
-        className="box"
-        style={{
-          visibility: item.isShown ? `visible` : `hidden`,
-        }}
-      >
-        <div className="decimal">{highlightOnesPlacing(item.height)}</div>
-      </div>
-    );
-
-    return (
-      <div className="data-arr" style={{ gridTemplateColumns: `repeat(${dataSize}, 1fr)` }}>
-        {referenceArray.map((x) => (
-          <SingleBox item={x} key={x.id} />
-        ))}
-      </div>
-    );
-  };
-
-  const AnimatedBox = ({ item, props: { y, ...rest } }) => (
-    <animated.div
-      className="box"
-      style={{
-        ...rest,
-        height: 40,
-        backgroundImage: item.isSwap
-          ? `linear-gradient(45deg, #13B1B7, #11C2C9)`
-          : `linear-gradient(45deg, #287ED0, #5466FF)`,
-        transform: y.interpolate((y) => `translate3d(0,${y}px,0)`),
-      }}
-    >
-      <div className="decimal">{highlightOnesPlacing(item.height)}</div>
-    </animated.div>
-  );
-
-  const Transitions = (stack) => {
-    let yDirection = 0;
-    return useTransition(
-      stack.map((data) => {
-        return { ...data, y: (yDirection -= 10) + 10 };
-      }),
-      (d) => d.id,
-      {
-        from: { height: 0, opacity: 1 },
-        leave: { height: 0, opacity: 1 },
-        enter: ({ y, height }) => ({ y, height, opacity: 1 }),
-        update: ({ y, height }) => ({ y, height }),
-      }
-    );
-  };
-
-  const StackOfBoxes = ({ individualStack }) => {
-    return (
-      <div className="stack">
-        <div className="stack-boxes">
-          {Transitions(individualStack.array).map(({ item, props: { y, ...rest } }, index) => (
-            <AnimatedBox item={item} props={{ y, ...rest }} key={index} />
-          ))}
-        </div>
-        <div className="number-with-line">{individualStack.value}</div>
-      </div>
-    );
-  };
+  const { referenceArray, stackArr } = useContext(VisualizerStateContext);
 
   return (
     <div className="spaced-out-container">
-      <HorizontalBoxes dataSize={dataSize} referenceArray={referenceArray} />
+      <HorizontalArray referenceArray={referenceArray} BlockType={Oval} />
       <div className="stack-arr">
-        {stackArr.map((x) => (
-          <StackOfBoxes individualStack={x} key={x.value} />
+        {stackArr.map((stack) => (
+          <StackOfAnimatedBoxes
+            individualStack={stack.array}
+            value={stack.value}
+            key={stack.value}
+          />
         ))}
       </div>
     </div>

@@ -3,11 +3,18 @@ import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-import { arrayCopy, generateArray, isRadixOrBucket } from '../../../util/GeneralUtil';
+import { isRadixOrBucket } from '../../../util/GeneralUtil';
 import { buckets } from '../../../util/CountingSortUtil';
 import './styles.css';
 import { stack } from '../../../util/RadixSortUtil';
+import { arrayCopy, generateArray } from '../../../util/ArrayUtil';
 
+/**
+ * A drop down menu which allows users to pick their algorithm for the visualizer.
+ *
+ * @component
+ * @category Visualizer
+ */
 const AlgorithmChooser = () => {
   const {
     dataSize,
@@ -27,6 +34,9 @@ const AlgorithmChooser = () => {
 
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
 
+  /**
+   * List of available Algorithms available in Sort-Algo
+   */
   const listOfAlgorithm = [
     { algorithmName: 'Bubble Sort', key: '0' },
     { algorithmName: 'Insertion Sort', key: '1' },
@@ -40,6 +50,11 @@ const AlgorithmChooser = () => {
     { algorithmName: 'Bucket Sort', key: '9' },
   ];
 
+  /**
+   * Retrieves the algorithm name being chosen and set the system's algorithm to the selected algorithm.
+   *
+   * @param algorithmName Algorithm which is chosen via the drop down menu.
+   */
   const handleMenuClick = (algorithmName) => {
     setAlgorithm(algorithmName);
     setVisualizerAlgorithm(algorithmName);
@@ -62,6 +77,11 @@ const AlgorithmChooser = () => {
     }
   };
 
+  /**
+   * A drop down list which displays a list of algorithms available in Sort-Algo.
+   *
+   * @type {JSX.Element}
+   */
   const menu = (
     <Menu>
       {listOfAlgorithm.map(({ algorithmName, key }) => {

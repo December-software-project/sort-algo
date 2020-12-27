@@ -1,10 +1,16 @@
 import React, { useContext } from 'react';
 import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
-import { arrayCopy, generateArray } from '../../../util/GeneralUtil';
 import { buckets } from '../../../util/CountingSortUtil';
 import { stack } from '../../../util/RadixSortUtil';
+import { arrayCopy, generateArray } from '../../../util/ArrayUtil';
 
+/**
+ * A button to generate new data for the "blocks" for the sorting animation.
+ *
+ * @component
+ * @category Button
+ */
 const NewDataButton = () => {
   const {
     isPlay,
@@ -20,6 +26,9 @@ const NewDataButton = () => {
     setHistoryArr,
   } = useContext(VisualizerStateContext);
 
+  /**
+   * Event handler to generate new data set for the sorting animation.
+   */
   const handleNewDataButtonClick = () => {
     if (!isPlay) {
       setArrayData(generateArray(dataSize, visualizerAlgorithm));

@@ -3,6 +3,12 @@ import { VisualizerStateContext } from '../../../Visualizer';
 import PlayPauseReplayButton from './PlayPauseReplayButton';
 import './styles.css';
 
+/**
+ * A component which holds the 3 states, Play, Pause, Replay.
+ *
+ * @component
+ * @category Button
+ */
 const ThreeStateButton = () => {
   const {
     isPlay,
@@ -14,6 +20,9 @@ const ThreeStateButton = () => {
     setIsReset,
   } = useContext(VisualizerStateContext);
 
+  /**
+   * Event handler that trigger play, pause, replay functionality.
+   */
   const handleThreeStateButtonClick = () => {
     if (isReplay) {
       setIsReplay(false);

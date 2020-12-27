@@ -2,6 +2,12 @@ import React from 'react';
 import Header from '../../component/header/SectionHeader';
 import './styles.css';
 
+/**
+ * Header for contact us.
+ *
+ * @component
+ * @category Contact Us
+ */
 const ContactUsHeader = () => {
   const ContactUsText = () => (
     <span>

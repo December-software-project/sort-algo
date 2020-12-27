@@ -5,6 +5,12 @@ import TeamImage from './image/team-image.jpg';
 import TeamHeader from '../component/header/SectionHeader';
 import Profile from './profile/Profile';
 
+/**
+ * Team Section of the app.
+ *
+ * @component
+ * @category App Body
+ */
 const Team = () => {
   return (
     <div className="team" id="team">
@@ -14,13 +20,14 @@ const Team = () => {
         <div className="team-profile">
           <p className="team-title">Meet our team</p>
           <p className="team-description">{TeamDescription}</p>
-          {TeamData.map((data) => (
+          {TeamData.map((data, index) => (
             <Profile
               img={data.img}
               name={data.name}
               description={data.description}
               linkedInLink={data.linkedInUrl}
               gitHubLink={data.gitHubUrl}
+              key={index}
             />
           ))}
         </div>

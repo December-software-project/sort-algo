@@ -3,8 +3,14 @@ import { AiOutlineLeft } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import './styles.css';
-import { resetArray } from '../../../util/GeneralUtil';
+import { resetArray } from '../../../util/ArrayUtil';
 
+/**
+ * A button which executes one step in reverse for the sorting animation.
+ *
+ * @component
+ * @category Button
+ */
 const BackButton = () => {
   const {
     isPlay,
@@ -19,6 +25,9 @@ const BackButton = () => {
 
   const isEmpty = animationPercentage === 0;
 
+  /**
+   * Event handler to trigger the backward animation.
+   */
   const handleBackButtonClick = () => {
     executeBackwardAnimation();
     // this is to check if we are at the start animation, to reset the color of the block

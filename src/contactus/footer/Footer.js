@@ -3,6 +3,12 @@ import './styles.css';
 
 import { MdCopyright } from 'react-icons/md';
 
+/**
+ * Footer at the end of page
+ *
+ * @component
+ * @category Contact Us
+ */
 const Footer = () => {
   return (
     <div className="footer-container">
