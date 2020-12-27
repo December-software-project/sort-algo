@@ -189,7 +189,7 @@ const Visualizer = () => {
   /**
    * Resets the states of the "blocks" or "oval" when the sorting animation is done.
    *
-   * @param {object[]} finalReferenceArray The end state of the array holding the states of each block.
+   * @param {Object[]} finalReferenceArray The end state of the array holding the states of each block.
    */
   const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
