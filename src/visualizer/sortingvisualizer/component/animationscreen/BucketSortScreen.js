@@ -17,7 +17,7 @@ const BucketSortScreen = () => {
 
   return (
     <div className="spaced-out-container">
-      <HorizontalArray referenceArray={referenceArray} OvalType={Oval} />
+      <HorizontalArray referenceArray={referenceArray} BlockType={Oval} />
       <div className="stack-arr">
         {stackArr.map((stack) => (
           <StackOfAnimatedBoxes

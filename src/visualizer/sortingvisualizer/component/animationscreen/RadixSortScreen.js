@@ -18,7 +18,7 @@ const RadixSortScreen = () => {
 
   return (
     <div className="container-one" style={{ justifyContent: `space-between`, minHeight: 370 }}>
-      <HorizontalArray referenceArray={referenceArray} OvalType={HighlightedOval} />
+      <HorizontalArray referenceArray={referenceArray} BlockType={HighlightedOval} />
       <div className="stack-arr">
         {stackArr.map((stack) => (
           <StackOfBoxes individualStack={stack} key={stack.value} />

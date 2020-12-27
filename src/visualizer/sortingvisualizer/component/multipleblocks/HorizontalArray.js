@@ -6,14 +6,14 @@ import React from 'react';
  * @component
  * @category MultipleBlocks
  * @param referenceArray Current state of the data array.
- * @param OvalType Used to represent each item in the data array.
+ * @param BlockType Used to represent each item in the data array.
  * @returns {JSX.Element} Horizontal array component.
  */
-const HorizontalArray = ({ referenceArray, OvalType }) => {
+const HorizontalArray = ({ referenceArray, BlockType }) => {
   return (
     <div className="horiz-arr">
       {referenceArray.map((x, index) => (
-        <OvalType item={x} key={index} />
+        <BlockType item={x} key={index} />
       ))}
     </div>
   );

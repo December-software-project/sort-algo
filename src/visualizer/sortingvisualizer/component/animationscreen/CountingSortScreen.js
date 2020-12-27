@@ -17,9 +17,9 @@ const CountingSortScreen = () => {
 
   return (
     <div className="container-one">
-      <HorizontalArray referenceArray={referenceArray} OvalType={CountingSortBlock} />
+      <HorizontalArray referenceArray={referenceArray} BlockType={CountingSortBlock} />
       <div style={{ marginTop: `6%` }}>
-        <HorizontalArray referenceArray={countArr} OvalType={CountBlock} />
+        <HorizontalArray referenceArray={countArr} BlockType={CountBlock} />
       </div>
     </div>
   );
