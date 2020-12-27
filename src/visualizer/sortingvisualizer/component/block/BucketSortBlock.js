@@ -8,9 +8,9 @@ import './styles.css';
  *
  * @component
  * @category Block
- * @param {object} item The information of the block.
- * @param {object} x The displacement of the block.
- * @param {object} rest All other information of the props.
+ * @param {Object} item The information of the block.
+ * @param {Object} x The displacement of the block.
+ * @param {Object} rest All other information of the props.
  * @param {number} index Index of the block.
  * @returns {JSX.Element} An animated block which translates in the y direction.
  */
