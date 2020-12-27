@@ -7,6 +7,12 @@ import HowItWorksImage from '../team/image/how-it-works-image.jpg';
 import Step from './step/Step';
 import { StepsData } from './StepsData';
 
+/**
+ * How It Works Section of the app.
+ *
+ * @component
+ * @category App Body
+ */
 const HowItWorks = () => {
   return (
     <div id="howItWorks" className="how-it-works">
