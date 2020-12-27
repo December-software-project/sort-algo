@@ -13,11 +13,11 @@ import Oval from '../block/Oval';
  * @returns {JSX.Element} Bucket sort screen.
  */
 const BucketSortScreen = () => {
-  const { referenceArray, stackArr, dataSize } = useContext(VisualizerStateContext);
+  const { referenceArray, stackArr } = useContext(VisualizerStateContext);
 
   return (
     <div className="spaced-out-container">
-      <HorizontalArray dataSize={dataSize} referenceArray={referenceArray} OvalType={Oval} />
+      <HorizontalArray referenceArray={referenceArray} OvalType={Oval} />
       <div className="stack-arr">
         {stackArr.map((stack) => (
           <StackOfAnimatedBoxes
