@@ -43,8 +43,8 @@
 }
 
 .decimal > span:nth-child(3) {
-  font-weight: bold;
   color: white;
+  font-weight: bold;
 }
 
 .reversed-number {
