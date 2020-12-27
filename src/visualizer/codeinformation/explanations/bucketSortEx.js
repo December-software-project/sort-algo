@@ -3,7 +3,7 @@
  * Explanation adapted from CLRS Introduction to Algorithms textbook.
  *
  * @memberOf Explanations
- * @type {
+ * @const {
  * {bestTime: string,
  * worstSpace: string,
  * additionalDesc: string,

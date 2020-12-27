@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import './styles.css';
 import { VisualizerStateContext } from '../../../Visualizer';
-import { arrayCopy, generateArray } from '../../../util/GeneralUtil';
 import { buckets } from '../../../util/CountingSortUtil';
 import { stack } from '../../../util/RadixSortUtil';
+import { arrayCopy, generateArray } from '../../../util/ArrayUtil';
 
 /**
  * A button to generate new data for the "blocks" for the sorting animation.

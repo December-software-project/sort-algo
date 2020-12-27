@@ -26,60 +26,6 @@
   justify-content: center;
 }
 
-.stack {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin-left: 10px;
-}
-
-.stack-boxes {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.number-with-line {
-  border-top: 1px solid black;
-  font-family: 'Open Sans Semibold', sans-serif;
-  font-size: 15px;
-  margin-top: 10px;
-  text-align: center;
-  width: 60px;
-}
-
-.data-arr {
-  align-self: center;
-  display: grid;
-  gap: 10px;
-  justify-content: center;
-}
-
-.box {
-  align-items: center;
-  background: linear-gradient(45deg, #287ED0, #5466FF);
-  border-radius: 50%;
-  color: whitesmoke;
-  display: flex;
-  font-size: 16px;
-  height: 40px;
-  justify-content: center;
-  padding: 5px;
-  position: relative;
-  width: 50px;
-}
-
-.number {
-  align-items: center;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-}
-
-.decimal > span:nth-child(3) {
-  font-weight: 720;
-}
-
 .empty-space-for-merge-sort {
   box-sizing: border-box;
   height: 150px;

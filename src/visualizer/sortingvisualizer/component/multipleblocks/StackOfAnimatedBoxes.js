@@ -1,10 +1,21 @@
 import React from 'react';
 import { useTransition } from 'react-spring';
 import BucketSortBlock from '../block/BucketSortBlock';
+import './styles.css';
 
-const StackOfBoxes = ({ individualStack, value }) => {
-
+/**
+ * Animated stack of boxes used for bucket sort.
+ *
+ * @component
+ * @category MultipleBlocks
+ * @param {any[]} individualStack Individual bucket in the stack.
+ * @param {number} value Index of the stack.
+ * @returns {JSX.Element} Stack of boxes component.
+ */
+const StackOfAnimatedBoxes = ({ individualStack, value }) => {
   let yDirection = 0;
+
+  // Transition for the single stack
   const transition = useTransition(
     individualStack.map((data) => {
       return { ...data, y: (yDirection -= 10) + 10 };
@@ -21,8 +32,8 @@ const StackOfBoxes = ({ individualStack, value }) => {
   return (
     <div className="stack">
       <div className="stack-boxes">
-        {transition.map(({ item, props: { y, ...rest } }, index) => (
-          <BucketSortBlock item={item} props={{ y, ...rest }} key={index} />
+        {transition.map(({ item, props: { y, ...rest } }) => (
+          <BucketSortBlock item={item} props={{ y, ...rest }} key={item.id} />
         ))}
       </div>
       <div className="number-with-line">{value}</div>
@@ -30,4 +41,4 @@ const StackOfBoxes = ({ individualStack, value }) => {
   );
 };
 
-export default StackOfBoxes;
+export default StackOfAnimatedBoxes;

@@ -2,7 +2,7 @@
  * Counting sort algorithm details.
  *
  * @memberOf Code templates
- * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ * @const {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
  */
 const CountingSort = {
   Java:

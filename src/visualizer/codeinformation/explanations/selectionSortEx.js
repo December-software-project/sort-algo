@@ -3,7 +3,7 @@
  *
  * @memberOf Explanations
  * @see {@link https://www.geeksforgeeks.org/selection-sort/|Geeks for Geeks}
- * @type {
+ * @const {
  * {bestTime: JSX.Element,
  * worstSpace: string,
  * additionalDesc: string,

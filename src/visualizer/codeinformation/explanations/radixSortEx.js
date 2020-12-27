@@ -3,7 +3,7 @@
  *
  * @memberOf Explanations
  * @see {@link https://www.programiz.com/dsa/radix-sort|Programiz}
- * @type {
+ * @const {
  * {bestTime: string,
  * worstSpace: string,
  * additionalDesc: string,

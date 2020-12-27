@@ -4,7 +4,7 @@
  * @see {@link https://levelup.gitconnected.com/shell-sort-in-javascript-c8a487041cdb|GitConnected}
  * @see {@link https://www.geeksforgeeks.org/shellsort/|Geeks for Geeks}
  * @memberOf Code templates
- * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ * @const {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
  */
 const ShellSort = {
   Java:
