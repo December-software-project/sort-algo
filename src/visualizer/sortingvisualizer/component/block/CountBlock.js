@@ -1,12 +1,22 @@
 import React, { useContext } from 'react';
-import '../block/styles.css';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
-import { translateXOfVisualizer } from '../../util/GeneralUtil';
 
-const Buckets = () => {
-  const { dataSize, countArr } = useContext(VisualizerStateContext);
+/**
+ * A count block used to collect items from the reference array.
+ *
+ * @component
+ * @category Block
+ * @returns {JSX.Element} Count block component.
+ */
+const CountBlock = ({ item }) => {
+  const { dataSize } = useContext(VisualizerStateContext);
 
+  /**
+   * Color array used to represent the intensity of the highlight for each block.
+   *
+   * @const {string[]}
+   */
   const colorArr = [
     '#B8B8B8',
     '#b4d3de',
@@ -35,14 +45,10 @@ const Buckets = () => {
     '#000000',
   ];
 
-  const CountingBlock = ({ item }) => (
-    <div
-      className="fixed-array-container"
-      style={{ transform: `translateX(${translateXOfVisualizer(dataSize)}px)` }}
-    >
+  return (
+    <div className="fixed-array-container">
       <div
         className="animated-block"
-        key={item.height}
         style={{
           height: item.height * 10 + 9,
           backgroundColor: colorArr[item.count],
@@ -54,14 +60,6 @@ const Buckets = () => {
       <span className="count">{item.count}</span>
     </div>
   );
-
-  return (
-    <div className="fixed-array">
-      {countArr.map((item, index) => (
-        <CountingBlock item={item} key={index} />
-      ))}
-    </div>
-  );
 };
 
-export default Buckets;
+export default CountBlock;

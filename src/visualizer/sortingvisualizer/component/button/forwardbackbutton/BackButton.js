@@ -3,7 +3,7 @@ import { AiOutlineLeft } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import './styles.css';
-import { resetArray } from '../../../util/GeneralUtil';
+import { resetArray } from '../../../util/ArrayUtil';
 
 /**
  * A button which executes one step in reverse for the sorting animation.

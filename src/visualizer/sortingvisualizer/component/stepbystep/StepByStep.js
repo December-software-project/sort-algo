@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { getStepByStepText } from '../../util/GeneralUtil';
 import './styles.css';
 import { VisualizerStateContext } from '../../Visualizer';
+import { getStepByStepText } from './StepByStepUtil';
 
 /**
  * A component which display each steps of the sorting algorithm.

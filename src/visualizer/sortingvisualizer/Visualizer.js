@@ -6,19 +6,13 @@ import SpeedSelector from './component/selectors/sliderselector/SliderSelector';
 import DataSizeSelector from './component/selectors/sliderselector/SliderSelector';
 import './styles.css';
 import {
-  arrayCopy,
-  generateArray,
-  getAnimationArr,
   isBucketSort,
   isCountingSort,
   isMergeSort,
   isQuickSort,
-  isRadixOrBucket,
   isRadixSort,
-  resetArray,
-  roundToTwoDp,
-  translateXOfVisualizer,
 } from './util/GeneralUtil';
+import { roundToTwoDp } from './util/MathUtil';
 import { executeGenericSort } from './util/SwappingAlgoUtil';
 import { executeMergeSortBackward, executeMergeSortForward } from './util/MergeSortUtil';
 import { executeQuickSort } from './util/QuickSortUtil';
@@ -35,14 +29,16 @@ import bubbleSort from '../algorithm/sortingalgorithms/bubbleSort';
 import { executeBucketSort } from './util/BucketSortUtil';
 import ButtonBox from './component/button/ButtonBox';
 import CodeInformation from '../codeinformation/CodeInformation';
+import { arrayCopy, generateArray, getAnimationArr, resetArray } from './util/ArrayUtil';
 
 const VisualizerStateContext = React.createContext({ isPlay: false, isReplay: false });
 
 /**
- * The sorting visualizer.
+ * Encapsulates the fields and methods of the Visualizer Component.
  *
- * @component
  * @category Visualizer
+ * @component
+ * @returns {JSX.Element} Visualizer Component.
  */
 const Visualizer = () => {
   // isPlay and isReplay simulate the 3 states
@@ -56,12 +52,27 @@ const Visualizer = () => {
   const [speed, setSpeed] = useState(5);
   const [dataSize, setDataSize] = useState(15);
   const [visualizerAlgorithm, setVisualizerAlgorithm] = useState('Bubble Sort');
+
+  // Original state of the array
   const [arrayData, setArrayData] = useState(() => generateArray(dataSize, visualizerAlgorithm));
+
+  // Reference array used to display the array being animated
   const [referenceArray, setReferenceArray] = useState(() => arrayCopy(arrayData));
+
+  // Animation array which contains the steps of the entire animation
   const [animationArr, setAnimationArr] = useState(() => bubbleSort(arrayCopy(arrayData)));
+
+  // Animation percentage used to describe the percentage of animation completed for the sorting
+  // algorithm
   const [animationPercentage, setAnimationPercentage] = useState(0);
+
+  // Index of the current animation
   const [idx, setIdx] = useState(0);
+
+  // Count array used for counting sort
   const [countArr, setCountArr] = useState(() => arrayCopy(buckets));
+
+  // Stack array used for radix and bucket sort
   const [stackArr, setStackArr] = useState(() => arrayCopy(stack));
 
   // This is introduced to simplify the back animation for MergeSort
@@ -91,7 +102,8 @@ const Visualizer = () => {
   };
 
   /**
-   * Executes one step of the sorting animation, depending on the selected algorithm.
+   * Executes one step of the sorting animation in the forward direction,
+   * depending on the selected algorithm.
    */
   const executeForwardAnimation = () => {
     let currentAnimation = animationArr[idx];
@@ -141,7 +153,8 @@ const Visualizer = () => {
   };
 
   /**
-   * Executes one step of the reverse in the sorting animation, depending on the sorting algorithm.
+   * Executes one step of the sorting animation in the reverse direction,
+   * depending on the sorting algorithm.
    */
   const executeBackwardAnimation = () => {
     // this occurs if the users click too fast
@@ -176,7 +189,7 @@ const Visualizer = () => {
   /**
    * Resets the states of the "blocks" or "oval" when the sorting animation is done.
    *
-   * @param {object[]} finalReferenceArray The end state of the array holding the states of each block.
+   * @param {Object[]} finalReferenceArray The end state of the array holding the states of each block.
    */
   const resetDataWhenAnimationFinish = (finalReferenceArray) => {
     setIsPlay(false);
@@ -185,8 +198,10 @@ const Visualizer = () => {
   };
 
   /**
-   * @const {object} ContextProviderValue A object contains different values and methods to be passed around the other components
+   * ContextProviderValue object contains different values and methods to be passed around the other components
    * via React's context.
+   *
+   * @const {Object}
    */
   const value = {
     isPlay,
@@ -230,14 +245,7 @@ const Visualizer = () => {
             <SectionHeader sectionHeader="Visualizer" translateX="translate(25px)" />
             <AlgorithmSelector />
           </div>
-          <div
-            className="visualizer-box"
-            style={{
-              transform:
-                !isRadixOrBucket(visualizerAlgorithm) &&
-                `translateX(-${translateXOfVisualizer(dataSize)}px)`,
-            }}
-          >
+          <div className="visualizer-box">
             <AnimationScreen />
           </div>
           <StepByStep />

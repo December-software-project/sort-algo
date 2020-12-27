@@ -3,10 +3,11 @@ import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { VisualizerStateContext } from '../../../Visualizer';
 import 'antd/dist/antd.css';
-import { arrayCopy, generateArray, isRadixOrBucket } from '../../../util/GeneralUtil';
+import { isRadixOrBucket } from '../../../util/GeneralUtil';
 import { buckets } from '../../../util/CountingSortUtil';
 import './styles.css';
 import { stack } from '../../../util/RadixSortUtil';
+import { arrayCopy, generateArray } from '../../../util/ArrayUtil';
 
 /**
  * A drop down menu which allows users to pick their algorithm for the visualizer.

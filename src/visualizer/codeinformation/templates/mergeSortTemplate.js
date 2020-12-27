@@ -4,7 +4,7 @@
  * @see {@link https://www.geeksforgeeks.org/merge-sort/|Geeks for Geeks}
  * @see {@link https://stackabuse.com/merge-sort-in-javascript/|StackAbuse}
  * @memberOf Code templates
- * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ * @const {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
  */
 const MergeSort = {
   Java:
