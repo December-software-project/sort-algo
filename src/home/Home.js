@@ -4,6 +4,12 @@ import './styles.css';
 import Particles from 'react-tsparticles';
 import HomeDescription from './homedescription/HomeDescription';
 
+/**
+ * Home Section of the app.
+ *
+ * @component
+ * @category App Body
+ */
 const Home = () => {
   return (
     <div id="home" className="home">

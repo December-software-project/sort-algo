@@ -4,6 +4,7 @@ import { executeSwap } from './SwappingAlgoUtil';
  * A sorting execution for Quick Sort.
  *
  * @method
+ * @category QuickSortUtil
  * @param {any[]} currentAnimation The current animation to be executed.
  * @param {Object[]} referenceArray The array holding data for the "blocks".
  * @param {string} visualizerAlgorithm The current algorithm of the visualizer.
@@ -36,6 +37,7 @@ export const executeQuickSort = (
  * A sorting execution for Quick Sort
  *
  * @method
+ * @category QuickSortUtil
  * @param {number} firstIdx The first index to be swapped
  * @param {number} secondIdx The second index to be swapped
  * @param {number} pivotIdx The pivot index that is being compared to

@@ -1,34 +1,26 @@
-import React from 'react';
-import SmallBlock from '../smallBlock/SmallBlock';
-import Buckets from '../countingsortbuckets/Buckets';
+import React, { useContext } from 'react';
+import CountingSortBlock from '../block/CountingSortBlock';
 import './styles.css';
+import { VisualizerStateContext } from '../../Visualizer';
+import HorizontalArray from '../multipleblocks/HorizontalArray';
+import CountBlock from '../block/CountBlock';
 
 /**
- * Animation screen which shows the Counting Sort algorithm.
+ * Counting sort screen which encapsulates the fields and components of the animation.
  *
  * @component
  * @category AnimationScreen
- * @param {Object[]} transitions An array which contains the animated blocks.
- * @param {number} dataSize The number of blocks.
+ * @returns {JSX.Element} Counting sort screen component.
  */
-const CountingSortScreen = ({ transitions, dataSize }) => {
+const CountingSortScreen = () => {
+  const { referenceArray, countArr } = useContext(VisualizerStateContext);
+
   return (
     <div className="container-one">
-      <div className="list">
-        {transitions.map(({ item, props: { x, ...rest } }, index) => {
-          return (
-            <SmallBlock
-              item={item}
-              props={{ x, ...rest }}
-              index={index}
-              length={dataSize}
-              key={index}
-              width={800 / dataSize}
-            />
-          );
-        })}
+      <HorizontalArray referenceArray={referenceArray} BlockType={CountingSortBlock} />
+      <div style={{ marginTop: `6%` }}>
+        <HorizontalArray referenceArray={countArr} BlockType={CountBlock} />
       </div>
-      <Buckets />
     </div>
   );
 };

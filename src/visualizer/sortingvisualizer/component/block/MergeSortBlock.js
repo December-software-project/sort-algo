@@ -6,10 +6,10 @@ import { animated } from 'react-spring';
  * A block which animates to show the Merge Sort algorithm.
  *
  * @component
- * @category AnimationScreen
- * @param {object} item The information of the block.
+ * @category Block
+ * @param {Object} item The information of the block.
  * @param {number} x The displacement of the block in the X-Direction.
- * @param {object} rest All other information of the props.
+ * @param {Object} rest All other information of the props.
  * @param {number} length The number of blocks.
  * @param {number} index Index of the block.
  * @param {boolean} isSwap A boolean value denoting whether this block is in a shift animation.

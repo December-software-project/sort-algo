@@ -6,6 +6,9 @@ import { VisualizerStateContext } from '../../../Visualizer';
 
 /**
  * A button which executes one step forward for the sorting animation.
+ *
+ * @component
+ * @category Button
  */
 const ForwardButton = () => {
   const { isPlay, animationPercentage, executeForwardAnimation, idx, animationArr } = useContext(
@@ -14,6 +17,9 @@ const ForwardButton = () => {
 
   const isFull = animationPercentage === 100;
 
+  /**
+   * Event handler to trigger the forward animation.
+   */
   const handleForwardButtonClick = () => {
     if (idx < animationArr.length) {
       executeForwardAnimation();

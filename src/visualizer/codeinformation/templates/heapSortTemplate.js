@@ -4,7 +4,7 @@
  * @see {@link https://www.geeksforgeeks.org/heap-sort/|Geeks for Geeks}
  * @see {@link https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-3.php|w3resource}
  * @memberOf Code templates
- * @type {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
+ * @const {{Java: string, 'C/C++': string, JavaScript: string, Python: string}}
  */
 const HeapSort = {
   Java:

@@ -1,63 +1,44 @@
 import insertionSort from '../../../../visualizer/algorithm/sortingalgorithms/insertionSort';
+import { assertSortSuccess } from '../../../../_testutil/TestUtil';
+import {
+  ARRAY_DUPLICATES,
+  ARRAY_EXPECTED_RANDOM_MIXED,
+  ARRAY_EXPECTED_RANDOM_NEGATIVE,
+  ARRAY_EXPECTED_RANDOM_POSITIVE,
+  ARRAY_EXPECTED_STRICTLY_DESCENDING,
+  ARRAY_RANDOM_MIXED,
+  ARRAY_RANDOM_NEGATIVE,
+  ARRAY_RANDOM_POSITIVE,
+  ARRAY_STRICTLY_ASCENDING,
+  ARRAY_STRICTLY_DESCENDING,
+  EMPTY_ARRAY,
+} from '../../../../_testutil/ArraysUtil';
 
 test('Empty Array', () => {
-  const arr = [];
-  const expected = [];
-  expect(insertionSort(arr)).toEqual(expected);
+  assertInsertionSortSuccess(EMPTY_ARRAY, EMPTY_ARRAY, EMPTY_ARRAY);
 });
 
 test('Already Sorted with duplicates', () => {
-  const arr = [
-    { id: 1, height: 3, isSwap: false },
-    { id: 2, height: 3, isSwap: false },
-    { id: 3, height: 3, isSwap: false },
-    { id: 4, height: 3, isSwap: false },
-  ];
-  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [2, 1, false],
     [3, 2, false],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 1, height: 3, isSwap: false },
-    { id: 2, height: 3, isSwap: false },
-    { id: 3, height: 3, isSwap: false },
-    { id: 4, height: 3, isSwap: false },
-  ]);
+
+  assertInsertionSortSuccess(ARRAY_DUPLICATES, ARRAY_DUPLICATES, expected);
 });
 
 test('Already Sorted ascending', () => {
-  const arr = [
-    { id: 1, height: 1, isSwap: false },
-    { id: 2, height: 2, isSwap: false },
-    { id: 3, height: 3, isSwap: false },
-    { id: 4, height: 4, isSwap: false },
-  ];
-  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [2, 1, false],
     [3, 2, false],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 1, height: 1, isSwap: false },
-    { id: 2, height: 2, isSwap: false },
-    { id: 3, height: 3, isSwap: false },
-    { id: 4, height: 4, isSwap: false },
-  ]);
+
+  assertInsertionSortSuccess(ARRAY_STRICTLY_ASCENDING, ARRAY_STRICTLY_ASCENDING, expected);
 });
 
 test('Descending array', () => {
-  const arr = [
-    { id: 1, height: 4, isSwap: false },
-    { id: 2, height: 3, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 4, height: 1, isSwap: false },
-  ];
-  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [1, 0, true],
@@ -72,23 +53,15 @@ test('Descending array', () => {
     [1, 0, false],
     [1, 0, true],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 4, height: 1, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 2, height: 3, isSwap: false },
-    { id: 1, height: 4, isSwap: false },
-  ]);
+
+  assertInsertionSortSuccess(
+    ARRAY_STRICTLY_DESCENDING,
+    ARRAY_EXPECTED_STRICTLY_DESCENDING,
+    expected
+  );
 });
 
 test('random array positive numbers', () => {
-  const arr = [
-    { id: 1, height: 1, isSwap: false },
-    { id: 2, height: 5, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 4, height: 3, isSwap: false },
-  ];
-  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [2, 1, false],
@@ -96,23 +69,11 @@ test('random array positive numbers', () => {
     [3, 2, false],
     [3, 2, true],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 1, height: 1, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 4, height: 3, isSwap: false },
-    { id: 2, height: 5, isSwap: false },
-  ]);
+
+  assertInsertionSortSuccess(ARRAY_RANDOM_POSITIVE, ARRAY_EXPECTED_RANDOM_POSITIVE, expected);
 });
 
 test('random array negative numbers', () => {
-  const arr = [
-    { id: 1, height: -1, isSwap: false },
-    { id: 2, height: -5, isSwap: false },
-    { id: 3, height: -2, isSwap: false },
-    { id: 4, height: -3, isSwap: false },
-  ];
-  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [1, 0, true],
@@ -123,23 +84,11 @@ test('random array negative numbers', () => {
     [2, 1, false],
     [2, 1, true],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 2, height: -5, isSwap: false },
-    { id: 4, height: -3, isSwap: false },
-    { id: 3, height: -2, isSwap: false },
-    { id: 1, height: -1, isSwap: false },
-  ]);
+
+  assertInsertionSortSuccess(ARRAY_RANDOM_NEGATIVE, ARRAY_EXPECTED_RANDOM_NEGATIVE, expected);
 });
 
 test('random array negative and positive numbers', () => {
-  const arr = [
-    { id: 1, height: -1, isSwap: false },
-    { id: 2, height: 5, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 4, height: -3, isSwap: false },
-  ];
-  const actual = insertionSort(arr);
   const expected = [
     [1, 0, false],
     [2, 1, false],
@@ -151,11 +100,9 @@ test('random array negative and positive numbers', () => {
     [1, 0, false],
     [1, 0, true],
   ];
-  expect(actual).toEqual(expected);
-  expect(arr).toStrictEqual([
-    { id: 4, height: -3, isSwap: false },
-    { id: 1, height: -1, isSwap: false },
-    { id: 3, height: 2, isSwap: false },
-    { id: 2, height: 5, isSwap: false },
-  ]);
+
+  assertInsertionSortSuccess(ARRAY_RANDOM_MIXED, ARRAY_EXPECTED_RANDOM_MIXED, expected);
 });
+
+const assertInsertionSortSuccess = (initialArray, sortedArray, expected) =>
+  assertSortSuccess(initialArray, sortedArray, expected, insertionSort);
