@@ -9,7 +9,7 @@ import Visualizer from '../visualizer/sortingvisualizer/Visualizer';
 import NavigationMenu from '../component/navigationMenu/NavigationMenu';
 
 /**
- * Main controller of the app. Contains a navigation menu and its corresponding sections.
+ * Main controller of the App. Contains a navigation menu and its corresponding sections.
  *
  * @component
  * @category Main App
