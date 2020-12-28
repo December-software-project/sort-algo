@@ -1,6 +1,7 @@
 import bubbleSort from '../../../../visualizer/algorithm/sortingalgorithms/bubbleSort';
 import { assertSortSuccess } from '../../../../_testutil/TestUtil';
 import {
+  ANIMATION_ARRAY_ALREADY_SORTED,
   ARRAY_DUPLICATES,
   ARRAY_EXPECTED_RANDOM_MIXED,
   ARRAY_EXPECTED_RANDOM_NEGATIVE,
@@ -11,31 +12,18 @@ import {
   ARRAY_RANDOM_POSITIVE,
   ARRAY_STRICTLY_ASCENDING,
   ARRAY_STRICTLY_DESCENDING,
-  EMPTY_ARRAY,
 } from '../../../../_testutil/ArraysUtil';
 
-test('Empty Array', () => {
-  assertBubbleSortSuccess(EMPTY_ARRAY, EMPTY_ARRAY, EMPTY_ARRAY);
-});
-
 test('Already Sorted with duplicates', () => {
-  const expected = [
-    [1, 0, false],
-    [2, 1, false],
-    [3, 2, false],
-  ];
-
-  assertBubbleSortSuccess(ARRAY_DUPLICATES, ARRAY_DUPLICATES, expected);
+  assertBubbleSortSuccess(ARRAY_DUPLICATES, ARRAY_DUPLICATES, ANIMATION_ARRAY_ALREADY_SORTED);
 });
 
 test('Already Sorted ascending', () => {
-  const expected = [
-    [1, 0, false],
-    [2, 1, false],
-    [3, 2, false],
-  ];
-
-  assertBubbleSortSuccess(ARRAY_STRICTLY_ASCENDING, ARRAY_STRICTLY_ASCENDING, expected);
+  assertBubbleSortSuccess(
+    ARRAY_STRICTLY_ASCENDING,
+    ARRAY_STRICTLY_ASCENDING,
+    ANIMATION_ARRAY_ALREADY_SORTED
+  );
 });
 
 test('Descending array', () => {
@@ -57,7 +45,7 @@ test('Descending array', () => {
   assertBubbleSortSuccess(ARRAY_STRICTLY_DESCENDING, ARRAY_EXPECTED_STRICTLY_DESCENDING, expected);
 });
 
-test('random array positive numbers', () => {
+test('Random array positive numbers', () => {
   const expected = [
     [1, 0, false],
     [2, 1, false],
@@ -71,7 +59,7 @@ test('random array positive numbers', () => {
   assertBubbleSortSuccess(ARRAY_RANDOM_POSITIVE, ARRAY_EXPECTED_RANDOM_POSITIVE, expected);
 });
 
-test('random array negative numbers', () => {
+test('Random array negative numbers', () => {
   const expected = [
     [1, 0, false],
     [1, 0, true],
@@ -88,7 +76,7 @@ test('random array negative numbers', () => {
   assertBubbleSortSuccess(ARRAY_RANDOM_NEGATIVE, ARRAY_EXPECTED_RANDOM_NEGATIVE, expected);
 });
 
-test('random array negative and positive numbers', () => {
+test('Random array negative and positive numbers', () => {
   const expected = [
     [1, 0, false],
     [2, 1, false],

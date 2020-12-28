@@ -11,12 +11,7 @@ import {
   ARRAY_RANDOM_POSITIVE,
   ARRAY_STRICTLY_ASCENDING,
   ARRAY_STRICTLY_DESCENDING,
-  EMPTY_ARRAY,
 } from '../../../../_testutil/ArraysUtil';
-
-test('Empty Array', () => {
-  assertSelectionSortSuccess(EMPTY_ARRAY, EMPTY_ARRAY, EMPTY_ARRAY);
-});
 
 test('Already Sorted with duplicates', () => {
   const expected = [
@@ -63,7 +58,7 @@ test('Descending array', () => {
   );
 });
 
-test('random array positive numbers', () => {
+test('Random array positive numbers', () => {
   const expected = [
     [0, 1, false],
     [0, 2, false],
@@ -78,7 +73,7 @@ test('random array positive numbers', () => {
   assertSelectionSortSuccess(ARRAY_RANDOM_POSITIVE, ARRAY_EXPECTED_RANDOM_POSITIVE, expected);
 });
 
-test('random array negative numbers', () => {
+test('Random array negative numbers', () => {
   const expected = [
     [0, 1, false],
     [1, 2, false],
@@ -93,7 +88,7 @@ test('random array negative numbers', () => {
   assertSelectionSortSuccess(ARRAY_RANDOM_NEGATIVE, ARRAY_EXPECTED_RANDOM_NEGATIVE, expected);
 });
 
-test('random array negative and positive numbers', () => {
+test('Random array negative and positive numbers', () => {
   const expected = [
     [0, 1, false],
     [0, 2, false],
