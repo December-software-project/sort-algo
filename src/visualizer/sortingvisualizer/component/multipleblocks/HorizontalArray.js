@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 /**
  * Horizontal array representation of the entire array.
