@@ -3,6 +3,9 @@ import { GoPlay } from 'react-icons/go';
 import { MdReplay } from 'react-icons/md';
 import React from 'react';
 
+/**
+ * Array containing the details of each particular step.
+ */
 export const StepsData = [
   {
     icon: <AiOutlineSelect size={70} color={'#11C2C9'} />,

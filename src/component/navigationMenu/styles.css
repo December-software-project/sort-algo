@@ -12,32 +12,6 @@
   z-index: 50;
 }
 
-.nav-logo {
-  align-items: center;
-  color: #5467ff;
-  display: flex;
-  justify-content: center;
-  width: 40%;
-}
-
-.nav-logo a {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.nav-bar a {
-  color: white;
-  font-size: 18px;
-  font-weight: 500;
-  position: relative;
-  text-align: justify;
-  text-decoration: none;
-}
-
-.nav-logo a:hover {
-  color: #fff;
-}
-
 .nav-bar.sticky {
   background: #fff;
   box-shadow: -1px -2px 17px 1px rgba(232, 238, 255, 1);
@@ -53,13 +27,53 @@
   width: 60%;
 }
 
+.nav-bar a {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  text-align: justify;
+  text-decoration: none;
+}
+
+.nav-logo a {
+  font-size: 24px;
+  font-weight: 700;
+}
+
 .nav-bar.sticky a {
   color: #454545;
 }
 
+.nav-menu li {
+  display: inline-block;
+  margin: 0 1rem;
+  padding-inline: 0.5em;
+}
+
+.nav-menu a.active {
+  border-bottom: 1.5px solid #fff;
+  color: #fff;
+}
+
 .nav-menu a:hover {
   color: #b6b8ff;
+  border-color: #e7e7fc;
 }
+
+.nav-logo {
+  align-items: center;
+  color: #5467ff;
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}
+
+.nav-logo a:hover {
+  color: #fff;
+}
+
+/* Behaviour of the navigation menu after scrolling. */
 
 .nav-bar.sticky .nav-logo a {
   color: #5467ff;
@@ -69,21 +83,6 @@
   color: #5467ff;
 }
 
-.nav-menu li {
-  display: inline-block;
-  margin: 0 1rem;
-  padding-inline: 0.5em;
-}
-
-/** active navigation **/
-
-/** initial bar **/
-.nav-menu a.active {
-  border-bottom: 1.5px solid #fff;
-  color: #fff;
-}
-
-/** bar after scrolling **/
 .nav-bar.sticky .nav-menu a.active {
   border-bottom: 1.5px solid #a5aefc;
   color: #5467ff;

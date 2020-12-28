@@ -58,7 +58,7 @@ const HeapSort = {
     'let array_length; \n' +
     '\n' +
     '// To heapify a sub-tree rooted with node i which is \n' +
-    '// an index in arr[]. \n' +
+    '// an index in arr[] \n' +
     'function heap_root(input, i) { \n' +
     '  let left = 2 * i + 1; \n' +
     '  let right = 2 * i + 2; \n' +

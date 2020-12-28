@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 
 /**
- * Header for the Legend
+ * Header for the Legend.
  *
  * @component
  * @category Legend
