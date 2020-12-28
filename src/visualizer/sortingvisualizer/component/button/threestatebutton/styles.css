@@ -5,10 +5,6 @@
   width: 40px;
 }
 
-.three-state-button-holder:hover {
-  box-shadow: 1px 6px 6px rgba(190, 196, 255, 0.6);
-}
-
 .three-state-button-holder {
   background-image: linear-gradient(90deg, #287ed0, #5466ff);
   border: none;
@@ -19,4 +15,8 @@
   outline: none;
   transform: translateY(10px);
   width: 70px;
+}
+
+.three-state-button-holder:hover {
+  box-shadow: 1px 6px 6px rgba(190, 196, 255, 0.6);
 }

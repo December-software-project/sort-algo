@@ -37,7 +37,7 @@
     "eject": "react-scripts eject",
     "pretty": "prettier --write \"./**/*.{js,jsx,json,css}\"",
     "docs": "jsdoc -c jsdoc.conf.json",
-    "css": "npx stylelint \"**/*.css\""
+    "css": "npx stylelint \"src/**/*.css\""
   },
   "eslintConfig": {
     "extends": [
