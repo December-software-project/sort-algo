@@ -1,5 +1,4 @@
 .new-data-box {
-  /*transform: translate(6px, 20px);*/
   transform: translateY(20px);
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */

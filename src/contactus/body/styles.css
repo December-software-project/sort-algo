@@ -4,34 +4,11 @@
   justify-content: center;
 }
 
-/*https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete Nathan White*/
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-input:-webkit-autofill {
-  -webkit-text-fill-color: #8789b5 !important;
-}
-
-input,
-textarea:focus {
-  outline: none;
-}
-
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #8789b5;
   font-family: 'Open Sans', sans-serif;
   opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #8789b5;
-  font-family: 'Open Sans', sans-serif;
 }
 
 ::-ms-input-placeholder {
@@ -40,8 +17,19 @@ textarea:focus {
   font-family: 'Open Sans', sans-serif;
 }
 
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #8789b5;
+  font-family: 'Open Sans', sans-serif;
+}
+
 #form-particulars > * {
   margin: 0 0.58vw;
+}
+
+input,
+textarea:focus {
+  outline: none;
 }
 
 .form-particulars {
@@ -60,18 +48,6 @@ textarea:focus {
   width: 100%;
 }
 
-.form-particular-error-holder {
-  height: 60px;
-  width: 15%;
-}
-
-.form-particular-error-holder > span {
-  align-self: center;
-  color: #cc0000;
-  font-family: Nunito, serif;
-  font-weight: 500;
-}
-
 .form-particulars-holder > input {
   background-color: transparent;
   border-color: transparent;
@@ -88,6 +64,30 @@ textarea:focus {
   color: #8789b5;
   font-family: 'Open Sans', sans-serif;
   transform: translateX(4px);
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #8789b5 !important;
+}
+
+/* https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete Nathan White */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-particular-error-holder {
+  height: 60px;
+  width: 15%;
+}
+
+.form-particular-error-holder > span {
+  align-self: center;
+  color: #cc00;
+  font-family: Nunito, serif;
+  font-weight: 500;
 }
 
 #drop-down-arrow-holder {
@@ -125,7 +125,7 @@ textarea:focus {
 
 .form-details-error-holder > span {
   align-self: center;
-  color: #cc0000;
+  color: #cc00;
   font-family: Nunito, serif;
   font-weight: 500;
 }
