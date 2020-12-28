@@ -85,7 +85,7 @@ input:-webkit-autofill:active {
 
 .form-particular-error-holder > span {
   align-self: center;
-  color: #cc00;
+  color: #c00;
   font-family: Nunito, serif;
   font-weight: 500;
 }
@@ -125,7 +125,7 @@ input:-webkit-autofill:active {
 
 .form-details-error-holder > span {
   align-self: center;
-  color: #cc00;
+  color: #c00;
   font-family: Nunito, serif;
   font-weight: 500;
 }
