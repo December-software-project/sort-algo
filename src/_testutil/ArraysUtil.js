@@ -1,5 +1,3 @@
-export const EMPTY_ARRAY = [];
-
 export const ARRAY_DUPLICATES = [
   { id: 1, height: 3 },
   { id: 2, height: 3 },
@@ -68,4 +66,10 @@ export const ARRAY_EXPECTED_RANDOM_MIXED = [
   { id: 1, height: -1 },
   { id: 3, height: 2 },
   { id: 2, height: 5 },
+];
+
+export const ANIMATION_ARRAY_ALREADY_SORTED = [
+  [1, 0, false],
+  [2, 1, false],
+  [3, 2, false],
 ];

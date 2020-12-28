@@ -67,6 +67,7 @@ const executeInnerBucketSort = (currentAnimation, stackArr) => {
  * Resets the inner bucket to the default state. This removes any leftover highlight from the
  * elements.
  *
+ * @category BucketSortUtil
  * @param {Object} currentAnimation Current animation object.
  * @param {Object[]} stackArr Current stack array.
  */

@@ -13,7 +13,7 @@
 }
 
 .nav-bar.sticky {
-  background: #ffffff;
+  background: #fff;
   box-shadow: -1px -2px 17px 1px rgba(232, 238, 255, 1);
   height: 60px;
   padding: 0;
@@ -55,13 +55,14 @@
 }
 
 /** active navigation **/
+
 /** initial bar **/
 .nav-menu a.active {
-  border-bottom: 1.5px solid #ffffff;
-  color: #ffffff;
+  border-bottom: 1.5px solid #fff;
+  color: #fff;
 }
 
-/** bar after scrolling**/
+/** bar after scrolling **/
 .nav-bar.sticky .nav-menu a.active {
   border-bottom: 1.5px solid #a5aefc;
   color: #5467ff;
@@ -85,7 +86,7 @@
 }
 
 .nav-logo a:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
 @media screen and (max-width: 500px) {
