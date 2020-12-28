@@ -25,4 +25,5 @@ const insertionSort = (arr) => {
   }
   return animationArr;
 };
+
 export default insertionSort;

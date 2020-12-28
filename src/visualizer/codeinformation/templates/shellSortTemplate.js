@@ -33,7 +33,7 @@ const ShellSort = {
     'function shellSort(arr) {\n' +
     '  let n = arr.length;\n' +
     '  \n' +
-    '  // Start with a really large gap, and then reduce the gap until there isn\'t any. \n' +
+    "  // Start with a really large gap, and then reduce the gap until there isn't any. \n" +
     '  // With this, the gap starts as half of the array length, and then half of that \n' +
     '  // every time \n' +
     '  for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) { \n' +

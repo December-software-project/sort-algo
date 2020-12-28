@@ -7,6 +7,7 @@ import './styles.css';
  * Code information component which provides information on the current sorting algorithm.
  *
  * @component
+ * @category App Body
  * @param {string} visualizerAlgorithm Current sorting algorithm selected.
  * @returns {JSX.Element} Code information component which provides information on the current sorting algorithm.
  */

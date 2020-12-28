@@ -69,7 +69,8 @@
   text-align: center;
 }
 
-.link, .link:focus {
+.link,
+.link:focus {
   color: steelblue;
   font-size: 15px;
   margin-top: 6%;

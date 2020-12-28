@@ -85,7 +85,7 @@ const MergeSort = {
     '  }\n' +
     '\n' +
     '  /* Concatenating the leftover elements\n' +
-    '   * (in case we didn\'t go through the entire left or right array) */\n' +
+    "   * (in case we didn't go through the entire left or right array) */\n" +
     '  return [ ...arr, ...left, ...right ]\n' +
     '}\n' +
     '\n' +

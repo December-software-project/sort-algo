@@ -43,7 +43,7 @@ export const highlightDigit = (value, idx, dataSize) => {
     value = Math.floor(value / 10);
   }
   return numberMapping.map((x) => (
-    <span style={{ fontWeight: x[1] && `bold`, color: x[1] && `#ffffff` }}>{x[0]}</span>
+    <span style={{ fontWeight: x[1] && `bold`, color: x[1] && `#fff` }}>{x[0]}</span>
   ));
 };
 
