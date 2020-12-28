@@ -660,5 +660,5 @@ test('Mixed buckets', () => {
 });
 
 const assertBucketSortSuccess = (initialArray, expected) =>
-  // Initial array is left unsorted in radix sort, since sorting is not in-place.
+  // Initial array is left unsorted in bucket sort, since sorting is not in-place.
   assertSortSuccess(initialArray, initialArray, expected, bucketSort);
