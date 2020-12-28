@@ -3,6 +3,12 @@ import './styles.css';
 import 'intersection-observer';
 import IsVisible from 'react-is-visible';
 
+/**
+ * Home description in Home Section.
+ *
+ * @component
+ * @category Home
+ */
 const HomeDescription = () => {
   const titleStyling = (isVisible) => ({
     transform: isVisible ? `translateX(0px)` : `translateX(750px)`,

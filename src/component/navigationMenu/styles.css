@@ -36,16 +36,13 @@
   text-decoration: none;
 }
 
+.nav-logo a {
+  font-size: 24px;
+  font-weight: 700;
+}
+
 .nav-bar.sticky a {
   color: #454545;
-}
-
-.nav-menu a:hover {
-  color: #b6b8ff;
-}
-
-.nav-bar.sticky .nav-menu a:hover {
-  color: #5467ff;
 }
 
 .nav-menu li {
@@ -54,18 +51,14 @@
   padding-inline: 0.5em;
 }
 
-/** active navigation **/
-
-/** initial bar **/
 .nav-menu a.active {
   border-bottom: 1.5px solid #fff;
   color: #fff;
 }
 
-/** bar after scrolling **/
-.nav-bar.sticky .nav-menu a.active {
-  border-bottom: 1.5px solid #a5aefc;
-  color: #5467ff;
+.nav-menu a:hover {
+  color: #b6b8ff;
+  border-color: #e7e7fc;
 }
 
 .nav-logo {
@@ -76,17 +69,23 @@
   width: 40%;
 }
 
-.nav-logo a {
-  font-size: 24px;
-  font-weight: 700;
+.nav-logo a:hover {
+  color: #fff;
 }
+
+/* Behaviour of the navigation menu after scrolling. */
 
 .nav-bar.sticky .nav-logo a {
   color: #5467ff;
 }
 
-.nav-logo a:hover {
-  color: #fff;
+.nav-bar.sticky .nav-menu a:hover {
+  color: #5467ff;
+}
+
+.nav-bar.sticky .nav-menu a.active {
+  border-bottom: 1.5px solid #a5aefc;
+  color: #5467ff;
 }
 
 @media screen and (max-width: 500px) {

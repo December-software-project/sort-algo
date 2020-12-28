@@ -3,6 +3,12 @@ import './styles.css';
 
 import Logo from '../logo/logo';
 
+/**
+ * Navigation Menu of the app.
+ *
+ * @component
+ * @category App header
+ */
 const NavigationMenu = () => {
   return (
     <nav className="nav-bar">
