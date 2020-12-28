@@ -28,7 +28,7 @@ tool. Check out our app [here!](https://algosort.netlify.app/)
 
 <p align="center"><strong>Bucket Sort preview</strong></p>
 
-<img src="images/BucketSort.gif" alt="" />
+<img src="images/bucketsort.gif" alt="" />
 
 <br/>
 
