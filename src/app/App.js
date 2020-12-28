@@ -8,6 +8,12 @@ import Team from '../team/Team';
 import Visualizer from '../visualizer/sortingvisualizer/Visualizer';
 import NavigationMenu from '../component/navigationMenu/NavigationMenu';
 
+/**
+ * Main controller of the app. Contains a navigation menu and its corresponding sections.
+ *
+ * @component
+ * @category Main App
+ */
 function App() {
   return (
     <div className="app">
