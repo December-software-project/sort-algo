@@ -9,7 +9,7 @@ interacting animations as well as explanations. <br />
 <br />
 We built this app as we feel there is a lack of visual representation when students learn sorting algorithms.
 Hence we would like to provide future students who are learning these sorting algorithms a platform to visualize such
-algorithms with step by step explanation. We hope that you enjoy learning and playing around with this visualization
+algorithms with step by step explanations. We hope that you enjoy learning and playing around with this visualization
 tool. Check out our app [here!](https://algosort.netlify.app/)
 
 ## Features preview
@@ -39,7 +39,7 @@ tool. Check out our app [here!](https://algosort.netlify.app/)
 There are a wide range of algorithms, each with their complexity evaluations and code in `Java`
 , `JavaScript`, `Python` and `C/C++`.
 
-Available algorithms are:
+Available algorithms:
 
 * Bubble Sort
 * Insertion Sort
@@ -60,7 +60,7 @@ or 1-10 depending on the algorithm selected.
 ### Start the animation
 
 There is a play button which starts the animation. Additionally, at any point in time, you can also pause the animation. Once
-the animation is done, the play button will be replaced with a replay button.
+the animation is completed, the play button will be replaced with a replay button.
 
 ### Step tracing
 
