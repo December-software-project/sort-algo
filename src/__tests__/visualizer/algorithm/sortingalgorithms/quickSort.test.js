@@ -11,12 +11,7 @@ import {
   ARRAY_RANDOM_POSITIVE,
   ARRAY_STRICTLY_ASCENDING,
   ARRAY_STRICTLY_DESCENDING,
-  EMPTY_ARRAY,
 } from '../../../../_testutil/ArraysUtil';
-
-test('Empty Array', () => {
-  assertQuickSortSuccess(EMPTY_ARRAY, EMPTY_ARRAY, EMPTY_ARRAY);
-});
 
 test('Already Sorted with duplicates', () => {
   const expected = [
@@ -66,7 +61,7 @@ test('Descending array', () => {
   assertQuickSortSuccess(ARRAY_STRICTLY_DESCENDING, ARRAY_EXPECTED_STRICTLY_DESCENDING, expected);
 });
 
-test('random array positive numbers', () => {
+test('Random array positive numbers', () => {
   const expected = [
     [0, 0, false, 3, 'incI', -1],
     [1, 1, false, 3, 'jToPivot', 0],
@@ -80,7 +75,7 @@ test('random array positive numbers', () => {
   assertQuickSortSuccess(ARRAY_RANDOM_POSITIVE, ARRAY_EXPECTED_RANDOM_POSITIVE, expected);
 });
 
-test('random array negative numbers', () => {
+test('Random array negative numbers', () => {
   const expected = [
     [0, 0, false, 3, 'jToPivot', -1],
     [1, 1, false, 3, 'incI', -1],
@@ -94,7 +89,7 @@ test('random array negative numbers', () => {
   assertQuickSortSuccess(ARRAY_RANDOM_NEGATIVE, ARRAY_EXPECTED_RANDOM_NEGATIVE, expected);
 });
 
-test('random array negative and positive numbers', () => {
+test('Random array negative and positive numbers', () => {
   const expected = [
     [0, 0, false, 3, 'jToPivot', -1],
     [1, 1, false, 3, 'jToPivot', -1],

@@ -7,12 +7,7 @@ import {
   ARRAY_RANDOM_POSITIVE,
   ARRAY_STRICTLY_ASCENDING,
   ARRAY_STRICTLY_DESCENDING,
-  EMPTY_ARRAY,
 } from '../../../../_testutil/ArraysUtil';
-
-test('Empty Array', () => {
-  assertCountSortSuccess(EMPTY_ARRAY, EMPTY_ARRAY);
-});
 
 test('Already Sorted with duplicates', () => {
   assertCountSortSuccess(ARRAY_DUPLICATES, ARRAY_DUPLICATES);
@@ -26,7 +21,7 @@ test('Descending array', () => {
   assertCountSortSuccess(ARRAY_STRICTLY_DESCENDING, ARRAY_EXPECTED_STRICTLY_DESCENDING);
 });
 
-test('random array positive numbers', () => {
+test('Random array positive numbers', () => {
   assertCountSortSuccess(ARRAY_RANDOM_POSITIVE, ARRAY_EXPECTED_RANDOM_POSITIVE);
 });
 
