@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/December-software-project/sort-algo/tree/main.svg?style=shield)](https://circleci.com/gh/December-software-project/sort-algo/tree/main)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2364c0d1-0366-4601-8ce0-1ac2084a5020/deploy-status)](https://app.netlify.com/sites/algosort/deploys)
 [![Maintainability Status](https://api.codeclimate.com/v1/badges/b7464f445c1a7f5de797/maintainability)](https://codeclimate.com/github/December-software-project/sort-algo/maintainability)
 
@@ -8,7 +9,7 @@ Welcome to Sort-Algo, a sorting visualiser app which helps you to learn and unde
 interacting animations as well as explanations. <br />
 <br />
 We built this app as we feel there is a lack of visual representation when students learn sorting algorithms.
-Hence we would like to provide future students who are learning these sorting algorithms a platform to visualize such
+Hence, we would like to provide future students who are learning these sorting algorithms a platform to visualize such
 algorithms with step by step explanations. We hope that you enjoy learning and playing around with this visualization
 tool. Check out our app [here!](https://algosort.netlify.app/)
 
