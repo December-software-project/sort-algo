@@ -2,7 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 95vh;
+  min-height: 95vh;
 }
 
 .how-it-works-container {

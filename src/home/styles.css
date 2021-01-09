@@ -1,6 +1,6 @@
 .home {
   display: flex;
-  height: 105vh;
+  min-height: 105vh;
   overflow: hidden;
   padding-bottom: 5vh;
 }
