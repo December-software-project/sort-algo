@@ -21,18 +21,18 @@ const MergeSort = {
     '\n' +
     '    // Copy data to temp arrays\n' +
     '    for (int i = 0; i < n1; i++) {\n' +
-    '        leftArray[i] = arr[l + i];\n' +
+    '        leftArray[i] = arr[left + i];\n' +
     '    }\n' +
     '\n' +
     '    for (int j = 0; j < n2; j++) {\n' +
-    '        rightArray[j] = arr[m + 1 + j];\n' +
+    '        rightArray[j] = arr[mid + 1 + j];\n' +
     '    }\n' +
     '\n' +
     '    // Initial indexes of first and second subarrays\n' +
     '    int i = 0, j = 0;\n' +
     '\n' +
     '    // Initial index of merged subarray array\n' +
-    '    int k = l;\n' +
+    '    int k = left;\n' +
     '    // Merge the arrays\n' +
     '    while (i < n1 && j < n2) {\n' +
     '        if (leftArray[i] <= rightArray[j]) {\n' +
