@@ -1,7 +1,7 @@
 {
   "name": "temp",
+  "description": "Sorting visualizer web application created for students to learn and understand sorting algorithms better!",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@material-ui/core": "^4.11.2",
@@ -39,6 +39,22 @@
     "docs": "jsdoc -c jsdoc.conf.json",
     "css": "npx stylelint \"src/**/*.css\""
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/December-software-project/sort-algo"
+  },
+  "keywords": [
+    "Sorting",
+    "Visualizer",
+    "algorithms",
+    "sort",
+    "Data structures"
+  ],
+  "contributors": [
+    "Keane Chan Jun Yu",
+    "Sean Lum Jian Yang",
+    "Ashley Lau Jun Hao"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",

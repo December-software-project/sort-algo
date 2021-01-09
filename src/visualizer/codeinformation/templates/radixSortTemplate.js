@@ -91,7 +91,7 @@ const RadixSort = {
     '        for num in arr:\n' +
     '            buckets[math.floor((num % divisor) / (divisor / 10))].append(num)\n' +
     '\n' +
-    '        # Reconstruct the array by concatinating all sub arrays\n' +
+    '        # Reconstruct the array by concatenating all sub arrays\n' +
     '        arr = []\n' +
     '        for bucket in buckets:\n' +
     '            arr.extend(bucket)\n' +
