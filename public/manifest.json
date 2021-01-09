@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SortAlgo",
+  "name": "SortAlgo sorting visualizer Web Application",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "barChart.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
